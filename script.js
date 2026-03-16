@@ -1,54 +1,39 @@
 ﻿const WHATSAPP_NUMBER = '233000000000';
-const DEFAULT_WHATSAPP_MESSAGE = 'Hello Adventures of Life, I would love help planning a trip in Ghana or nearby West African countries.';
+const DEFAULT_WHATSAPP_MESSAGE = 'Hello Adventures of Life, I want help planning a trip in Ghana or nearby West African countries.';
+const DESKTOP_MENU_BREAKPOINT = 1024;
 
 const travelStyles = {
-  homecoming: {
-    title: 'Heritage Homecoming',
-    summary:
-      'A reflective route for diaspora travelers and culture seekers with Ghana at the center and optional Benin extension.',
-    audience: 'Diaspora travelers, family groups, history lovers',
-    includes: 'Accra, Cape Coast, Elmina, host-led dinners, storytelling moments',
-    highlights: [
-      'Gentle pacing for emotional depth and real connection',
-      'Local hosts who carry context, warmth, and care',
-      'Beautiful space for memory making, reflection, and reunion',
-    ],
+  summit: {
+    title: 'Volta Highlands',
+    summary: 'Mist, ridge roads, lake air.',
+    audience: 'Slow groups / visual seekers',
+    includes: 'Amedzofe / Wli / Ho',
+    visual: 'Highland board',
+    highlights: ['Morning ridge frame', 'Waterfall arrival reel'],
   },
-  leisure: {
-    title: 'Coastal Escape',
-    summary:
-      'A polished sun-and-culture route that blends stylish stays, seaside energy, and easy social moments across Ghana and Togo.',
-    audience: 'Couples, friend groups, first-time West Africa travelers',
-    includes: 'Accra, Ada, Cape Coast, Lome, beach clubs, design-led stays',
-    highlights: [
-      'Perfect for relaxed luxury with personality',
-      'Balances iconic stops with genuine local flavor',
-      'An easy entry point for global travelers new to the region',
-    ],
+  coast: {
+    title: 'Black Star Coast',
+    summary: 'Fort walls, city nights, open water.',
+    audience: 'Social groups / couples / diaspora guests',
+    includes: 'Accra / Cape Coast / Ada',
+    visual: 'Coast board',
+    highlights: ['Sunset drive clip', 'Fort courtyard portrait'],
   },
-  creative: {
-    title: 'Creator Circle',
-    summary:
-      'A culture-rich route for photographers, filmmakers, founders, and brands who want content, connection, and collaboration.',
-    audience: 'Creators, tastemakers, media communities, brand teams',
-    includes: 'Art districts, studios, hosted conversations, scenic shoot moments',
-    highlights: [
-      'Built for collaboration and beautiful documentation',
-      'Connects guests to living creative scenes across the route',
-      'Great for repeat group launches and social storytelling',
-    ],
+  canopy: {
+    title: 'Forest Line',
+    summary: 'Trails, bridges, falls, quiet rooms.',
+    audience: 'Nature-first groups / creators',
+    includes: 'Kakum / village edge / waterfall trail',
+    visual: 'Canopy board',
+    highlights: ['Bridge walk reel', 'Rainforest texture still'],
   },
-  retreat: {
-    title: 'Team Retreat',
-    summary:
-      'A flagship group journey for communities, remote teams, wellness founders, and organizers who want structure with soul.',
-    audience: 'Remote teams, masterminds, wellness groups, private communities',
-    includes: 'Private hosting, facilitation support, work sessions, cultural experiences',
-    highlights: [
-      'Combines bonding time with breathing room',
-      'Easy to customize with private villas and retreat touchpoints',
-      'Strong option for annual community or company trips',
-    ],
+  north: {
+    title: 'Dust Run',
+    summary: 'Savannah light, wide silence, long roads.',
+    audience: 'Private groups / wildlife-led itineraries',
+    includes: 'Tamale / Mole / Larabanga',
+    visual: 'North board',
+    highlights: ['Golden-hour drive', 'Savannah horizon poster'],
   },
 };
 
@@ -71,8 +56,8 @@ function setupWhatsAppLinks() {
 
   noteTargets.forEach((note) => {
     note.textContent = usingPlaceholder
-      ? 'WhatsApp is wired with a placeholder Ghana number for now. Replace it in script.js when you are ready to go live.'
-      : 'WhatsApp is ready for direct trip inquiries.';
+      ? 'WhatsApp still uses a placeholder number. Replace it in script.js before launch.'
+      : 'WhatsApp is ready for live trip inquiries.';
   });
 }
 
@@ -96,7 +81,7 @@ function setupMobileMenu() {
 
   panel.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      if (window.innerWidth <= 880) {
+      if (window.innerWidth < DESKTOP_MENU_BREAKPOINT) {
         closeMenu();
       }
     });
@@ -109,7 +94,7 @@ function setupMobileMenu() {
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 880) {
+    if (window.innerWidth >= DESKTOP_MENU_BREAKPOINT) {
       closeMenu();
     }
   });
@@ -121,9 +106,10 @@ function setupTravelStyleSelector() {
   const summary = document.getElementById('selector-summary');
   const audience = document.getElementById('selector-audience');
   const includes = document.getElementById('selector-includes');
+  const visual = document.getElementById('selector-visual-label');
   const highlights = document.getElementById('selector-highlights');
 
-  if (!tabs.length || !title || !summary || !audience || !includes || !highlights) {
+  if (!tabs.length || !title || !summary || !includes || !visual || !highlights) {
     return;
   }
 
@@ -136,8 +122,11 @@ function setupTravelStyleSelector() {
 
     title.textContent = style.title;
     summary.textContent = style.summary;
-    audience.textContent = style.audience;
+    if (audience) {
+      audience.textContent = style.audience;
+    }
     includes.textContent = style.includes;
+    visual.textContent = style.visual;
     highlights.innerHTML = style.highlights.map((item) => `<li>${item}</li>`).join('');
   };
 
@@ -168,7 +157,7 @@ function setupContactForm() {
     const data = new FormData(form);
     const name = data.get('name')?.toString().trim() || 'traveler';
 
-    response.textContent = `Thanks, ${name}. Your inquiry is captured in the page flow and ready to connect to email, Airtable, or a booking CRM next.`;
+    response.textContent = `Request received, ${name}. We can shape the route from here.`;
     form.reset();
   });
 }
@@ -216,7 +205,7 @@ function setupRevealAnimations() {
       });
     },
     {
-      threshold: 0.14,
+      threshold: 0.12,
       rootMargin: '0px 0px -8% 0px',
     }
   );
@@ -231,3 +220,4 @@ setupContactForm();
 setCurrentYear();
 highlightCurrentPage();
 setupRevealAnimations();
+
