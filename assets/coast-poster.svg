@@ -1,0 +1,21 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#f5e5b4' />
+      <stop offset='45%' stop-color='#d78b58' />
+      <stop offset='100%' stop-color='#18493f' />
+    </linearGradient>
+  </defs>
+  <rect width='1600' height='1000' fill='url(#bg)' />
+  <circle cx='350' cy='270' r='145' fill='#fff2c4' opacity='0.9' />
+  <path d='M0 650 C180 600 360 540 530 578 C725 620 850 720 1045 700 C1230 680 1390 580 1600 610 L1600 1000 L0 1000 Z' fill='#efe4c1' />
+  <path d='M0 710 C220 655 390 760 620 720 C880 675 1030 790 1300 744 C1428 722 1490 688 1600 700 L1600 1000 L0 1000 Z' fill='#1c5045' />
+  <rect x='980' y='360' width='270' height='280' rx='16' fill='#fff4df' opacity='0.95' />
+  <rect x='1040' y='420' width='150' height='220' rx='6' fill='#c46a44' />
+  <rect x='1110' y='470' width='14' height='170' fill='#fff4df' opacity='0.95' />
+  <path d='M1120 330 C1120 250 1200 225 1265 225 C1330 225 1405 258 1405 330 L1405 356 L1120 356 Z' fill='#2f6d5f' />
+  <path d='M230 630 C300 490 415 410 530 410 C660 410 770 540 850 720' stroke='#20483e' stroke-width='18' stroke-linecap='round' fill='none' />
+  <path d='M505 435 C440 530 395 635 370 760' stroke='#20483e' stroke-width='12' stroke-linecap='round' fill='none' />
+  <text x='120' y='160' font-family='Georgia, serif' font-size='102' fill='#fff8ef'>Cape Coast Route</text>
+  <text x='120' y='236' font-family='Trebuchet MS, sans-serif' font-size='34' fill='#fff1de' letter-spacing='8'>HERITAGE STOPS . SHORELINE HISTORY . SLOWER TRAVEL</text>
+</svg>

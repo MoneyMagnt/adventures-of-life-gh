@@ -1,0 +1,22 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#f8efd8' />
+      <stop offset='46%' stop-color='#d58b5d' />
+      <stop offset='100%' stop-color='#1d4f44' />
+    </linearGradient>
+  </defs>
+  <rect width='1600' height='1000' fill='url(#bg)' />
+  <rect x='250' y='180' width='650' height='620' rx='36' fill='rgba(255,248,239,0.84)' transform='rotate(-7 575 490)' />
+  <rect x='770' y='150' width='580' height='680' rx='36' fill='rgba(255,248,239,0.9)' transform='rotate(6 1060 490)' />
+  <path d='M350 640 C470 520 620 460 780 470' stroke='#21594c' stroke-width='20' stroke-linecap='round' fill='none' />
+  <circle cx='520' cy='470' r='32' fill='#d8a23a' />
+  <circle cx='720' cy='490' r='32' fill='#bc633d' />
+  <circle cx='895' cy='560' r='32' fill='#1f5a4d' />
+  <path d='M1050 350 C1130 450 1180 555 1210 685' stroke='#21594c' stroke-width='18' stroke-linecap='round' fill='none' />
+  <path d='M1125 330 C1060 410 1010 500 985 605' stroke='#21594c' stroke-width='12' stroke-linecap='round' fill='none' />
+  <text x='210' y='150' font-family='Georgia, serif' font-size='96' fill='#fff8ef'>West Africa Atlas</text>
+  <text x='210' y='226' font-family='Trebuchet MS, sans-serif' font-size='34' fill='#fff4e0' letter-spacing='9'>GHANA . TOGO . BENIN . COTE D'IVOIRE</text>
+  <text x='425' y='780' font-family='Trebuchet MS, sans-serif' font-size='42' fill='#21594c'>CURATED ROUTES</text>
+  <text x='900' y='790' font-family='Trebuchet MS, sans-serif' font-size='42' fill='#21594c'>GLOBAL-READY TRAVEL</text>
+</svg>
