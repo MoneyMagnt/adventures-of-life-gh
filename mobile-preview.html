@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Preview | Adventures of Life</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="styles.css?v=20260317-2" />
+    <style>
+      body {
+        padding: 1.25rem 0 2.25rem;
+      }
+
+      .preview-shell {
+        width: min(96rem, calc(100% - 1rem));
+        margin: 0 auto;
+        display: grid;
+        gap: 1rem;
+      }
+
+      .preview-header {
+        display: grid;
+        gap: 0.9rem;
+        padding: 1rem;
+        border-radius: var(--radius-2xl);
+      }
+
+      .preview-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        min-width: 0;
+      }
+
+      .preview-logo {
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 999px;
+        object-fit: contain;
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid rgba(16, 49, 51, 0.12);
+        padding: 0.25rem;
+      }
+
+      .preview-brand strong {
+        display: block;
+        font-size: 1.05rem;
+        letter-spacing: -0.02em;
+      }
+
+      .preview-brand small {
+        display: block;
+        color: rgba(16, 49, 51, 0.68);
+      }
+
+      .preview-controls {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .preview-controls label {
+        display: grid;
+        gap: 0.35rem;
+        font-weight: 700;
+        color: rgba(16, 49, 51, 0.8);
+      }
+
+      .preview-controls select {
+        min-height: 3rem;
+        padding: 0.75rem 0.95rem;
+        border-radius: 999px;
+        border: 1px solid rgba(16, 49, 51, 0.12);
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .preview-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+
+      .preview-main {
+        display: grid;
+        place-items: center;
+        min-height: min(74vh, 62rem);
+      }
+
+      .device-frame {
+        --frame-w: 390;
+        --frame-h: 844;
+        width: min(calc(var(--frame-w) * 1px + 2.2rem), 100%);
+        padding: 1.1rem;
+        border-radius: 2.6rem;
+        border: 1px solid rgba(16, 49, 51, 0.14);
+        background:
+          linear-gradient(180deg, rgba(16, 49, 51, 0.96), rgba(16, 49, 51, 0.9)),
+          radial-gradient(circle at 30% 10%, rgba(231, 179, 79, 0.25), transparent 42%),
+          radial-gradient(circle at 70% 90%, rgba(56, 169, 191, 0.22), transparent 46%);
+        box-shadow: 0 2.2rem 5rem rgba(15, 31, 33, 0.38);
+      }
+
+      .device-viewport {
+        position: relative;
+        width: 100%;
+        aspect-ratio: var(--frame-w) / var(--frame-h);
+        border-radius: 2.05rem;
+        overflow: hidden;
+        background: #ffffff;
+      }
+
+      .device-viewport::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0.6rem;
+        width: min(12rem, 46%);
+        height: 1.2rem;
+        transform: translateX(-50%);
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.42);
+        z-index: 3;
+        opacity: 0.55;
+      }
+
+      .device-viewport iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        background: #ffffff;
+      }
+
+      @media (min-width: 64rem) {
+        .preview-header {
+          grid-template-columns: 1fr 1.25fr;
+          align-items: center;
+        }
+
+        .preview-controls {
+          grid-template-columns: 1.2fr 1fr;
+          align-items: end;
+          gap: 0.9rem;
+        }
+
+        .preview-actions {
+          grid-column: 1 / -1;
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preview-shell">
+      <header class="glass-panel preview-header">
+        <div class="preview-brand">
+          <img class="preview-logo" src="adventuresoflifelogo.jpg" alt="Adventures of Life logo" />
+          <div>
+            <strong>Mobile preview</strong>
+            <small>Pick a device and page. No devtools needed.</small>
+          </div>
+        </div>
+
+        <div class="preview-controls">
+          <label>
+            Device
+            <select id="device-select"></select>
+          </label>
+          <label>
+            Page
+            <select id="page-select">
+              <option value="index.html">Home</option>
+              <option value="journeys.html">Journeys</option>
+              <option value="community.html">Community</option>
+              <option value="about.html">About</option>
+            </select>
+          </label>
+          <div class="preview-actions">
+            <button class="button button-secondary" type="button" id="rotate-btn">Rotate</button>
+            <button class="button button-ghost" type="button" id="reload-btn">Reload</button>
+            <a class="button button-primary" href="index.html">Open full site</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="preview-main">
+        <div class="device-frame" id="device-frame">
+          <div class="device-viewport" id="device-viewport">
+            <iframe id="preview-frame" src="index.html" title="Mobile preview"></iframe>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const devices = [
+        { label: "iPhone 14 (390 x 844)", w: 390, h: 844 },
+        { label: "Pixel 7 (412 x 915)", w: 412, h: 915 },
+        { label: "Galaxy S23 (360 x 780)", w: 360, h: 780 },
+        { label: "iPhone SE (375 x 667)", w: 375, h: 667 },
+        { label: "Small Android (360 x 640)", w: 360, h: 640 },
+      ];
+
+      const deviceSelect = document.getElementById("device-select");
+      const pageSelect = document.getElementById("page-select");
+      const rotateBtn = document.getElementById("rotate-btn");
+      const reloadBtn = document.getElementById("reload-btn");
+      const deviceFrame = document.getElementById("device-frame");
+      const previewFrame = document.getElementById("preview-frame");
+
+      let isRotated = false;
+      let currentDevice = devices[0];
+
+      function applyDevice(device) {
+        currentDevice = device;
+        const w = isRotated ? device.h : device.w;
+        const h = isRotated ? device.w : device.h;
+        deviceFrame.style.setProperty("--frame-w", String(w));
+        deviceFrame.style.setProperty("--frame-h", String(h));
+      }
+
+      function setPage(path) {
+        previewFrame.src = path;
+      }
+
+      devices.forEach((device, index) => {
+        const option = document.createElement("option");
+        option.value = String(index);
+        option.textContent = device.label;
+        deviceSelect.appendChild(option);
+      });
+
+      deviceSelect.value = "0";
+      applyDevice(devices[0]);
+
+      deviceSelect.addEventListener("change", () => {
+        const nextDevice = devices[Number(deviceSelect.value) || 0];
+        applyDevice(nextDevice);
+      });
+
+      pageSelect.addEventListener("change", () => {
+        setPage(pageSelect.value);
+      });
+
+      rotateBtn.addEventListener("click", () => {
+        isRotated = !isRotated;
+        applyDevice(currentDevice);
+      });
+
+      reloadBtn.addEventListener("click", () => {
+        try {
+          previewFrame.contentWindow.location.reload();
+        } catch {
+          setPage(previewFrame.src);
+        }
+      });
+    </script>
+  </body>
+</html>
+

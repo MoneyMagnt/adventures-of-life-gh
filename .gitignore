@@ -3,3 +3,21 @@ node_modules/
 .DS_Store
 Thumbs.db
 .preview*.log
+
+# Local tooling / temp
+.tools/
+pydeps/
+
+# Source photo drops (keep previews only)
+adventurepics/
+
+# Debug fetch files
+apex-live.html
+www-live.html
+apex-styles.css
+www-styles.css
+www-script.js
+
+# Selection sheets
+adventurepics_contactsheet.jpg
+adventurepics_landscape_sheet.jpg
