@@ -1375,7 +1375,7 @@ textarea {
     transform: translate3d(calc(var(--parallax-x) * 0.45px), calc(var(--parallax-y) * 0.45px), 0) rotate(-0.4deg);
   }
 }
-\r\n
+
 .social-links {
   display: flex;
   flex-wrap: wrap;
@@ -1454,4 +1454,4 @@ textarea {
     padding-top: 0;
     border-top: 0;
   }
-}\r\n
+}
