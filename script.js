@@ -1,5 +1,3 @@
-﻿const WHATSAPP_NUMBER = '233000000000';
-const DEFAULT_WHATSAPP_MESSAGE = 'Hello Adventures of Life, I want help planning a trip in Ghana or nearby West African countries.';
 const DESKTOP_MENU_BREAKPOINT = 1024;
 
 const travelStyles = {
@@ -36,30 +34,6 @@ const travelStyles = {
     highlights: ['Golden-hour drive', 'Savannah horizon poster'],
   },
 };
-
-function buildWhatsAppLink(message) {
-  const encodedMessage = encodeURIComponent(message || DEFAULT_WHATSAPP_MESSAGE);
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-}
-
-function setupWhatsAppLinks() {
-  const links = document.querySelectorAll('[data-whatsapp-link]');
-  const noteTargets = document.querySelectorAll('[data-whatsapp-note]');
-  const usingPlaceholder = WHATSAPP_NUMBER === '233000000000';
-
-  links.forEach((link) => {
-    const message = link.dataset.message || DEFAULT_WHATSAPP_MESSAGE;
-    link.setAttribute('href', buildWhatsAppLink(message));
-    link.setAttribute('target', '_blank');
-    link.setAttribute('rel', 'noreferrer');
-  });
-
-  noteTargets.forEach((note) => {
-    note.textContent = usingPlaceholder
-      ? 'WhatsApp still uses a placeholder number. Replace it in script.js before launch.'
-      : 'WhatsApp is ready for live trip inquiries.';
-  });
-}
 
 function setupMobileMenu() {
   const toggle = document.querySelector('[data-menu-toggle]');
@@ -213,11 +187,9 @@ function setupRevealAnimations() {
   items.forEach((item) => observer.observe(item));
 }
 
-setupWhatsAppLinks();
 setupMobileMenu();
 setupTravelStyleSelector();
 setupContactForm();
 setCurrentYear();
 highlightCurrentPage();
 setupRevealAnimations();
-

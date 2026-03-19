@@ -48,7 +48,7 @@ If large media becomes part of the stack later, move those files to Cloudflare R
 - `404.html`: fallback page for missing routes
 
 ## Launch checklist
-- Replace the placeholder WhatsApp number in `script.js`
+- Decide the primary contact channel (form / email / TikTok) and update CTAs
 - Add a real favicon and social preview image
 - Replace avatar placeholders with exported trip photos and short clips
 - Connect analytics and Search Console
