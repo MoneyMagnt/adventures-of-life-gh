@@ -1169,7 +1169,7 @@ textarea {
     position: static;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 1rem;
     padding: 0;
     border: 0;
@@ -1375,3 +1375,83 @@ textarea {
     transform: translate3d(calc(var(--parallax-x) * 0.45px), calc(var(--parallax-y) * 0.45px), 0) rotate(-0.4deg);
   }
 }
+\r\n
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.social-links.header-social {
+  justify-content: flex-start;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(11, 34, 36, 0.1);
+}
+
+.action-row .social-links {
+  justify-content: center;
+}
+
+.social-links .social-link {
+  --social-accent: var(--lagoon-rgb);
+  width: 2.85rem;
+  height: 2.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(11, 34, 36, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.35)),
+    rgba(var(--social-accent), 0.14);
+  box-shadow: 0 0.85rem 1.8rem rgba(15, 44, 48, 0.1);
+  color: rgba(11, 34, 36, 0.85);
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.social-links .social-link:hover,
+.social-links .social-link:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 1.2rem 2.6rem rgba(15, 44, 48, 0.14);
+  color: var(--ink-0);
+  border-color: rgba(11, 34, 36, 0.16);
+}
+
+.social-links .social-link:active {
+  transform: translateY(0);
+}
+
+.social-links .social-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.social-links .social-link[data-social="whatsapp"] {
+  --social-accent: var(--canopy-rgb);
+}
+
+.social-links .social-link[data-social="tiktok"] {
+  --social-accent: var(--clay-rgb);
+}
+
+.social-links .social-link[data-social="instagram"] {
+  --social-accent: var(--gold-rgb);
+}
+
+.social-links .social-link[data-social="snapchat"] {
+  --social-accent: var(--sand-rgb);
+}
+
+@media (min-width: 64rem) {
+  .social-links.header-social {
+    padding-top: 0;
+    border-top: 0;
+  }
+}\r\n

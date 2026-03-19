@@ -6,8 +6,8 @@ const travelStyles = {
     summary: 'Mist, ridge roads, lake air.',
     audience: 'Slow groups / visual seekers',
     includes: 'Amedzofe / Wli / Ho',
-    visual: 'Highland board',
-    highlights: ['Morning ridge frame', 'Waterfall arrival reel'],
+    visual: 'Highland glow',
+    highlights: ['Morning ridge', 'Waterfall arrival'],
     image: {
       src: 'adventurepics_preview/IMG_0157.jpg',
       alt: 'Hiker leading the way on a mountain path with a river view behind her.',
@@ -20,8 +20,8 @@ const travelStyles = {
     summary: 'Fort walls, city nights, open water.',
     audience: 'Social groups / couples / diaspora guests',
     includes: 'Accra / Cape Coast / Ada',
-    visual: 'Coast board',
-    highlights: ['Sunset drive clip', 'Fort courtyard portrait'],
+    visual: 'Coast shimmer',
+    highlights: ['Sunset drive', 'Fort courtyard'],
     image: {
       src: 'adventurepics_preview/IMG_1905.jpg',
       alt: 'Golden light over a sandy beach and calm sea.',
@@ -34,8 +34,8 @@ const travelStyles = {
     summary: 'Trails, bridges, falls, quiet rooms.',
     audience: 'Nature-first groups / creators',
     includes: 'Kakum / village edge / waterfall trail',
-    visual: 'Canopy board',
-    highlights: ['Bridge walk reel', 'Rainforest texture still'],
+    visual: 'Canopy hush',
+    highlights: ['Bridge walk', 'Rainforest texture'],
     image: {
       src: 'adventurepics_preview/IMG_6880.jpg',
       alt: 'Travel group posing at Hike Adakluto.',
@@ -48,8 +48,8 @@ const travelStyles = {
     summary: 'Savannah light, wide silence, long roads.',
     audience: 'Private groups / wildlife-led itineraries',
     includes: 'Tamale / Mole / Larabanga',
-    visual: 'North board',
-    highlights: ['Golden-hour drive', 'Savannah horizon poster'],
+    visual: 'North hush',
+    highlights: ['Golden-hour drive', 'Savannah horizon'],
     image: {
       src: 'adventurepics_preview/IMG_1596.jpg',
       alt: 'High lookout view over a town and open landscape.',
@@ -58,7 +58,46 @@ const travelStyles = {
     },
   },
 };
+function ensureIconSprite() {
+  if (document.getElementById('aol-icon-sprite')) {
+    return;
+  }
 
+  const sprite = `
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      style="position:absolute;width:0;height:0;overflow:hidden"
+      aria-hidden="true"
+      focusable="false"
+      id="aol-icon-sprite"
+    >
+      <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+        <path d="M20 12a8 8 0 0 1-12.9 6.2L4 19l.9-3.1A8 8 0 1 1 20 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M10 7.5h1.4l.8 2-1.2 1.2c.7 1.5 1.8 2.6 3.3 3.3l1.2-1.2 2 .8V14a.8.8 0 0 1-.7.8c-5.6 0-10.1-4.5-10.1-10.1a.8.8 0 0 1 .8-.7h1.3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-tiktok" viewBox="0 0 24 24">
+        <path d="M14 3v10.3a3.6 3.6 0 1 1-2-3.3V6l8-2v3.2l-6 1.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24">
+        <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="17.3" cy="6.7" r="1" fill="currentColor" />
+      </symbol>
+      <symbol id="icon-snapchat" viewBox="0 0 24 24">
+        <path
+          d="M12 2c-2.8 0-5 2.3-5 5.1v5.1c0 .6-.5 1.1-1.1 1.3-1.1.4-1.9 1.3-1.9 2.5 0 .8.6 1.5 1.4 1.6l1.3.2c.6.1 1 .5 1.1 1.1.4 1.9 2.5 3.3 5.2 3.3s4.8-1.4 5.2-3.3c.1-.6.5-1 1.1-1.1l1.3-.2c.8-.1 1.4-.8 1.4-1.6 0-1.2-.8-2.1-1.9-2.5-.6-.2-1.1-.7-1.1-1.3V7.1C17 4.3 14.8 2 12 2z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+    </svg>
+  `;
+
+  document.body.insertAdjacentHTML('afterbegin', sprite);
+}
 function setupMobileMenu() {
   const toggle = document.querySelector('[data-menu-toggle]');
   const panel = document.querySelector('[data-menu-panel]');
@@ -293,6 +332,7 @@ function setupRevealAnimations() {
   items.forEach((item) => observer.observe(item));
 }
 
+ensureIconSprite();
 setupMobileMenu();
 setupTravelStyleSelector();
 setupAtlasParallax();
