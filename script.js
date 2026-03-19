@@ -8,6 +8,12 @@ const travelStyles = {
     includes: 'Amedzofe / Wli / Ho',
     visual: 'Highland board',
     highlights: ['Morning ridge frame', 'Waterfall arrival reel'],
+    image: {
+      src: 'adventurepics_preview/IMG_0157.jpg',
+      alt: 'Hiker leading the way on a mountain path with a river view behind her.',
+      position: '64% center',
+      kicker: 'Summit',
+    },
   },
   coast: {
     title: 'Black Star Coast',
@@ -16,6 +22,12 @@ const travelStyles = {
     includes: 'Accra / Cape Coast / Ada',
     visual: 'Coast board',
     highlights: ['Sunset drive clip', 'Fort courtyard portrait'],
+    image: {
+      src: 'adventurepics_preview/IMG_1905.jpg',
+      alt: 'Golden light over a sandy beach and calm sea.',
+      position: 'center 52%',
+      kicker: 'Coast',
+    },
   },
   canopy: {
     title: 'Forest Line',
@@ -24,6 +36,12 @@ const travelStyles = {
     includes: 'Kakum / village edge / waterfall trail',
     visual: 'Canopy board',
     highlights: ['Bridge walk reel', 'Rainforest texture still'],
+    image: {
+      src: 'adventurepics_preview/IMG_6880.jpg',
+      alt: 'Travel group posing at Hike Adakluto.',
+      position: 'center 38%',
+      kicker: 'Canopy',
+    },
   },
   north: {
     title: 'Dust Run',
@@ -32,6 +50,12 @@ const travelStyles = {
     includes: 'Tamale / Mole / Larabanga',
     visual: 'North board',
     highlights: ['Golden-hour drive', 'Savannah horizon poster'],
+    image: {
+      src: 'adventurepics_preview/IMG_1596.jpg',
+      alt: 'High lookout view over a town and open landscape.',
+      position: 'center 60%',
+      kicker: 'North',
+    },
   },
 };
 
@@ -75,17 +99,39 @@ function setupMobileMenu() {
 }
 
 function setupTravelStyleSelector() {
-  const tabs = document.querySelectorAll('.selector-tab');
+  const tabs = Array.from(document.querySelectorAll('.selector-tab'));
   const title = document.getElementById('selector-title');
   const summary = document.getElementById('selector-summary');
   const audience = document.getElementById('selector-audience');
   const includes = document.getElementById('selector-includes');
   const visual = document.getElementById('selector-visual-label');
   const highlights = document.getElementById('selector-highlights');
+  const visualFrame = document.querySelector('.selector-visual');
+  const visualPhoto = visualFrame ? visualFrame.querySelector('img') : null;
+  const visualKicker = visualFrame ? visualFrame.querySelector('.visual-kicker') : null;
 
   if (!tabs.length || !title || !summary || !includes || !visual || !highlights) {
     return;
   }
+
+  const setActiveTab = (key) => {
+    tabs.forEach((tab) => {
+      const isActive = tab.dataset.style === key;
+      tab.classList.toggle('is-active', isActive);
+      tab.setAttribute('aria-selected', String(isActive));
+    });
+  };
+
+  const getInitialKey = () => {
+    const params = new URLSearchParams(window.location.search);
+    const requested = params.get('style');
+
+    if (requested && Object.prototype.hasOwnProperty.call(travelStyles, requested)) {
+      return requested;
+    }
+
+    return tabs[0]?.dataset?.style || 'summit';
+  };
 
   const render = (key) => {
     const style = travelStyles[key];
@@ -102,19 +148,79 @@ function setupTravelStyleSelector() {
     includes.textContent = style.includes;
     visual.textContent = style.visual;
     highlights.innerHTML = style.highlights.map((item) => `<li>${item}</li>`).join('');
+
+    document.body.dataset.routeStyle = key;
+
+    if (style.image && visualFrame) {
+      if (style.image.position) {
+        visualFrame.style.setProperty('--photo-position', style.image.position);
+      }
+
+      if (visualKicker && style.image.kicker) {
+        visualKicker.textContent = style.image.kicker;
+      }
+
+      if (visualPhoto && style.image.src) {
+        visualPhoto.src = style.image.src;
+        visualPhoto.alt = style.image.alt || '';
+      }
+    }
   };
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      tabs.forEach((button) => {
-        button.classList.remove('is-active');
-        button.setAttribute('aria-selected', 'false');
-      });
+      const key = tab.dataset.style;
+      if (!key) {
+        return;
+      }
 
-      tab.classList.add('is-active');
-      tab.setAttribute('aria-selected', 'true');
-      render(tab.dataset.style);
+      setActiveTab(key);
+      render(key);
     });
+  });
+
+  const initialKey = getInitialKey();
+  setActiveTab(initialKey);
+  render(initialKey);
+}
+
+function setupAtlasParallax() {
+  const stage = document.querySelector('.atlas-stage');
+
+  if (!stage) {
+    return;
+  }
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const supportsHover = window.matchMedia('(hover: hover)').matches;
+
+  if (prefersReducedMotion || !supportsHover) {
+    return;
+  }
+
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+  const update = (event) => {
+    const rect = stage.getBoundingClientRect();
+
+    if (!rect.width || !rect.height) {
+      return;
+    }
+
+    const nx = (event.clientX - rect.left) / rect.width - 0.5;
+    const ny = (event.clientY - rect.top) / rect.height - 0.5;
+
+    const px = clamp(nx * 14, -14, 14);
+    const py = clamp(ny * 10, -10, 10);
+
+    stage.style.setProperty('--parallax-x', px.toFixed(2));
+    stage.style.setProperty('--parallax-y', py.toFixed(2));
+  };
+
+  stage.addEventListener('pointermove', update);
+  stage.addEventListener('pointerleave', () => {
+    stage.style.setProperty('--parallax-x', '0');
+    stage.style.setProperty('--parallax-y', '0');
   });
 }
 
@@ -189,6 +295,7 @@ function setupRevealAnimations() {
 
 setupMobileMenu();
 setupTravelStyleSelector();
+setupAtlasParallax();
 setupContactForm();
 setCurrentYear();
 highlightCurrentPage();
