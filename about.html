@@ -39,6 +39,45 @@
 
     <!-- /brand:meta -->
     <link rel="stylesheet" href="styles.css?v=20260320-2" />
+    <style>
+      .chapter-marker {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+      }
+
+      .chapter-line {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(47, 181, 205, 0.3), transparent);
+      }
+
+      .chapter-label {
+        display: grid;
+        gap: 0.3rem;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .chapter-label p {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--ink-1);
+      }
+
+      @media (max-width: 47.99rem) {
+        .chapter-marker {
+          grid-template-columns: 1fr;
+          gap: 0.85rem;
+        }
+
+        .chapter-label {
+          white-space: normal;
+        }
+      }
+    </style>
     <!-- brand:schema -->
     <script type="application/ld+json">
       {
@@ -158,8 +197,9 @@
     <main class="site-main">
       <section class="shell page-banner glass-panel reveal">
         <div class="page-banner-copy">
-          <p class="eyebrow">Brand room</p>
-          <h1>The house behind the route.</h1>
+          <p class="eyebrow">Chapter four</p>
+          <h1>The house behind every route.</h1>
+          <p class="lead">Adventures of Life didn't come from a business plan. It came from a Ghanaian who loved his country enough to show it to the world &mdash; one trip at a time.</p>
           <div class="chip-row">
             <span class="glass-chip">Founder portraits</span>
             <span class="glass-chip">Host stills</span>
@@ -170,6 +210,15 @@
           <img class="visual-photo" src="adventurepics_preview/IMG_6873.jpg" alt="Travel group moment at a forest trail entrance." width="1400" height="1050" fetchpriority="high" />
         </article>
       </section>
+
+      <div class="shell chapter-marker reveal">
+        <div class="chapter-line"></div>
+        <div class="chapter-label">
+          <span class="eyebrow">The values</span>
+          <p>Three things Zico never compromises on.</p>
+        </div>
+        <div class="chapter-line"></div>
+      </div>
 
       <section class="shell section">
         <div class="principle-grid">
@@ -190,6 +239,15 @@
           </article>
         </div>
       </section>
+
+      <div class="shell chapter-marker reveal">
+        <div class="chapter-line"></div>
+        <div class="chapter-label">
+          <span class="eyebrow">The team</span>
+          <p>Small crew. Big vision.</p>
+        </div>
+        <div class="chapter-line"></div>
+      </div>
 
       <section class="shell section">
         <div class="profile-grid">
@@ -251,8 +309,8 @@
       <section class="shell section">
         <div class="atlas-band glass-panel reveal">
           <div class="band-copy">
-            <p class="eyebrow">Next step</p>
-            <h2>The team behind every route.</h2>
+            <p class="eyebrow">Be part of it</p>
+            <h2>The story is still being written.<br /><em style="color:var(--lagoon); font-style:italic;">Your chapter is next.</em></h2>
           </div>
           <div class="action-row">
             <a class="button button-primary" href="index.html#contact">Send inquiry</a>

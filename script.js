@@ -6,12 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "Hello Adventures of Life, I want help planning a trip in Ghana or nearby West African countries.";
   const DESKTOP_MENU_BREAKPOINT = 1024;
   const STICKY_OFFSET = 96;
-  const PAGE_TRANSITION_MS = 280;
-  const PAGE_ENTER_MS = 320;
   const FORM_ENDPOINT = "https://formspree.io/f/YOUR_ID";
 
   const hoverQuery = window.matchMedia("(hover: hover)");
-  const finePointerQuery = window.matchMedia("(pointer: fine)");
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   const travelStyleAccents = {
@@ -71,10 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const lerp = (start, end, factor) => start + (end - start) * factor;
   const prefersReducedMotion = () => reducedMotionQuery.matches;
-  const normalizePath = (pathname) => {
-    const normalized = pathname.replace(/\/index\.html$/i, "/");
-    return normalized || "/";
-  };
   const isModifiedClick = (event) =>
     event.defaultPrevented ||
     event.button !== 0 ||
@@ -257,86 +250,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Custom desktop cursor.
-  const setupCustomCursor = () => {
-    if (!(hoverQuery.matches && finePointerQuery.matches)) {
-      return;
-    }
-
-    const cursor = document.createElement("div");
-    cursor.className = "cursor";
-    cursor.setAttribute("aria-hidden", "true");
-    cursor.style.opacity = "0";
-    document.body.appendChild(cursor);
-
-    const hoverSelector = "a, button, .visual-placeholder, .experience-card, .glass-panel";
-    let targetX = window.innerWidth / 2;
-    let targetY = window.innerHeight / 2;
-    let currentX = targetX;
-    let currentY = targetY;
-    let hasPointer = false;
-    let frameId = 0;
-
-    const render = () => {
-      currentX = lerp(currentX, targetX, 0.18);
-      currentY = lerp(currentY, targetY, 0.18);
-      cursor.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
-
-      if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
-        frameId = window.requestAnimationFrame(render);
-      } else {
-        frameId = 0;
-      }
-    };
-
-    const queueRender = () => {
-      if (!frameId) {
-        frameId = window.requestAnimationFrame(render);
-      }
-    };
-
-    document.addEventListener(
-      "pointermove",
-      (event) => {
-        targetX = event.clientX;
-        targetY = event.clientY;
-
-        if (!hasPointer) {
-          hasPointer = true;
-          document.body.classList.add("has-custom-cursor");
-          cursor.style.opacity = "1";
-        }
-
-        queueRender();
-      },
-      { passive: true }
-    );
-
-    document.addEventListener("pointerover", (event) => {
-      cursor.classList.toggle("is-hovering", Boolean(event.target.closest(hoverSelector)));
-    });
-
-    document.addEventListener("pointerout", (event) => {
-      const relatedTarget = event.relatedTarget;
-
-      if (!relatedTarget || !relatedTarget.closest(hoverSelector)) {
-        cursor.classList.remove("is-hovering");
-      }
-    });
-
-    window.addEventListener("mouseout", (event) => {
-      if (!event.relatedTarget) {
-        cursor.style.opacity = "0";
-      }
-    });
-
-    window.addEventListener("mouseover", () => {
-      if (hasPointer) {
-        cursor.style.opacity = "1";
-      }
-    });
-  };
-
   // Intersection-based reveal system.
   const setupRevealAnimations = () => {
     const items = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
@@ -400,24 +313,24 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    let ticking = false;
-
-    const updateParallax = () => {
-      const offset = clamp(window.scrollY * 0.25, -40, 40);
-      heroPhotos.forEach((photo) => photo.style.setProperty("--photo-shift", `${offset}px`));
-      ticking = false;
-    };
+    let rafPending = false;
 
     const requestTick = () => {
-      if (ticking) {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         return;
       }
 
-      ticking = true;
-      window.requestAnimationFrame(updateParallax);
+      if (!rafPending) {
+        rafPending = true;
+        window.requestAnimationFrame(() => {
+          const offset = clamp(window.scrollY * 0.25, -40, 40);
+          heroPhotos.forEach((photo) => photo.style.setProperty("--photo-shift", `${offset}px`));
+          rafPending = false;
+        });
+      }
     };
 
-    updateParallax();
+    requestTick();
     window.addEventListener("scroll", requestTick, { passive: true });
     window.addEventListener("resize", requestTick, { passive: true });
   };
@@ -435,6 +348,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentX = 0;
     let currentY = 0;
     let frameId = 0;
+    let rafPending = false;
 
     const renderTilt = () => {
       currentX = lerp(currentX, targetX, 0.08);
@@ -457,18 +371,27 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     stage.addEventListener("mousemove", (event) => {
-      const rect = stage.getBoundingClientRect();
-
-      if (!rect.width || !rect.height) {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         return;
       }
 
-      const nx = (event.clientX - rect.left) / rect.width - 0.5;
-      const ny = (event.clientY - rect.top) / rect.height - 0.5;
+      if (!rafPending) {
+        rafPending = true;
+        window.requestAnimationFrame(() => {
+          const rect = stage.getBoundingClientRect();
 
-      targetX = clamp(nx * 16, -16, 16);
-      targetY = clamp(ny * 12, -12, 12);
-      queueTilt();
+          if (rect.width && rect.height) {
+            const nx = (event.clientX - rect.left) / rect.width - 0.5;
+            const ny = (event.clientY - rect.top) / rect.height - 0.5;
+
+            targetX = clamp(nx * 16, -16, 16);
+            targetY = clamp(ny * 12, -12, 12);
+            queueTilt();
+          }
+
+          rafPending = false;
+        });
+      }
     });
 
     stage.addEventListener("mouseleave", () => {
@@ -814,94 +737,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Page transitions between internal pages.
-  const setupPageTransitions = () => {
-    let isLeaving = false;
-
-    if (!prefersReducedMotion()) {
-      document.body.classList.add("is-entering");
-      window.requestAnimationFrame(() => {
-        document.body.classList.remove("is-entering");
-      });
-      window.setTimeout(() => {
-        document.body.classList.remove("is-entering");
-      }, PAGE_ENTER_MS);
-    }
-
-    document.addEventListener("click", (event) => {
-      const link = event.target.closest("a[href]");
-
-      if (!link || isLeaving || isModifiedClick(event)) {
-        return;
-      }
-
-      const rawHref = link.getAttribute("href");
-
-      if (
-        !rawHref ||
-        rawHref.startsWith("#") ||
-        rawHref.startsWith("mailto:") ||
-        rawHref.startsWith("tel:") ||
-        rawHref.startsWith("javascript:")
-      ) {
-        return;
-      }
-
-      if (link.target && link.target !== "_self") {
-        return;
-      }
-
-      if (link.hasAttribute("download")) {
-        return;
-      }
-
-      const nextUrl = new URL(link.href, window.location.href);
-
-      if (nextUrl.origin !== window.location.origin) {
-        return;
-      }
-
-      const currentPath = normalizePath(window.location.pathname);
-      const nextPath = normalizePath(nextUrl.pathname);
-      const samePageHash = Boolean(nextUrl.hash) && currentPath === nextPath && nextUrl.search === window.location.search;
-
-      if (samePageHash) {
-        event.preventDefault();
-        scrollToHash(nextUrl.hash, "smooth");
-
-        if (window.location.hash !== nextUrl.hash) {
-          window.history.pushState(null, "", nextUrl.pathname + nextUrl.search + nextUrl.hash);
-        }
-
-        return;
-      }
-
-      const isHtmlPage = /\.html?$/i.test(nextUrl.pathname) || nextPath === "/";
-
-      if (!isHtmlPage) {
-        return;
-      }
-
-      if (nextPath === currentPath && nextUrl.search === window.location.search && nextUrl.hash === window.location.hash) {
-        return;
-      }
-
-      event.preventDefault();
-
-      if (prefersReducedMotion()) {
-        window.location.href = nextUrl.href;
-        return;
-      }
-
-      isLeaving = true;
-      document.body.classList.add("is-leaving");
-
-      window.setTimeout(() => {
-        window.location.href = nextUrl.href;
-      }, PAGE_TRANSITION_MS);
-    });
-  };
-
   ensureIconSprite();
   const pageLoader = document.getElementById("page-loader");
   setupWhatsAppLinks();
@@ -911,18 +746,16 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   highlightCurrentPage();
   setupRevealAnimations();
-  setupCustomCursor();
   setupHeroParallax();
   setupAtlasTilt();
   setupExperienceDragScroll();
   setupLazyImages();
   setupSmoothAnchorScroll();
-  setupPageTransitions();
 
   if (pageLoader) {
-    window.setTimeout(() => {
+    window.requestAnimationFrame(() => {
       pageLoader.classList.add("is-hidden");
-    }, 180);
+    });
   }
 });
 

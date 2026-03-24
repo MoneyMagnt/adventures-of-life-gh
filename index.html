@@ -40,6 +40,65 @@
 
     <!-- /brand:meta -->
     <link rel="stylesheet" href="styles.css?v=20260320-2" />
+    <style>
+      .hero-origin-note {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: rgba(11, 34, 36, 0.6);
+        margin-top: 0.5rem;
+      }
+
+      .origin-dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background: var(--canopy);
+        display: inline-block;
+        flex-shrink: 0;
+        box-shadow: 0 0 0 3px rgba(70, 168, 98, 0.2);
+      }
+
+      .chapter-marker {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+      }
+
+      .chapter-line {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(47, 181, 205, 0.3), transparent);
+      }
+
+      .chapter-label {
+        display: grid;
+        gap: 0.3rem;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .chapter-label p {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--ink-1);
+      }
+
+      @media (max-width: 47.99rem) {
+        .chapter-marker {
+          grid-template-columns: 1fr;
+          gap: 0.85rem;
+        }
+
+        .chapter-label {
+          white-space: normal;
+        }
+      }
+    </style>
     <!-- brand:schema -->
     <script type="application/ld+json">
       {
@@ -160,8 +219,13 @@
       <section class="shell hero hero-home">
         <div class="glass-panel hero-copy reveal">
           <span class="hero-bg-text" aria-hidden="true">Ghana</span>
-          <p class="eyebrow">Visual route house</p>
-          <h1>Adventures of Life</h1>
+          <p class="eyebrow">Ghana &middot; West Africa &middot; The World</p>
+          <h1>This is what Africa feels like when you go with someone who actually knows.</h1>
+          <p class="lead">Adventures of Life is a crew-first travel collective built by a Ghanaian explorer who has personally scouted every route. No tourist traps. No rehearsed itineraries. Just terrain, community, and the kind of trips people talk about for years.</p>
+          <p class="hero-origin-note">
+            <span class="origin-dot"></span>
+            Started in 2023 with 3 people and no flyer. Now 600+ travellers and counting.
+          </p>
           <div class="chip-row">
             <span class="glass-chip">Coast</span>
             <span class="glass-chip">Culture</span>
@@ -236,11 +300,23 @@
         </aside>
       </section>
 
+      <div class="shell chapter-marker reveal">
+        <div class="chapter-line"></div>
+        <div class="chapter-label">
+          <span class="eyebrow">Chapter one</span>
+          <p>Where does Adventures of Life take you?</p>
+        </div>
+        <div class="chapter-line"></div>
+      </div>
+
       <section class="shell section">
         <div class="section-wash section-wash-sand reveal">
           <div class="section-header section-header-inline">
-            <p class="eyebrow">Explore</p>
-            <h2>Summit. Coast. Canopy. North.</h2>
+            <p class="eyebrow">The routes</p>
+            <h2>Every terrain. One crew.</h2>
+            <p style="color: var(--ink-1); font-size: 0.95rem; max-width: 44ch; line-height: 1.65;">
+              From misty Volta highlands to savanna horizons. Zico has walked every one of these routes before you arrive.
+            </p>
           </div>
           <div class="experience-grid">
             <a class="experience-card" href="journeys.html?style=summit#route-selector" aria-label="Open Summit routes">
@@ -314,7 +390,21 @@
         </div>
       </section>
 
+      <div class="shell chapter-marker reveal">
+        <div class="chapter-line"></div>
+        <div class="chapter-label">
+          <span class="eyebrow">Chapter two</span>
+          <p>The moments that make people come back.</p>
+        </div>
+        <div class="chapter-line"></div>
+      </div>
+
       <section class="shell section">
+        <div class="shell section-header reveal" style="margin-bottom:1rem;">
+          <p class="eyebrow">A day on the route</p>
+          <h2>Morning trail. Afternoon water. Night around the table.</h2>
+          <p class="lead">Every Adventures of Life trip follows the same philosophy: start in the terrain, end with the people. What happens in between is always different.</p>
+        </div>
         <div class="pathway-grid">
           <article class="glass-panel pathway-card reveal reveal-left">
             <span class="meta-line">Sunrise</span>
@@ -381,8 +471,11 @@
       <section class="shell section">
         <div class="section-wash section-wash-green reveal">
           <div class="band-copy">
-            <p class="eyebrow">Visual wall</p>
-            <h2>Real trip moments now in place.</h2>
+            <p class="eyebrow">Real moments</p>
+            <h2>These aren't stock photos. This is what actually happened.</h2>
+            <p style="color:var(--ink-1); font-size:0.95rem; max-width:48ch; line-height:1.65; margin-top:-0.3rem;">
+              Every image on this site was taken on an actual Adventures of Life trip. By real people. On real terrain. In real Ghana.
+            </p>
           </div>
           <div class="mosaic-grid">
             <article class="visual-placeholder has-photo is-wide accent-sand" style="--photo-position: center 38%;">
@@ -410,11 +503,23 @@
         </div>
       </section>
 
+      <div class="shell chapter-marker reveal">
+        <div class="chapter-line"></div>
+        <div class="chapter-label">
+          <span class="eyebrow">Your chapter</span>
+          <p>The next trip has a seat with your name on it.</p>
+        </div>
+        <div class="chapter-line"></div>
+      </div>
+
       <section class="shell section" id="contact">
         <div class="section-header reveal">
-          <p class="eyebrow">Contact</p>
-          <h2>Ready to move?<br /><em>Let's build your route.</em></h2>
+          <p class="eyebrow">Write your chapter</p>
+          <h2>Ready to move?<br /><em style="color:var(--lagoon); font-style:italic;">Tell us where you want to go.</em></h2>
         </div>
+        <p class="lead reveal" style="margin-bottom:1.5rem;">
+          Zico personally reviews every inquiry. Tell him the mood &mdash; coast, trail, culture, north &mdash; and he will build the route around you.
+        </p>
         <div class="contact-layout">
           <form class="glass-panel contact-form reveal" id="contact-form">
             <h3>Trip request</h3>

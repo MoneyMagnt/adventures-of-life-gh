@@ -39,6 +39,95 @@
 
     <!-- /brand:meta -->
     <link rel="stylesheet" href="styles.css?v=20260320-2" />
+    <style>
+      .chapter-marker {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+      }
+
+      .chapter-line {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(47, 181, 205, 0.3), transparent);
+      }
+
+      .chapter-label {
+        display: grid;
+        gap: 0.3rem;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .chapter-label p {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--ink-1);
+      }
+
+      .testimonial-strip {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .testimonial-card {
+        display: grid;
+        gap: 1rem;
+        padding: 1.6rem;
+        border-radius: var(--radius-2xl);
+        position: relative;
+      }
+
+      .testimonial-card::before {
+        content: "\201C";
+        position: absolute;
+        top: 0.8rem;
+        left: 1.2rem;
+        font-family: var(--font-display);
+        font-size: 4rem;
+        line-height: 1;
+        color: rgba(47, 181, 205, 0.15);
+        pointer-events: none;
+      }
+
+      .testimonial-quote {
+        font-size: 1rem;
+        line-height: 1.72;
+        color: var(--ink-1);
+        font-style: italic;
+        padding-top: 1rem;
+      }
+
+      .testimonial-author {
+        display: grid;
+        gap: 0.2rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(11, 34, 36, 0.08);
+      }
+
+      .testimonial-author strong {
+        font-size: 0.95rem;
+      }
+
+      @media (min-width: 48rem) {
+        .testimonial-strip {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 47.99rem) {
+        .chapter-marker {
+          grid-template-columns: 1fr;
+          gap: 0.85rem;
+        }
+
+        .chapter-label {
+          white-space: normal;
+        }
+      }
+    </style>
     <!-- brand:schema -->
     <script type="application/ld+json">
       {
@@ -158,8 +247,9 @@
     <main class="site-main">
       <section class="shell page-banner glass-panel reveal">
         <div class="page-banner-copy">
-          <p class="eyebrow">Circle archive</p>
-          <h1>The trip keeps moving after the route.</h1>
+          <p class="eyebrow">Chapter three</p>
+          <h1>The trip ends. The community doesn't.</h1>
+          <p class="lead">Nobody knew each other on the first day. By the last day, they didn't want to leave. That's what happens when the right people meet on the right terrain. Adventures of Life isn't just a trip organiser &mdash; it's how a circle is built.</p>
           <div class="chip-row">
             <span class="glass-chip">Welcome dinners</span>
             <span class="glass-chip">Reunion nights</span>
@@ -170,6 +260,15 @@
           <img class="visual-photo" src="adventurepics_preview/IMG_6875.jpg" alt="Travel group posing at Hike Adakluto." width="1400" height="1050" fetchpriority="high" />
         </article>
       </section>
+
+      <div class="shell chapter-marker reveal">
+        <div class="chapter-line"></div>
+        <div class="chapter-label">
+          <span class="eyebrow">The circle</span>
+          <p>600+ travellers. One community.</p>
+        </div>
+        <div class="chapter-line"></div>
+      </div>
 
       <section class="shell section">
         <div class="community-grid">
@@ -194,6 +293,32 @@
               <img class="visual-photo" src="adventurepics_preview/IMG_1577.jpg" alt="Group of hikers on a green hillside trail." width="1050" height="1400" loading="lazy" />
             </article>
           </article>
+        </div>
+      </section>
+
+      <section class="shell section">
+        <div class="testimonial-strip reveal">
+          <div class="testimonial-card glass-panel">
+            <p class="testimonial-quote">"I came not knowing anyone. I left with people I now call family. The Keta trip changed how I think about travel."</p>
+            <div class="testimonial-author">
+              <span class="meta-line">Keta Trip, Dec 2025</span>
+              <strong>Community Member</strong>
+            </div>
+          </div>
+          <div class="testimonial-card glass-panel">
+            <p class="testimonial-quote">"Zico doesn't just plan a trip. He creates an atmosphere. From the moment we got on the bus, the vibe was different."</p>
+            <div class="testimonial-author">
+              <span class="meta-line">Akwamu Gorge, 2025</span>
+              <strong>Community Member</strong>
+            </div>
+          </div>
+          <div class="testimonial-card glass-panel">
+            <p class="testimonial-quote">"I've done group travel before. Nothing compares to this. The island trip was the best day of my 2026."</p>
+            <div class="testimonial-author">
+              <span class="meta-line">Island Experience, 2026</span>
+              <strong>Community Member</strong>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -253,8 +378,8 @@
       <section class="shell section">
         <div class="atlas-band glass-panel reveal">
           <div class="band-copy">
-            <p class="eyebrow">Next step</p>
-            <h2>Trip people find their circle here.</h2>
+            <p class="eyebrow">Join the circle</p>
+            <h2>The next trip is how the story continues.</h2>
           </div>
             <div class="action-row">
               <div class="social-links" aria-label="Social links">
