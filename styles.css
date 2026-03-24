@@ -749,6 +749,111 @@ small {
     linear-gradient(135deg, rgba(47, 181, 205, 0.12), rgba(70, 168, 98, 0.08));
 }
 
+.atlas-stage-story {
+  align-content: start;
+  gap: 1rem;
+}
+
+.atlas-hero-shot {
+  min-height: clamp(20rem, 54vw, 34rem);
+}
+
+.atlas-side-stack {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.atlas-note {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.15rem;
+  border-radius: var(--radius-2xl);
+}
+
+.atlas-note h3 {
+  font-size: clamp(1.35rem, 4vw, 2rem);
+}
+
+.atlas-note p {
+  max-width: 30ch;
+}
+
+.atlas-mini-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.route-ledger {
+  display: grid;
+  gap: 1rem;
+}
+
+.route-ledger-header .lead {
+  max-width: 42ch;
+}
+
+.route-dossier {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: stretch;
+}
+
+.route-dossier .visual-placeholder {
+  min-height: clamp(16rem, 48vw, 24rem);
+}
+
+.route-dossier-copy {
+  display: grid;
+  gap: 0.85rem;
+  align-content: start;
+}
+
+.route-dossier-copy h3 {
+  font-size: clamp(1.35rem, 4vw, 2.15rem);
+  line-height: 1.08;
+}
+
+.route-dossier-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+.proof-grid {
+  display: grid;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.proof-story {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.proof-story-visual {
+  min-height: clamp(18rem, 52vw, 30rem);
+}
+
+.proof-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.proof-card {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1.1rem;
+}
+
+.proof-card h3 {
+  font-size: 1.05rem;
+}
+
 .section-wash {
   position: relative;
   display: grid;
@@ -864,8 +969,36 @@ small {
 }
 
 .reason-icon {
-  font-size: 2rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  color: transparent;
+  font-size: 0;
   line-height: 1;
+}
+
+.reason-icon::before {
+  font-family: var(--font-accent);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--horizon);
+}
+
+.reason-card:nth-child(1) .reason-icon::before {
+  content: "01";
+}
+
+.reason-card:nth-child(2) .reason-icon::before {
+  content: "02";
+}
+
+.reason-card:nth-child(3) .reason-icon::before {
+  content: "03";
+}
+
+.reason-card:nth-child(4) .reason-icon::before {
+  content: "04";
 }
 
 .reason-card h3 {
@@ -1409,6 +1542,14 @@ textarea {
     width: min(88rem, calc(100% - 2rem));
   }
 
+  .proof-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .proof-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
   .reason-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1503,6 +1644,27 @@ textarea {
     grid-template-columns: 0.88fr 1.12fr;
   }
 
+  .atlas-stage-story {
+    grid-template-columns: 1.08fr 0.92fr;
+  }
+
+  .route-dossier {
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    padding: 1.1rem;
+  }
+
+  .route-dossier-reverse > .visual-placeholder {
+    order: 2;
+  }
+
+  .route-dossier-reverse > .route-dossier-copy {
+    order: 1;
+  }
+
+  .proof-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .page-banner {
     grid-template-columns: 0.86fr 1.14fr;
   }
@@ -1558,6 +1720,9 @@ textarea {
 
   .hero-copy,
   .page-banner,
+  .atlas-note,
+  .route-dossier,
+  .proof-card,
   .route-card,
   .feature-panel,
   .atlas-band,
@@ -1587,6 +1752,18 @@ textarea {
   .action-row {
     display: grid;
     gap: 0.75rem;
+  }
+
+  .route-dossier-actions {
+    display: grid;
+  }
+
+  .route-dossier-actions .button {
+    width: 100%;
+  }
+
+  .atlas-mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .action-row .button {
