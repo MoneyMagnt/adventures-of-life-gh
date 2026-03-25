@@ -1795,21 +1795,9 @@ textarea {
   }
 
   .experience-grid {
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(15rem, 1fr);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding-bottom: 0.35rem;
-  }
-
-  .experience-card {
-    scroll-snap-align: start;
-  }
-
-  .experience-grid::-webkit-scrollbar {
-    display: none;
+    grid-template-columns: 1fr;
+    overflow-x: visible;
+    padding-bottom: 0;
   }
 
   .visual-placeholder {

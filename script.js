@@ -401,119 +401,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Mobile drag scrolling for experience cards.
-  const setupExperienceDragScroll = () => {
-    const grids = Array.from(document.querySelectorAll(".experience-grid")).filter(
-      (grid) => grid.scrollWidth > grid.clientWidth
-    );
-
-    if (!grids.length || !("ontouchstart" in window || navigator.maxTouchPoints > 0)) {
-      return;
-    }
-
-    grids.forEach((grid) => {
-      let startX = 0;
-      let startY = 0;
-      let lastX = 0;
-      let lastTime = 0;
-      let velocity = 0;
-      let isDragging = false;
-      let isHorizontal = false;
-      let momentumFrame = 0;
-
-      const stopMomentum = () => {
-        if (momentumFrame) {
-          window.cancelAnimationFrame(momentumFrame);
-          momentumFrame = 0;
-        }
-      };
-
-      const runMomentum = () => {
-        grid.scrollLeft -= velocity * 18;
-        velocity *= 0.95;
-
-        if (Math.abs(velocity) > 0.02) {
-          momentumFrame = window.requestAnimationFrame(runMomentum);
-        } else {
-          momentumFrame = 0;
-        }
-      };
-
-      grid.addEventListener(
-        "touchstart",
-        (event) => {
-          if (event.touches.length !== 1) {
-            return;
-          }
-
-          stopMomentum();
-
-          const touch = event.touches[0];
-          startX = touch.clientX;
-          startY = touch.clientY;
-          lastX = touch.clientX;
-          lastTime = performance.now();
-          velocity = 0;
-          isDragging = true;
-          isHorizontal = false;
-        },
-        { passive: true }
-      );
-
-      grid.addEventListener(
-        "touchmove",
-        (event) => {
-          if (!isDragging || event.touches.length !== 1) {
-            return;
-          }
-
-          const touch = event.touches[0];
-          const deltaX = touch.clientX - startX;
-          const deltaY = touch.clientY - startY;
-
-          if (!isHorizontal) {
-            if (Math.abs(deltaX) < 6 && Math.abs(deltaY) < 6) {
-              return;
-            }
-
-            isHorizontal = Math.abs(deltaX) > Math.abs(deltaY);
-          }
-
-          if (!isHorizontal) {
-            return;
-          }
-
-          event.preventDefault();
-
-          const now = performance.now();
-          const movementX = touch.clientX - lastX;
-          const deltaTime = Math.max(now - lastTime, 16);
-
-          grid.scrollLeft -= movementX;
-          velocity = movementX / deltaTime;
-          lastX = touch.clientX;
-          lastTime = now;
-        },
-        { passive: false }
-      );
-
-      const endDrag = () => {
-        if (!isDragging) {
-          return;
-        }
-
-        isDragging = false;
-
-        if (isHorizontal && Math.abs(velocity) > 0.02) {
-          momentumFrame = window.requestAnimationFrame(runMomentum);
-        }
-      };
-
-      grid.addEventListener("touchend", endDrag, { passive: true });
-      grid.addEventListener("touchcancel", endDrag, { passive: true });
-    });
-  };
-
   // Travel style selector on journeys page.
   const setupTravelStyleSelector = () => {
     const tabs = Array.from(document.querySelectorAll(".selector-tab"));
@@ -748,7 +635,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupRevealAnimations();
   setupHeroParallax();
   setupAtlasTilt();
-  setupExperienceDragScroll();
   setupLazyImages();
   setupSmoothAnchorScroll();
 
