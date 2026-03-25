@@ -55,12 +55,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  overflow-x: hidden;
+  max-width: 100%;
+  overflow-x: clip;
   color: var(--ink-0);
   font-family: var(--font-body);
   background:
@@ -201,6 +203,7 @@ footer {
   isolation: isolate;
   padding-top: 0.25rem;
   padding-bottom: 2.75rem;
+  overflow-x: clip;
 }
 
 .site-main::before,
@@ -249,6 +252,22 @@ footer {
   border: 1px solid rgba(11, 34, 36, 0.1);
   box-shadow: var(--shadow-soft);
   transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.hero-copy,
+.page-banner-copy,
+.section-header,
+.route-dossier-copy,
+.proof-story,
+.band-copy,
+.contact-side,
+.contact-form,
+.community-card,
+.profile-card,
+.principle-card,
+.detail-card,
+.reason-card {
+  min-width: 0;
 }
 
 .site-header {
@@ -1704,6 +1723,11 @@ textarea {
     width: min(88rem, calc(100% - 0.9rem));
   }
 
+  .site-header,
+  .footer-wrap {
+    overflow-x: clip;
+  }
+
   .stat-row {
     flex-wrap: wrap;
     gap: 1rem;
@@ -1775,6 +1799,8 @@ textarea {
     grid-auto-columns: minmax(15rem, 1fr);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     padding-bottom: 0.35rem;
   }
 
@@ -1783,12 +1809,7 @@ textarea {
   }
 
   .experience-grid::-webkit-scrollbar {
-    height: 0.55rem;
-  }
-
-  .experience-grid::-webkit-scrollbar-thumb {
-    background: rgba(11, 34, 36, 0.18);
-    border-radius: 999px;
+    display: none;
   }
 
   .visual-placeholder {
@@ -1814,6 +1835,23 @@ textarea {
 
   .brand-copy small {
     max-width: 14ch;
+  }
+
+  .chip-row,
+  .action-row,
+  .micro-row,
+  .social-links,
+  .footer-links,
+  .footer-social {
+    min-width: 0;
+  }
+
+  .chapter-label p,
+  h1,
+  h2,
+  h3,
+  .lead {
+    overflow-wrap: anywhere;
   }
 
   .footer-brand {
