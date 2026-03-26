@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
   const WHATSAPP_NUMBER = "233551472190";
@@ -20,47 +20,199 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const travelStyles = {
     summit: {
-      title: "Volta Highlands",
-      summary: "Mist, ridge roads, lake air.",
-      audience: "Slow groups / visual seekers",
-      includes: "Amedzofe / Wli / Ho",
-      visual: "Highland board",
-      imgSrc: "adventurepics_preview/IMG_1576.jpg",
-      imgAlt: "Hiker on a green hillside trail.",
-      highlights: ["Morning ridge frame", "Waterfall arrival reel"],
+      title: "Hike Adakluto",
+      typeLabel: "Lake ridge hike",
+      summary: "Peak views, ridge steps, Lake Volta air.",
+      audience: "First-timers · ridge hikers · crew energy",
+      includes: "Adakluto ridge / Lake Volta overlook / return climb",
+      visual: "Lake ridge outlook",
+      imgSrc: "assets/trips/adakluto-hero.webp",
+      imgAlt: "Adventures of Life crew on the Hike Adakluto route.",
+      highlights: ["Trail start", "Ridgeline climb", "Lake Volta stop", "Group frame"],
+      storyTitle: "The day moves from trail dust to open water.",
+      storySummary:
+        "Adakluto starts with the climb, opens into Lake Volta views, and ends with the kind of group photos people actually keep.",
+      gallery: [
+        {
+          src: "assets/trips/adakluto-start.webp",
+          alt: "Crew beginning the Hike Adakluto route.",
+          kicker: "Trail start",
+          title: "The first stretch stays quiet.",
+          accent: "accent-gold",
+          position: "center 52%",
+        },
+        {
+          src: "assets/trips/adakluto-hero.webp",
+          alt: "Wide Lake Volta overlook on the Hike Adakluto route.",
+          kicker: "Ridgeline",
+          title: "Then the whole landscape opens.",
+          accent: "accent-gold",
+          position: "center 38%",
+        },
+        {
+          src: "assets/trips/lake-volta.webp",
+          alt: "Lake Volta stop on Hike Adakluto.",
+          kicker: "Lake Volta",
+          title: "Water and sky take over the frame.",
+          accent: "accent-lagoon",
+          position: "center 44%",
+        },
+        {
+          src: "assets/trips/adakluto-group.webp",
+          alt: "Group photo from the Hike Adakluto trip.",
+          kicker: "Crew frame",
+          title: "The shot everyone waits for.",
+          accent: "accent-canopy",
+          position: "center 42%",
+        },
+      ],
       style: "summit",
     },
     coast: {
-      title: "Black Star Coast",
-      summary: "Fort walls, city nights, open water.",
-      audience: "Social groups / couples / diaspora guests",
-      includes: "Accra / Cape Coast / Ada",
-      visual: "Coast board",
-      imgSrc: "adventurepics_preview/IMG_1905.jpg",
-      imgAlt: "Golden light over a sandy beach.",
-      highlights: ["Sunset drive clip", "Fort courtyard portrait"],
+      title: "Keta 3 Days",
+      typeLabel: "Beach camp weekend",
+      summary: "Tent village, sea air, sunrise water, late-night energy.",
+      audience: "Weekend crews · social travellers · beach people",
+      includes: "Keta / Volta experience / tent village",
+      visual: "Camp opening",
+      imgSrc: "assets/trips/keta-camp.webp",
+      imgAlt: "Keta three-day trip group photo.",
+      highlights: ["Beach camp", "House party", "Sunrise water", "Full crew energy"],
+      storyTitle: "Keta feels like a weekend that keeps widening.",
+      storySummary:
+        "Camp first, then sea air, then the late-night stretch, then the morning after. The strongest Keta trips never feel rushed.",
+      gallery: [
+        {
+          src: "assets/trips/keta-camp.webp",
+          alt: "Keta beach camp setup for the trip.",
+          kicker: "Camp setup",
+          title: "The beach turns into base camp.",
+          accent: "accent-gold",
+          position: "center 48%",
+        },
+        {
+          src: "assets/trips/keta-tent-village.webp",
+          alt: "Tent village on the Keta trip.",
+          kicker: "Tent village",
+          title: "The route starts looking like a festival.",
+          accent: "accent-lagoon",
+          position: "center 42%",
+        },
+        {
+          src: "assets/trips/keta-beachline.webp",
+          alt: "Palm-lined beach during the Keta trip.",
+          kicker: "Beachline",
+          title: "Then the coast does the rest.",
+          accent: "accent-clay",
+          position: "center 56%",
+        },
+        {
+          src: "assets/trips/keta-chalets.webp",
+          alt: "Beach chalets on the Keta trip.",
+          kicker: "Morning after",
+          title: "Even the reset still feels like part of the trip.",
+          accent: "accent-canopy",
+          position: "center 52%",
+        },
+      ],
       style: "coast",
     },
     canopy: {
-      title: "Forest Line",
-      summary: "Trails, bridges, falls, quiet rooms.",
-      audience: "Nature-first groups / creators",
-      includes: "Kakum / village edge / waterfall trail",
-      visual: "Canopy board",
-      imgSrc: "adventurepics_preview/IMG_6873.jpg",
-      imgAlt: "Travel group at a forest trail entrance.",
-      highlights: ["Bridge walk reel", "Rainforest texture still"],
+      title: "Asenema Waterfalls",
+      typeLabel: "Forest waterfall day",
+      summary: "Forest entry, cold water payoff, all-crew momentum.",
+      audience: "Nature seekers · waterfall crews · soft adventure",
+      includes: "Asenema entrance / waterfall trail / forest route",
+      visual: "Falls arrival",
+      imgSrc: "assets/trips/asenema-waterfalls.webp",
+      imgAlt: "Adventures of Life group at Asenema Waterfalls.",
+      highlights: ["Entrance climb", "Waterfall arrival", "Group swim", "Forest photos"],
+      storyTitle: "The forest keeps building tension until the water hits.",
+      storySummary:
+        "Asenema is less about distance and more about payoff. Every part of the route is moving toward that first cold-water moment.",
+      gallery: [
+        {
+          src: "assets/trips/asenema-waterfalls.webp",
+          alt: "Asenema Waterfalls with the crew arriving.",
+          kicker: "Arrival",
+          title: "You hear the water before you see it.",
+          accent: "accent-canopy",
+          position: "center 42%",
+        },
+        {
+          src: "assets/trips/asenema-group.webp",
+          alt: "Group frame at Asenema Waterfalls.",
+          kicker: "Crew frame",
+          title: "Then everyone steps into the same scene.",
+          accent: "accent-gold",
+          position: "center 38%",
+        },
+        {
+          src: "assets/trips/asenema-crew.webp",
+          alt: "Travelers standing beneath Asenema Waterfalls.",
+          kicker: "Water line",
+          title: "The cold-water payoff lands immediately.",
+          accent: "accent-lagoon",
+          position: "center 44%",
+        },
+        {
+          src: "assets/trips/asenema-portrait.webp",
+          alt: "Traveler seated at the rocks at Asenema Waterfalls.",
+          kicker: "Quiet beat",
+          title: "Even the still moments look cinematic.",
+          accent: "accent-clay",
+          position: "center 48%",
+        },
+      ],
       style: "canopy",
     },
     north: {
-      title: "Dust Run",
-      summary: "Savannah light, wide silence, long roads.",
-      audience: "Private groups / wildlife-led itineraries",
-      includes: "Tamale / Mole / Larabanga",
-      visual: "North board",
-      imgSrc: "adventurepics_preview/IMG_1596.jpg",
-      imgAlt: "High lookout over open landscape.",
-      highlights: ["Golden-hour drive", "Savannah horizon poster"],
+      title: "Akwamu Gorge",
+      typeLabel: "Gorge climb day",
+      summary: "Steep climb, ridge payoff, photos that travel far.",
+      audience: "Fit groups · challenge seekers · visual climbers",
+      includes: "Akwamu Gorge / summit trail / canopy stop",
+      visual: "Ridge payoff",
+      imgSrc: "assets/trips/akwamu-gorge.webp",
+      imgAlt: "Traveler at Akwamu Gorge viewpoint.",
+      highlights: ["Station meet-up", "Gorge climb", "Top-view payoff", "Canopy stop"],
+      storyTitle: "Akwamu is the hard route with the right reward.",
+      storySummary:
+        "It starts with movement, gets steeper fast, then opens into one of those lookout points that resets the whole group.",
+      gallery: [
+        {
+          src: "assets/trips/akwamu-gorge.webp",
+          alt: "Viewpoint over Akwamu Gorge.",
+          kicker: "The payoff",
+          title: "The overlook is why people sign up.",
+          accent: "accent-clay",
+          position: "center 40%",
+        },
+        {
+          src: "assets/trips/akwamu-overlook.webp",
+          alt: "Wide overlook during the Akwamu Gorge climb.",
+          kicker: "Above the water",
+          title: "The ridge keeps getting wider.",
+          accent: "accent-gold",
+          position: "center 38%",
+        },
+        {
+          src: "assets/trips/akwamu-boat.webp",
+          alt: "Boat crossing on the Akwamu Gorge trip.",
+          kicker: "Crossing",
+          title: "The approach already feels like a story beat.",
+          accent: "accent-lagoon",
+          position: "center 44%",
+        },
+        {
+          src: "assets/trips/akwamu-crew.webp",
+          alt: "Crew photo during the Akwamu Gorge trip.",
+          kicker: "Crew energy",
+          title: "By the top, the whole group is locked in.",
+          accent: "accent-canopy",
+          position: "center 42%",
+        },
+      ],
       style: "north",
     },
   };
@@ -404,6 +556,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Travel style selector on journeys page.
   const setupTravelStyleSelector = () => {
     const tabs = Array.from(document.querySelectorAll(".selector-tab"));
+    const type = document.getElementById("selector-type");
     const title = document.getElementById("selector-title");
     const summary = document.getElementById("selector-summary");
     const audience = document.getElementById("selector-audience");
@@ -413,6 +566,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const preview = document.querySelector(".selector-preview");
     const visualFrame = preview?.querySelector(".selector-visual");
     const visualPhoto = visualFrame?.querySelector(".visual-photo");
+    const storyBlock = document.querySelector(".journey-story");
+    const storyTitle = document.getElementById("selector-story-title");
+    const storySummary = document.getElementById("selector-story-summary");
+    const storyGallery = document.getElementById("selector-gallery");
 
     if (!tabs.length || !title || !summary || !includes || !visualLabel || !highlights || !preview || !visualPhoto) {
       return;
@@ -439,20 +596,66 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const animatePreview = () => {
-      if (typeof preview.animate !== "function" || prefersReducedMotion()) {
+      if (prefersReducedMotion()) {
         return;
       }
 
-      preview.animate(
-        [
-          { opacity: 0, transform: "translateY(8px)" },
-          { opacity: 1, transform: "translateY(0)" },
-        ],
-        {
-          duration: 240,
-          easing: "cubic-bezier(0.2, 0.65, 0.2, 1)",
+      [preview, storyBlock].forEach((element) => {
+        if (!element || typeof element.animate !== "function") {
+          return;
         }
-      );
+
+        element.animate(
+          [
+            { opacity: 0, transform: "translateY(8px)" },
+            { opacity: 1, transform: "translateY(0)" },
+          ],
+          {
+            duration: 240,
+            easing: "cubic-bezier(0.2, 0.65, 0.2, 1)",
+          }
+        );
+      });
+    };
+
+    const renderGallery = (style) => {
+      if (!storyGallery || !Array.isArray(style.gallery)) {
+        return;
+      }
+
+      storyGallery.replaceChildren();
+
+      style.gallery.forEach((item, index) => {
+        const article = document.createElement("article");
+        article.className = `journey-gallery-card${index === 0 ? " is-featured" : ""}`;
+
+        const frame = document.createElement("div");
+        frame.className = `visual-placeholder has-photo journey-gallery-visual ${item.accent || travelStyleAccents[style.style] || ""}`.trim();
+        frame.style.setProperty("--photo-position", item.position || "center");
+
+        const image = document.createElement("img");
+        image.className = "visual-photo";
+        image.src = item.src;
+        image.alt = item.alt;
+        image.loading = "lazy";
+        image.decoding = "async";
+
+        const copy = document.createElement("div");
+        copy.className = "visual-copy";
+
+        const kicker = document.createElement("span");
+        kicker.className = "visual-kicker";
+        kicker.textContent = item.kicker;
+
+        const strong = document.createElement("strong");
+        strong.textContent = item.title;
+
+        copy.append(kicker, strong);
+        frame.append(image, copy);
+        article.append(frame);
+        storyGallery.append(article);
+        refreshVisualImage(image);
+      });
     };
 
     const renderStyle = (key, { animate = false } = {}) => {
@@ -470,14 +673,27 @@ document.addEventListener("DOMContentLoaded", () => {
       visualPhoto.src = style.imgSrc;
       visualPhoto.alt = style.imgAlt;
 
+      if (type) {
+        type.textContent = style.typeLabel || key;
+      }
+
       if (audience) {
         audience.textContent = style.audience;
+      }
+
+      if (storyTitle) {
+        storyTitle.textContent = style.storyTitle || "";
+      }
+
+      if (storySummary) {
+        storySummary.textContent = style.storySummary || "";
       }
 
       document.body.dataset.routeStyle = style.style;
       setActiveTab(key);
       setPreviewAccent(style.style);
       refreshVisualImage(visualPhoto);
+      renderGallery(style);
 
       if (animate) {
         animatePreview();
@@ -644,4 +860,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
