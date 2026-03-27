@@ -2804,7 +2804,7 @@ textarea {
 
 @media (min-width: 64rem) {
   .dest-strip {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   }
 
   .dest-card {
@@ -4006,7 +4006,7 @@ body[data-page="home"] {
 
 .journey-tab-bar {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
   gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
@@ -4308,7 +4308,7 @@ body[data-page="home"] {
 
 @media (min-width: 64rem) {
   .journey-tab-bar {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .journey-panel {
@@ -4964,4 +4964,121 @@ body[data-page="home"] {
     padding-bottom: 3rem;
     border-bottom: 1px solid var(--glass-border);
   }
+}
+
+/* ADA MEMORY CATALOGUE */
+.trip-catalogue {
+  display: grid;
+  gap: 2rem;
+}
+
+.trip-catalogue-intro {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.trip-catalogue-intro h2 {
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  max-width: 18ch;
+}
+
+.trip-catalogue-copy {
+  display: grid;
+  gap: 1rem;
+  max-width: 42rem;
+}
+
+.trip-catalogue-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.trip-catalogue-card {
+  overflow: hidden;
+}
+
+.trip-catalogue-card .visual-placeholder {
+  min-height: 18rem;
+}
+
+.trip-catalogue-card.is-featured .visual-placeholder {
+  min-height: 24rem;
+}
+
+body[data-page="home"] .hero-cinematic .hero-bg-img {
+  object-position: center 34%;
+}
+
+@media (min-width: 48rem) {
+  .trip-catalogue-intro {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: end;
+  }
+
+  .trip-catalogue-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .trip-catalogue-card.is-featured {
+    grid-column: span 2;
+  }
+
+  .trip-catalogue-card.is-featured .visual-placeholder {
+    min-height: 30rem;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .visual-placeholder.has-photo,
+  .hero-bg,
+  .story-bleed-bg,
+  .page-hero-bg {
+    background: #06080a;
+  }
+
+  .visual-photo {
+    object-fit: contain;
+    object-position: center center;
+    transform: none;
+  }
+
+  .hero-bg-img,
+  .story-bleed-img,
+  .page-hero-img {
+    object-fit: contain;
+    object-position: center center;
+    background: #06080a;
+  }
+
+  .dest-card-img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #06080a;
+  }
+
+  .hero-cinematic {
+    min-height: 36rem;
+  }
+
+  .page-hero-cinematic,
+  .story-bleed {
+    min-height: 32rem;
+  }
+}
+
+body[data-page="journeys"] .visual-placeholder.has-photo {
+  background: #06080a;
+}
+
+body[data-page="journeys"] .visual-photo {
+  object-fit: contain;
+  object-position: center center;
+  transform: none;
+}
+
+body[data-page="journeys"] .journey-panel-photo .visual-placeholder,
+body[data-page="journeys"] .journey-gallery-visual,
+body[data-page="journeys"] .route-strip-item .visual-placeholder {
+  background: #06080a;
 }

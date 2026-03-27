@@ -36,10 +36,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link rel="preload" as="image" href="assets/trips/adakluto-hero.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/responsive/ada-nkyinkyim-cover-1920.webp" fetchpriority="high" />
 
     <!-- /brand:meta -->
-    <link rel="stylesheet" href="styles.css?v=20260325-1" />
+    <link rel="stylesheet" href="styles.css?v=20260327-3" />
     <!-- brand:schema -->
     <script type="application/ld+json">
       {
@@ -160,12 +160,18 @@
       <section class="hero-cinematic" id="home">
         <div class="hero-bg">
           <img
-            src="assets/trips/adakluto-hero.webp"
-            alt="Adventures of Life crew on terrain in Ghana"
+            src="assets/responsive/ada-nkyinkyim-cover-original.jpg"
+            srcset="
+              assets/responsive/ada-nkyinkyim-cover-960.webp 960w,
+              assets/responsive/ada-nkyinkyim-cover-1440.webp 1440w,
+              assets/responsive/ada-nkyinkyim-cover-1920.webp 1920w
+            "
+            sizes="100vw"
+            alt="Adventures of Life group at Ada and Nkyinkyim Museum in Ghana"
             fetchpriority="high"
             class="hero-bg-img"
-            width="1440"
-            height="1080"
+            width="6034"
+            height="4024"
           />
           <div class="hero-overlay"></div>
         </div>
@@ -201,7 +207,7 @@
               <div class="hero-bar-divider"></div>
               <div class="hero-bar-item">
                 <span class="bar-label">Trips</span>
-                <span class="bar-value">Adakluto / Akwamu / Asenema / Keta</span>
+                <span class="bar-value">Adakluto / Akwamu / Asenema / Keta / Ada</span>
               </div>
               <div class="hero-bar-divider"></div>
               <a class="bar-cta" href="journeys.html">
@@ -256,7 +262,7 @@
         </div>
 
         <div class="dest-strip">
-          <a class="dest-card reveal" href="journeys.html?style=summit#route-selector" style="--card-img: url('assets/trips/adakluto-hero.webp')">
+          <a class="dest-card reveal" href="journeys.html?style=summit#route-selector" style="--card-img: url('assets/responsive/adakluto-peak-wide-1440.webp')">
             <div class="dest-card-img"></div>
             <div class="dest-card-body">
               <span class="dest-number">01</span>
@@ -272,7 +278,7 @@
             </div>
           </a>
 
-          <a class="dest-card reveal delay-1" href="journeys.html?style=north#route-selector" style="--card-img: url('assets/trips/akwamu-gorge.webp')">
+          <a class="dest-card reveal delay-1" href="journeys.html?style=north#route-selector" style="--card-img: url('assets/responsive/akwamu-ridge-solo-1440.webp')">
             <div class="dest-card-img"></div>
             <div class="dest-card-body">
               <span class="dest-number">02</span>
@@ -288,7 +294,7 @@
             </div>
           </a>
 
-          <a class="dest-card reveal delay-2" href="journeys.html?style=canopy#route-selector" style="--card-img: url('assets/trips/asenema-waterfalls.webp')">
+          <a class="dest-card reveal delay-2" href="journeys.html?style=canopy#route-selector" style="--card-img: url('assets/trips/asenema-entrance.webp')">
             <div class="dest-card-img"></div>
             <div class="dest-card-body">
               <span class="dest-number">03</span>
@@ -304,7 +310,7 @@
             </div>
           </a>
 
-          <a class="dest-card reveal delay-3" href="journeys.html?style=coast#route-selector" style="--card-img: url('assets/trips/keta-camp.webp')">
+          <a class="dest-card reveal delay-3" href="journeys.html?style=coast#route-selector" style="--card-img: url('assets/trips/keta-portrait.jpg')">
             <div class="dest-card-img"></div>
             <div class="dest-card-body">
               <span class="dest-number">04</span>
@@ -319,19 +325,35 @@
               <span class="dest-arrow">&rarr;</span>
             </div>
           </a>
+
+          <a class="dest-card reveal" href="journeys.html?style=ada#route-selector" style="--card-img: url('assets/responsive/ada-nkyinkyim-close-portrait-1440.webp')">
+            <div class="dest-card-img"></div>
+            <div class="dest-card-body">
+              <span class="dest-number">05</span>
+              <div>
+                <span class="dest-type">Museum / lagoon day</span>
+                <h3 class="dest-name">Ada / Nkyinkyim Museum</h3>
+                <p class="dest-desc">
+                  Sculpture grounds, water movement, portrait frames,
+                  and a route with a different kind of quiet.
+                </p>
+              </div>
+              <span class="dest-arrow">&rarr;</span>
+            </div>
+          </a>
         </div>
       </section>
 
       <section class="story-bleed reveal">
         <div class="story-bleed-bg">
           <img
-            src="assets/trips/keta-camp.webp"
-            alt="Adventures of Life crew together at Keta tent village"
+            src="assets/trips/keta-portrait.jpg"
+            alt="Traveller portrait from the Keta 3 Days trip by the beach chalets"
             loading="lazy"
             decoding="async"
             class="story-bleed-img"
-            width="960"
-            height="1280"
+            width="1440"
+            height="1920"
           />
           <div class="story-bleed-overlay"></div>
         </div>
@@ -355,11 +377,167 @@
         </div>
       </section>
 
+      <section class="shell section trip-catalogue">
+        <div class="trip-catalogue-intro reveal">
+          <div>
+            <p class="eyebrow">Trip catalogue / Ada</p>
+            <h2>Ada / Nkyinkyim Museum as a sequence, not a single hero shot.</h2>
+          </div>
+          <div class="trip-catalogue-copy">
+            <p class="lead">
+              The museum frame, the boat crossing, the lagoon edge, the portrait beats, the quiet in between.
+              This is how each trip should live on the site: as a memory file with range.
+            </p>
+            <a
+              class="button button-secondary"
+              data-whatsapp-link
+              data-message="Hello Adventures of Life, I want to ask about the Ada and Nkyinkyim Museum trip."
+              href="#">
+              Ask about Ada
+            </a>
+          </div>
+        </div>
+
+        <div class="trip-catalogue-grid">
+          <article class="trip-catalogue-card is-featured reveal">
+            <div class="visual-placeholder has-photo is-cinema accent-gold" style="--photo-position: center 34%;">
+              <img
+                class="visual-photo"
+                src="assets/responsive/ada-nkyinkyim-monument-group-1440.webp"
+                srcset="
+                  assets/responsive/ada-nkyinkyim-monument-group-960.webp 960w,
+                  assets/responsive/ada-nkyinkyim-monument-group-1440.webp 1440w
+                "
+                sizes="(min-width: 48rem) 66vw, 100vw"
+                alt="Group frame at Ada and Nkyinkyim Museum."
+                loading="lazy"
+                decoding="async"
+                width="6034"
+                height="4024" />
+              <div class="visual-copy">
+                <span class="visual-kicker">Monument frame</span>
+                <strong>The image that anchors the whole trip.</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="trip-catalogue-card reveal delay-1">
+            <div class="visual-placeholder has-photo accent-lagoon" style="--photo-position: center 52%;">
+              <img
+                class="visual-photo"
+                src="assets/responsive/ada-nkyinkyim-water-edge-1440.webp"
+                srcset="
+                  assets/responsive/ada-nkyinkyim-water-edge-960.webp 960w,
+                  assets/responsive/ada-nkyinkyim-water-edge-1440.webp 1440w
+                "
+                sizes="(min-width: 48rem) 33vw, 100vw"
+                alt="Water-edge moment from the Ada trip."
+                loading="lazy"
+                decoding="async"
+                width="6034"
+                height="4024" />
+              <div class="visual-copy">
+                <span class="visual-kicker">Lagoon edge</span>
+                <strong>The route opens up after the museum stop.</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="trip-catalogue-card reveal delay-2">
+            <div class="visual-placeholder has-photo accent-clay" style="--photo-position: center 48%;">
+              <img
+                class="visual-photo"
+                src="assets/responsive/ada-nkyinkyim-boat-ride-1440.webp"
+                srcset="
+                  assets/responsive/ada-nkyinkyim-boat-ride-960.webp 960w,
+                  assets/responsive/ada-nkyinkyim-boat-ride-1440.webp 1440w
+                "
+                sizes="(min-width: 48rem) 33vw, 100vw"
+                alt="Boat ride during the Ada and Nkyinkyim Museum trip."
+                loading="lazy"
+                decoding="async"
+                width="6034"
+                height="4024" />
+              <div class="visual-copy">
+                <span class="visual-kicker">Boat crossing</span>
+                <strong>The transfer is part of the memory, not dead time.</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="trip-catalogue-card reveal">
+            <div class="visual-placeholder has-photo accent-canopy" style="--photo-position: center 34%;">
+              <img
+                class="visual-photo"
+                src="assets/responsive/ada-nkyinkyim-portrait-pair-1440.webp"
+                srcset="
+                  assets/responsive/ada-nkyinkyim-portrait-pair-960.webp 960w,
+                  assets/responsive/ada-nkyinkyim-portrait-pair-1440.webp 1440w
+                "
+                sizes="(min-width: 48rem) 33vw, 100vw"
+                alt="Two-traveller portrait at Ada and Nkyinkyim Museum."
+                loading="lazy"
+                decoding="async"
+                width="4024"
+                height="6034" />
+              <div class="visual-copy">
+                <span class="visual-kicker">Portrait beat</span>
+                <strong>The quieter frames matter just as much.</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="trip-catalogue-card reveal delay-1">
+            <div class="visual-placeholder has-photo accent-gold" style="--photo-position: center 42%;">
+              <img
+                class="visual-photo"
+                src="assets/responsive/ada-nkyinkyim-candid-1440.webp"
+                srcset="
+                  assets/responsive/ada-nkyinkyim-candid-960.webp 960w,
+                  assets/responsive/ada-nkyinkyim-candid-1440.webp 1440w
+                "
+                sizes="(min-width: 48rem) 33vw, 100vw"
+                alt="Candid crew moment from the Ada trip."
+                loading="lazy"
+                decoding="async"
+                width="6034"
+                height="4024" />
+              <div class="visual-copy">
+                <span class="visual-kicker">Off-script</span>
+                <strong>The trip always gets better once people settle in.</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="trip-catalogue-card reveal delay-2">
+            <div class="visual-placeholder has-photo accent-lagoon" style="--photo-position: center 50%;">
+              <img
+                class="visual-photo"
+                src="assets/responsive/ada-nkyinkyim-hammock-1440.webp"
+                srcset="
+                  assets/responsive/ada-nkyinkyim-hammock-960.webp 960w,
+                  assets/responsive/ada-nkyinkyim-hammock-1440.webp 1440w
+                "
+                sizes="(min-width: 48rem) 33vw, 100vw"
+                alt="Quiet hammock moment from the Ada trip."
+                loading="lazy"
+                decoding="async"
+                width="6034"
+                height="4024" />
+              <div class="visual-copy">
+                <span class="visual-kicker">Quiet beat</span>
+                <strong>Not every memory from the day has to shout.</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section class="shell section">
         <div class="section-wash section-wash-blue reveal">
           <div class="proof-grid">
-            <article class="visual-placeholder has-photo is-cinema accent-lagoon proof-story-visual" style="--photo-position: center 38%;">
-              <img class="visual-photo" src="assets/trips/adakluto-group.webp" alt="Adventures of Life group on the Hike Adakluto route." width="960" height="1280" loading="lazy" decoding="async" />
+            <article class="visual-placeholder has-photo is-cinema accent-lagoon proof-story-visual" style="--photo-position: center 36%;">
+              <img class="visual-photo" src="assets/responsive/ada-nkyinkyim-portrait-pair-1440.webp" alt="Portrait pair from the Ada and Nkyinkyim Museum trip." width="4024" height="6034" loading="lazy" decoding="async" />
               <div class="visual-copy">
                 <span class="visual-kicker">On the route</span>
                 <strong>Real crews, not brochure models</strong>
@@ -370,22 +548,22 @@
               <h2>Good terrain gets attention. Good hosting is what people remember.</h2>
               <p class="lead">The route is only half of it. The rest is the way the day is held together: the timing, the stop choices, the crew energy, and the feeling that someone competent is quietly carrying the whole thing.</p>
               <div class="proof-photo-strip">
-                <article class="visual-placeholder has-photo proof-photo accent-canopy" style="--photo-position: center 40%;">
-                  <img class="visual-photo" src="assets/trips/asenema-group.webp" alt="Small Adventures of Life crew at Asenema Waterfalls." width="960" height="1280" loading="lazy" decoding="async" />
+                <article class="visual-placeholder has-photo proof-photo accent-canopy" style="--photo-position: center 42%;">
+                  <img class="visual-photo" src="assets/responsive/ada-nkyinkyim-candid-1440.webp" alt="Candid crew moment from Ada and Nkyinkyim Museum." width="6034" height="4024" loading="lazy" decoding="async" />
                   <div class="visual-copy">
                     <span class="visual-kicker">Small crews</span>
                     <strong>Enough space for names, jokes, and actual group chemistry.</strong>
                   </div>
                 </article>
                 <article class="visual-placeholder has-photo proof-photo accent-lagoon" style="--photo-position: center 46%;">
-                  <img class="visual-photo" src="assets/trips/lake-volta.webp" alt="Lake Volta stop on an Adventures of Life route." width="960" height="1276" loading="lazy" decoding="async" />
+                  <img class="visual-photo" src="assets/responsive/ada-nkyinkyim-water-edge-1440.webp" alt="Water-edge stop on the Ada and Nkyinkyim Museum route." width="6034" height="4024" loading="lazy" decoding="async" />
                   <div class="visual-copy">
                     <span class="visual-kicker">Local timing</span>
                     <strong>Stops shaped by road flow, weather, and the light on the ground.</strong>
                   </div>
                 </article>
-                <article class="visual-placeholder has-photo proof-photo accent-gold" style="--photo-position: center 38%;">
-                  <img class="visual-photo" src="assets/trips/fort-pr.webp" alt="Historic coastal stop on an Adventures of Life trip." width="960" height="1280" loading="lazy" decoding="async" />
+                <article class="visual-placeholder has-photo proof-photo accent-gold" style="--photo-position: center 42%;">
+                  <img class="visual-photo" src="assets/trips/akwamu-boat.webp" alt="Boat approach on an Adventures of Life trip." width="960" height="1280" loading="lazy" decoding="async" />
                   <div class="visual-copy">
                     <span class="visual-kicker">Visual proof</span>
                     <strong>The route is easier to trust when the archive is already real.</strong>
@@ -406,7 +584,7 @@
           <article class="moment-card reveal">
             <div class="moment-time">5:30am</div>
             <div class="visual-placeholder has-photo compact accent-gold" style="--photo-position: center 54%;">
-              <img class="visual-photo" src="assets/trips/adakluto-start.webp" alt="Early start on the Hike Adakluto route." loading="lazy" decoding="async" width="960" height="1280" />
+              <img class="visual-photo" src="assets/responsive/adakluto-beginning-5-1440.webp" alt="Early start on the Hike Adakluto route." loading="lazy" decoding="async" width="1440" height="1920" />
             </div>
             <div class="moment-copy">
               <h3>Nobody expected to be up this early.</h3>
@@ -416,7 +594,7 @@
           <article class="moment-card reveal delay-1">
             <div class="moment-time">Midday</div>
             <div class="visual-placeholder has-photo compact accent-lagoon" style="--photo-position: 58% center;">
-              <img class="visual-photo" src="assets/trips/akwamu-gorge.webp" alt="Climb and summit view on the Akwamu Gorge route." loading="lazy" decoding="async" width="960" height="1276" />
+              <img class="visual-photo" src="assets/responsive/akwamu-crew-1280.webp" alt="Crew frame on the Akwamu Gorge route." loading="lazy" decoding="async" width="1280" height="1701" />
             </div>
             <div class="moment-copy">
               <h3>The view from the top.</h3>
@@ -426,7 +604,7 @@
           <article class="moment-card reveal delay-2">
             <div class="moment-time">Afternoon</div>
             <div class="visual-placeholder has-photo compact accent-canopy" style="--photo-position: center 38%;">
-              <img class="visual-photo" src="assets/trips/asenema-group.webp" alt="Crew moment on the Asenema Waterfalls route." loading="lazy" decoding="async" width="960" height="1280" />
+              <img class="visual-photo" src="assets/responsive/ada-nkyinkyim-portrait-close-1440.webp" alt="Quiet portrait moment from Ada and Nkyinkyim Museum." loading="lazy" decoding="async" width="6034" height="4024" />
             </div>
             <div class="moment-copy">
               <h3>You came as strangers.</h3>
@@ -436,7 +614,7 @@
           <article class="moment-card reveal delay-3">
             <div class="moment-time">Sundown</div>
             <div class="visual-placeholder has-photo compact accent-clay" style="--photo-position: center 56%;">
-              <img class="visual-photo" src="assets/trips/keta-tent-village.webp" alt="Tent village light on the Keta 3 Days route." loading="lazy" decoding="async" width="960" height="1280" />
+              <img class="visual-photo" src="assets/trips/fort-pr.webp" alt="Fort stop on the Keta 3 Days route." loading="lazy" decoding="async" width="960" height="1280" />
             </div>
             <div class="moment-copy">
               <h3>The moment nobody photographs.</h3>
@@ -486,7 +664,7 @@
           </div>
           <div class="mosaic-grid">
             <article class="visual-placeholder has-photo is-wide accent-lagoon" style="--photo-position: center 38%;">
-              <img class="visual-photo" src="assets/trips/adakluto-hero.webp" alt="Travel group posing together on Hike Adakluto." width="1440" height="1080" loading="lazy" decoding="async" />
+              <img class="visual-photo" src="assets/responsive/akwamu-overlook-1440.webp" alt="Wide Akwamu Gorge overlook." width="1440" height="1914" loading="lazy" decoding="async" />
               <div class="visual-copy">
                 <span class="visual-kicker">Crew archive</span>
                 <strong>Shared frame</strong>
@@ -500,10 +678,10 @@
               </div>
             </article>
             <article class="visual-placeholder has-photo accent-canopy" style="--photo-position: center 46%;">
-              <img class="visual-photo" src="assets/trips/lake-volta.webp" alt="Lake Volta stop on an Adventures of Life route." width="960" height="1276" loading="lazy" decoding="async" />
+              <img class="visual-photo" src="assets/responsive/ada-nkyinkyim-boat-ride-1440.webp" alt="Boat ride from the Ada and Nkyinkyim Museum trip." width="6034" height="4024" loading="lazy" decoding="async" />
               <div class="visual-copy">
-                <span class="visual-kicker">Roadside pause</span>
-                <strong>Lake Volta light</strong>
+                <span class="visual-kicker">Lagoon crossing</span>
+                <strong>On the move</strong>
               </div>
             </article>
           </div>
@@ -516,7 +694,7 @@
           <h2>Ready to move?<br /><em style="color: var(--lagoon); font-style: italic;">Tell us the terrain you want.</em></h2>
         </div>
         <p class="lead reveal" style="margin-bottom: 1.5rem;">
-          Keep it simple. Say Hike Adakluto, Keta 3 Days, Asenema Waterfalls, Akwamu Gorge, or private group. Zico reviews the inquiry and shapes the trip from there.
+          Keep it simple. Say Hike Adakluto, Keta 3 Days, Asenema Waterfalls, Akwamu Gorge, Ada / Nkyinkyim Museum, or private group. Zico reviews the inquiry and shapes the trip from there.
         </p>
         <div class="contact-layout">
           <form class="glass-panel contact-form reveal" id="contact-form">
@@ -536,6 +714,7 @@
                 <option>Keta 3 Days</option>
                 <option>Asenema Waterfalls</option>
                 <option>Akwamu Gorge</option>
+                <option>Ada / Nkyinkyim Museum</option>
                 <option>Private group</option>
                 <option>Custom</option>
               </select>
@@ -549,7 +728,7 @@
           </form>
           <aside class="glass-panel contact-side reveal delay-1">
             <article class="visual-placeholder has-photo is-portrait accent-gold" style="--photo-position: center 44%;">
-              <img class="visual-photo" src="assets/trips/keta-tent-village.webp" alt="Keta tent village on the contact route brief." width="960" height="1280" loading="lazy" decoding="async" />
+              <img class="visual-photo" src="assets/responsive/ada-nkyinkyim-portrait-close-1440.webp" alt="Portrait frame from the Ada and Nkyinkyim Museum route." width="6034" height="4024" loading="lazy" decoding="async" />
               <div class="visual-copy">
                 <span class="visual-kicker">Route brief</span>
                 <strong>Tell us your mood</strong>
@@ -629,7 +808,7 @@
       </svg>
     </a>
 
-    <script src="script.js?v=20260320-2" defer></script>
+    <script src="script.js?v=20260327-3" defer></script>
   </body>
 </html>
 
