@@ -809,9 +809,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Footer year.
   const setCurrentYear = () => {
-    document.querySelectorAll("[data-year]").forEach((node) => {
-      node.textContent = String(new Date().getFullYear());
-    });
+    document
+      .querySelectorAll('[data-year]')
+      .forEach(el => el.textContent = new Date().getFullYear());
   };
 
   // Smooth in-page anchor scrolling.

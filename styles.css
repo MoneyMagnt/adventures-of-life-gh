@@ -1221,36 +1221,18 @@ small {
 }
 
 .reason-icon {
-  position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 1.75rem;
-  color: transparent;
-  font-size: 0;
   line-height: 1;
 }
 
-.reason-icon::before {
-  font-family: var(--font-accent);
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-  color: var(--horizon);
-}
-
-.reason-card:nth-child(1) .reason-icon::before {
-  content: "01";
-}
-
-.reason-card:nth-child(2) .reason-icon::before {
-  content: "02";
-}
-
-.reason-card:nth-child(3) .reason-icon::before {
-  content: "03";
-}
-
-.reason-card:nth-child(4) .reason-icon::before {
-  content: "04";
+.reason-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: var(--accent);
+  display: block;
 }
 
 .reason-card h3 {
