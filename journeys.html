@@ -45,7 +45,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="styles.css?v=20260327-4" />
+    <link rel="stylesheet" href="styles.css?v=20260330-2" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -202,7 +202,7 @@
           <button class="journey-tab selector-tab is-active" type="button" data-style="summit" aria-selected="true">
             <span class="jtab-num">01</span>
             <span class="jtab-name route-tab-name">Hike Adakluto</span>
-            <span class="jtab-sub">Lake ridge hike</span>
+            <span class="jtab-sub">Adakluto trail day</span>
           </button>
           <button class="journey-tab selector-tab" type="button" data-style="north" aria-selected="false">
             <span class="jtab-num">02</span>
@@ -234,46 +234,46 @@
               <img
                 class="visual-photo"
                 id="selector-img"
-                src="assets/responsive/adakluto-hero-1440.webp"
-                alt="Hike Adakluto route"
+                src="assets/trips/adakluto-trail-preview.jpg"
+                alt="Adventures of Life crew on the Hike Adakluto route"
                 loading="lazy"
                 decoding="async"
-                width="1440"
-                height="1080" />
+                width="576"
+                height="768" />
               <div class="visual-copy">
                 <span class="visual-kicker">On this route</span>
-                <strong id="selector-visual-label">Peak arrival</strong>
+                <strong id="selector-visual-label">Trail start</strong>
               </div>
             </div>
           </div>
 
           <div class="journey-panel-info">
             <div class="journey-panel-header">
-              <p class="eyebrow" id="selector-type">Lake ridge hike</p>
+              <p class="eyebrow" id="selector-type">Adakluto trail day</p>
               <h2 id="selector-title" style="font-size: clamp(2rem, 5vw, 3.2rem);">Hike Adakluto</h2>
-              <p class="lead" id="selector-summary">Peak views, ridge steps, Lake Volta air.</p>
+              <p class="lead" id="selector-summary">Trail start, summit push, full-crew peak frame.</p>
             </div>
 
             <div class="journey-info-grid">
               <div>
                 <span class="meta-line">Where</span>
                 <p id="selector-includes" style="font-weight: 600; color: var(--cream); margin-top: 0.25rem;">
-                  Adakluto ridge / Lake Volta overlook / return climb
+                  Trail start / stair sections / summit marker
                 </p>
               </div>
               <div>
                 <span class="meta-line">Who it's for</span>
                 <p id="selector-audience" style="font-weight: 600; color: var(--cream); margin-top: 0.25rem;">
-                  First-timers / ridge hikers / crew energy
+                  First-time hikers / small crews / climb-for-the-photo energy
                 </p>
               </div>
             </div>
 
             <ul class="journey-highlights" id="selector-highlights">
               <li>Trail start</li>
-              <li>Ridgeline climb</li>
-              <li>Lake Volta stop</li>
-              <li>Group frame</li>
+              <li>Steep stair section</li>
+              <li>Peak marker</li>
+              <li>Group summit</li>
             </ul>
 
             <div class="journey-zico-note">
@@ -293,72 +293,47 @@
         <div class="journey-story reveal delay-2">
           <div class="journey-story-copy">
             <p class="eyebrow">Trip gallery</p>
-            <h2 id="selector-story-title">The day moves from trail dust to open water.</h2>
+            <h2 id="selector-story-title">The route builds from first step to summit frame.</h2>
             <p id="selector-story-summary">
-              Adakluto starts with the climb, opens into Lake Volta views, and ends with the kind of group photos
-              people actually keep.
+              Adakluto is less about variety and more about the climb itself: trail first, steeper sections after,
+              then the summit marker and the full-crew photo at the top.
             </p>
           </div>
-          <div class="journey-story-gallery" id="selector-gallery" aria-live="polite">
-            <article class="journey-gallery-card is-featured">
-              <div class="visual-placeholder has-photo journey-gallery-visual accent-gold" style="--photo-position: center 52%;">
+          <div class="journey-story-media">
+            <article class="journey-gallery-stage">
+              <div class="visual-placeholder has-photo journey-gallery-stage-visual accent-gold" id="selector-stage-frame" style="--photo-position: center 46%;">
                 <img
                   class="visual-photo"
-                  src="assets/responsive/adakluto-peak-sign-1440.webp"
-                  alt="Peak marker frame from the Hike Adakluto trip."
+                  id="selector-stage-img"
+                  src="assets/trips/adakluto-beginning-preview.jpg"
+                  alt="Early trail start on the Hike Adakluto route."
                   loading="lazy"
-                  decoding="async" />
+                  decoding="async"
+                  width="576"
+                  height="768" />
                 <div class="visual-copy">
-                  <span class="visual-kicker">Peak marker</span>
-                  <strong>The route starts feeling real once the summit signs appear.</strong>
+                  <span class="visual-kicker" id="selector-stage-kicker">Trail start</span>
+                  <strong id="selector-stage-title">The route opens quietly before the steeper sections begin.</strong>
                 </div>
               </div>
+              <button class="journey-stage-open" type="button" id="selector-stage-open">Open full frame</button>
             </article>
-            <article class="journey-gallery-card">
-              <div class="visual-placeholder has-photo journey-gallery-visual accent-gold" style="--photo-position: center 38%;">
-                <img
-                  class="visual-photo"
-                  src="assets/responsive/adakluto-ridge-close-1440.webp"
-                  alt="Ridgeline close frame on the Hike Adakluto route."
-                  loading="lazy"
-                  decoding="async" />
-                <div class="visual-copy">
-                  <span class="visual-kicker">Ridgeline</span>
-                  <strong>The route tightens before the whole view opens.</strong>
-                </div>
-              </div>
-            </article>
-            <article class="journey-gallery-card">
-              <div class="visual-placeholder has-photo journey-gallery-visual accent-lagoon" style="--photo-position: center 44%;">
-                <img
-                  class="visual-photo"
-                  src="assets/trips/lake-volta.webp"
-                  alt="Lake Volta stop on Hike Adakluto."
-                  loading="lazy"
-                  decoding="async" />
-                <div class="visual-copy">
-                  <span class="visual-kicker">Lake Volta</span>
-                  <strong>Water and sky take over the frame.</strong>
-                </div>
-              </div>
-            </article>
-            <article class="journey-gallery-card">
-              <div class="visual-placeholder has-photo journey-gallery-visual accent-canopy" style="--photo-position: center 42%;">
-                <img
-                  class="visual-photo"
-                  src="assets/responsive/adakluto-summit-group-1440.webp"
-                  alt="Summit group frame from Hike Adakluto."
-                  loading="lazy"
-                  decoding="async" />
-                <div class="visual-copy">
-                  <span class="visual-kicker">Summit crowd</span>
-                  <strong>The route ends with a frame nobody wants to rush.</strong>
-                </div>
-              </div>
-            </article>
+            <div class="journey-story-gallery" id="selector-gallery" aria-label="Trip gallery thumbnails"></div>
           </div>
         </div>
       </section>
+
+      <div class="journey-lightbox" id="journey-lightbox" hidden aria-hidden="true">
+        <div class="journey-lightbox-backdrop" data-lightbox-close></div>
+        <div class="journey-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Route image viewer">
+          <button class="journey-lightbox-close" type="button" id="journey-lightbox-close" aria-label="Close full view">&times;</button>
+          <img class="journey-lightbox-image" id="journey-lightbox-img" src="assets/trips/adakluto-beginning-preview.jpg" alt="Early trail start on the Hike Adakluto route." />
+          <div class="journey-lightbox-copy">
+            <span class="visual-kicker" id="journey-lightbox-kicker">Trail start</span>
+            <strong id="journey-lightbox-title">The route opens quietly before the steeper sections begin.</strong>
+          </div>
+        </div>
+      </div>
 
       <div class="journe-quote-bleed">
         <div class="shell">
@@ -382,8 +357,8 @@
             <div class="visual-placeholder has-photo accent-clay" style="min-height: 22rem; --photo-position: 62% center;">
               <img
                 class="visual-photo"
-                src="assets/responsive/adakluto-beginning-5-1440.webp"
-                alt="Early climb on the Hike Adakluto route"
+                src="assets/responsive/adakluto-peak-wide-1440.webp"
+                alt="Wide peak frame on the Hike Adakluto route"
                 loading="lazy"
                 decoding="async"
                 width="960"
@@ -399,8 +374,8 @@
             <div class="visual-placeholder has-photo accent-lagoon" style="min-height: 22rem; --photo-position: center 44%;">
               <img
                 class="visual-photo"
-                src="assets/trips/keta-portrait.jpg"
-                alt="Traveller portrait during the Keta 3 Days route"
+                src="assets/trips/keta-chalets.webp"
+                alt="Beach chalet frame during the Keta 3 Days route"
                 loading="lazy"
                 decoding="async"
                 width="1440"
@@ -416,8 +391,8 @@
             <div class="visual-placeholder has-photo accent-gold" style="min-height: 22rem; --photo-position: center 46%;">
               <img
                 class="visual-photo"
-                src="assets/trips/asenema-portrait.webp"
-                alt="Quiet moment on the Asenema Waterfalls route"
+                src="assets/responsive/ada-nkyinkyim-portrait-pair-1440.webp"
+                alt="Pair portrait frame from the Ada and Nkyinkyim Museum route"
                 loading="lazy"
                 decoding="async"
                 width="960"
@@ -433,8 +408,8 @@
             <div class="visual-placeholder has-photo accent-canopy" style="min-height: 22rem; --photo-position: center 58%;">
               <img
                 class="visual-photo"
-                src="assets/responsive/akwamu-overlook-1440.webp"
-                alt="Akwamu Gorge ridge payoff"
+                src="assets/trips/asenema-portrait.webp"
+                alt="Portrait frame on the Asenema Waterfalls route"
                 loading="lazy"
                 decoding="async"
                 width="960"
@@ -573,7 +548,7 @@
       </svg>
     </a>
 
-    <script src="script.js?v=20260327-4" defer></script>
+    <script src="script.js?v=20260330-3" defer></script>
   </body>
 </html>
 

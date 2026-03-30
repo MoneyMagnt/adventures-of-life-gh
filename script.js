@@ -22,49 +22,57 @@ document.addEventListener("DOMContentLoaded", () => {
   const travelStyles = {
     summit: {
       title: "Hike Adakluto",
-      typeLabel: "Lake ridge hike",
-      summary: "Peak views, ridge steps, Lake Volta air.",
-      audience: "First-timers · ridge hikers · crew energy",
-      includes: "Adakluto ridge / Lake Volta overlook / return climb",
-      visual: "Peak arrival",
-      imgSrc: "assets/responsive/adakluto-hero-1440.webp",
+      typeLabel: "Adakluto trail day",
+      summary: "Trail start, summit push, full-crew peak frame.",
+      audience: "First-time hikers · small crews · climb-for-the-photo energy",
+      includes: "Trail start / stair sections / summit marker",
+      visual: "Trail start",
+      imgSrc: "assets/trips/adakluto-trail-preview.jpg",
       imgAlt: "Adventures of Life crew on the Hike Adakluto route.",
-      highlights: ["Trail start", "Ridgeline climb", "Lake Volta stop", "Group frame"],
-      storyTitle: "The day moves from trail dust to open water.",
+      highlights: ["Trail start", "Steep stair section", "Peak marker", "Group summit"],
+      storyTitle: "The route builds from first step to summit frame.",
       storySummary:
-        "Adakluto starts with the climb, opens into Lake Volta views, and ends with the kind of group photos people actually keep.",
+        "Adakluto is less about variety and more about the climb itself: trail first, steeper sections after, then the summit marker and the full-crew photo at the top.",
       gallery: [
         {
-          src: "assets/responsive/adakluto-peak-sign-1440.webp",
-          alt: "Peak marker frame from the Hike Adakluto trip.",
-          kicker: "Peak marker",
-          title: "The route starts feeling real once the summit signs appear.",
+          src: "assets/trips/adakluto-beginning-preview.jpg",
+          alt: "Early trail start on the Hike Adakluto route.",
+          kicker: "Trail start",
+          title: "The route opens quietly before the steeper sections begin.",
           accent: "accent-gold",
-          position: "center 52%",
+          position: "center 46%",
+        },
+        {
+          src: "assets/trips/adakluto-trail-preview.jpg",
+          alt: "Trail frame from Hike Adakluto.",
+          kicker: "Trail section",
+          title: "The first stretch still feels easy, but the climb is already building.",
+          accent: "accent-clay",
+          position: "center 48%",
         },
         {
           src: "assets/responsive/adakluto-ridge-close-1440.webp",
-          alt: "Ridgeline close frame on the Hike Adakluto route.",
-          kicker: "Ridgeline",
-          title: "The route tightens before the whole view opens.",
+          alt: "Steeper section on Hike Adakluto.",
+          kicker: "Steep section",
+          title: "This is where the climb stops being casual and starts feeling earned.",
           accent: "accent-gold",
           position: "center 38%",
         },
         {
-          src: "assets/trips/lake-volta.webp",
-          alt: "Lake Volta stop on Hike Adakluto.",
-          kicker: "Lake Volta",
-          title: "Water and sky take over the frame.",
+          src: "assets/trips/adakluto-peak-preview.jpg",
+          alt: "Peak marker on Hike Adakluto.",
+          kicker: "Peak marker",
+          title: "At the top, everyone stops for the frame they came to earn.",
           accent: "accent-lagoon",
           position: "center 44%",
         },
         {
-          src: "assets/responsive/adakluto-summit-group-1440.webp",
-          alt: "Summit group frame from Hike Adakluto.",
-          kicker: "Summit crowd",
-          title: "The route ends with a frame nobody wants to rush.",
+          src: "assets/responsive/adakluto-group-peak-1440.webp",
+          alt: "Peak group frame from Hike Adakluto.",
+          kicker: "Group summit",
+          title: "The summit group photo is the part people keep going back to.",
           accent: "accent-canopy",
-          position: "center 42%",
+          position: "center 46%",
         },
       ],
       style: "summit",
@@ -75,19 +83,19 @@ document.addEventListener("DOMContentLoaded", () => {
       summary: "Tent village, sea air, sunrise water, late-night energy.",
       audience: "Weekend crews · social travellers · beach people",
       includes: "Keta / Fort Prinzenstein / beach camp",
-      visual: "Beach portrait",
-      imgSrc: "assets/trips/keta-portrait.jpg",
-      imgAlt: "Keta beach route preview portrait from the trip.",
+      visual: "Beach camp",
+      imgSrc: "assets/trips/keta-camp.webp",
+      imgAlt: "Beach camp route preview from the Keta trip.",
       highlights: ["Beach camp", "Fort stop", "Sunrise water", "Full crew energy"],
       storyTitle: "Keta feels like a weekend that keeps widening.",
       storySummary:
         "Camp first, then sea air, then the late-night stretch, then the morning after. The strongest Keta trips never feel rushed.",
       gallery: [
         {
-          src: "assets/trips/keta-portrait.jpg",
-          alt: "Beach portrait from the Keta trip.",
-          kicker: "Beach portrait",
-          title: "The route carries people as much as scenery.",
+          src: "assets/trips/keta-tent-village-2-preview.jpg",
+          alt: "Tent village frame from the Keta trip.",
+          kicker: "Tent village",
+          title: "The route starts feeling real the moment the tents touch the sand.",
           accent: "accent-gold",
           position: "center 46%",
         },
@@ -100,12 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
           position: "center 52%",
         },
         {
-          src: "assets/trips/keta-camp.webp",
-          alt: "Beach camp setup on the Keta trip.",
-          kicker: "Camp setup",
-          title: "Then the route settles into the shoreline.",
-          accent: "accent-canopy",
-          position: "center 52%",
+          src: "assets/trips/keta-beachline.webp",
+          alt: "Beachline frame from the Keta trip.",
+          kicker: "Shoreline",
+          title: "By the end, the route feels wider than the schedule ever did.",
+          accent: "accent-lagoon",
+          position: "center 48%",
         },
       ],
       style: "coast",
@@ -116,8 +124,8 @@ document.addEventListener("DOMContentLoaded", () => {
       summary: "Forest entry, cold water payoff, all-crew momentum.",
       audience: "Nature seekers · waterfall crews · soft adventure",
       includes: "Asenema entrance / waterfall trail / forest route",
-      visual: "Falls arrival",
-      imgSrc: "assets/trips/asenema-waterfalls.webp",
+      visual: "Group frame",
+      imgSrc: "assets/trips/asenema-group-preview.jpg",
       imgAlt: "Adventures of Life group at Asenema Waterfalls.",
       highlights: ["Entrance climb", "Waterfall arrival", "Group swim", "Forest photos"],
       storyTitle: "The forest keeps building tension until the water hits.",
@@ -125,12 +133,36 @@ document.addEventListener("DOMContentLoaded", () => {
         "Asenema is less about distance and more about payoff. Every part of the route is moving toward that first cold-water moment.",
       gallery: [
         {
-          src: "assets/trips/asenema-portrait.webp",
-          alt: "Traveler seated at the rocks at Asenema Waterfalls.",
+          src: "assets/trips/asenema-entrance-preview.jpg",
+          alt: "Trail entrance at Asenema Waterfalls.",
+          kicker: "Trail entry",
+          title: "The route already feels different before the water comes into view.",
+          accent: "accent-gold",
+          position: "center 44%",
+        },
+        {
+          src: "assets/trips/asenema-waterfalls.webp",
+          alt: "Waterfall arrival at Asenema.",
+          kicker: "Falls arrival",
+          title: "Then the route lands on the frame everyone came for.",
+          accent: "accent-lagoon",
+          position: "center 46%",
+        },
+        {
+          src: "assets/trips/asenema-fitcheck-preview.jpg",
+          alt: "Fitcheck portrait from the Asenema Waterfalls trip.",
           kicker: "Quiet beat",
-          title: "Even the still moments look cinematic.",
+          title: "Even the still moments on this route come out looking intentional.",
           accent: "accent-lagoon",
           position: "center 44%",
+        },
+        {
+          src: "assets/trips/asenema-crew.webp",
+          alt: "Crew moment at Asenema Waterfalls.",
+          kicker: "Crew frame",
+          title: "The group always tightens once the cold water hits.",
+          accent: "accent-canopy",
+          position: "center 42%",
         },
       ],
       style: "canopy",
@@ -141,14 +173,22 @@ document.addEventListener("DOMContentLoaded", () => {
       summary: "Steep climb, ridge payoff, photos that travel far.",
       audience: "Fit groups · challenge seekers · visual climbers",
       includes: "Akwamu Gorge / summit trail / canopy stop",
-      visual: "Ridge payoff",
-      imgSrc: "assets/responsive/akwamu-overlook-1440.webp",
-      imgAlt: "Wide overlook on the Akwamu Gorge route.",
+      visual: "Peak pull",
+      imgSrc: "assets/trips/akwamu-peak-preview.jpg",
+      imgAlt: "Peak view on the Akwamu Gorge route.",
       highlights: ["Station meet-up", "Gorge climb", "Top-view payoff", "Canopy stop"],
       storyTitle: "Akwamu is the hard route with the right reward.",
       storySummary:
         "It starts with movement, gets steeper fast, then opens into one of those lookout points that resets the whole group.",
       gallery: [
+        {
+          src: "assets/trips/akwamu-peak-preview.jpg",
+          alt: "Peak view from Akwamu Gorge.",
+          kicker: "Peak pull",
+          title: "The climb opens into the frame that makes the whole route click.",
+          accent: "accent-clay",
+          position: "center 40%",
+        },
         {
           src: "assets/responsive/akwamu-climb-portrait-1440.webp",
           alt: "Climb portrait on the Akwamu Gorge route.",
@@ -166,11 +206,27 @@ document.addEventListener("DOMContentLoaded", () => {
           position: "center 38%",
         },
         {
-          src: "assets/responsive/akwamu-ridge-group-1440.webp",
-          alt: "Ridge group frame during the Akwamu Gorge climb.",
+          src: "assets/trips/akwamu-boat.webp",
+          alt: "Boat-side frame connected to the Akwamu Gorge route.",
+          kicker: "Water break",
+          title: "The route keeps changing pace so the day never flattens out.",
+          accent: "accent-lagoon",
+          position: "center 48%",
+        },
+        {
+          src: "assets/responsive/akwamu-crew-1280.webp",
+          alt: "Ridge frame during the Akwamu Gorge climb.",
           kicker: "Ridge frame",
           title: "The higher the group gets, the looser the energy becomes.",
           accent: "accent-lagoon",
+          position: "center 44%",
+        },
+        {
+          src: "assets/trips/laura-akwamu.webp",
+          alt: "Crew member frame from the Akwamu Gorge trip.",
+          kicker: "Crew portrait",
+          title: "Some of the people who return strongest started on this route.",
+          accent: "accent-gold",
           position: "center 44%",
         },
       ],
@@ -182,8 +238,8 @@ document.addEventListener("DOMContentLoaded", () => {
       summary: "Sculpture grounds, lagoon movement, quiet portrait frames.",
       audience: "Culture seekers · soft adventure · camera-first crews",
       includes: "Nkyinkyim Museum / Ada / lagoon crossing",
-      visual: "Museum arrival",
-      imgSrc: "assets/responsive/ada-nkyinkyim-sculpture-field-1440.webp",
+      visual: "Quiet frames",
+      imgSrc: "assets/responsive/ada-nkyinkyim-candid-1440.webp",
       imgAlt: "Ada and Nkyinkyim Museum route preview.",
       highlights: ["Museum grounds", "Boat crossing", "Portrait frames", "Lagoon stop"],
       storyTitle: "Ada shifts from monument scale to quieter water-side moments.",
@@ -191,36 +247,36 @@ document.addEventListener("DOMContentLoaded", () => {
         "The route starts in the sculpture grounds, loosens up on the move, and ends with the kind of portrait and lagoon frames that make the day feel longer than it was.",
       gallery: [
         {
-          src: "assets/responsive/ada-nkyinkyim-walk-1440.webp",
-          alt: "Walking frame from Ada and Nkyinkyim Museum.",
-          kicker: "Arrival walk",
-          title: "The first frames are already part of the story.",
-          accent: "accent-gold",
-          position: "center 42%",
-        },
-        {
-          src: "assets/responsive/ada-nkyinkyim-close-portrait-1440.webp",
-          alt: "Close portrait from Ada and Nkyinkyim Museum.",
+          src: "assets/responsive/ada-nkyinkyim-portrait-close-1440.webp",
+          alt: "Single portrait from Ada and Nkyinkyim Museum.",
           kicker: "Portrait beat",
           title: "The route leaves room for quieter pictures too.",
           accent: "accent-lagoon",
-          position: "center 36%",
-        },
-        {
-          src: "assets/responsive/ada-nkyinkyim-portrait-close-1440.webp",
-          alt: "Single portrait from Ada and Nkyinkyim Museum.",
-          kicker: "Closer frame",
-          title: "Not every memory from the day has to be wide.",
-          accent: "accent-clay",
           position: "center 38%",
         },
         {
-          src: "assets/responsive/ada-nkyinkyim-lagoon-portrait-1440.webp",
-          alt: "Lagoon-side portrait from Ada and Nkyinkyim Museum.",
-          kicker: "Lagoon side",
+          src: "assets/responsive/ada-nkyinkyim-boat-ride-1440.webp",
+          alt: "Boat ride frame from Ada and Nkyinkyim Museum.",
+          kicker: "Boat crossing",
+          title: "The route keeps moving between sculpture, water, and people.",
+          accent: "accent-clay",
+          position: "center 46%",
+        },
+        {
+          src: "assets/responsive/ada-nkyinkyim-water-edge-1440.webp",
+          alt: "Water-edge frame from Ada and Nkyinkyim Museum.",
+          kicker: "Water edge",
           title: "By the end, the route turns almost still.",
           accent: "accent-canopy",
           position: "center 48%",
+        },
+        {
+          src: "assets/responsive/ada-nkyinkyim-monument-group-1440.webp",
+          alt: "Group frame from Ada and Nkyinkyim Museum.",
+          kicker: "Monument group",
+          title: "The route holds its biggest group memory in the sculpture grounds too.",
+          accent: "accent-lagoon",
+          position: "center 44%",
         },
       ],
       style: "ada",
@@ -240,14 +296,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const easeInOutCubic = (progress) =>
     progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2;
 
-  // Shared icon sprite.
   const ensureIconSprite = () => {
     if (!document.getElementById("aol-icon-sprite")) {
       console.warn("Missing inline social icon sprite.");
     }
   };
 
-  // Shared helpers.
   const buildWhatsAppLink = (message) => {
     const encodedMessage = encodeURIComponent((message || DEFAULT_WHATSAPP_MESSAGE).trim());
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
@@ -355,7 +409,6 @@ document.addEventListener("DOMContentLoaded", () => {
     image.addEventListener("error", reveal, { once: true });
   };
 
-  // WhatsApp link hydration.
   const setupWhatsAppLinks = () => {
     const links = document.querySelectorAll("[data-whatsapp-link]");
     const noteTargets = document.querySelectorAll("[data-whatsapp-note]");
@@ -372,7 +425,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Mobile navigation.
   const setupMobileMenu = () => {
     const toggle = document.querySelector("[data-menu-toggle]");
     const panel = document.querySelector("[data-menu-panel]");
@@ -412,7 +464,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Intersection-based reveal system.
   const setupRevealAnimations = () => {
     const items = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
 
@@ -445,7 +496,6 @@ document.addEventListener("DOMContentLoaded", () => {
     items.forEach((item) => observer.observe(item));
   };
 
-  // Active navigation state.
   const highlightCurrentPage = () => {
     const currentPage = document.body.dataset.page;
 
@@ -463,7 +513,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Subtle scroll parallax for hero photos.
   const setupHeroParallax = () => {
     if (!hoverQuery.matches || prefersReducedMotion()) {
       return;
@@ -497,7 +546,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", requestTick, { passive: true });
   };
 
-  // Atlas mouse tilt via CSS variables.
   const setupAtlasTilt = () => {
     const stage = document.querySelector(".atlas-stage");
 
@@ -563,7 +611,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Travel style selector on journeys page.
   const setupTravelStyleSelector = () => {
     const tabs = Array.from(document.querySelectorAll(".selector-tab"));
     const type = document.getElementById("selector-type");
@@ -580,6 +627,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const storyTitle = document.getElementById("selector-story-title");
     const storySummary = document.getElementById("selector-story-summary");
     const storyGallery = document.getElementById("selector-gallery");
+    const stageFrame = document.getElementById("selector-stage-frame");
+    const stageImage = document.getElementById("selector-stage-img");
+    const stageKicker = document.getElementById("selector-stage-kicker");
+    const stageTitle = document.getElementById("selector-stage-title");
+    const stageOpen = document.getElementById("selector-stage-open");
+    const lightbox = document.getElementById("journey-lightbox");
+    const lightboxImage = document.getElementById("journey-lightbox-img");
+    const lightboxKicker = document.getElementById("journey-lightbox-kicker");
+    const lightboxTitle = document.getElementById("journey-lightbox-title");
+    const lightboxClose = document.getElementById("journey-lightbox-close");
+    const lightboxBackdrop = lightbox?.querySelector("[data-lightbox-close]");
+
+    let activeGalleryStyle = null;
+    let activeGalleryIndex = 0;
 
     if (!tabs.length || !title || !summary || !includes || !visualLabel || !highlights || !preview || !visualPhoto) {
       return;
@@ -605,6 +666,68 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
+    const setFrameAccent = (frame, styleKey, itemAccent) => {
+      if (!frame) {
+        return;
+      }
+
+      Object.values(travelStyleAccents).forEach((accentClass) => {
+        frame.classList.remove(accentClass);
+      });
+
+      const accentClass = itemAccent || travelStyleAccents[styleKey];
+
+      if (accentClass) {
+        frame.classList.add(accentClass);
+      }
+    };
+
+    const getThumbSrc = (src) => {
+      if (typeof src !== "string") {
+        return src;
+      }
+
+      if (src.includes("-1440.webp")) {
+        return src.replace("-1440.webp", "-960.webp");
+      }
+
+      if (src.includes("-1280.webp")) {
+        return src.replace("-1280.webp", "-960.webp");
+      }
+
+      return src;
+    };
+
+    const openLightbox = () => {
+      if (!lightbox || !activeGalleryStyle) {
+        return;
+      }
+
+      const item = activeGalleryStyle.gallery?.[activeGalleryIndex];
+
+      if (!item || !lightboxImage || !lightboxKicker || !lightboxTitle) {
+        return;
+      }
+
+      lightbox.hidden = false;
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("has-lightbox-open");
+      lightboxImage.src = item.src;
+      lightboxImage.alt = item.alt;
+      lightboxKicker.textContent = item.kicker;
+      lightboxTitle.textContent = item.title;
+    };
+
+    const closeLightbox = () => {
+      if (!lightbox) {
+        return;
+      }
+
+      lightbox.hidden = true;
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("has-lightbox-open");
+    };
+
     const animatePreview = () => {
       if (prefersReducedMotion()) {
         return;
@@ -628,44 +751,74 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     };
 
+    const setActiveGalleryItem = (style, index = 0) => {
+      if (!storyGallery || !stageFrame || !stageImage || !stageKicker || !stageTitle || !Array.isArray(style.gallery)) {
+        return;
+      }
+
+      const boundedIndex = clamp(index, 0, style.gallery.length - 1);
+      const item = style.gallery[boundedIndex];
+
+      if (!item) {
+        return;
+      }
+
+      activeGalleryStyle = style;
+      activeGalleryIndex = boundedIndex;
+      stageFrame.style.setProperty("--photo-position", item.position || "center");
+      setFrameAccent(stageFrame, style.style, item.accent);
+      stageImage.src = item.src;
+      stageImage.alt = item.alt;
+      stageKicker.textContent = item.kicker;
+      stageTitle.textContent = item.title;
+      refreshVisualImage(stageImage);
+
+      if (lightbox && !lightbox.hidden && lightboxImage && lightboxKicker && lightboxTitle) {
+        lightboxImage.src = item.src;
+        lightboxImage.alt = item.alt;
+        lightboxKicker.textContent = item.kicker;
+        lightboxTitle.textContent = item.title;
+      }
+
+      storyGallery.querySelectorAll(".journey-thumb").forEach((thumb, thumbIndex) => {
+        const isActive = thumbIndex === boundedIndex;
+        thumb.classList.toggle("is-active", isActive);
+        thumb.setAttribute("aria-selected", String(isActive));
+      });
+    };
+
     const renderGallery = (style) => {
       if (!storyGallery || !Array.isArray(style.gallery)) {
         return;
       }
 
       storyGallery.replaceChildren();
+      activeGalleryStyle = style;
 
       style.gallery.forEach((item, index) => {
-        const article = document.createElement("article");
-        article.className = `journey-gallery-card${index === 0 ? " is-featured" : ""}`;
+        const thumb = document.createElement("button");
+        thumb.type = "button";
+        thumb.className = "journey-thumb";
+        thumb.setAttribute("aria-label", `${style.title}: ${item.kicker}`);
+        thumb.setAttribute("aria-selected", "false");
 
-        const frame = document.createElement("div");
-        frame.className = `visual-placeholder has-photo journey-gallery-visual ${item.accent || travelStyleAccents[style.style] || ""}`.trim();
-        frame.style.setProperty("--photo-position", item.position || "center");
+        const thumbImage = document.createElement("img");
+        thumbImage.className = "journey-thumb-image";
+        thumbImage.src = getThumbSrc(item.src);
+        thumbImage.alt = item.alt;
+        thumbImage.loading = "lazy";
+        thumbImage.decoding = "async";
 
-        const image = document.createElement("img");
-        image.className = "visual-photo";
-        image.src = item.src;
-        image.alt = item.alt;
-        image.loading = "lazy";
-        image.decoding = "async";
+        const thumbText = document.createElement("span");
+        thumbText.className = "journey-thumb-label";
+        thumbText.textContent = item.kicker;
 
-        const copy = document.createElement("div");
-        copy.className = "visual-copy";
-
-        const kicker = document.createElement("span");
-        kicker.className = "visual-kicker";
-        kicker.textContent = item.kicker;
-
-        const strong = document.createElement("strong");
-        strong.textContent = item.title;
-
-        copy.append(kicker, strong);
-        frame.append(image, copy);
-        article.append(frame);
-        storyGallery.append(article);
-        refreshVisualImage(image);
+        thumb.append(thumbImage, thumbText);
+        thumb.addEventListener("click", () => setActiveGalleryItem(style, index));
+        storyGallery.append(thumb);
       });
+
+      setActiveGalleryItem(style, 0);
     };
 
     const renderStyle = (key, { animate = false } = {}) => {
@@ -727,9 +880,18 @@ document.addEventListener("DOMContentLoaded", () => {
         renderStyle(key, { animate: true });
       });
     });
+
+    stageOpen?.addEventListener("click", openLightbox);
+    stageFrame?.addEventListener("click", openLightbox);
+    lightboxClose?.addEventListener("click", closeLightbox);
+    lightboxBackdrop?.addEventListener("click", closeLightbox);
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox && !lightbox.hidden) {
+        closeLightbox();
+      }
+    });
   };
 
-  // Formspree contact form.
   const setupContactForm = () => {
     const form = document.getElementById("contact-form");
     const response = document.getElementById("form-response");
@@ -800,21 +962,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Blur-up lazy images.
   const setupLazyImages = () => {
     document.querySelectorAll('img[loading="lazy"]').forEach((image) => {
       refreshVisualImage(image);
     });
   };
 
-  // Footer year.
   const setCurrentYear = () => {
     document
       .querySelectorAll('[data-year]')
       .forEach(el => el.textContent = new Date().getFullYear());
   };
 
-  // Smooth in-page anchor scrolling.
   const setupSmoothAnchorScroll = () => {
     document.addEventListener("click", (event) => {
       const link = event.target.closest('a[href^="#"]');

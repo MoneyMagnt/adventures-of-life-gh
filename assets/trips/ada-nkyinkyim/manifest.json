@@ -1,0 +1,67 @@
+{
+  "slug": "ada-nkyinkyim",
+  "title": "Ada and Nkyinkyim Museum",
+  "cover": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-cover.webp",
+  "gallery": [
+    {
+      "src": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-cover.webp",
+      "alt": "Group frame at Ada and Nkyinkyim Museum.",
+      "caption": "Main group frame at the museum pillars."
+    },
+    {
+      "src": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-walk.webp",
+      "alt": "Walking portrait from Ada and Nkyinkyim Museum.",
+      "caption": "Walking into the museum grounds."
+    },
+    {
+      "src": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-monument-group.webp",
+      "alt": "Crew at the Nkyinkyim Museum monument.",
+      "caption": "The monument frame that anchors the trip story."
+    },
+    {
+      "src": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-close-portrait.webp",
+      "alt": "Portrait frame in front of the museum monument.",
+      "caption": "Close portrait against the carved structure."
+    },
+    {
+      "src": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-portrait-pair.webp",
+      "alt": "Two-traveller portrait at Ada and Nkyinkyim Museum.",
+      "caption": "Paired portrait on the museum path."
+    },
+    {
+      "src": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-portrait-close.webp",
+      "alt": "Single-traveller portrait at Ada and Nkyinkyim Museum.",
+      "caption": "Close face-forward portrait for the gallery."
+    },
+    {
+      "src": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-sculpture-field.webp",
+      "alt": "Sculpture field at Ada and Nkyinkyim Museum.",
+      "caption": "Environmental frame from the sculpture grounds."
+    },
+    {
+      "src": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-water-edge.webp",
+      "alt": "Water-edge view during the Ada trip.",
+      "caption": "Transition from museum stop to waterfront mood."
+    },
+    {
+      "src": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-boat-ride.webp",
+      "alt": "Boat ride on the Ada trip.",
+      "caption": "On the water segment of the route."
+    },
+    {
+      "src": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-candid.webp",
+      "alt": "Candid moment from the Ada trip.",
+      "caption": "Candid crew frame away from the main group shot."
+    },
+    {
+      "src": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-hammock.webp",
+      "alt": "Hammock scene from the Ada trip.",
+      "caption": "Resting beat to break up the gallery rhythm."
+    },
+    {
+      "src": "assets/trips/ada-nkyinkyim/ada-nkyinkyim-lagoon-portrait.webp",
+      "alt": "Lagoon-side portrait from the Ada trip.",
+      "caption": "Closing portrait to end the trip catalogue."
+    }
+  ]
+}

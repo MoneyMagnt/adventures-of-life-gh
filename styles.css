@@ -2531,13 +2531,19 @@ textarea {
 .dest-card-img {
   position: absolute;
   inset: 0;
-  background-image: var(--card-img);
-  background-size: cover;
-  background-position: center;
   transition: transform 400ms ease;
 }
 
-.dest-card:hover .dest-card-img {
+.dest-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.dest-card:hover .dest-card-img,
+.dest-card:hover .dest-card-photo {
   transform: scale(1.05);
 }
 
@@ -2701,12 +2707,25 @@ textarea {
   transform: translateY(-4px);
 }
 
-.moment-time {
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
+body[data-page="home"] .moment-card .visual-placeholder {
+  min-height: 15rem;
+  background:
+    radial-gradient(circle at top, rgba(var(--accent-rgb), 0.12), transparent 38%),
+    #12181a;
+}
+
+body[data-page="home"] .moment-card .visual-photo {
+  object-fit: contain;
+  object-position: center center;
+  transform: none;
+}
+
+body[data-page="home"] .moment-card .visual-placeholder::after {
+  background: linear-gradient(
+    to top,
+    rgba(7, 11, 12, 0.32) 0%,
+    rgba(7, 11, 12, 0.08) 100%
+  );
 }
 
 .moment-copy {
@@ -4065,26 +4084,146 @@ body[data-page="home"] {
   max-width: 56ch;
 }
 
-.journey-story-gallery {
+.journey-story-media {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.journey-gallery-card {
-  min-width: 0;
+.journey-gallery-stage {
+  display: grid;
+  gap: 0.75rem;
 }
 
-.journey-gallery-card.is-featured {
-  grid-column: 1 / -1;
+.journey-gallery-stage-visual {
+  min-height: clamp(18rem, 46vw, 31rem);
+  background: #101416;
 }
 
-.journey-gallery-visual {
-  min-height: 13rem;
+.journey-gallery-stage-visual .visual-photo {
+  object-fit: contain;
+  object-position: center center;
+  transform: none;
 }
 
-.journey-gallery-card.is-featured .journey-gallery-visual {
-  min-height: 20rem;
+.journey-stage-open {
+  justify-self: start;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--cream);
+  border-radius: 999px;
+  padding: 0.55rem 0.95rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.journey-story-gallery {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.journey-thumb {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.45rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.journey-thumb:hover,
+.journey-thumb:focus-visible {
+  border-color: var(--accent-border);
+  transform: translateY(-2px);
+}
+
+.journey-thumb.is-active {
+  border-color: var(--accent);
+  background: var(--accent-pale);
+}
+
+.journey-thumb-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: calc(var(--radius-xl) - 0.3rem);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.journey-thumb-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--cream);
+}
+
+.journey-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+}
+
+.journey-lightbox[hidden] {
+  display: none;
+}
+
+.journey-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 7, 9, 0.82);
+  backdrop-filter: blur(0.4rem);
+}
+
+.journey-lightbox-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 72rem);
+  max-height: 88vh;
+  margin: 6vh auto;
+  padding: 1rem;
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--glass-border);
+  background: #0f1417;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.journey-lightbox-close {
+  justify-self: end;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--cream);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.journey-lightbox-image {
+  width: 100%;
+  max-height: 68vh;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: var(--radius-xl);
+  background: #0a0f11;
+}
+
+.journey-lightbox-copy {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.has-lightbox-open {
+  overflow: hidden;
 }
 
 .journey-info-grid {
@@ -4118,9 +4257,12 @@ body[data-page="home"] {
 }
 
 .journey-highlights li::before {
-  content: "✓";
-  color: var(--accent);
-  font-size: 0.72rem;
+  content: "";
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
 }
 
 .journey-zico-note {
@@ -4276,6 +4418,10 @@ body[data-page="home"] {
     align-items: start;
   }
 
+  .journey-story-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .route-strip {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -4305,16 +4451,7 @@ body[data-page="home"] {
   }
 
   .journey-story-gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .journey-gallery-card.is-featured {
-    grid-column: auto;
-  }
-
-  .journey-gallery-visual,
-  .journey-gallery-card.is-featured .journey-gallery-visual {
-    min-height: 14rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .route-strip {
@@ -4906,44 +5043,6 @@ body[data-page="home"] {
   }
 }
 
-.trip-catalogue {
-  display: grid;
-  gap: 2rem;
-}
-
-.trip-catalogue-intro {
-  display: grid;
-  gap: 1.25rem;
-}
-
-.trip-catalogue-intro h2 {
-  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
-  max-width: 18ch;
-}
-
-.trip-catalogue-copy {
-  display: grid;
-  gap: 1rem;
-  max-width: 42rem;
-}
-
-.trip-catalogue-grid {
-  display: grid;
-  gap: 1rem;
-}
-
-.trip-catalogue-card {
-  overflow: hidden;
-}
-
-.trip-catalogue-card .visual-placeholder {
-  min-height: 18rem;
-}
-
-.trip-catalogue-card.is-featured .visual-placeholder {
-  min-height: 24rem;
-}
-
 body[data-page="home"] .hero-cinematic .hero-bg-img {
   object-position: center center;
 }
@@ -4958,52 +5057,26 @@ body[data-page="home"] .hero-bg {
     #071116;
 }
 
-@media (min-width: 48rem) {
-  .trip-catalogue-intro {
-    grid-template-columns: 1.05fr 0.95fr;
-    align-items: end;
-  }
-
-  .trip-catalogue-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .trip-catalogue-card.is-featured {
-    grid-column: span 2;
-  }
-
-  .trip-catalogue-card.is-featured .visual-placeholder {
-    min-height: 30rem;
-  }
-}
-
 @media (max-width: 47.99rem) {
   .visual-placeholder.has-photo,
   .hero-bg,
   .story-bleed-bg,
   .page-hero-bg {
-    background: #06080a;
+    background: #0b1114;
   }
 
   .visual-photo {
-    object-fit: contain;
-    object-position: center center;
+    object-fit: cover;
+    object-position: var(--photo-position, center center);
     transform: none;
   }
 
   .hero-bg-img,
   .story-bleed-img,
   .page-hero-img {
-    object-fit: contain;
+    object-fit: cover;
     object-position: center center;
-    background: #06080a;
-  }
-
-  .dest-card-img {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #06080a;
+    background: #0b1114;
   }
 
   .hero-cinematic {
@@ -5017,17 +5090,22 @@ body[data-page="home"] .hero-bg {
 }
 
 body[data-page="journeys"] .visual-placeholder.has-photo {
-  background: #06080a;
+  background:
+    radial-gradient(circle at top, rgba(var(--accent-rgb), 0.16), transparent 34%),
+    #0f1618;
 }
 
-body[data-page="journeys"] .visual-photo {
+body[data-page="journeys"] .selector-visual .visual-photo,
+body[data-page="journeys"] .journey-gallery-stage-visual .visual-photo {
   object-fit: contain;
   object-position: center center;
   transform: none;
 }
 
 body[data-page="journeys"] .journey-panel-photo .visual-placeholder,
-body[data-page="journeys"] .journey-gallery-visual,
-body[data-page="journeys"] .route-strip-item .visual-placeholder {
-  background: #06080a;
+body[data-page="journeys"] .journey-gallery-stage-visual {
+  background:
+    radial-gradient(circle at top, rgba(var(--accent-rgb), 0.16), transparent 34%),
+    #0f1618;
 }
+
