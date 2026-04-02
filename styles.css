@@ -2845,8 +2845,19 @@ body[data-page="home"] .moment-card .visual-placeholder::after {
   }
 
   body[data-page="home"] .hero-content {
-    padding-top: 4.75rem;
+    width: 100%;
+    max-width: none;
+    padding-top: 0;
     padding-bottom: 0;
+    padding-inline: 0;
+  }
+
+  body[data-page="home"] .hero-top {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    justify-content: flex-start;
   }
 
   body[data-page="home"] .hero-overlay {
@@ -2869,6 +2880,9 @@ body[data-page="home"] .moment-card .visual-placeholder::after {
     font-size: 0.67rem;
     background: rgba(14, 19, 22, 0.22);
     border-color: rgba(255, 255, 255, 0.32);
+    max-width: calc(100vw - 1.5rem);
+    white-space: normal;
+    line-height: 1.25;
   }
 
   body[data-page="home"] .hero-title-band {
