@@ -2745,7 +2745,7 @@ body[data-page="home"] .moment-card .visual-placeholder::after {
 
 @media (min-width: 64rem) {
   .dest-strip {
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .dest-card {
@@ -4416,7 +4416,7 @@ body[data-page="home"] {
 
 @media (min-width: 64rem) {
   .journey-tab-bar {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .journey-panel {

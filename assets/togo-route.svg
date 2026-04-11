@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Togo route notes placeholder</title>
+  <desc id="desc">Placeholder visual marking that Togo route notes and selects are being prepared.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#11171a"/>
+      <stop offset="55%" stop-color="#21363f"/>
+      <stop offset="100%" stop-color="#5f7b62"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" fill="url(#bg2)"/>
+  <rect x="120" y="110" width="1360" height="980" rx="48" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="170" y="255" fill="#f0e1c5" font-family="Arial, sans-serif" font-size="26" letter-spacing="5">CROSS-BORDER ROAD</text>
+  <text x="170" y="450" fill="#ffffff" font-family="Georgia, serif" font-size="140" font-weight="700" letter-spacing="-4">Route notes</text>
+  <text x="170" y="560" fill="#dce5df" font-family="Georgia, serif" font-size="68" font-style="italic">Selections in progress.</text>
+  <text x="170" y="700" fill="#d9d2c6" font-family="Arial, sans-serif" font-size="34">We are pulling together the strongest stops, the pacing, and the first edit of the trip gallery.</text>
+</svg>
