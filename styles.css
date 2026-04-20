@@ -8652,7 +8652,7 @@ body[data-page="about"] .reveal.is-visible {
 
 .fg-hero-stage {
   position: relative;
-  margin: 0;
+  margin: 0 0 clamp(1.4rem, 4vw, 2.4rem);
 }
 
 .fg-hero-media {
@@ -8681,7 +8681,7 @@ body[data-page="about"] .reveal.is-visible {
 .fg-hero-content {
   position: relative;
   z-index: 1;
-  padding: clamp(1.6rem, 4vw, 2.5rem) 0 0;
+  padding: 0;
 }
 
 .fg-hero-copy {
@@ -8699,15 +8699,16 @@ body[data-page="about"] .reveal.is-visible {
   max-width: calc(100% - 2rem);
   margin: 0;
   padding: 0.4rem 0.9rem;
-  border: 1px solid rgba(248, 250, 247, 0.72);
-  background: rgba(248, 250, 247, 0.78);
+  border: 1px solid rgba(248, 250, 247, 0.2);
+  background: rgba(15, 35, 24, 0.68);
   backdrop-filter: blur(8px);
   font-family: "Caveat", cursive;
   font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--fg-ink);
+  color: var(--fg-bg-raised);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.18);
 }
 
 .fg-hero-heading {
@@ -9615,7 +9616,7 @@ body[data-page="about"] .footer-social .social-link {
   }
 
   .fg-hero-content {
-    padding-top: 1.4rem;
+    padding-top: 0;
   }
 
   .fg-hero-media img {
