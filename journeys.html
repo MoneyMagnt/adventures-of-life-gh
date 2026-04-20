@@ -6,7 +6,7 @@
     <title>Journeys | Adventures of Life GH</title>
     <meta
       name="description"
-      content="Choose from real trips across Ghana and the latest cross-border road to Togo, from Hike Adakluto and Akwamu Gorge to Keta, Asenema Waterfalls, and Ada / Nkyinkyim Museum."
+      content="Follow the Adventures of Life GH 2026 route journal: Ada Island, Togo, Shai Reserve, Oboadaka Waterfall, Côte d'Ivoire, Wli Waterfalls Camp, Amedzofe, and Benin."
     />
     <meta name="author" content="Adventures of Life GH" />
     <meta name="geo.region" content="GH" />
@@ -24,7 +24,7 @@
     <meta property="og:title" content="Journeys | Adventures of Life GH" />
     <meta
       property="og:description"
-      content="Choose from real trips across Ghana and the latest cross-border road to Togo, from Hike Adakluto and Akwamu Gorge to Keta, Asenema Waterfalls, and Ada / Nkyinkyim Museum."
+      content="Follow the Adventures of Life GH 2026 route journal: Ada Island, Togo, Shai Reserve, Oboadaka Waterfall, Côte d'Ivoire, Wli Waterfalls Camp, Amedzofe, and Benin."
     />
     <meta property="og:url" content="https://adventuresoflifegh.com/journeys.html" />
     <meta property="og:image" content="https://adventuresoflifegh.com/assets/og.jpg" />
@@ -35,17 +35,840 @@
     <meta name="twitter:title" content="Journeys | Adventures of Life GH" />
     <meta
       name="twitter:description"
-      content="Choose from real trips across Ghana and the latest cross-border road to Togo, from Hike Adakluto and Akwamu Gorge to Keta, Asenema Waterfalls, and Ada / Nkyinkyim Museum."
+      content="Follow the Adventures of Life GH 2026 route journal: Ada Island, Togo, Shai Reserve, Oboadaka Waterfall, Côte d'Ivoire, Wli Waterfalls Camp, Amedzofe, and Benin."
     />
     <meta name="twitter:image" content="https://adventuresoflifegh.com/assets/og.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600&family=Caveat:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="styles.css?v=20260330-2" />
+    <link rel="stylesheet" href="styles.css?v=20260420-2" />
+    <style>
+      :root {
+        --jy-parch: #f5edd8;
+        --jy-parch-mid: #ede0c4;
+        --jy-parch-shadow: #d4c5a9;
+        --jy-parch-deep: #c8b99a;
+        --jy-ink: #2c1a0e;
+        --jy-ink-mid: #5c4033;
+        --jy-ink-light: #8b6f5c;
+        --jy-tan: #c4a882;
+        --jy-tan-light: rgba(196, 168, 130, 0.35);
+        --jy-brick: #8b3a1a;
+        --jy-brick-soft: rgba(139, 58, 26, 0.15);
+        --jy-gold: #a67c2e;
+        --jy-gold-soft: rgba(166, 124, 46, 0.2);
+        --jy-next: #2e6b4f;
+        --jy-next-soft: rgba(46, 107, 79, 0.12);
+      }
+
+      .jy-journal-wrap {
+        background: var(--jy-parch);
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .jy-journal-page {
+        position: relative;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 72px 80px 100px 140px;
+        background: var(--jy-parch);
+        background-image:
+          repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(139, 111, 92, 0.03) 2px,
+            rgba(139, 111, 92, 0.03) 3px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 2px,
+            rgba(139, 111, 92, 0.025) 2px,
+            rgba(139, 111, 92, 0.025) 3px
+          );
+        border-left: 4px solid var(--jy-parch-deep);
+        box-shadow:
+          inset 0 0 0 1px rgba(196, 168, 130, 0.2),
+          0 0 80px rgba(44, 26, 14, 0.06);
+      }
+
+      .jy-journal-page::before {
+        content: "";
+        position: absolute;
+        top: 180px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: repeating-linear-gradient(
+          transparent,
+          transparent 31px,
+          rgba(196, 168, 130, 0.28) 31px,
+          rgba(196, 168, 130, 0.28) 32px
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .jy-journal-page::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 104px;
+        width: 1px;
+        bottom: 0;
+        background: rgba(180, 60, 40, 0.18);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .jy-journal-bindings {
+        position: absolute;
+        left: -28px;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 80px 0;
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      .jy-binding-hole {
+        display: block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--jy-parch-mid);
+        border: 2px solid var(--jy-tan);
+        box-shadow:
+          inset 0 1px 3px rgba(44, 26, 14, 0.2),
+          0 1px 0 rgba(255, 255, 255, 0.4);
+      }
+
+      .jy-journal-header {
+        position: relative;
+        z-index: 2;
+        margin-bottom: 64px;
+      }
+
+      .jy-journal-label {
+        display: block;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--jy-ink-light);
+        margin-bottom: 20px;
+      }
+
+      .jy-journal-title {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+        font-weight: 700;
+        color: var(--jy-ink);
+        line-height: 1.08;
+        margin: 0 0 18px;
+        letter-spacing: -0.01em;
+      }
+
+      .jy-journal-title em {
+        font-style: italic;
+        font-weight: 400;
+        color: var(--jy-ink-mid);
+        display: block;
+        margin-top: 4px;
+      }
+
+      .jy-journal-sub {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.97rem;
+        color: var(--jy-ink-mid);
+        max-width: 540px;
+        line-height: 1.72;
+        margin: 0 0 28px;
+      }
+
+      .jy-journal-stats {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+        font-family: "Caveat", cursive;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--jy-ink-mid);
+        border-top: 1px solid var(--jy-tan);
+        padding-top: 18px;
+      }
+
+      .jy-journal-stats span {
+        position: relative;
+        padding-left: 14px;
+      }
+
+      .jy-journal-stats span::before {
+        content: "·";
+        position: absolute;
+        left: 0;
+        color: var(--jy-tan);
+      }
+
+      .jy-road-column {
+        position: relative;
+        z-index: 2;
+      }
+
+      .jy-road-ink {
+        position: absolute;
+        left: -32px;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        overflow: visible;
+        pointer-events: none;
+        z-index: 3;
+      }
+
+      .jy-road-path {
+        fill: none;
+        stroke: var(--jy-ink);
+        stroke-width: 8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.55;
+      }
+
+      .jy-stop {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 0 28px;
+        padding: 52px 0;
+        align-items: start;
+        position: relative;
+        border-bottom: 1px solid rgba(196, 168, 130, 0.2);
+        transition: background 0.3s ease;
+      }
+
+      .jy-stop:last-child {
+        border-bottom: none;
+      }
+
+      .jy-stop-node {
+        display: flex;
+        justify-content: center;
+        padding-top: 14px;
+        position: relative;
+        z-index: 4;
+      }
+
+      .jy-stop-dot {
+        display: block;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--jy-parch);
+        border: 2px solid var(--jy-ink);
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .jy-stop-dot::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--jy-ink);
+      }
+
+      .jy-stop--border .jy-stop-dot {
+        border-color: var(--jy-brick);
+        border-width: 2.5px;
+        width: 16px;
+        height: 16px;
+      }
+
+      .jy-stop--border .jy-stop-dot::after {
+        background: var(--jy-brick);
+        width: 7px;
+        height: 7px;
+      }
+
+      .jy-stop-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: start;
+        min-width: 0;
+      }
+
+      .jy-stop--l .jy-stop-content {
+        direction: rtl;
+      }
+
+      .jy-stop--l .jy-stop-info,
+      .jy-stop--l .jy-stop-photo {
+        direction: ltr;
+        text-align: left;
+      }
+
+      .jy-stop-date {
+        display: block;
+        font-family: "Caveat", cursive;
+        font-size: 0.95rem;
+        letter-spacing: 0.1em;
+        color: var(--jy-ink-light);
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      .jy-stop-name {
+        font-family: "Fraunces", serif;
+        font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+        font-weight: 700;
+        font-style: italic;
+        color: var(--jy-ink);
+        margin: 0 0 10px;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+      }
+
+      .jy-stop-desc {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.88rem;
+        color: var(--jy-ink-mid);
+        line-height: 1.68;
+        margin: 0 0 14px;
+      }
+
+      .jy-stop-tag {
+        display: inline-block;
+        font-family: "Caveat", cursive;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--jy-ink-light);
+        border: 0.8px solid var(--jy-tan);
+        padding: 3px 11px;
+        border-radius: 0;
+      }
+
+      .jy-stop-photo {
+        position: relative;
+        min-width: 0;
+      }
+
+      .jy-photo-frame {
+        position: relative;
+        display: block;
+        margin: 0;
+      }
+
+      .jy-stop--r .jy-photo-frame {
+        transform: rotate(2.2deg);
+        transform-origin: top center;
+        transition: transform 0.3s ease;
+      }
+
+      .jy-stop--l .jy-photo-frame {
+        transform: rotate(-1.8deg);
+        transform-origin: top center;
+        transition: transform 0.3s ease;
+      }
+
+      .jy-stop.hovered .jy-photo-frame {
+        transform: rotate(0.5deg) scale(1.01);
+      }
+
+      .jy-stop--l.hovered .jy-photo-frame {
+        transform: rotate(-0.5deg) scale(1.01);
+      }
+
+      .jy-tape {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 58px;
+        height: 18px;
+        background: var(--jy-tan);
+        opacity: 0.42;
+        z-index: 5;
+        border-radius: 1px;
+      }
+
+      .jy-photo-frame img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: contain;
+        object-position: center center;
+        border: 6px solid var(--jy-parch-mid);
+        outline: 1px solid var(--jy-tan);
+        background: linear-gradient(180deg, rgba(245, 237, 216, 0.96), rgba(237, 224, 196, 0.92));
+        filter: sepia(20%) brightness(0.9) saturate(0.88) contrast(1.02);
+        transition: filter 0.4s ease;
+      }
+
+      .jy-stop.hovered .jy-photo-frame img {
+        filter: sepia(8%) brightness(1) saturate(1) contrast(1);
+      }
+
+      .jy-photo-caption {
+        display: block;
+        font-family: "Caveat", cursive;
+        font-size: 0.82rem;
+        color: var(--jy-ink-light);
+        text-align: center;
+        margin-top: 8px;
+        letter-spacing: 0.04em;
+      }
+
+      .jy-passport-stamp {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 138px;
+        height: 88px;
+        border-radius: 50%;
+        border: 2.5px solid var(--jy-brick);
+        box-shadow:
+          0 0 0 5px var(--jy-parch),
+          0 0 0 7px var(--jy-brick);
+        margin-top: 22px;
+        padding: 8px;
+        gap: 2px;
+        transform: rotate(-4deg);
+        opacity: 0;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .jy-stop--l .jy-passport-stamp {
+        transform: rotate(3deg);
+      }
+
+      .jy-passport-stamp.stamp-visible {
+        opacity: 0.82;
+        transform: rotate(-4deg) scale(1);
+      }
+
+      .jy-stop--l .jy-passport-stamp.stamp-visible {
+        transform: rotate(3deg) scale(1);
+      }
+
+      .jy-stamp-country {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.52rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--jy-brick);
+        text-align: center;
+      }
+
+      .jy-stamp-label {
+        font-family: "Fraunces", serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--jy-brick);
+        text-align: center;
+      }
+
+      .jy-stamp-date {
+        font-family: "Caveat", cursive;
+        font-size: 0.65rem;
+        color: var(--jy-brick);
+        text-align: center;
+        letter-spacing: 0.14em;
+        opacity: 0.8;
+      }
+
+      .jy-stop.is-past {
+        opacity: 0.75;
+      }
+
+      .jy-stop.is-past .jy-stop-name {
+        color: var(--jy-ink-mid);
+      }
+
+      .jy-stop.is-past .jy-photo-frame img {
+        filter: sepia(40%) brightness(0.82) saturate(0.65) contrast(1);
+      }
+
+      .jy-stop.is-past .jy-stop-dot {
+        background: var(--jy-ink-light);
+        border-color: var(--jy-ink-light);
+      }
+
+      .jy-stop.is-past .jy-stop-dot::after {
+        background: var(--jy-parch);
+        width: 4px;
+        height: 4px;
+      }
+
+      .jy-stop.is-past:not(.jy-stop--border) .jy-stop-dot::before {
+        content: "✓";
+        position: absolute;
+        top: -22px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Caveat", cursive;
+        font-size: 0.75rem;
+        color: var(--jy-ink-light);
+        opacity: 0.7;
+        white-space: nowrap;
+      }
+
+      .jy-done-badge {
+        display: inline-block;
+        font-family: "Caveat", cursive;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--jy-ink-light);
+        border: 0.8px solid var(--jy-parch-shadow);
+        background: var(--jy-parch-mid);
+        padding: 2px 10px;
+        margin-left: 10px;
+        border-radius: 0;
+        vertical-align: middle;
+        opacity: 0.75;
+      }
+
+      .jy-stop.is-next {
+        background: rgba(46, 107, 79, 0.045);
+        border-left: 3px solid var(--jy-next);
+        padding-left: 16px;
+        margin-left: -19px;
+        border-radius: 0;
+      }
+
+      .jy-stop.is-next .jy-stop-dot {
+        border-color: var(--jy-next);
+        border-width: 2.5px;
+        background: var(--jy-parch);
+        box-shadow: 0 0 0 4px rgba(46, 107, 79, 0.18);
+        animation: next-pulse 2.4s ease-in-out infinite;
+      }
+
+      .jy-stop.is-next .jy-stop-dot::after {
+        background: var(--jy-next);
+        width: 7px;
+        height: 7px;
+      }
+
+      @keyframes next-pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 4px rgba(46, 107, 79, 0.18);
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(46, 107, 79, 0.08);
+        }
+      }
+
+      .jy-stop.is-next .jy-stop-name {
+        color: var(--jy-next);
+      }
+
+      .jy-stop.is-next .jy-photo-frame img {
+        filter: sepia(0%) brightness(1) saturate(1.05) contrast(1.02);
+        outline-color: rgba(46, 107, 79, 0.45);
+      }
+
+      .jy-next-ribbon {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-family: "Caveat", cursive;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--jy-next);
+        background: rgba(46, 107, 79, 0.1);
+        border: 1px solid rgba(46, 107, 79, 0.3);
+        padding: 4px 12px 4px 8px;
+        margin-bottom: 10px;
+      }
+
+      .jy-next-ribbon::before {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--jy-next);
+        animation: blink-dot 1.6s ease-in-out infinite;
+      }
+
+      @keyframes blink-dot {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.25;
+        }
+      }
+
+      .jy-stop-cta {
+        display: inline-block;
+        margin-top: 20px;
+        font-family: "Caveat", cursive;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--jy-ink-mid);
+        text-decoration: none;
+        border-bottom: 1px solid var(--jy-tan);
+        padding-bottom: 2px;
+        transition: color 0.2s, border-color 0.2s;
+        letter-spacing: 0.02em;
+      }
+
+      .jy-stop-cta:hover {
+        color: var(--jy-ink);
+        border-color: var(--jy-ink);
+      }
+
+      .jy-stop--border .jy-stop-cta {
+        color: var(--jy-brick);
+        border-color: rgba(139, 58, 26, 0.4);
+        opacity: 0.85;
+      }
+
+      .jy-stop--border .jy-stop-cta:hover {
+        opacity: 1;
+      }
+
+      .jy-stop.is-next .jy-stop-cta {
+        color: var(--jy-next);
+        border-color: rgba(46, 107, 79, 0.4);
+        opacity: 1;
+      }
+
+      .jy-stop.is-next .jy-stop-cta:hover {
+        color: #1e5038;
+        border-color: #1e5038;
+      }
+
+      .jy-reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .jy-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes dot-arrive {
+        0% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(2.4);
+          opacity: 0.35;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+      }
+
+      .jy-stop-dot.dot-arrived::after {
+        animation: dot-arrive 0.55s ease-out forwards;
+      }
+
+      .jy-cadence {
+        border-top: 1px solid var(--jy-tan);
+        margin-top: 80px;
+        padding-top: 64px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .jy-cadence-quote {
+        font-family: "Fraunces", serif;
+        font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+        font-style: italic;
+        font-weight: 400;
+        color: var(--jy-ink);
+        border-left: 3px solid var(--jy-ink-light);
+        padding-left: 26px;
+        margin: 0 0 60px;
+        max-width: 660px;
+        line-height: 1.55;
+      }
+
+      .jy-cadence-quote p {
+        margin: 0 0 12px;
+      }
+
+      .jy-cadence-quote cite {
+        display: block;
+        font-family: "Caveat", cursive;
+        font-size: 1rem;
+        font-style: normal;
+        color: var(--jy-ink-light);
+        letter-spacing: 0.04em;
+      }
+
+      .jy-cadence-phases {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 36px;
+      }
+
+      .jy-phase {
+        border-left: 2px solid var(--jy-tan);
+        padding-left: 20px;
+      }
+
+      .jy-phase-when {
+        display: block;
+        font-family: "Caveat", cursive;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: var(--jy-ink-light);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 8px;
+      }
+
+      .jy-phase-title {
+        font-family: "Fraunces", serif;
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: var(--jy-ink);
+        margin: 0 0 10px;
+        line-height: 1.2;
+      }
+
+      .jy-phase p {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.87rem;
+        color: var(--jy-ink-mid);
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      .jy-closer {
+        background: var(--jy-parch-mid) !important;
+        border-top: 1px solid var(--jy-tan) !important;
+      }
+
+      .jy-closer .journey-atlas-closer-title {
+        font-family: "Fraunces", serif;
+        color: var(--jy-ink);
+      }
+
+      .jy-closer .journey-atlas-closer-title em {
+        font-style: italic;
+        color: var(--jy-ink-mid);
+      }
+
+      .jy-closer .eyebrow {
+        color: var(--jy-ink-light);
+      }
+
+      .jy-closer .journey-atlas-closer-copy {
+        color: var(--jy-ink-mid);
+      }
+
+      .jy-closer .button-primary {
+        background: var(--jy-ink) !important;
+        color: var(--jy-parch) !important;
+        border-color: var(--jy-ink) !important;
+      }
+
+      .jy-closer .button-primary:hover {
+        background: var(--jy-ink-mid) !important;
+        border-color: var(--jy-ink-mid) !important;
+      }
+
+      .jy-closer .button-secondary {
+        border-color: var(--jy-ink) !important;
+        color: var(--jy-ink) !important;
+      }
+
+      @media (max-width: 700px) {
+        .jy-journal-page {
+          padding: 48px 24px 60px 56px;
+        }
+
+        .jy-journal-page::after {
+          left: 40px;
+        }
+
+        .jy-journal-bindings {
+          left: -18px;
+        }
+
+        .jy-binding-hole {
+          width: 12px;
+          height: 12px;
+        }
+
+        .jy-road-ink {
+          left: -20px;
+        }
+
+        .jy-stop {
+          grid-template-columns: 20px 1fr;
+          gap: 0 18px;
+          padding: 40px 0;
+        }
+
+        .jy-stop-content {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .jy-stop--l .jy-stop-content {
+          direction: ltr;
+        }
+
+        .jy-photo-frame {
+          max-width: 100%;
+        }
+
+        .jy-stop--r .jy-photo-frame,
+        .jy-stop--l .jy-photo-frame {
+          transform: rotate(1deg);
+        }
+
+        .jy-cadence-phases {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .jy-journal-stats {
+          gap: 20px;
+          flex-direction: column;
+        }
+
+        .jy-stop.is-next {
+          margin-left: -16px;
+        }
+      }
+    </style>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -189,279 +1012,318 @@
     </header>
 
     <main class="site-main">
-      <section class="shell section" id="route-selector" style="padding-top: clamp(5rem, 12vw, 8rem);">
-        <div class="journey-intro reveal" style="margin-bottom: 2rem;">
-          <p class="eyebrow">Chapter two &mdash; The trips</p>
-          <h1 style="font-size: clamp(2rem, 6vw, 3.8rem); max-width: 20ch; margin-top: 0.5rem;">
-            Pick the trip.<br />
-            Zico handles the rest.
-          </h1>
-        </div>
-
-        <div class="journey-tab-bar reveal">
-          <button class="journey-tab selector-tab is-active" type="button" data-style="summit" aria-selected="true">
-            <span class="jtab-num">01</span>
-            <span class="jtab-name route-tab-name">Hike Adakluto</span>
-            <span class="jtab-sub">Adakluto trail day</span>
-          </button>
-          <button class="journey-tab selector-tab" type="button" data-style="north" aria-selected="false">
-            <span class="jtab-num">02</span>
-            <span class="jtab-name route-tab-name">Akwamu Gorge</span>
-            <span class="jtab-sub">Gorge climb day</span>
-          </button>
-          <button class="journey-tab selector-tab" type="button" data-style="canopy" aria-selected="false">
-            <span class="jtab-num">03</span>
-            <span class="jtab-name route-tab-name">Asenema Waterfalls</span>
-            <span class="jtab-sub">Forest waterfall day</span>
-          </button>
-          <button class="journey-tab selector-tab" type="button" data-style="coast" aria-selected="false">
-            <span class="jtab-num">04</span>
-            <span class="jtab-name route-tab-name">Keta 3 Days</span>
-            <span class="jtab-sub">Beach camp weekend</span>
-          </button>
-          <button class="journey-tab selector-tab" type="button" data-style="ada" aria-selected="false">
-            <span class="jtab-num">05</span>
-            <span class="jtab-name route-tab-name">Ada / Nkyinkyim</span>
-            <span class="jtab-sub">Museum / lagoon day</span>
-          </button>
-          <button class="journey-tab selector-tab" type="button" data-style="togo" aria-selected="false">
-            <span class="jtab-num">06</span>
-            <span class="jtab-name route-tab-name">Togo</span>
-            <span class="jtab-sub">Latest trip / details soon</span>
-          </button>
-        </div>
-
-        <div class="journey-panel selector-preview reveal delay-1">
-          <div class="journey-panel-photo">
-            <div
-              class="visual-placeholder has-photo accent-gold selector-visual"
-              style="height: 100%; min-height: 28rem; --photo-position: center 28%;">
-              <img
-                class="visual-photo"
-                id="selector-img"
-                src="assets/trips/adakluto-trail-preview.jpg"
-                alt="Adventures of Life crew on the Hike Adakluto route"
-                loading="lazy"
-                decoding="async"
-                width="576"
-                height="768" />
-              <div class="visual-copy">
-                <span class="visual-kicker">On this route</span>
-                <strong id="selector-visual-label">Trail start</strong>
-              </div>
-            </div>
+      <section class="jy-journal-wrap" id="route-selector">
+        <div class="jy-journal-page">
+          <div class="jy-journal-bindings" aria-hidden="true">
+            <span class="jy-binding-hole"></span>
+            <span class="jy-binding-hole"></span>
+            <span class="jy-binding-hole"></span>
+            <span class="jy-binding-hole"></span>
+            <span class="jy-binding-hole"></span>
+            <span class="jy-binding-hole"></span>
+            <span class="jy-binding-hole"></span>
+            <span class="jy-binding-hole"></span>
           </div>
 
-          <div class="journey-panel-info">
-            <div class="journey-panel-header">
-              <p class="eyebrow" id="selector-type">Adakluto trail day</p>
-              <h2 id="selector-title" style="font-size: clamp(2rem, 5vw, 3.2rem);">Hike Adakluto</h2>
-              <p class="lead" id="selector-summary">Trail start, steep climb, and the group photo at the top.</p>
-            </div>
-
-            <div class="journey-info-grid">
-              <div>
-                <span class="meta-line">Where</span>
-                <p id="selector-includes" style="font-weight: 600; color: var(--cream); margin-top: 0.25rem;">
-                  Trail start / stair sections / summit marker
-                </p>
-              </div>
-              <div>
-                <span class="meta-line">Who it's for</span>
-                <p id="selector-audience" style="font-weight: 600; color: var(--cream); margin-top: 0.25rem;">
-                  First-time hikers / small groups / people who want a real climb
-                </p>
-              </div>
-            </div>
-
-            <ul class="journey-highlights" id="selector-highlights">
-              <li>Trail start</li>
-              <li>Steep stair section</li>
-              <li>Peak marker</li>
-              <li>Group summit</li>
-            </ul>
-
-            <div class="journey-zico-note">
-              <div class="journey-zico-badge">Z</div>
-              <p>Zico has personally walked this route. Ask him anything when you inquire.</p>
-            </div>
-
-            <a
-              class="button button-primary"
-              href="index.html#contact"
-              style="width: 100%; justify-content: center; margin-top: 0.5rem;">
-              Inquire about this route
-            </a>
-          </div>
-        </div>
-
-        <div class="journey-story reveal delay-2">
-          <div class="journey-story-copy">
-            <p class="eyebrow">Trip gallery</p>
-            <h2 id="selector-story-title">From the first step to the summit photo.</h2>
-            <p id="selector-story-summary">
-              Adakluto is a proper hiking day. You start easy, hit the steeper sections, reach the marker, take the group photo, and come down feeling like you earned it.
+          <div class="jy-journal-header">
+            <span class="jy-journal-label">Adventures of Life GH — 2026 Route Journal</span>
+            <h1 class="jy-journal-title">
+              A year pinned to the wall.<br />
+              <em>Now follow the movement.</em>
+            </h1>
+            <p class="jy-journal-sub">
+              Eight chapters already pinned to the page. The first two have happened. The rest of the year is
+              still sitting here like a journal somebody filled in before the movement began.
             </p>
+            <div class="jy-journal-stats">
+              <span>08 Dates confirmed</span>
+              <span>05 Home chapters</span>
+              <span>03 Border runs</span>
+            </div>
           </div>
-          <div class="journey-story-media">
-            <article class="journey-gallery-stage">
-              <div class="visual-placeholder has-photo journey-gallery-stage-visual accent-gold" id="selector-stage-frame" style="--photo-position: center 46%;">
-                <img
-                  class="visual-photo"
-                  id="selector-stage-img"
-                  src="assets/trips/adakluto-beginning-preview.jpg"
-                  alt="Early trail start on the Hike Adakluto route."
-                  loading="lazy"
-                  decoding="async"
-                  width="576"
-                  height="768" />
-                <div class="visual-copy">
-                  <span class="visual-kicker" id="selector-stage-kicker">Trail start</span>
-                  <strong id="selector-stage-title">The day starts gently before the real climb kicks in.</strong>
+
+          <div class="jy-road-column">
+            <svg class="jy-road-ink" viewBox="0 0 24 1320" preserveAspectRatio="none" aria-hidden="true">
+              <path class="jy-road-path" d="M12 0 C8 74 15 148 11 232 C6 318 16 390 10 484 C4 580 17 652 11 750 C5 846 17 918 10 1024 C4 1120 15 1210 11 1290 L11 1320"></path>
+            </svg>
+
+            <article class="jy-stop jy-stop--r is-past" data-stop="january">
+              <div class="jy-stop-node" aria-hidden="true">
+                <span class="jy-stop-dot"></span>
+              </div>
+              <div class="jy-stop-content">
+                <div class="jy-stop-info">
+                  <span class="jy-stop-date">31 January</span>
+                  <h2 class="jy-stop-name">Nkyinkyim Museum &amp; Ada Island <span class="jy-done-badge">Done</span></h2>
+                  <p class="jy-stop-desc">
+                    The year opened with story, shoreline, and a soft first chapter that already felt like a full day
+                    worth remembering.
+                  </p>
+                  <span class="jy-stop-tag">Museum + island day</span>
+                </div>
+                <div class="jy-stop-photo">
+                  <figure class="jy-photo-frame">
+                    <div class="jy-tape" aria-hidden="true"></div>
+                    <img src="adventurepics/THE%20NKYINKYIM%20MUSEUM%20%26%20ADA%20ISLAND%20EXPERIENCE.jpg"
+                         alt="Nkyinkyim Museum and Ada Island experience, Ghana"
+                         data-stop-photo="Nkyinkyim Museum &amp; Ada Island"
+                         loading="lazy" decoding="async"
+                         width="400" height="300" />
+                    <figcaption class="jy-photo-caption">31 Jan · Ada shoreline, Ghana</figcaption>
+                  </figure>
                 </div>
               </div>
-              <button class="journey-stage-open" type="button" id="selector-stage-open">Open full photo</button>
             </article>
-            <div class="journey-story-gallery" id="selector-gallery" aria-label="Trip gallery thumbnails"></div>
+
+            <article class="jy-stop jy-stop--l jy-stop--border is-past" data-stop="april">
+              <div class="jy-stop-node" aria-hidden="true">
+                <span class="jy-stop-dot"></span>
+              </div>
+              <div class="jy-stop-content">
+                <div class="jy-stop-info">
+                  <span class="jy-stop-date">3–5 April</span>
+                  <h2 class="jy-stop-name">The Togo Vibe Experience <span class="jy-done-badge">Done</span></h2>
+                  <p class="jy-stop-desc">
+                    The first passport stamp came early. Three days over the line, a different rhythm, and a bigger
+                    sense of where the year could go.
+                  </p>
+                  <span class="jy-stop-tag">3-day border run</span>
+                  <div class="jy-passport-stamp" aria-label="Border crossing stamp">
+                    <span class="jy-stamp-country">Togo Republic</span>
+                    <span class="jy-stamp-label">BORDER RUN</span>
+                    <span class="jy-stamp-date">03 · APR · 2026</span>
+                  </div>
+                </div>
+                <div class="jy-stop-photo">
+                  <figure class="jy-photo-frame">
+                    <div class="jy-tape" aria-hidden="true"></div>
+                    <img src="adventurepics/THE%20TOGO%20VIBE%20EXPERIENCE.jpg"
+                         alt="The Togo Vibe Experience border trip"
+                         data-stop-photo="The Togo Vibe Experience"
+                         loading="lazy" decoding="async"
+                         width="400" height="300" />
+                    <figcaption class="jy-photo-caption">3–5 Apr · Togo border chapter</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="jy-stop jy-stop--r is-next" data-stop="may">
+              <div class="jy-stop-node" aria-hidden="true">
+                <span class="jy-stop-dot"></span>
+              </div>
+              <div class="jy-stop-content">
+                <div class="jy-stop-info">
+                  <span class="jy-next-ribbon">Next up</span>
+                  <span class="jy-stop-date">23 May</span>
+                  <h2 class="jy-stop-name">Shai Reserve &amp; Kwaminga Park</h2>
+                  <p class="jy-stop-desc">
+                    Back on home ground, the road turns toward reserve terrain, open space, and the kind of stop that
+                    resets the whole page.
+                  </p>
+                  <span class="jy-stop-tag">Park terrain</span>
+                </div>
+                <div class="jy-stop-photo">
+                  <figure class="jy-photo-frame">
+                    <div class="jy-tape" aria-hidden="true"></div>
+                    <img src="adventurepics/THE%20SHAI%20RESERVE%20AND%20KWAMINGA%20PARK%20EXPERIENCE.jpg"
+                         alt="Shai Reserve and Kwaminga Park experience, Ghana"
+                         data-stop-photo="Shai Reserve &amp; Kwaminga Park"
+                         loading="lazy" decoding="async"
+                         width="400" height="300" />
+                    <figcaption class="jy-photo-caption">23 May · Reserve ground, Ghana</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="jy-stop jy-stop--l" data-stop="june">
+              <div class="jy-stop-node" aria-hidden="true">
+                <span class="jy-stop-dot"></span>
+              </div>
+              <div class="jy-stop-content">
+                <div class="jy-stop-info">
+                  <span class="jy-stop-date">27 June</span>
+                  <h2 class="jy-stop-name">Oboadaka Waterfall</h2>
+                  <p class="jy-stop-desc">
+                    A water reset after the early movement, giving the year one quiet breath before it stretches west
+                    again.
+                  </p>
+                  <span class="jy-stop-tag">Water chapter</span>
+                </div>
+                <div class="jy-stop-photo">
+                  <figure class="jy-photo-frame">
+                    <div class="jy-tape" aria-hidden="true"></div>
+                    <img src="adventurepics/Roadmap.jpg"
+                         alt="Oboadaka Waterfall, Ghana"
+                         data-stop-photo="Oboadaka Waterfall"
+                         loading="lazy" decoding="async"
+                         width="400" height="300" />
+                    <figcaption class="jy-photo-caption">27 June · Oboadaka, Ghana</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="jy-stop jy-stop--r jy-stop--border" data-stop="august">
+              <div class="jy-stop-node" aria-hidden="true">
+                <span class="jy-stop-dot"></span>
+              </div>
+              <div class="jy-stop-content">
+                <div class="jy-stop-info">
+                  <span class="jy-stop-date">27 August</span>
+                  <h2 class="jy-stop-name">4 Days in C&ocirc;te d&rsquo;Ivoire</h2>
+                  <p class="jy-stop-desc">The second border run, four days west, and the point where the wall map stops feeling local.</p>
+                  <span class="jy-stop-tag">4-day crossing</span>
+                  <div class="jy-passport-stamp" aria-label="Border crossing stamp">
+                    <span class="jy-stamp-country">C&ocirc;te d&rsquo;Ivoire</span>
+                    <span class="jy-stamp-label">BORDER RUN</span>
+                    <span class="jy-stamp-date">27 · AUG · 2026</span>
+                  </div>
+                </div>
+                <div class="jy-stop-photo">
+                  <figure class="jy-photo-frame">
+                    <div class="jy-tape" aria-hidden="true"></div>
+                    <img src="adventurepics/Roadmap.jpg"
+                         alt="Côte d'Ivoire border run"
+                         data-stop-photo="4 Days in Côte d'Ivoire"
+                         loading="lazy" decoding="async"
+                         width="400" height="300" />
+                    <figcaption class="jy-photo-caption">27 Aug · West border</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="jy-stop jy-stop--l" data-stop="october">
+              <div class="jy-stop-node" aria-hidden="true">
+                <span class="jy-stop-dot"></span>
+              </div>
+              <div class="jy-stop-content">
+                <div class="jy-stop-info">
+                  <span class="jy-stop-date">24 October</span>
+                  <h2 class="jy-stop-name">Wli Waterfalls Camp</h2>
+                  <p class="jy-stop-desc">Back into Ghana for the camp chapter, where the road trades border motion for Volta air and long-night energy.</p>
+                  <span class="jy-stop-tag">Highland camp</span>
+                </div>
+                <div class="jy-stop-photo">
+                  <figure class="jy-photo-frame">
+                    <div class="jy-tape" aria-hidden="true"></div>
+                    <img src="adventurepics/Roadmap.jpg"
+                         alt="Wli Waterfalls camp, Volta Region"
+                         data-stop-photo="Wli Waterfalls Camp"
+                         loading="lazy" decoding="async"
+                         width="400" height="300" />
+                    <figcaption class="jy-photo-caption">24 Oct · Volta Region</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="jy-stop jy-stop--r" data-stop="november">
+              <div class="jy-stop-node" aria-hidden="true">
+                <span class="jy-stop-dot"></span>
+              </div>
+              <div class="jy-stop-content">
+                <div class="jy-stop-info">
+                  <span class="jy-stop-date">28 November</span>
+                  <h2 class="jy-stop-name">Amedzofe</h2>
+                  <p class="jy-stop-desc">The highlands close the home run, carrying the year right up to the edge of the finale.</p>
+                  <span class="jy-stop-tag">Volta highlands</span>
+                </div>
+                <div class="jy-stop-photo">
+                  <figure class="jy-photo-frame">
+                    <div class="jy-tape" aria-hidden="true"></div>
+                    <img src="adventurepics/Roadmap.jpg"
+                         alt="Amedzofe, Volta highlands, Ghana"
+                         data-stop-photo="Amedzofe"
+                         loading="lazy" decoding="async"
+                         width="400" height="300" />
+                    <figcaption class="jy-photo-caption">28 Nov · Volta highlands</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="jy-stop jy-stop--l jy-stop--border" data-stop="december">
+              <div class="jy-stop-node" aria-hidden="true">
+                <span class="jy-stop-dot"></span>
+              </div>
+              <div class="jy-stop-content">
+                <div class="jy-stop-info">
+                  <span class="jy-stop-date">December</span>
+                  <h2 class="jy-stop-name">Benin / End Of Year Party</h2>
+                  <p class="jy-stop-desc">The finale. One last border run, one last stamp, and the kind of ending that makes the next year start talking to you.</p>
+                  <span class="jy-stop-tag">End of year</span>
+                  <div class="jy-passport-stamp" aria-label="Border crossing stamp">
+                    <span class="jy-stamp-country">BENIN REPUBLIC</span>
+                    <span class="jy-stamp-label">BORDER RUN</span>
+                    <span class="jy-stamp-date">DECEMBER · 2026</span>
+                  </div>
+                </div>
+                <div class="jy-stop-photo">
+                  <figure class="jy-photo-frame">
+                    <div class="jy-tape" aria-hidden="true"></div>
+                    <img src="adventurepics/Roadmap.jpg"
+                         alt="Benin end of year party"
+                         data-stop-photo="Benin / End Of Year Party"
+                         loading="lazy" decoding="async"
+                         width="400" height="300" />
+                    <figcaption class="jy-photo-caption">December · Benin</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
           </div>
+
+          <section class="jy-cadence">
+            <blockquote class="jy-cadence-quote">
+              <p>
+                "The page should already feel alive before the middle of the year. Start with culture, cross the
+                border early, come back home stronger, then close with a finale people plan around."
+              </p>
+              <cite>&mdash; Zico &middot; Founder</cite>
+            </blockquote>
+            <div class="jy-cadence-phases">
+              <article class="jy-phase">
+                <span class="jy-phase-when">January to April</span>
+                <h3 class="jy-phase-title">Set the tone early.</h3>
+                <p>Ada opens the journal with story and shoreline. Togo stamps the passport before the year even settles.</p>
+              </article>
+              <article class="jy-phase">
+                <span class="jy-phase-when">May to August</span>
+                <h3 class="jy-phase-title">Come back home, then push west.</h3>
+                <p>Shai and Oboadaka Waterfall reset the body. C&ocirc;te d&rsquo;Ivoire widens the frame and turns the journal outward again.</p>
+              </article>
+              <article class="jy-phase">
+                <span class="jy-phase-when">October to December</span>
+                <h3 class="jy-phase-title">Close in the highlands, finish across the border.</h3>
+                <p>Wli Waterfalls Camp and Amedzofe carry the home stretch. Benin gives the year its last loud page.</p>
+              </article>
+            </div>
+          </section>
         </div>
       </section>
 
-      <div class="journey-lightbox" id="journey-lightbox" hidden aria-hidden="true">
-        <div class="journey-lightbox-backdrop" data-lightbox-close></div>
-        <div class="journey-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Route image viewer">
-          <button class="journey-lightbox-close" type="button" id="journey-lightbox-close" aria-label="Close full view">&times;</button>
-          <img class="journey-lightbox-image" id="journey-lightbox-img" src="assets/trips/adakluto-beginning-preview.jpg" alt="Early trail start on the Hike Adakluto route." />
-          <div class="journey-lightbox-copy">
-            <span class="visual-kicker" id="journey-lightbox-kicker">Trail start</span>
-            <strong id="journey-lightbox-title">The day starts gently before the real climb kicks in.</strong>
-          </div>
-        </div>
-      </div>
-
-      <div class="journe-quote-bleed">
-        <div class="shell">
-          <blockquote class="journey-bleed-quote reveal">
-            <p>
-              "Every trip on this page is somewhere I have done myself before I invite anyone else. If it does not feel right, it does not go on the list."
-            </p>
-      <cite>&mdash; Zico &middot; Founder</cite>
-          </blockquote>
-        </div>
-      </div>
-
-      <section class="shell section">
-        <div class="section-header reveal">
-          <p class="eyebrow">On the route</p>
-          <h2>What actually happens<br />between the stops.</h2>
-        </div>
-
-        <div class="route-strip">
-          <div class="route-strip-item reveal">
-            <div class="visual-placeholder has-photo accent-clay" style="min-height: 22rem; --photo-position: 62% center;">
-              <img
-                class="visual-photo"
-                src="assets/responsive/adakluto-peak-wide-1440.webp"
-                alt="Wide peak frame on the Hike Adakluto route"
-                loading="lazy"
-                decoding="async"
-                width="960"
-                height="1280" />
-            </div>
-            <div class="route-strip-copy">
-              <span class="route-strip-time">On the trail</span>
-              <h3>Someone always<br />sets the pace.</h3>
-            </div>
-          </div>
-
-          <div class="route-strip-item reveal delay-1">
-            <div class="visual-placeholder has-photo accent-lagoon" style="min-height: 22rem; --photo-position: center 44%;">
-              <img
-                class="visual-photo"
-                src="assets/trips/keta-chalets.webp"
-                alt="Beach chalet frame during the Keta 3 Days route"
-                loading="lazy"
-                decoding="async"
-                width="1440"
-                height="1920" />
-            </div>
-            <div class="route-strip-copy">
-              <span class="route-strip-time">By the beach</span>
-              <h3>The ride is part of<br />the memory.</h3>
-            </div>
-          </div>
-
-          <div class="route-strip-item reveal delay-2">
-            <div class="visual-placeholder has-photo accent-gold" style="min-height: 22rem; --photo-position: center 46%;">
-              <img
-                class="visual-photo"
-                src="assets/responsive/ada-nkyinkyim-portrait-pair-1440.webp"
-                alt="Pair portrait frame from the Ada and Nkyinkyim Museum route"
-                loading="lazy"
-                decoding="async"
-                width="960"
-                height="1280" />
-            </div>
-            <div class="route-strip-copy">
-              <span class="route-strip-time">With the crew</span>
-              <h3>You will know people<br />by name.</h3>
-            </div>
-          </div>
-
-          <div class="route-strip-item reveal delay-3">
-            <div class="visual-placeholder has-photo accent-canopy" style="min-height: 22rem; --photo-position: center 58%;">
-              <img
-                class="visual-photo"
-                src="assets/trips/asenema-portrait.webp"
-                alt="Portrait frame on the Asenema Waterfalls route"
-                loading="lazy"
-                decoding="async"
-                width="960"
-                height="1276" />
-            </div>
-            <div class="route-strip-copy">
-              <span class="route-strip-time">At the end</span>
-              <h3>This is the part<br />everyone talks about later.</h3>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="shell section">
-        <div class="journey-trust-bar glass-panel reveal">
-          <div class="jtrust-item">
-            <strong>Scouted personally</strong>
-            <span>Zico walks it before you arrive</span>
-          </div>
-          <div class="jtrust-div"></div>
-          <div class="jtrust-item">
-            <strong>Small groups only</strong>
-            <span>Small enough for the day to still feel personal</span>
-          </div>
-          <div class="jtrust-div"></div>
-          <div class="jtrust-item">
-            <strong>Real Ghana</strong>
-            <span>Not the tourist-facing version</span>
-          </div>
-          <div class="jtrust-div"></div>
-          <div class="jtrust-item">
-            <strong>Just show up</strong>
-            <span>Everything else is handled</span>
-          </div>
-        </div>
-      </div>
-
-      <section class="journey-closer">
-        <div class="shell journey-closer-content">
-          <div>
-            <p class="eyebrow">Ready?</p>
-            <h2 style="font-size: clamp(2.2rem, 6vw, 4rem);">
-              The route is set.<br />
-              <em style="font-style: italic; color: var(--accent);">The only thing missing is you.</em>
-            </h2>
-          </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-            <a class="button button-primary" href="index.html#contact">Send Zico a message</a>
+      <section class="shell section journey-atlas-closer jy-closer">
+        <div class="journey-atlas-closer-inner reveal">
+          <p class="eyebrow">Ready to get on the right list?</p>
+          <h2 class="journey-atlas-closer-title">
+            Pick the month.<br />
+            <em>Send the message.</em>
+          </h2>
+          <p class="journey-atlas-closer-copy">
+            If a chapter already feels like yours, send the inquiry now. Zico can place you on the right domestic
+            or international shortlist before the slot tightens up.
+          </p>
+          <div class="journey-atlas-closer-actions">
+            <a
+              class="button button-primary"
+              data-whatsapp-link
+              data-message="Hello Adventures of Life, I want to get on the right trip list for this year."
+              href="#">
+              Send Zico a message
+            </a>
             <a class="button button-secondary" href="community.html">See who else came</a>
           </div>
         </div>
@@ -552,9 +1414,149 @@
       </svg>
     </a>
 
-    <script src="script.js?v=20260330-3" defer></script>
+    <script src="script.js?v=20260417-1" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const WA_NUMBER = "233551472190";
+        const waLink = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg.trim())}`;
+        const roadColumn = document.querySelector(".jy-road-column");
+        const roadPath = document.querySelector(".jy-road-path");
+        const stops = Array.from(document.querySelectorAll(".jy-stop"));
+        const cadQuote = document.querySelector(".jy-cadence-quote");
+        const phases = Array.from(document.querySelectorAll(".jy-phase"));
+
+        stops.forEach((stop, i) => {
+          stop.classList.add("jy-reveal");
+          stop.style.transitionDelay = `${i * 0.08}s`;
+
+          const info = stop.querySelector(".jy-stop-info");
+          const name = stop.querySelector(".jy-stop-name");
+          const date = stop.querySelector(".jy-stop-date");
+
+          if (info && name && date && !stop.classList.contains("is-past") && !info.querySelector(".jy-stop-cta")) {
+            const cleanName = name.childNodes[0].textContent.trim();
+            const cta = document.createElement("a");
+            cta.className = "jy-stop-cta";
+            cta.href = waLink(`Hello Adventures of Life, I want to ask about ${cleanName} on ${date.textContent.trim()}.`);
+            cta.target = "_blank";
+            cta.rel = "noreferrer";
+            cta.textContent = `Ask about ${cleanName} →`;
+            info.appendChild(cta);
+          }
+
+          stop.addEventListener("mouseenter", () => stop.classList.add("hovered"));
+          stop.addEventListener("mouseleave", () => stop.classList.remove("hovered"));
+        });
+
+        if (cadQuote) {
+          cadQuote.classList.add("jy-reveal");
+        }
+
+        phases.forEach((p, i) => {
+          p.classList.add("jy-reveal");
+          p.style.transitionDelay = `${0.12 + i * 0.1}s`;
+        });
+
+        if (roadPath && typeof roadPath.getTotalLength === "function") {
+          const totalLength = roadPath.getTotalLength();
+          roadPath.style.strokeDasharray = `${totalLength}`;
+          roadPath.style.strokeDashoffset = `${totalLength}`;
+
+          if (roadColumn && "IntersectionObserver" in window) {
+            const roadObserver = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (!entry.isIntersecting) {
+                    return;
+                  }
+
+                  const duration = 2800;
+                  const startTime = performance.now();
+
+                  const animateRoad = (now) => {
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    roadPath.style.strokeDashoffset = `${totalLength * (1 - eased)}`;
+
+                    if (progress < 1) {
+                      window.requestAnimationFrame(animateRoad);
+                    }
+                  };
+
+                  window.requestAnimationFrame(animateRoad);
+                  roadObserver.disconnect();
+                });
+              },
+              { threshold: 0.05 }
+            );
+
+            roadObserver.observe(roadColumn);
+          } else {
+            roadPath.style.strokeDashoffset = "0";
+          }
+        }
+
+        const revealTargets = document.querySelectorAll(".jy-reveal");
+
+        if ("IntersectionObserver" in window) {
+          const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                  return;
+                }
+
+                const target = entry.target;
+                target.classList.add("is-visible");
+
+                if (target.classList.contains("jy-stop")) {
+                  const dot = target.querySelector(".jy-stop-dot");
+                  const stamp = target.querySelector(".jy-passport-stamp");
+
+                  if (dot) {
+                    window.setTimeout(() => {
+                      dot.classList.add("dot-arrived");
+                    }, 200);
+                  }
+
+                  if (stamp) {
+                    window.setTimeout(() => {
+                      stamp.classList.add("stamp-visible");
+                    }, 400);
+                  }
+                }
+
+                observer.unobserve(target);
+              });
+            },
+            { threshold: 0.18 }
+          );
+
+          revealTargets.forEach((target) => revealObserver.observe(target));
+        } else {
+          revealTargets.forEach((target) => {
+            target.classList.add("is-visible");
+
+            if (target.classList.contains("jy-stop")) {
+              const dot = target.querySelector(".jy-stop-dot");
+              const stamp = target.querySelector(".jy-passport-stamp");
+
+              if (dot) {
+                dot.classList.add("dot-arrived");
+              }
+
+              if (stamp) {
+                stamp.classList.add("stamp-visible");
+              }
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>
+
+
 
 
 

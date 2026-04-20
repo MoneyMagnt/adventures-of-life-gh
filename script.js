@@ -28,7 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
       audience: "First-time hikers · small groups · people who want a real climb",
       includes: "Trail start / stair sections / summit marker",
       visual: "Trail start",
-      imgSrc: "assets/trips/adakluto-trail-preview.jpg",
+      imgSrc: "assets/responsive/adakluto-hero-1440.webp",
+      imgSrcSet:
+        "assets/responsive/adakluto-hero-960.webp 960w, assets/responsive/adakluto-hero-1440.webp 1440w",
+      imgSizes: "(min-width: 64rem) 55vw, 100vw",
+      fetchPriority: "high",
       imgAlt: "Adventures of Life crew on the Hike Adakluto route.",
       highlights: ["Trail start", "Steep stair section", "Peak marker", "Group summit"],
       storyTitle: "From the first step to the summit photo.",
@@ -175,7 +179,10 @@ document.addEventListener("DOMContentLoaded", () => {
       audience: "Fit groups · challenge seekers · people who do not mind sweating for the view",
       includes: "Akwamu Gorge / summit trail / canopy stop",
       visual: "At the top",
-      imgSrc: "assets/trips/akwamu-peak-preview.jpg",
+      imgSrc: "assets/responsive/akwamu-overlook-1440.webp",
+      imgSrcSet:
+        "assets/responsive/akwamu-overlook-960.webp 960w, assets/responsive/akwamu-overlook-1440.webp 1440w",
+      imgSizes: "(min-width: 64rem) 55vw, 100vw",
       imgAlt: "Peak view on the Akwamu Gorge route.",
       highlights: ["Station meet-up", "Gorge climb", "View at the top", "Canopy stop"],
       storyTitle: "Akwamu is hard on the legs and worth it at the top.",
@@ -223,10 +230,10 @@ document.addEventListener("DOMContentLoaded", () => {
           position: "center 44%",
         },
         {
-          src: "assets/trips/laura-akwamu.webp",
-          alt: "Crew member frame from the Akwamu Gorge trip.",
-          kicker: "Crew portrait",
-          title: "A lot of repeat travellers first showed up on a day like this.",
+          src: "assets/responsive/akwamu-gorge-team-1440.webp",
+          alt: "Group frame from the Akwamu Gorge trip.",
+          kicker: "Crew moment",
+          title: "The tougher days are where the group starts feeling like one.",
           accent: "accent-gold",
           position: "center 44%",
         },
@@ -239,8 +246,11 @@ document.addEventListener("DOMContentLoaded", () => {
       summary: "Museum grounds, water crossing, portraits, and an easy day out.",
       audience: "Culture lovers · slower groups · people who want a softer day",
       includes: "Nkyinkyim Museum / Ada / lagoon crossing",
-      visual: "Museum day",
+      visual: "Museum grounds",
       imgSrc: "assets/responsive/ada-nkyinkyim-candid-1440.webp",
+      imgSrcSet:
+        "assets/responsive/ada-nkyinkyim-candid-960.webp 960w, assets/responsive/ada-nkyinkyim-candid-1440.webp 1440w",
+      imgSizes: "(min-width: 64rem) 55vw, 100vw",
       imgAlt: "Ada and Nkyinkyim Museum route preview.",
       highlights: ["Museum grounds", "Boat crossing", "Group photos", "Water stop"],
       storyTitle: "Ada gives the group more room to slow down.",
@@ -284,8 +294,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     togo: {
       title: "Togo",
-      typeLabel: "Latest trip / details landing soon",
-      summary: "We just got back. The route notes and full gallery are being prepared.",
+      typeLabel: "Fresh off the road",
+      summary: "The trip is done. The first edit, route notes, and full gallery are landing next.",
       audience: "Early joiners · cross-border travellers · people watching for the next drop",
       includes: "Trip notes / photo selects / full gallery soon",
       visual: "Just back",
@@ -325,6 +335,351 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
+  const roadmapPosterSrc = "adventurepics/Roadmap.jpg";
+
+  const yearRoutes = {
+    shai: {
+      title: "Shai Hills & Kwaminga Park",
+      typeLabel: "23rd May · Domestic opener",
+      summary:
+        "The year opens on park ground: open terrain, wildlife energy, and the first confirmed date from the official 2026 poster.",
+      audience: "Early joiners · park day people · domestic crews",
+      includes: "Shai Hills / Kwaminga Park / official opener",
+      visual: "Official poster",
+      imgSrc: roadmapPosterSrc,
+      imgAlt: "Official Adventures of Life 2026 roadmap poster highlighting Shai Hills and Kwaminga Park.",
+      highlights: ["23rd May", "Park route", "Domestic opener", "Official release"],
+      storyTitle: "The official poster is where the year now starts.",
+      storySummary:
+        "Shai Hills and Kwaminga Park is the first fixed date on the roadmap, so the story begins with the published poster itself.",
+      gallery: [
+        {
+          src: roadmapPosterSrc,
+          alt: "Official Adventures of Life 2026 roadmap poster.",
+          kicker: "Official poster",
+          title: "This chapter is no longer a placeholder. It is locked into the public 2026 release.",
+          accent: "accent-gold",
+          position: "center 14%",
+        },
+        {
+          src: roadmapPosterSrc,
+          alt: "2026 roadmap poster showing the published list of Adventures of Life trips.",
+          kicker: "Date list",
+          title: "May 23 sits at the top of the list as the domestic opener for the whole year.",
+          accent: "accent-lagoon",
+          position: "center 58%",
+        },
+        {
+          src: "assets/togo-route.svg",
+          alt: "Editorial route note graphic for the selected 2026 roadmap chapter.",
+          kicker: "Field note",
+          title: "Once the poster locks the date, the route details and logistics sharpen behind it.",
+          accent: "accent-canopy",
+          position: "center center",
+        },
+      ],
+      style: "summit",
+    },
+    waterfall: {
+      title: "Waterfall",
+      typeLabel: "27th June · Domestic trip",
+      summary:
+        "June keeps the rhythm cool and simple: forest air, water at the end, and a soft reset after the opening park run.",
+      audience: "Nature lovers · easygoing groups · first timers",
+      includes: "Waterfall route / forest air / domestic reset",
+      visual: "Waterfall route",
+      imgSrc: "assets/trips/asenema-waterfalls.webp",
+      imgAlt: "Waterfall preview for the June Adventures of Life chapter.",
+      highlights: ["27th June", "Waterfall route", "Forest reset", "Domestic trip"],
+      storyTitle: "June turns the year toward water.",
+      storySummary:
+        "The roadmap keeps June simple on purpose: a waterfall chapter that cools the pace and lets the group settle.",
+      gallery: [
+        {
+          src: "assets/trips/asenema-entrance-preview.jpg",
+          alt: "Waterfall route entrance mood reference for the June chapter.",
+          kicker: "Trail entry",
+          title: "June should feel like a cleaner, easier approach into the day before the water shows itself.",
+          accent: "accent-gold",
+          position: "center 44%",
+        },
+        {
+          src: "assets/trips/asenema-waterfalls.webp",
+          alt: "Waterfall mood reference for the June Adventures of Life chapter.",
+          kicker: "Falls arrival",
+          title: "By the time the water appears, the pace of the month changes with it.",
+          accent: "accent-lagoon",
+          position: "center 46%",
+        },
+        {
+          src: "assets/trips/asenema-fitcheck-preview.jpg",
+          alt: "Quiet portrait mood reference for the June waterfall chapter.",
+          kicker: "Quiet beat",
+          title: "This chapter is less about proving something and more about letting the day breathe properly.",
+          accent: "accent-lagoon",
+          position: "center 44%",
+        },
+        {
+          src: "assets/trips/asenema-crew.webp",
+          alt: "Crew mood reference for the June waterfall chapter.",
+          kicker: "Crew moment",
+          title: "By the water, even the quieter groups start feeling like a crew.",
+          accent: "accent-canopy",
+          position: "center 42%",
+        },
+      ],
+      style: "canopy",
+    },
+    coteIvoire: {
+      title: "4 Days in Côte d'Ivoire",
+      typeLabel: "27th August · International run",
+      summary:
+        "August is the first long border chapter on the poster: passports out, four days on the road, and the calendar suddenly feels bigger.",
+      audience: "Passport-ready travellers · cross-border crews · early list people",
+      includes: "Côte d'Ivoire / 4-day run / international chapter",
+      visual: "Border chapter",
+      imgSrc: roadmapPosterSrc,
+      imgAlt: "Official Adventures of Life 2026 roadmap poster featuring the Côte d'Ivoire chapter.",
+      highlights: ["27th August", "4 days", "Côte d'Ivoire", "Border run"],
+      storyTitle: "August is where the roadmap leaves Ghana.",
+      storySummary:
+        "The first border run is already printed on the official poster, which makes August the chapter that stretches the year west.",
+      gallery: [
+        {
+          src: roadmapPosterSrc,
+          alt: "Official Adventures of Life 2026 roadmap poster featuring the Côte d'Ivoire chapter.",
+          kicker: "Poster proof",
+          title: "Côte d'Ivoire is already published as a four-day run on the 2026 roadmap.",
+          accent: "accent-sand",
+          position: "center 58%",
+        },
+        {
+          src: "assets/togo-route.svg",
+          alt: "Editorial route note graphic for a cross-border Adventures of Life chapter.",
+          kicker: "Route note",
+          title: "This is the kind of chapter where logistics, passports, and pacing matter as much as the destination.",
+          accent: "accent-lagoon",
+          position: "center center",
+        },
+        {
+          src: roadmapPosterSrc,
+          alt: "Adventures of Life 2026 roadmap poster with the date list and contact band.",
+          kicker: "Locked date",
+          title: "Once the four-day August slot is printed, the smartest move is getting onto the early inquiry list.",
+          accent: "accent-gold",
+          position: "center 84%",
+        },
+      ],
+      style: "togo",
+    },
+    wli: {
+      title: "Wli Waterfalls Camp",
+      typeLabel: "24th October · Domestic camp",
+      summary:
+        "October makes the waterfall chapter bigger: longer road energy, camp mood, and a weekend that feels properly away from the city.",
+      audience: "Camp people · waterfall lovers · weekend crews",
+      includes: "Wli Waterfalls / camp chapter / domestic route",
+      visual: "Camp chapter",
+      imgSrc: "assets/trips/asenema-group-preview.jpg",
+      imgAlt: "Waterfall camp mood reference for the October Adventures of Life chapter.",
+      highlights: ["24th October", "Wli Waterfalls", "Camp chapter", "Domestic trip"],
+      storyTitle: "October is the waterfall chapter with more weight to it.",
+      storySummary:
+        "Wli stretches the waterfall idea into a camp weekend, which gives this part of the roadmap more distance and more atmosphere.",
+      gallery: [
+        {
+          src: "assets/trips/asenema-entrance-preview.jpg",
+          alt: "Waterfall route entrance mood reference for the October chapter.",
+          kicker: "Long approach",
+          title: "The camp version of a waterfall chapter should feel like a proper approach, not a quick stop.",
+          accent: "accent-gold",
+          position: "center 44%",
+        },
+        {
+          src: "assets/trips/asenema-waterfalls.webp",
+          alt: "Waterfall mood reference for the October chapter.",
+          kicker: "Falls arrival",
+          title: "Cold water is still the payoff. October just gives it a longer frame around it.",
+          accent: "accent-lagoon",
+          position: "center 46%",
+        },
+        {
+          src: "assets/trips/asenema-crew.webp",
+          alt: "Crew mood reference for the October waterfall camp chapter.",
+          kicker: "Camp energy",
+          title: "Once the group settles in, the route stops feeling like a schedule and starts feeling like a trip.",
+          accent: "accent-canopy",
+          position: "center 42%",
+        },
+      ],
+      style: "canopy",
+    },
+    amedzofe: {
+      title: "Amedzofe",
+      typeLabel: "28th November · Highland chapter",
+      summary:
+        "November climbs back into cooler air: highland roads, ridge mood, and the last home chapter before the year crosses out again.",
+      audience: "Highland people · hikers · visual seekers",
+      includes: "Amedzofe / Volta highlands / domestic chapter",
+      visual: "Highland route",
+      imgSrc: "assets/responsive/adakluto-peak-wide-1440.webp",
+      imgSrcSet:
+        "assets/responsive/adakluto-peak-wide-960.webp 960w, assets/responsive/adakluto-peak-wide-1440.webp 1440w",
+      imgSizes: "(min-width: 64rem) 35vw, 100vw",
+      imgAlt: "Highland mood reference for the Amedzofe chapter.",
+      highlights: ["28th November", "Amedzofe", "Highland air", "Volta chapter"],
+      storyTitle: "November brings the year back into the highlands.",
+      storySummary:
+        "Amedzofe works as the calm climb before the finale: cooler air, longer views, and a route that feels more reflective than loud.",
+      gallery: [
+        {
+          src: "assets/responsive/adakluto-peak-wide-1440.webp",
+          alt: "Highland wide frame used as a mood reference for the Amedzofe chapter.",
+          kicker: "Highland mood",
+          title: "Amedzofe should feel like cool air, longer sightlines, and a quieter kind of movement.",
+          accent: "accent-gold",
+          position: "center 42%",
+        },
+        {
+          src: "assets/responsive/adakluto-ridge-close-1440.webp",
+          alt: "Ridge mood reference for the Amedzofe chapter.",
+          kicker: "Ridge line",
+          title: "The highland chapter needs a route with shape, not just a destination pin.",
+          accent: "accent-clay",
+          position: "center 38%",
+        },
+        {
+          src: "assets/responsive/adakluto-group-peak-1440.webp",
+          alt: "Group summit style mood reference for the Amedzofe chapter.",
+          kicker: "Group frame",
+          title: "By November, the strongest trips already feel like a crew by the time the photo lands.",
+          accent: "accent-canopy",
+          position: "center 46%",
+        },
+      ],
+      style: "summit",
+    },
+    benin: {
+      title: "Benin / End Of Year Party",
+      typeLabel: "December · International finale",
+      summary:
+        "The last chapter is built like a send-off: one more border crossing, a party at the end of the year, and the cleanest close on the poster.",
+      audience: "Finale people · passport-ready travellers · year-end crews",
+      includes: "Benin / end-of-year party / international finale",
+      visual: "Finale chapter",
+      imgSrc: roadmapPosterSrc,
+      imgAlt: "Official Adventures of Life 2026 roadmap poster featuring the Benin end-of-year party finale.",
+      highlights: ["December", "Benin", "End-of-year party", "International finale"],
+      storyTitle: "Benin closes the roadmap like a proper finale.",
+      storySummary:
+        "The poster does not leave the last chapter vague. December is Benin and the end-of-year party, which gives the whole year a real last page.",
+      gallery: [
+        {
+          src: roadmapPosterSrc,
+          alt: "Official Adventures of Life 2026 roadmap poster featuring the Benin finale.",
+          kicker: "Finale locked",
+          title: "The year already knows how it ends: Benin and the end-of-year party in December.",
+          accent: "accent-sand",
+          position: "center 74%",
+        },
+        {
+          src: "assets/togo-route.svg",
+          alt: "Editorial route note graphic for the year-end border finale.",
+          kicker: "Border note",
+          title: "Finale chapters need more than hype. They need enough runway for people to commit early.",
+          accent: "accent-lagoon",
+          position: "center center",
+        },
+        {
+          src: roadmapPosterSrc,
+          alt: "Adventures of Life 2026 roadmap poster showing the trip list and contact details.",
+          kicker: "Last call",
+          title: "The people who read the poster early usually get the best shot at the final list before it tightens.",
+          accent: "accent-gold",
+          position: "center 88%",
+        },
+      ],
+      style: "togo",
+    },
+  };
+
+  const yearTripSchedule = {
+    may: {
+      month: "23 May",
+      label: "Domestic opener",
+      kind: "domestic",
+      region: "Shai Hills / Kwaminga Park · Ghana",
+      mapZone: "Shai belt",
+      format: "Park day chapter",
+      status: "Locked on the 2026 poster",
+      note:
+        "The first slot is already public, which makes it the clearest place for the year to begin: one domestic opener that gets the group's chemistry moving early.",
+      route: yearRoutes.shai,
+    },
+    june: {
+      month: "27 June",
+      label: "Domestic trip",
+      kind: "domestic",
+      region: "Waterfall route · Ghana",
+      mapZone: "Waterfall line",
+      format: "Forest reset chapter",
+      status: "Confirmed on the roadmap",
+      note:
+        "June is the cool-down chapter. After the opener, the year eases into water, shade, and a softer day on the ground.",
+      route: yearRoutes.waterfall,
+    },
+    august: {
+      month: "27 August",
+      label: "International run",
+      kind: "international",
+      region: "Côte d'Ivoire · West Africa",
+      mapZone: "Côte d'Ivoire corridor",
+      format: "4-day border chapter",
+      status: "Printed on the 2026 poster",
+      note:
+        "August is not a rumor anymore. It is the first four-day international chapter already locked into the official release.",
+      route: yearRoutes.coteIvoire,
+    },
+    october: {
+      month: "24 October",
+      label: "Domestic camp",
+      kind: "domestic",
+      region: "Wli Waterfalls · Ghana",
+      mapZone: "Volta waterfall belt",
+      format: "Camp weekend chapter",
+      status: "Confirmed on the roadmap",
+      note:
+        "October gives the year its longer waterfall chapter: more road, more time outside, and a camp frame around the route.",
+      route: yearRoutes.wli,
+    },
+    november: {
+      month: "28 November",
+      label: "Highland chapter",
+      kind: "domestic",
+      region: "Amedzofe · Ghana",
+      mapZone: "Volta highlands",
+      format: "Cool-air climb chapter",
+      status: "Confirmed on the roadmap",
+      note:
+        "Amedzofe sits in the right place on the calendar: the last home chapter before the year crosses the border again.",
+      route: yearRoutes.amedzofe,
+    },
+    december: {
+      month: "December",
+      label: "International finale",
+      kind: "international",
+      region: "Benin · West Africa",
+      mapZone: "Benin finale",
+      format: "End-of-year party chapter",
+      status: "Finale already announced",
+      note:
+        "Benin closes the year as the last border chapter and the end-of-year party, which gives the whole roadmap a proper finish.",
+      route: yearRoutes.benin,
+    },
+  };
+
+  const yearTripOrder = Object.keys(yearTripSchedule);
+
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const lerp = (start, end, factor) => start + (end - start) * factor;
   const prefersReducedMotion = () => reducedMotionQuery.matches;
@@ -347,6 +702,51 @@ document.addEventListener("DOMContentLoaded", () => {
   const buildWhatsAppLink = (message) => {
     const encodedMessage = encodeURIComponent((message || DEFAULT_WHATSAPP_MESSAGE).trim());
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+  };
+
+  const setWhatsAppHref = (link, message) => {
+    if (!link) {
+      return;
+    }
+
+    const resolvedMessage = message || link.dataset.message || DEFAULT_WHATSAPP_MESSAGE;
+    link.dataset.message = resolvedMessage;
+    link.setAttribute("href", buildWhatsAppLink(resolvedMessage));
+    link.setAttribute("target", "_blank");
+    link.setAttribute("rel", "noreferrer");
+  };
+
+  const buildInquiryMessage = ({
+    routeTitle = "",
+    name = "",
+    email = "",
+    interest = "",
+    notes = "",
+  } = {}) => {
+    const selectedTrip = routeTitle || interest || "a trip";
+    const lines = [
+      "Hello Adventures of Life,",
+      `I want to ask about ${selectedTrip}.`,
+    ];
+
+    if (name) {
+      lines.push(`Name: ${name}`);
+    }
+
+    if (email) {
+      lines.push(`Email: ${email}`);
+    }
+
+    if (interest && !routeTitle) {
+      lines.push(`Trip: ${interest}`);
+    }
+
+    if (notes) {
+      lines.push(`Notes: ${notes}`);
+    }
+
+    lines.push("Please let me know the next step.");
+    return lines.join("\n");
   };
   const findHashTarget = (hash) => {
     const rawId = hash.replace(/^#/, "");
@@ -456,10 +856,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const noteTargets = document.querySelectorAll("[data-whatsapp-note]");
 
     links.forEach((link) => {
-      const message = link.dataset.message || DEFAULT_WHATSAPP_MESSAGE;
-      link.setAttribute("href", buildWhatsAppLink(message));
-      link.setAttribute("target", "_blank");
-      link.setAttribute("rel", "noreferrer");
+      setWhatsAppHref(link, link.dataset.message || DEFAULT_WHATSAPP_MESSAGE);
     });
 
     noteTargets.forEach((note) => {
@@ -653,27 +1050,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  const setupTravelStyleSelector = () => {
-    const tabs = Array.from(document.querySelectorAll(".selector-tab"));
-    const type = document.getElementById("selector-type");
-    const title = document.getElementById("selector-title");
-    const summary = document.getElementById("selector-summary");
-    const audience = document.getElementById("selector-audience");
-    const includes = document.getElementById("selector-includes");
-    const visualLabel = document.getElementById("selector-visual-label");
-    const highlights = document.getElementById("selector-highlights");
-    const preview = document.querySelector(".selector-preview");
-    const visualFrame = preview?.querySelector(".selector-visual");
-    const visualPhoto = visualFrame?.querySelector(".visual-photo");
-    const storyBlock = document.querySelector(".journey-story");
-    const storyTitle = document.getElementById("selector-story-title");
-    const storySummary = document.getElementById("selector-story-summary");
-    const storyGallery = document.getElementById("selector-gallery");
-    const stageFrame = document.getElementById("selector-stage-frame");
-    const stageImage = document.getElementById("selector-stage-img");
-    const stageKicker = document.getElementById("selector-stage-kicker");
-    const stageTitle = document.getElementById("selector-stage-title");
-    const stageOpen = document.getElementById("selector-stage-open");
+  const setupJourneyAtlas = () => {
+    const atlas = document.querySelector(".journey-year-atlas");
+    const stops = Array.from(atlas?.querySelectorAll(".journey-road-stop[data-year-stop]") ?? []);
+    const monthLabel = document.getElementById("year-month-label");
+    const month = document.getElementById("year-route-month");
+    const title = document.getElementById("year-route-title");
+    const summary = document.getElementById("year-route-summary");
+    const region = document.getElementById("year-route-region");
+    const format = document.getElementById("year-route-format");
+    const status = document.getElementById("year-route-status");
+    const note = document.getElementById("year-route-note");
+    const visualLabel = document.getElementById("year-route-visual-label");
+    const highlights = document.getElementById("year-route-highlights");
+    const progressFill = document.getElementById("year-progress-fill");
+    const routeCounter = document.getElementById("year-route-counter");
+    const routePill = document.getElementById("year-route-pill");
+    const filmstrip = document.querySelector(".journey-filmstrip");
+    const galleryTitle = document.getElementById("year-gallery-title");
+    const gallerySummary = document.getElementById("year-gallery-summary");
+    const storyGallery = document.getElementById("year-gallery");
+    const stageFrame = document.getElementById("year-stage-frame");
+    const stageImage = document.getElementById("year-stage-img");
+    const stageKicker = document.getElementById("year-stage-kicker");
+    const stageTitle = document.getElementById("year-stage-title");
+    const stageOpen = document.getElementById("year-stage-open");
+    const routeCta = document.getElementById("year-route-cta");
     const lightbox = document.getElementById("journey-lightbox");
     const lightboxImage = document.getElementById("journey-lightbox-img");
     const lightboxKicker = document.getElementById("journey-lightbox-kicker");
@@ -681,31 +1083,41 @@ document.addEventListener("DOMContentLoaded", () => {
     const lightboxClose = document.getElementById("journey-lightbox-close");
     const lightboxBackdrop = lightbox?.querySelector("[data-lightbox-close]");
 
-    let activeGalleryStyle = null;
+    let activeGalleryRoute = null;
     let activeGalleryIndex = 0;
 
-    if (!tabs.length || !title || !summary || !includes || !visualLabel || !highlights || !preview || !visualPhoto) {
+    if (
+      !atlas ||
+      !stops.length ||
+      !monthLabel ||
+      !month ||
+      !title ||
+      !summary ||
+      !region ||
+      !format ||
+      !status ||
+      !note ||
+      !visualLabel ||
+      !highlights ||
+      !progressFill ||
+      !routeCounter ||
+      !routePill ||
+      !filmstrip ||
+      !storyGallery ||
+      !stageFrame ||
+      !stageImage ||
+      !stageKicker ||
+      !stageTitle
+    ) {
       return;
     }
 
-    const setActiveTab = (key) => {
-      tabs.forEach((tab) => {
-        const isActive = tab.dataset.style === key;
-        tab.classList.toggle("is-active", isActive);
-        tab.setAttribute("aria-selected", String(isActive));
+    const setActiveStops = (key) => {
+      stops.forEach((stop) => {
+        const isActive = stop.dataset.yearStop === key;
+        stop.classList.toggle("is-active", isActive);
+        stop.setAttribute("aria-selected", String(isActive));
       });
-    };
-
-    const setPreviewAccent = (style) => {
-      Object.values(travelStyleAccents).forEach((accentClass) => {
-        visualFrame.classList.remove(accentClass);
-      });
-
-      const accentClass = travelStyleAccents[style];
-
-      if (accentClass) {
-        visualFrame.classList.add(accentClass);
-      }
     };
 
     const setFrameAccent = (frame, styleKey, itemAccent) => {
@@ -740,12 +1152,62 @@ document.addEventListener("DOMContentLoaded", () => {
       return src;
     };
 
+    const getStopDate = (stop) => {
+      const raw = stop.dataset.stopDate;
+
+      if (!raw) {
+        return null;
+      }
+
+      const parsed = new Date(`${raw}T00:00:00`);
+      return Number.isNaN(parsed.getTime()) ? null : parsed;
+    };
+
+    const setYearProgress = () => {
+      const now = new Date();
+      const start = new Date(now.getFullYear(), 0, 1);
+      const end = new Date(now.getFullYear() + 1, 0, 1);
+      const progress = clamp(((now - start) / (end - start)) * 100, 0, 100);
+
+      progressFill.style.width = prefersReducedMotion() ? `${progress}%` : "0%";
+
+      if (!prefersReducedMotion()) {
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(() => {
+            progressFill.style.width = `${progress}%`;
+          });
+        });
+      }
+    };
+
+    const setNextStop = () => {
+      const now = new Date();
+      let nextStop = null;
+
+      for (const stop of stops) {
+        const stopDate = getStopDate(stop);
+
+        if (stopDate && stopDate >= now) {
+          nextStop = stop;
+          break;
+        }
+      }
+
+      if (!nextStop) {
+        nextStop = stops[stops.length - 1] || null;
+      }
+
+      stops.forEach((stop) => {
+        stop.classList.toggle("is-next", stop === nextStop);
+      });
+    };
+
     const openLightbox = () => {
-      if (!lightbox || !activeGalleryStyle) {
+      if (!lightbox || !activeGalleryRoute) {
         return;
       }
 
-      const item = activeGalleryStyle.gallery?.[activeGalleryIndex];
+      const item = activeGalleryRoute.gallery?.[activeGalleryIndex];
 
       if (!item || !lightboxImage || !lightboxKicker || !lightboxTitle) {
         return;
@@ -770,45 +1232,47 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.remove("has-lightbox-open");
     };
 
-    const animatePreview = () => {
+    const animatePanels = () => {
       if (prefersReducedMotion()) {
         return;
       }
 
-      [preview, storyBlock].forEach((element) => {
+      [filmstrip].forEach((element) => {
         if (!element || typeof element.animate !== "function") {
           return;
         }
 
         element.animate(
           [
-            { opacity: 0, transform: "translateY(8px)" },
+            { opacity: 0, transform: "translateY(10px)" },
             { opacity: 1, transform: "translateY(0)" },
           ],
           {
-            duration: 240,
+            duration: 260,
             easing: "cubic-bezier(0.2, 0.65, 0.2, 1)",
           }
         );
       });
     };
 
-    const setActiveGalleryItem = (style, index = 0) => {
-      if (!storyGallery || !stageFrame || !stageImage || !stageKicker || !stageTitle || !Array.isArray(style.gallery)) {
+    const setActiveGalleryItem = (route, index = 0) => {
+      const galleryItems = Array.isArray(route.gallery) ? route.gallery : [];
+
+      if (!galleryItems.length) {
         return;
       }
 
-      const boundedIndex = clamp(index, 0, style.gallery.length - 1);
-      const item = style.gallery[boundedIndex];
+      const boundedIndex = clamp(index, 0, galleryItems.length - 1);
+      const item = galleryItems[boundedIndex];
 
       if (!item) {
         return;
       }
 
-      activeGalleryStyle = style;
+      activeGalleryRoute = route;
       activeGalleryIndex = boundedIndex;
-      stageFrame.style.setProperty("--photo-position", item.position || "center");
-      setFrameAccent(stageFrame, style.style, item.accent);
+      stageFrame.style.setProperty("--photo-position", item.position || "center center");
+      setFrameAccent(stageFrame, route.style, item.accent);
       stageImage.src = item.src;
       stageImage.alt = item.alt;
       stageKicker.textContent = item.kicker;
@@ -829,19 +1293,22 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     };
 
-    const renderGallery = (style) => {
-      if (!storyGallery || !Array.isArray(style.gallery)) {
+    const renderGallery = (route) => {
+      const galleryItems = Array.isArray(route.gallery) ? route.gallery : [];
+
+      if (!galleryItems.length) {
+        storyGallery.replaceChildren();
         return;
       }
 
       storyGallery.replaceChildren();
-      activeGalleryStyle = style;
+      activeGalleryRoute = route;
 
-      style.gallery.forEach((item, index) => {
+      galleryItems.forEach((item, index) => {
         const thumb = document.createElement("button");
         thumb.type = "button";
         thumb.className = "journey-thumb";
-        thumb.setAttribute("aria-label", `${style.title}: ${item.kicker}`);
+        thumb.setAttribute("aria-label", `${route.title}: ${item.kicker}`);
         thumb.setAttribute("aria-selected", "false");
 
         const thumbImage = document.createElement("img");
@@ -856,70 +1323,129 @@ document.addEventListener("DOMContentLoaded", () => {
         thumbText.textContent = item.kicker;
 
         thumb.append(thumbImage, thumbText);
-        thumb.addEventListener("click", () => setActiveGalleryItem(style, index));
+        thumb.addEventListener("click", () => setActiveGalleryItem(route, index));
         storyGallery.append(thumb);
       });
 
-      setActiveGalleryItem(style, 0);
+      setActiveGalleryItem(route, 0);
     };
 
-    const renderStyle = (key, { animate = false } = {}) => {
-      const style = travelStyles[key];
+    const renderSchedule = (key, { animate = false } = {}) => {
+      const schedule = yearTripSchedule[key];
 
-      if (!style) {
+      if (!schedule) {
         return;
       }
 
-      title.textContent = style.title;
-      summary.textContent = style.summary;
-      includes.textContent = style.includes;
-      visualLabel.textContent = style.visual;
-      highlights.innerHTML = style.highlights.map((item) => `<li>${item}</li>`).join("");
-      visualPhoto.src = style.imgSrc;
-      visualPhoto.alt = style.imgAlt;
+      const route = schedule.route;
+      const routeIndex = yearTripOrder.indexOf(key);
 
-      if (type) {
-        type.textContent = style.typeLabel || key;
+      monthLabel.textContent = `${schedule.month} · ${schedule.label}`;
+      month.textContent = schedule.month;
+      title.textContent = route.title;
+      summary.textContent = route.summary;
+      region.textContent = schedule.region;
+      format.textContent = schedule.format;
+      status.textContent = schedule.status;
+      note.textContent = schedule.note;
+      visualLabel.textContent = route.visual;
+      routeCounter.textContent = `Window ${String(routeIndex + 1).padStart(2, "0")} / ${String(yearTripOrder.length).padStart(2, "0")}`;
+      routePill.textContent = schedule.label;
+      highlights.innerHTML = route.highlights.map((item) => `<li>${item}</li>`).join("");
+
+      if (galleryTitle) {
+        galleryTitle.textContent = route.storyTitle || `${schedule.month} field frames`;
       }
 
-      if (audience) {
-        audience.textContent = style.audience;
+      if (gallerySummary) {
+        gallerySummary.textContent =
+          route.storySummary || "Click through the selected chapter to see how the day opens up on the ground.";
       }
 
-      if (storyTitle) {
-        storyTitle.textContent = style.storyTitle || "";
+      if (routeCta) {
+        routeCta.textContent = `Ask about ${route.title}`;
+        setWhatsAppHref(
+          routeCta,
+          buildInquiryMessage({
+            routeTitle: `${schedule.month} · ${route.title}`,
+            notes: `${schedule.label}. ${route.summary}`,
+          })
+        );
       }
 
-      if (storySummary) {
-        storySummary.textContent = style.storySummary || "";
-      }
-
-      document.body.dataset.routeStyle = style.style;
-      setActiveTab(key);
-      setPreviewAccent(style.style);
-      refreshVisualImage(visualPhoto);
-      renderGallery(style);
+      document.body.dataset.routeStyle = route.style;
+      filmstrip.dataset.kind = schedule.kind;
+      setActiveStops(key);
+      renderGallery(route);
 
       if (animate) {
-        animatePreview();
+        animatePanels();
       }
     };
 
+    const revealStops = () => {
+      if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
+        stops.forEach((stop) => stop.classList.add("is-visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            const stop = entry.target;
+            stop.classList.add("is-visible");
+
+            const dot = stop.querySelector(".journey-stop-dot");
+
+            if (dot && typeof dot.animate === "function") {
+              dot.animate(
+                [
+                  { transform: "translate(-50%, 0) scale(0.9)", opacity: 0.7 },
+                  { transform: "translate(-50%, 0) scale(1.18)", opacity: 1 },
+                  { transform: "translate(-50%, 0) scale(1)", opacity: 1 },
+                ],
+                {
+                  duration: 700,
+                  easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                }
+              );
+            }
+
+            observer.unobserve(stop);
+          });
+        },
+        { threshold: 0.3 }
+      );
+
+      stops.forEach((stop) => observer.observe(stop));
+    };
+
     const params = new URLSearchParams(window.location.search);
-    const requestedStyle = params.get("style");
-    const initialKey = Object.prototype.hasOwnProperty.call(travelStyles, requestedStyle) ? requestedStyle : "summit";
+    const requestedSlot = params.get("slot");
+    const initialKey = Object.prototype.hasOwnProperty.call(yearTripSchedule, requestedSlot) ? requestedSlot : "may";
 
-    renderStyle(initialKey);
+    renderSchedule(initialKey);
+    setYearProgress();
+    setNextStop();
+    revealStops();
 
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        const key = tab.dataset.style;
+    stops.forEach((stop) => {
+      stop.addEventListener("click", () => {
+        const key = stop.dataset.yearStop;
 
-        if (!key || !Object.prototype.hasOwnProperty.call(travelStyles, key)) {
+        if (!key || !Object.prototype.hasOwnProperty.call(yearTripSchedule, key)) {
           return;
         }
 
-        renderStyle(key, { animate: true });
+        renderSchedule(key, { animate: true });
+
+        const nextUrl = new URL(window.location.href);
+        nextUrl.searchParams.set("slot", key);
+        window.history.replaceState(null, "", nextUrl);
       });
     });
 
@@ -933,10 +1459,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   };
-
   const setupContactForm = () => {
     const form = document.getElementById("contact-form");
     const response = document.getElementById("form-response");
+    const usesPlaceholderEndpoint = !FORM_ENDPOINT || FORM_ENDPOINT.includes("YOUR_ID");
 
     if (!form || !response) {
       return;
@@ -957,6 +1483,23 @@ document.addEventListener("DOMContentLoaded", () => {
       response.removeAttribute("style");
 
       try {
+        if (usesPlaceholderEndpoint) {
+          const payload = Object.fromEntries(new FormData(form));
+          const fallbackLink = buildWhatsAppLink(
+            buildInquiryMessage({
+              name: payload.name,
+              email: payload.email,
+              interest: payload.interest,
+              notes: payload.message,
+            })
+          );
+
+          window.open(fallbackLink, "_blank", "noopener");
+          response.innerHTML = `WhatsApp opened with your trip details. <a href="${fallbackLink}" target="_blank" rel="noreferrer">Open it again</a>`;
+          response.style.color = "var(--canopy)";
+          return;
+        }
+
         const res = await fetch(FORM_ENDPOINT, {
           method: "POST",
           headers: {
@@ -970,12 +1513,17 @@ document.addEventListener("DOMContentLoaded", () => {
           throw new Error("Failed");
         }
 
-        response.textContent = "? Sent! We will be in touch soon.";
+        response.textContent = "Sent. We will be in touch soon.";
         response.style.color = "var(--canopy)";
         form.reset();
       } catch (error) {
         const fallbackLink = buildWhatsAppLink(
-          "Hello Adventures of Life, the contact form did not send and I want to continue planning on WhatsApp."
+          buildInquiryMessage({
+            name: form.elements.name?.value,
+            email: form.elements.email?.value,
+            interest: form.elements.interest?.value,
+            notes: form.elements.message?.value,
+          })
         );
 
         response.innerHTML = `Something went wrong. <a href="${fallbackLink}" target="_blank" rel="noreferrer">Try WhatsApp</a>`;
@@ -1055,7 +1603,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const pageLoader = document.getElementById("page-loader");
   setupWhatsAppLinks();
   setupMobileMenu();
-  setupTravelStyleSelector();
+  setupJourneyAtlas();
   setupContactForm();
   setCurrentYear();
   highlightCurrentPage();
@@ -1071,5 +1619,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
 
