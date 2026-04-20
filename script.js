@@ -295,23 +295,47 @@ document.addEventListener("DOMContentLoaded", () => {
     togo: {
       title: "Togo",
       typeLabel: "Fresh off the road",
-      summary: "Three days into Togo, with the full group frame now leading the story while the rest of the tagged set comes in.",
+      summary: "Three days into Togo, now told with the tagged terrace group, the cathedral stop, the boat moment, and the wider group frame.",
       audience: "Cross-border travellers · early joiners · group-trip people",
-      includes: "Togo / border chapter / group frame / road energy",
-      visual: "Group chapter",
-      imgSrc: "assets/responsive/togo-group-garden-1440.webp",
-      imgAlt: "Group picture from the Togo Vibe Experience.",
-      highlights: ["3-day border run", "Group frame", "Border chapter", "Trip complete"],
-      storyTitle: "Togo is on the wall with the tagged group frame.",
+      includes: "Togo / cathedral stop / boat moment / group frames",
+      visual: "Togo chapter",
+      imgSrc: "assets/responsive/togo-group-terrace-1440.webp",
+      imgAlt: "Group picture from the Togo Vibe Experience on the terrace.",
+      highlights: ["3-day border run", "Cathedral stop", "Boat moment", "Trip complete"],
+      storyTitle: "Togo now runs on the tagged set.",
       storySummary:
-        "The first border run of the year is now anchored by the tagged group picture, so the Togo chapter reads as a real trip already, even before the rest of the selected frames are added.",
+        "The first border run of the year now has its proper image set: the terrace group, the cathedral frame, the boat moment, and the wider group shot that ties the chapter together.",
       gallery: [
         {
-          src: "assets/responsive/togo-group-garden-1440.webp",
-          alt: "Group picture from the Togo Vibe Experience.",
-          kicker: "Tagged frame",
-          title: "For now, the Togo chapter is led by the tagged group picture that best represents the trip.",
+          src: "assets/responsive/togo-group-terrace-1440.webp",
+          alt: "Group picture from the Togo Vibe Experience on the terrace.",
+          kicker: "Terrace group",
+          title: "The terrace frame gives the chapter its main group portrait.",
           accent: "accent-gold",
+          position: "center center",
+        },
+        {
+          src: "assets/responsive/togo-group-garden-1440.webp",
+          alt: "Wider group picture from the Togo Vibe Experience.",
+          kicker: "Wider group",
+          title: "The second group frame makes the Togo chapter feel bigger and more lived in.",
+          accent: "accent-lagoon",
+          position: "center center",
+        },
+        {
+          src: "assets/responsive/togo-cathedral-group-1080.webp",
+          alt: "Group picture from the Togo Vibe Experience at the cathedral stop.",
+          kicker: "Cathedral stop",
+          title: "The cathedral frame gives the trip its landmark moment and pins it to a real place.",
+          accent: "accent-sand",
+          position: "center center",
+        },
+        {
+          src: "assets/responsive/togo-boat-vibe-810.webp",
+          alt: "Boat moment from the Togo Vibe Experience.",
+          kicker: "Boat vibe",
+          title: "The water frame brings in the looser, warmer side of the trip.",
+          accent: "accent-canopy",
           position: "center center",
         },
       ],
@@ -319,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
-  const roadmapPosterSrc = "adventurepics/Roadmap.jpg";
+  const roadmapPosterSrc = "assets/responsive/roadmap-poster-1440.webp";
 
   const yearRoutes = {
     shai: {
