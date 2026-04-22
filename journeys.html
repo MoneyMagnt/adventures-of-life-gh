@@ -45,7 +45,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="styles.css?v=20260422-3" />
+    <link rel="stylesheet" href="styles.css?v=20260422-4" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -190,18 +190,13 @@
 
     <main class="site-main">
       <section class="fg-section fg-section--quiet jy-page-intro">
-        <div class="shell jy-page-intro-grid">
+        <div class="shell">
           <div class="jy-page-intro-copy">
             <span class="fg-eyebrow">Journeys / 2026 route journal</span>
             <h1 class="fg-title">
               See the whole year as one route.<br />
               <em>Ada opened it. Togo stretched it. Shai is next.</em>
             </h1>
-            <p class="fg-copy">
-              If you missed Ada and wished you were on the Togo bus, keep this page open. It shows which chapters are
-              already done, which month is about to move next, and where you can still step in before the year gets
-              ahead of you.
-            </p>
             <div class="fg-actions fg-actions-spaced">
               <a class="button button-primary" href="https://wa.me/233551472190?text=Hello%20Adventures%20of%20Life%2C%20I%20want%20to%20ask%20about%20Shai%20Reserve%20%26%20Kwaminga%20Park%20on%2023%20May." target="_blank" rel="noreferrer">Ask about Shai</a>
             </div>
@@ -210,20 +205,6 @@
               <a href="community.html#reviews">Read the review wall</a>
             </p>
           </div>
-          <aside class="jy-page-intro-card" aria-label="2026 route sequence">
-            <span class="jy-page-intro-card-label">Year at a glance</span>
-            <p class="jy-page-intro-card-text">
-              January opened softly at Ada. April carried the first passport stamp into Togo. May is sitting on Shai.
-              After that the year runs through waterfalls, highlands, and two more border chapters before December
-              closes it.
-            </p>
-            <div class="jy-page-intro-list">
-              <span><strong>Already lived</strong>Ada / Nkyinkyim and the first Togo border run</span>
-              <span><strong>Next up</strong>Shai Reserve &amp; Kwaminga Park · 23 May</span>
-              <span><strong>Still ahead</strong>Waterfall chapter, west run, Volta stretch, Benin finale</span>
-              <span><strong>Best use</strong>Read it once, then choose your month fast</span>
-            </div>
-          </aside>
         </div>
         <div class="shell fg-stat-row jy-page-intro-stats">
           <div class="fg-stat-card">
@@ -659,7 +640,7 @@
         const stops = Array.from(document.querySelectorAll(".jy-stop"));
         const cadQuote = document.querySelector(".jy-cadence-quote");
         const phases = Array.from(document.querySelectorAll(".jy-phase"));
-        const introItems = Array.from(document.querySelectorAll(".jy-page-intro-copy, .jy-page-intro-card, .jy-page-intro-stats .fg-stat-card"));
+        const introItems = Array.from(document.querySelectorAll(".jy-page-intro-copy, .jy-page-intro-stats .fg-stat-card"));
 
         const revealInstantly = (target) => {
           target.classList.add("is-visible");

@@ -8603,53 +8603,10 @@ body[data-page="journeys"] .reveal.is-visible {
   padding-bottom: clamp(2rem, 5vw, 3.5rem);
 }
 
-.jy-page-intro-grid {
-  display: grid;
-  gap: 1.5rem;
-  align-items: start;
-}
-
 .jy-page-intro-copy {
   display: grid;
   gap: 0;
-}
-
-.jy-page-intro-card {
-  position: relative;
-  display: grid;
-  gap: 1rem;
-  padding: 1.5rem;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(239, 243, 236, 0.92)),
-    var(--fg-bg-raised);
-  border: 1px solid var(--fg-border);
-  box-shadow: 0 1.2rem 2.8rem rgba(15, 35, 24, 0.08);
-}
-
-.jy-page-intro-card::before {
-  content: "";
-  position: absolute;
-  top: -0.4rem;
-  left: 1.6rem;
-  width: 3rem;
-  height: 0.85rem;
-  background: rgba(212, 130, 10, 0.32);
-}
-
-.jy-page-intro-card-label {
-  font-family: "Caveat", cursive;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--fg-amber);
-}
-
-.jy-page-intro-card-text {
-  margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.7;
-  color: var(--fg-copy);
+  max-width: 44rem;
 }
 
 .jy-page-intro-proof {
@@ -8712,13 +8669,6 @@ body[data-page="journeys"] .reveal.is-visible {
   font-size: clamp(2.1rem, 5vw, 3rem);
 }
 
-@media (min-width: 900px) {
-  .jy-page-intro-grid {
-    grid-template-columns: minmax(0, 1.2fr) minmax(19rem, 0.8fr);
-    gap: 2rem;
-  }
-}
-
 @media (max-width: 900px) {
   .jy-page-intro-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -8730,16 +8680,11 @@ body[data-page="journeys"] .reveal.is-visible {
     padding-bottom: 2rem;
   }
 
-  .jy-page-intro-card {
-    padding: 1.25rem;
-  }
-
   .jy-page-intro-stats {
     grid-template-columns: 1fr;
   }
 
-  .jy-page-intro-copy,
-  .jy-page-intro-card {
+  .jy-page-intro-copy {
     text-align: center;
     justify-items: center;
   }
