@@ -8605,6 +8605,47 @@ body[data-page="journeys"] .reveal.is-visible {
   .jy-page-intro-stats {
     grid-template-columns: 1fr;
   }
+
+  .jy-page-intro-copy,
+  .jy-page-intro-card,
+  .jy-journal-header,
+  .jy-cadence-quote,
+  .jy-phase {
+    text-align: center;
+    justify-items: center;
+  }
+
+  .jy-journal-stats {
+    justify-content: center;
+  }
+
+  .jy-cadence-quote {
+    border-left: 0;
+    border-top: 2px solid var(--jy-ink-light);
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+
+  .jy-phase {
+    border-left: 0;
+    border-top: 2px solid var(--jy-tan);
+    padding-left: 0;
+    padding-top: 0.85rem;
+  }
+
+  .jy-stop--r .jy-stop-info,
+  .jy-stop--l .jy-stop-info,
+  .jy-stop--r .jy-stop-photo,
+  .jy-stop--l .jy-stop-photo {
+    justify-self: center;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .jy-photo-frame,
+  .jy-passport-stamp {
+    margin-inline: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -10240,6 +10281,7 @@ body[data-page="about"] .footer-social .social-link {
 
   .fg-hero-stats {
     max-width: none;
+    justify-items: center;
   }
 
   .fg-hero-media img {
@@ -10266,6 +10308,89 @@ body[data-page="about"] .footer-social .social-link {
 
   .fg-proof-frame img {
     aspect-ratio: 4 / 5;
+  }
+
+  .fg-hero-copy,
+  .fg-trip-header,
+  .fg-block-header,
+  .fg-about-intro-copy,
+  .fg-archive-copy,
+  .fg-principle-copy,
+  .fg-form-shell,
+  .fg-fomo-copy {
+    text-align: center;
+    justify-items: center;
+    margin-inline: auto;
+  }
+
+  .fg-hero-copy .fg-copy,
+  .fg-about-intro-copy .fg-copy,
+  .fg-archive-copy p,
+  .fg-principle-copy p,
+  .fg-form-shell .fg-copy,
+  .fg-form-shell .fg-contact-note {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .fg-trip-header > div,
+  .fg-block-header > div {
+    display: grid;
+    gap: 0.5rem;
+    justify-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .fg-hero-meta,
+  .fg-actions,
+  .fg-cta-bar {
+    justify-content: center;
+  }
+
+  .fg-hero-meta-item,
+  .fg-trip-body,
+  .fg-hero-stat {
+    text-align: center;
+  }
+
+  .fg-trip-body {
+    justify-items: center;
+  }
+
+  .fg-rule-link {
+    margin-inline: auto;
+  }
+
+  .fg-contact-grid,
+  .fg-about-intro,
+  .fg-story-card,
+  .fg-archive-row,
+  .fg-principle,
+  .fg-timeline-beat {
+    justify-items: center;
+  }
+
+  .fg-pin {
+    margin-inline: auto;
+  }
+
+  .fg-contact-photo::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .fg-form-shell label,
+  .fg-review-form-shell label,
+  .fg-form-shell input,
+  .fg-form-shell select,
+  .fg-form-shell textarea {
+    text-align: left;
+  }
+
+  .fg-form-actions {
+    justify-items: center;
+    text-align: center;
   }
 }
 

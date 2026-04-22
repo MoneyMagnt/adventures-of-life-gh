@@ -1733,11 +1733,12 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
 
+    const data = await res.json().catch(() => ({}));
+
     if (!res.ok) {
-      throw new Error("Failed to load reviews");
+      throw new Error(data.error || "Failed to load reviews");
     }
 
-    const data = await res.json();
     const reviews = Array.isArray(data.reviews) ? data.reviews : [];
     return reviews.map(normalizeReview);
   };
@@ -1783,6 +1784,21 @@ document.addEventListener("DOMContentLoaded", () => {
             status,
             localReviews,
             "Local preview has no reviews yet. Submit the first one below."
+          );
+          return;
+        }
+
+        const liveDbMissing =
+          error instanceof Error &&
+          /reviews database is not configured yet/i.test(error.message);
+
+        if (liveDbMissing) {
+          renderCommunityReviews(
+            feed,
+            status,
+            [],
+            "Live reviews are not connected yet. The review database still needs to be turned on in production.",
+            true
           );
           return;
         }
@@ -1838,8 +1854,13 @@ document.addEventListener("DOMContentLoaded", () => {
           response.style.color = "var(--canopy)";
           form.reset();
         } else {
-          response.textContent =
-            "Could not post your review right now. Please try again shortly.";
+          const liveDbMissing =
+            error instanceof Error &&
+            /reviews database is not configured yet/i.test(error.message);
+
+          response.textContent = liveDbMissing
+            ? "Live reviews are not connected yet. The review database still needs to be turned on in production."
+            : "Could not post your review right now. Please try again shortly.";
           response.style.color = "var(--clay)";
         }
       } finally {
