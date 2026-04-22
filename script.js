@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const DESKTOP_MENU_BREAKPOINT = 1024;
   const STICKY_OFFSET = 96;
   const FORM_ENDPOINT = "https://formspree.io/f/YOUR_ID";
+  const REVIEWS_ENDPOINT = "/api/reviews";
+  const LOCAL_REVIEW_STORAGE_KEY = "aol-community-reviews-local";
 
   const hoverQuery = window.matchMedia("(hover: hover)");
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -824,6 +826,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const isJournalImage = Boolean(image.closest(".jy-journal-wrap"));
+
+    if (isJournalImage) {
+      image.style.filter = "none";
+      image.style.transform = "none";
+      image.style.opacity = "1";
+      image.style.transition = "none";
+      image.style.removeProperty("--photo-filter");
+      image.style.removeProperty("--photo-scale");
+      image.style.removeProperty("--photo-opacity");
+      return;
+    }
+
     const isVisualPhoto = image.classList.contains("visual-photo");
 
     if (isVisualPhoto) {
@@ -1560,6 +1575,280 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const isLocalPreview = () =>
+    window.location.protocol === "file:" ||
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1";
+
+  const buildReviewDisplayName = (value) => {
+    const clean = String(value || "")
+      .trim()
+      .replace(/\s+/g, " ");
+
+    if (!clean) {
+      return "Traveller";
+    }
+
+    const parts = clean.split(" ");
+
+    if (parts.length === 1) {
+      return parts[0];
+    }
+
+    const first = parts[0];
+    const last = parts[parts.length - 1];
+    const lastInitial = last ? `${last.charAt(0).toUpperCase()}.` : "";
+    return `${first} ${lastInitial}`.trim();
+  };
+
+  const buildReviewInitials = (value) => {
+    const parts = String(value || "")
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2);
+
+    if (!parts.length) {
+      return "AO";
+    }
+
+    return parts
+      .map((part) => part.charAt(0).toUpperCase())
+      .join("");
+  };
+
+  const normalizeReview = (review) => {
+    const displayName = buildReviewDisplayName(
+      review.displayName || review.display_name || review.public_name || review.name
+    );
+
+    return {
+      id: review.id || `${displayName}-${review.trip || ""}-${review.tripDate || review.trip_date || ""}`,
+      displayName,
+      initials: buildReviewInitials(displayName),
+      trip: String(review.trip || "").trim(),
+      tripDate: String(review.tripDate || review.trip_date || "").trim(),
+      rating: Math.max(1, Math.min(5, Number.parseInt(review.rating, 10) || 5)),
+      review: String(review.review || "").trim(),
+      createdAt: review.createdAt || review.created_at || new Date().toISOString(),
+    };
+  };
+
+  const loadLocalReviews = () => {
+    try {
+      const raw = window.localStorage.getItem(LOCAL_REVIEW_STORAGE_KEY);
+      const parsed = JSON.parse(raw || "[]");
+
+      if (!Array.isArray(parsed)) {
+        return [];
+      }
+
+      return parsed.map(normalizeReview);
+    } catch (error) {
+      return [];
+    }
+  };
+
+  const saveLocalReview = (review) => {
+    try {
+      const next = [review, ...loadLocalReviews()].slice(0, 12);
+      window.localStorage.setItem(LOCAL_REVIEW_STORAGE_KEY, JSON.stringify(next));
+    } catch (error) {
+      // Ignore local preview persistence failures.
+    }
+  };
+
+  const createReviewCard = (review) => {
+    const card = document.createElement("article");
+    card.className = "fg-review-card reveal is-visible";
+
+    const head = document.createElement("div");
+    head.className = "fg-review-head";
+
+    const badge = document.createElement("div");
+    badge.className = "fg-review-badge";
+    badge.setAttribute("aria-hidden", "true");
+    badge.textContent = review.initials;
+
+    const meta = document.createElement("div");
+    const name = document.createElement("strong");
+    name.textContent = review.displayName;
+    const trip = document.createElement("span");
+    trip.textContent = review.tripDate
+      ? `${review.trip} / ${review.tripDate}`
+      : review.trip;
+
+    meta.append(name, trip);
+    head.append(badge, meta);
+
+    const rating = document.createElement("div");
+    rating.className = "fg-review-rating";
+    rating.setAttribute("aria-label", `${review.rating} out of 5 stars`);
+
+    const stars = document.createElement("span");
+    stars.setAttribute("aria-hidden", "true");
+    stars.textContent = "★".repeat(review.rating);
+
+    const score = document.createElement("em");
+    score.textContent = review.rating.toFixed(1);
+
+    rating.append(stars, score);
+
+    const body = document.createElement("p");
+    body.textContent = `"${review.review}"`;
+
+    card.append(head, rating, body);
+    return card;
+  };
+
+  const renderCommunityReviews = (feed, status, reviews, message, isError = false) => {
+    if (!feed || !status) {
+      return;
+    }
+
+    feed.replaceChildren();
+
+    if (!reviews.length) {
+      feed.hidden = true;
+      status.hidden = false;
+      status.textContent = message;
+      status.classList.toggle("is-error", isError);
+      return;
+    }
+
+    reviews.forEach((review) => {
+      feed.appendChild(createReviewCard(review));
+    });
+
+    feed.hidden = false;
+    status.hidden = true;
+    status.textContent = "";
+    status.classList.remove("is-error");
+  };
+
+  const fetchCommunityReviews = async () => {
+    const res = await fetch(REVIEWS_ENDPOINT, {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to load reviews");
+    }
+
+    const data = await res.json();
+    const reviews = Array.isArray(data.reviews) ? data.reviews : [];
+    return reviews.map(normalizeReview);
+  };
+
+  const submitCommunityReview = async (payload) => {
+    const res = await fetch(REVIEWS_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok) {
+      throw new Error(data.error || "Failed to submit review");
+    }
+
+    return normalizeReview(data.review || payload);
+  };
+
+  const setupCommunityReviews = () => {
+    const form = document.getElementById("review-form-submit");
+    const response = document.getElementById("review-form-response");
+    const feed = document.getElementById("reviews-feed");
+    const status = document.getElementById("reviews-status");
+
+    if (!form || !response || !feed || !status) {
+      return;
+    }
+
+    const renderInitialReviews = async () => {
+      try {
+        const reviews = await fetchCommunityReviews();
+        renderCommunityReviews(feed, status, reviews, "No reviews yet. Be the first attendee to leave one.");
+      } catch (error) {
+        if (isLocalPreview()) {
+          const localReviews = loadLocalReviews();
+          renderCommunityReviews(
+            feed,
+            status,
+            localReviews,
+            "Local preview has no reviews yet. Submit the first one below."
+          );
+          return;
+        }
+
+        renderCommunityReviews(
+          feed,
+          status,
+          [],
+          "No reviews yet. Be the first attendee to leave one.",
+          false
+        );
+      }
+    };
+
+    renderInitialReviews();
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const button = form.querySelector('button[type="submit"]');
+
+      if (!button) {
+        return;
+      }
+
+      const payload = Object.fromEntries(new FormData(form));
+      response.textContent = "";
+      response.removeAttribute("style");
+      button.disabled = true;
+      button.textContent = "Posting...";
+
+      try {
+        const review = await submitCommunityReview(payload);
+        feed.prepend(createReviewCard(review));
+        feed.hidden = false;
+        status.hidden = true;
+        response.textContent = "Thanks. Your review is live.";
+        response.style.color = "var(--canopy)";
+        form.reset();
+      } catch (error) {
+        if (isLocalPreview()) {
+          const review = normalizeReview({
+            ...payload,
+            createdAt: new Date().toISOString(),
+          });
+
+          saveLocalReview(review);
+          feed.prepend(createReviewCard(review));
+          feed.hidden = false;
+          status.hidden = true;
+          response.textContent =
+            "Saved in local preview. Once the live reviews database is connected, new reviews will publish here automatically.";
+          response.style.color = "var(--canopy)";
+          form.reset();
+        } else {
+          response.textContent =
+            "Could not post your review right now. Please try again shortly.";
+          response.style.color = "var(--clay)";
+        }
+      } finally {
+        button.disabled = false;
+        button.textContent = "Post review";
+      }
+    });
+  };
+
   const setupLazyImages = () => {
     document.querySelectorAll('img[loading="lazy"]').forEach((image) => {
       refreshVisualImage(image);
@@ -1613,6 +1902,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileMenu();
   setupJourneyAtlas();
   setupContactForm();
+  setupCommunityReviews();
   setCurrentYear();
   highlightCurrentPage();
   setupRevealAnimations();

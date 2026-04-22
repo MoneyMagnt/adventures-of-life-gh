@@ -13,7 +13,7 @@
     <meta name="geo.placename" content="Ghana" />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://adventuresoflifegh.com/journeys.html" />
-    <meta name="theme-color" content="#d7f0f8" />
+    <meta name="theme-color" content="#F8FAF7" />
     <meta name="color-scheme" content="light" />
     <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
@@ -27,17 +27,17 @@
       content="Follow the Adventures of Life GH 2026 route journal: Ada Island, Togo, Shai Reserve, Oboadaka Waterfall, Côte d'Ivoire, Wli Waterfalls Camp, Amedzofe, and Benin."
     />
     <meta property="og:url" content="https://adventuresoflifegh.com/journeys.html" />
-    <meta property="og:image" content="https://adventuresoflifegh.com/assets/og.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Adventures of Life GH brand preview" />
+    <meta property="og:image" content="https://adventuresoflifegh.com/assets/responsive/roadmap-poster-1440.webp" />
+    <meta property="og:image:width" content="1440" />
+    <meta property="og:image:height" content="1080" />
+    <meta property="og:image:alt" content="Adventures of Life GH 2026 route journal" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Journeys | Adventures of Life GH" />
     <meta
       name="twitter:description"
       content="Follow the Adventures of Life GH 2026 route journal: Ada Island, Togo, Shai Reserve, Oboadaka Waterfall, Côte d'Ivoire, Wli Waterfalls Camp, Amedzofe, and Benin."
     />
-    <meta name="twitter:image" content="https://adventuresoflifegh.com/assets/og.jpg" />
+    <meta name="twitter:image" content="https://adventuresoflifegh.com/assets/responsive/roadmap-poster-1440.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,830 +45,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="styles.css?v=20260420-7" />
-    <style>
-      :root {
-        --jy-parch: #f5edd8;
-        --jy-parch-mid: #ede0c4;
-        --jy-parch-shadow: #d4c5a9;
-        --jy-parch-deep: #c8b99a;
-        --jy-ink: #2c1a0e;
-        --jy-ink-mid: #5c4033;
-        --jy-ink-light: #8b6f5c;
-        --jy-tan: #c4a882;
-        --jy-tan-light: rgba(196, 168, 130, 0.35);
-        --jy-brick: #8b3a1a;
-        --jy-brick-soft: rgba(139, 58, 26, 0.15);
-        --jy-gold: #a67c2e;
-        --jy-gold-soft: rgba(166, 124, 46, 0.2);
-        --jy-next: #2e6b4f;
-        --jy-next-soft: rgba(46, 107, 79, 0.12);
-      }
-
-      .jy-journal-wrap {
-        background: var(--jy-parch);
-        padding: 0;
-        overflow: hidden;
-      }
-
-      .jy-journal-page {
-        position: relative;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 72px 80px 100px 140px;
-        background: var(--jy-parch);
-        background-image:
-          repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 2px,
-            rgba(139, 111, 92, 0.03) 2px,
-            rgba(139, 111, 92, 0.03) 3px
-          ),
-          repeating-linear-gradient(
-            -45deg,
-            transparent,
-            transparent 2px,
-            rgba(139, 111, 92, 0.025) 2px,
-            rgba(139, 111, 92, 0.025) 3px
-          );
-        border-left: 4px solid var(--jy-parch-deep);
-        box-shadow:
-          inset 0 0 0 1px rgba(196, 168, 130, 0.2),
-          0 0 80px rgba(44, 26, 14, 0.06);
-      }
-
-      .jy-journal-page::before {
-        content: "";
-        position: absolute;
-        top: 180px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: repeating-linear-gradient(
-          transparent,
-          transparent 31px,
-          rgba(196, 168, 130, 0.28) 31px,
-          rgba(196, 168, 130, 0.28) 32px
-        );
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      .jy-journal-page::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 104px;
-        width: 1px;
-        bottom: 0;
-        background: rgba(180, 60, 40, 0.18);
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      .jy-journal-bindings {
-        position: absolute;
-        left: -28px;
-        top: 0;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding: 80px 0;
-        pointer-events: none;
-        z-index: 10;
-      }
-
-      .jy-binding-hole {
-        display: block;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        background: var(--jy-parch-mid);
-        border: 2px solid var(--jy-tan);
-        box-shadow:
-          inset 0 1px 3px rgba(44, 26, 14, 0.2),
-          0 1px 0 rgba(255, 255, 255, 0.4);
-      }
-
-      .jy-journal-header {
-        position: relative;
-        z-index: 2;
-        margin-bottom: 64px;
-      }
-
-      .jy-journal-label {
-        display: block;
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 0.62rem;
-        font-weight: 600;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--jy-ink-light);
-        margin-bottom: 20px;
-      }
-
-      .jy-journal-title {
-        font-family: "Fraunces", serif;
-        font-size: clamp(2.2rem, 5vw, 3.2rem);
-        font-weight: 700;
-        color: var(--jy-ink);
-        line-height: 1.08;
-        margin: 0 0 18px;
-        letter-spacing: -0.01em;
-      }
-
-      .jy-journal-title em {
-        font-style: italic;
-        font-weight: 400;
-        color: var(--jy-ink-mid);
-        display: block;
-        margin-top: 4px;
-      }
-
-      .jy-journal-sub {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 0.97rem;
-        color: var(--jy-ink-mid);
-        max-width: 540px;
-        line-height: 1.72;
-        margin: 0 0 28px;
-      }
-
-      .jy-journal-stats {
-        display: flex;
-        gap: 32px;
-        flex-wrap: wrap;
-        font-family: "Caveat", cursive;
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: var(--jy-ink-mid);
-        border-top: 1px solid var(--jy-tan);
-        padding-top: 18px;
-      }
-
-      .jy-journal-stats span {
-        position: relative;
-        padding-left: 14px;
-      }
-
-      .jy-journal-stats span::before {
-        content: "·";
-        position: absolute;
-        left: 0;
-        color: var(--jy-tan);
-      }
-
-      .jy-road-column {
-        position: relative;
-        z-index: 2;
-      }
-
-      .jy-road-ink {
-        position: absolute;
-        left: -32px;
-        top: 0;
-        width: 4px;
-        height: 100%;
-        overflow: visible;
-        pointer-events: none;
-        z-index: 3;
-      }
-
-      .jy-road-path {
-        fill: none;
-        stroke: var(--jy-ink);
-        stroke-width: 8;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        opacity: 0.55;
-      }
-
-      .jy-stop {
-        display: grid;
-        grid-template-columns: 28px 1fr;
-        gap: 0 28px;
-        padding: 52px 0;
-        align-items: start;
-        position: relative;
-        border-bottom: 1px solid rgba(196, 168, 130, 0.2);
-        transition: background 0.3s ease;
-      }
-
-      .jy-stop:last-child {
-        border-bottom: none;
-      }
-
-      .jy-stop-node {
-        display: flex;
-        justify-content: center;
-        padding-top: 14px;
-        position: relative;
-        z-index: 4;
-      }
-
-      .jy-stop-dot {
-        display: block;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: var(--jy-parch);
-        border: 2px solid var(--jy-ink);
-        position: relative;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .jy-stop-dot::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--jy-ink);
-      }
-
-      .jy-stop--border .jy-stop-dot {
-        border-color: var(--jy-brick);
-        border-width: 2.5px;
-        width: 16px;
-        height: 16px;
-      }
-
-      .jy-stop--border .jy-stop-dot::after {
-        background: var(--jy-brick);
-        width: 7px;
-        height: 7px;
-      }
-
-      .jy-stop-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-        align-items: start;
-        min-width: 0;
-      }
-
-      .jy-stop--l .jy-stop-content {
-        direction: rtl;
-      }
-
-      .jy-stop--l .jy-stop-info,
-      .jy-stop--l .jy-stop-photo {
-        direction: ltr;
-        text-align: left;
-      }
-
-      .jy-stop-date {
-        display: block;
-        font-family: "Caveat", cursive;
-        font-size: 0.95rem;
-        letter-spacing: 0.1em;
-        color: var(--jy-ink-light);
-        margin-bottom: 6px;
-        text-transform: uppercase;
-      }
-
-      .jy-stop-name {
-        font-family: "Fraunces", serif;
-        font-size: clamp(1.35rem, 2.2vw, 1.8rem);
-        font-weight: 700;
-        font-style: italic;
-        color: var(--jy-ink);
-        margin: 0 0 10px;
-        line-height: 1.15;
-        letter-spacing: -0.01em;
-      }
-
-      .jy-stop-desc {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 0.88rem;
-        color: var(--jy-ink-mid);
-        line-height: 1.68;
-        margin: 0 0 14px;
-      }
-
-      .jy-stop-tag {
-        display: inline-block;
-        font-family: "Caveat", cursive;
-        font-size: 0.82rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--jy-ink-light);
-        border: 0.8px solid var(--jy-tan);
-        padding: 3px 11px;
-        border-radius: 0;
-      }
-
-      .jy-stop-photo {
-        position: relative;
-        min-width: 0;
-      }
-
-      .jy-photo-frame {
-        position: relative;
-        display: block;
-        margin: 0;
-      }
-
-      .jy-stop--r .jy-photo-frame {
-        transform: rotate(2.2deg);
-        transform-origin: top center;
-        transition: transform 0.3s ease;
-      }
-
-      .jy-stop--l .jy-photo-frame {
-        transform: rotate(-1.8deg);
-        transform-origin: top center;
-        transition: transform 0.3s ease;
-      }
-
-      .jy-stop.hovered .jy-photo-frame {
-        transform: rotate(0.5deg) scale(1.01);
-      }
-
-      .jy-stop--l.hovered .jy-photo-frame {
-        transform: rotate(-0.5deg) scale(1.01);
-      }
-
-      .jy-tape {
-        position: absolute;
-        top: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 58px;
-        height: 18px;
-        background: var(--jy-tan);
-        opacity: 0.42;
-        z-index: 5;
-        border-radius: 1px;
-      }
-
-      .jy-photo-frame img {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        aspect-ratio: 4 / 3;
-        object-fit: contain;
-        object-position: center center;
-        border: 6px solid var(--jy-parch-mid);
-        outline: 1px solid var(--jy-tan);
-        background: linear-gradient(180deg, rgba(245, 237, 216, 0.96), rgba(237, 224, 196, 0.92));
-        filter: sepia(20%) brightness(0.9) saturate(0.88) contrast(1.02);
-        transition: filter 0.4s ease;
-      }
-
-      .jy-stop.hovered .jy-photo-frame img {
-        filter: sepia(8%) brightness(1) saturate(1) contrast(1);
-      }
-
-      .jy-photo-caption {
-        display: block;
-        font-family: "Caveat", cursive;
-        font-size: 0.82rem;
-        color: var(--jy-ink-light);
-        text-align: center;
-        margin-top: 8px;
-        letter-spacing: 0.04em;
-      }
-
-      .jy-passport-stamp {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 138px;
-        height: 88px;
-        border-radius: 50%;
-        border: 2.5px solid var(--jy-brick);
-        box-shadow:
-          0 0 0 5px var(--jy-parch),
-          0 0 0 7px var(--jy-brick);
-        margin-top: 22px;
-        padding: 8px;
-        gap: 2px;
-        transform: rotate(-4deg);
-        opacity: 0;
-        transition: opacity 0.5s ease, transform 0.5s ease;
-      }
-
-      .jy-stop--l .jy-passport-stamp {
-        transform: rotate(3deg);
-      }
-
-      .jy-passport-stamp.stamp-visible {
-        opacity: 0.82;
-        transform: rotate(-4deg) scale(1);
-      }
-
-      .jy-stop--l .jy-passport-stamp.stamp-visible {
-        transform: rotate(3deg) scale(1);
-      }
-
-      .jy-stamp-country {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 0.52rem;
-        font-weight: 600;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--jy-brick);
-        text-align: center;
-      }
-
-      .jy-stamp-label {
-        font-family: "Fraunces", serif;
-        font-size: 0.92rem;
-        font-weight: 700;
-        color: var(--jy-brick);
-        text-align: center;
-      }
-
-      .jy-stamp-date {
-        font-family: "Caveat", cursive;
-        font-size: 0.65rem;
-        color: var(--jy-brick);
-        text-align: center;
-        letter-spacing: 0.14em;
-        opacity: 0.8;
-      }
-
-      .jy-stop.is-past {
-        opacity: 0.75;
-      }
-
-      .jy-stop.is-past .jy-stop-name {
-        color: var(--jy-ink-mid);
-      }
-
-      .jy-stop.is-past .jy-photo-frame img {
-        filter: sepia(40%) brightness(0.82) saturate(0.65) contrast(1);
-      }
-
-      .jy-stop.is-past .jy-stop-dot {
-        background: var(--jy-ink-light);
-        border-color: var(--jy-ink-light);
-      }
-
-      .jy-stop.is-past .jy-stop-dot::after {
-        background: var(--jy-parch);
-        width: 4px;
-        height: 4px;
-      }
-
-      .jy-stop.is-past:not(.jy-stop--border) .jy-stop-dot::before {
-        content: "✓";
-        position: absolute;
-        top: -22px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: "Caveat", cursive;
-        font-size: 0.75rem;
-        color: var(--jy-ink-light);
-        opacity: 0.7;
-        white-space: nowrap;
-      }
-
-      .jy-done-badge {
-        display: inline-block;
-        font-family: "Caveat", cursive;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--jy-ink-light);
-        border: 0.8px solid var(--jy-parch-shadow);
-        background: var(--jy-parch-mid);
-        padding: 2px 10px;
-        margin-left: 10px;
-        border-radius: 0;
-        vertical-align: middle;
-        opacity: 0.75;
-      }
-
-      .jy-stop.is-next {
-        background: rgba(46, 107, 79, 0.045);
-        border-left: 3px solid var(--jy-next);
-        padding-left: 16px;
-        margin-left: -19px;
-        border-radius: 0;
-      }
-
-      .jy-stop.is-next .jy-stop-dot {
-        border-color: var(--jy-next);
-        border-width: 2.5px;
-        background: var(--jy-parch);
-        box-shadow: 0 0 0 4px rgba(46, 107, 79, 0.18);
-        animation: next-pulse 2.4s ease-in-out infinite;
-      }
-
-      .jy-stop.is-next .jy-stop-dot::after {
-        background: var(--jy-next);
-        width: 7px;
-        height: 7px;
-      }
-
-      @keyframes next-pulse {
-        0%,
-        100% {
-          box-shadow: 0 0 0 4px rgba(46, 107, 79, 0.18);
-        }
-        50% {
-          box-shadow: 0 0 0 8px rgba(46, 107, 79, 0.08);
-        }
-      }
-
-      .jy-stop.is-next .jy-stop-name {
-        color: var(--jy-next);
-      }
-
-      .jy-stop.is-next .jy-photo-frame img {
-        filter: sepia(0%) brightness(1) saturate(1.05) contrast(1.02);
-        outline-color: rgba(46, 107, 79, 0.45);
-      }
-
-      .jy-next-ribbon {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        font-family: "Caveat", cursive;
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--jy-next);
-        background: rgba(46, 107, 79, 0.1);
-        border: 1px solid rgba(46, 107, 79, 0.3);
-        padding: 4px 12px 4px 8px;
-        margin-bottom: 10px;
-      }
-
-      .jy-next-ribbon::before {
-        content: "";
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--jy-next);
-        animation: blink-dot 1.6s ease-in-out infinite;
-      }
-
-      @keyframes blink-dot {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.25;
-        }
-      }
-
-      .jy-stop-cta {
-        display: inline-block;
-        margin-top: 20px;
-        font-family: "Caveat", cursive;
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: var(--jy-ink-mid);
-        text-decoration: none;
-        border-bottom: 1px solid var(--jy-tan);
-        padding-bottom: 2px;
-        transition: color 0.2s, border-color 0.2s;
-        letter-spacing: 0.02em;
-      }
-
-      .jy-stop-cta:hover {
-        color: var(--jy-ink);
-        border-color: var(--jy-ink);
-      }
-
-      .jy-stop--border .jy-stop-cta {
-        color: var(--jy-brick);
-        border-color: rgba(139, 58, 26, 0.4);
-        opacity: 0.85;
-      }
-
-      .jy-stop--border .jy-stop-cta:hover {
-        opacity: 1;
-      }
-
-      .jy-stop.is-next .jy-stop-cta {
-        color: var(--jy-next);
-        border-color: rgba(46, 107, 79, 0.4);
-        opacity: 1;
-      }
-
-      .jy-stop.is-next .jy-stop-cta:hover {
-        color: #1e5038;
-        border-color: #1e5038;
-      }
-
-      .jy-reveal {
-        opacity: 0;
-        transform: translateY(18px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
-      }
-
-      .jy-reveal.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      @keyframes dot-arrive {
-        0% {
-          transform: translate(-50%, -50%) scale(1);
-        }
-        50% {
-          transform: translate(-50%, -50%) scale(2.4);
-          opacity: 0.35;
-        }
-        100% {
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 1;
-        }
-      }
-
-      .jy-stop-dot.dot-arrived::after {
-        animation: dot-arrive 0.55s ease-out forwards;
-      }
-
-      .jy-cadence {
-        border-top: 1px solid var(--jy-tan);
-        margin-top: 80px;
-        padding-top: 64px;
-        position: relative;
-        z-index: 2;
-      }
-
-      .jy-cadence-quote {
-        font-family: "Fraunces", serif;
-        font-size: clamp(1.15rem, 2.2vw, 1.6rem);
-        font-style: italic;
-        font-weight: 400;
-        color: var(--jy-ink);
-        border-left: 3px solid var(--jy-ink-light);
-        padding-left: 26px;
-        margin: 0 0 60px;
-        max-width: 660px;
-        line-height: 1.55;
-      }
-
-      .jy-cadence-quote p {
-        margin: 0 0 12px;
-      }
-
-      .jy-cadence-quote cite {
-        display: block;
-        font-family: "Caveat", cursive;
-        font-size: 1rem;
-        font-style: normal;
-        color: var(--jy-ink-light);
-        letter-spacing: 0.04em;
-      }
-
-      .jy-cadence-phases {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 36px;
-      }
-
-      .jy-phase {
-        border-left: 2px solid var(--jy-tan);
-        padding-left: 20px;
-      }
-
-      .jy-phase-when {
-        display: block;
-        font-family: "Caveat", cursive;
-        font-size: 0.88rem;
-        font-weight: 700;
-        color: var(--jy-ink-light);
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-bottom: 8px;
-      }
-
-      .jy-phase-title {
-        font-family: "Fraunces", serif;
-        font-size: 1.08rem;
-        font-weight: 700;
-        color: var(--jy-ink);
-        margin: 0 0 10px;
-        line-height: 1.2;
-      }
-
-      .jy-phase p {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 0.87rem;
-        color: var(--jy-ink-mid);
-        line-height: 1.65;
-        margin: 0;
-      }
-
-      .jy-closer {
-        background: var(--jy-parch-mid) !important;
-        border-top: 1px solid var(--jy-tan) !important;
-      }
-
-      .jy-closer .journey-atlas-closer-title {
-        font-family: "Fraunces", serif;
-        color: var(--jy-ink);
-      }
-
-      .jy-closer .journey-atlas-closer-title em {
-        font-style: italic;
-        color: var(--jy-ink-mid);
-      }
-
-      .jy-closer .eyebrow {
-        color: var(--jy-ink-light);
-      }
-
-      .jy-closer .journey-atlas-closer-copy {
-        color: var(--jy-ink-mid);
-      }
-
-      .jy-closer .button-primary {
-        background: var(--jy-ink) !important;
-        color: var(--jy-parch) !important;
-        border-color: var(--jy-ink) !important;
-      }
-
-      .jy-closer .button-primary:hover {
-        background: var(--jy-ink-mid) !important;
-        border-color: var(--jy-ink-mid) !important;
-      }
-
-      .jy-closer .button-secondary {
-        border-color: var(--jy-ink) !important;
-        color: var(--jy-ink) !important;
-      }
-
-      @media (max-width: 700px) {
-        .jy-journal-page {
-          padding: 48px 24px 60px 56px;
-        }
-
-        .jy-journal-page::after {
-          left: 40px;
-        }
-
-        .jy-journal-bindings {
-          left: -18px;
-        }
-
-        .jy-binding-hole {
-          width: 12px;
-          height: 12px;
-        }
-
-        .jy-road-ink {
-          left: -20px;
-        }
-
-        .jy-stop {
-          grid-template-columns: 20px 1fr;
-          gap: 0 18px;
-          padding: 40px 0;
-        }
-
-        .jy-stop-content {
-          grid-template-columns: 1fr;
-          gap: 20px;
-        }
-
-        .jy-stop--l .jy-stop-content {
-          direction: ltr;
-        }
-
-        .jy-photo-frame {
-          max-width: 100%;
-        }
-
-        .jy-stop--r .jy-photo-frame,
-        .jy-stop--l .jy-photo-frame {
-          transform: rotate(1deg);
-        }
-
-        .jy-cadence-phases {
-          grid-template-columns: 1fr;
-          gap: 28px;
-        }
-
-        .jy-journal-stats {
-          gap: 20px;
-          flex-direction: column;
-        }
-
-        .jy-stop.is-next {
-          margin-left: -16px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css?v=20260421-7" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -1012,6 +189,61 @@
     </header>
 
     <main class="site-main">
+      <section class="fg-section fg-section--quiet jy-page-intro">
+        <div class="shell jy-page-intro-grid">
+          <div class="jy-page-intro-copy">
+            <span class="fg-eyebrow">Journeys / 2026 route journal</span>
+            <h1 class="fg-title">
+              See the whole year as one route.<br />
+              <em>Ada opened it. Togo stretched it. Shai is next.</em>
+            </h1>
+            <p class="fg-copy">
+              This journal turns the full Adventures of Life GH lineup into one clear story: what has already
+              happened, what is coming next, and how the rest of the year unfolds. Instead of scattered trip posters,
+              you can read the route from top to bottom and decide where you want to join.
+            </p>
+            <div class="fg-actions fg-actions-spaced">
+              <a class="button button-primary" href="https://wa.me/233551472190?text=Hello%20Adventures%20of%20Life%2C%20I%20want%20to%20ask%20about%20Shai%20Reserve%20%26%20Kwaminga%20Park%20on%2023%20May." target="_blank" rel="noreferrer">Ask about Shai</a>
+            </div>
+            <p class="jy-page-intro-proof">
+              Want proof before you pick a chapter?
+              <a href="community.html#reviews">Read real trip reviews</a>
+            </p>
+          </div>
+          <aside class="jy-page-intro-card" aria-label="2026 route sequence">
+            <span class="jy-page-intro-card-label">Year at a glance</span>
+            <p class="jy-page-intro-card-text">
+              Ada opened the year. Togo took the first border run. Shai is next. The journal keeps the full sequence
+              in one place so the whole year reads like a single route, not scattered trip posters.
+            </p>
+            <div class="jy-page-intro-list">
+              <span><strong>Already lived</strong>Ada / Nkyinkyim and the first Togo border run</span>
+              <span><strong>Next up</strong>Shai Reserve &amp; Kwaminga Park · 23 May</span>
+              <span><strong>Still ahead</strong>Waterfall chapter, west run, Volta stretch, Benin finale</span>
+              <span><strong>Why this works</strong>One route to understand, then one next step to act on</span>
+            </div>
+          </aside>
+        </div>
+        <div class="shell fg-stat-row jy-page-intro-stats">
+          <div class="fg-stat-card">
+            <strong>02</strong>
+            <span>Chapters already lived</span>
+          </div>
+          <div class="fg-stat-card">
+            <strong>01</strong>
+            <span>Next stop marked</span>
+          </div>
+          <div class="fg-stat-card">
+            <strong>08</strong>
+            <span>Dates confirmed</span>
+          </div>
+          <div class="fg-stat-card">
+            <strong>03</strong>
+            <span>Border runs</span>
+          </div>
+        </div>
+      </section>
+
       <section class="jy-journal-wrap" id="route-selector">
         <div class="jy-journal-page">
           <div class="jy-journal-bindings" aria-hidden="true">
@@ -1313,8 +545,8 @@
             <em>Send the message.</em>
           </h2>
           <p class="journey-atlas-closer-copy">
-            If a chapter already feels like yours, send the inquiry now. Zico can place you on the right domestic
-            or international shortlist before the slot tightens up.
+            If a chapter already feels like yours, send the inquiry now. If you want proof before you book, read what
+            past travellers said after the road was over.
           </p>
           <div class="journey-atlas-closer-actions">
             <a
@@ -1324,7 +556,7 @@
               href="#">
               Send Zico a message
             </a>
-            <a class="button button-secondary" href="community.html">See who else came</a>
+            <a class="button button-secondary" href="community.html#reviews">Read trip reviews</a>
           </div>
         </div>
       </section>
@@ -1414,27 +646,52 @@
       </svg>
     </a>
 
-    <script src="script.js?v=20260420-6" defer></script>
+    <script src="script.js?v=20260421-2" defer></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const WA_NUMBER = "233551472190";
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const waLink = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg.trim())}`;
+        const journalPage = document.querySelector(".jy-journal-page");
         const roadColumn = document.querySelector(".jy-road-column");
         const roadPath = document.querySelector(".jy-road-path");
         const stops = Array.from(document.querySelectorAll(".jy-stop"));
         const cadQuote = document.querySelector(".jy-cadence-quote");
         const phases = Array.from(document.querySelectorAll(".jy-phase"));
+        const introItems = Array.from(document.querySelectorAll(".jy-page-intro-copy, .jy-page-intro-card, .jy-page-intro-stats .fg-stat-card"));
 
-        stops.forEach((stop, i) => {
+        const revealInstantly = (target) => {
+          target.classList.add("is-visible");
+
+          if (!target.classList.contains("jy-stop")) {
+            return;
+          }
+
+          const dot = target.querySelector(".jy-stop-dot");
+          const stamp = target.querySelector(".jy-passport-stamp");
+          if (dot) {
+            dot.classList.add("dot-arrived");
+          }
+          if (stamp) {
+            stamp.classList.add("stamp-visible");
+          }
+        };
+
+        introItems.forEach((item, index) => {
+          item.classList.add("jy-reveal");
+          item.style.transitionDelay = `${index * 0.08}s`;
+        });
+
+        stops.forEach((stop, index) => {
           stop.classList.add("jy-reveal");
-          stop.style.transitionDelay = `${i * 0.08}s`;
+          stop.style.transitionDelay = `${0.06 + index * 0.07}s`;
 
           const info = stop.querySelector(".jy-stop-info");
           const name = stop.querySelector(".jy-stop-name");
           const date = stop.querySelector(".jy-stop-date");
 
           if (info && name && date && !stop.classList.contains("is-past") && !info.querySelector(".jy-stop-cta")) {
-            const cleanName = name.childNodes[0].textContent.trim();
+            const cleanName = (name.childNodes[0]?.textContent || name.textContent || "").trim();
             const cta = document.createElement("a");
             cta.className = "jy-stop-cta";
             cta.href = waLink(`Hello Adventures of Life, I want to ask about ${cleanName} on ${date.textContent.trim()}.`);
@@ -1444,97 +701,83 @@
             info.appendChild(cta);
           }
 
-          stop.addEventListener("mouseenter", () => stop.classList.add("hovered"));
-          stop.addEventListener("mouseleave", () => stop.classList.remove("hovered"));
+          if (!reduceMotion) {
+            stop.addEventListener("mouseenter", () => stop.classList.add("hovered"));
+            stop.addEventListener("mouseleave", () => stop.classList.remove("hovered"));
+            stop.addEventListener("focusin", () => stop.classList.add("hovered"));
+            stop.addEventListener("focusout", () => stop.classList.remove("hovered"));
+          }
         });
 
         if (cadQuote) {
           cadQuote.classList.add("jy-reveal");
+          cadQuote.style.transitionDelay = "0.08s";
         }
 
-        phases.forEach((p, i) => {
-          p.classList.add("jy-reveal");
-          p.style.transitionDelay = `${0.12 + i * 0.1}s`;
+        phases.forEach((phase, index) => {
+          phase.classList.add("jy-reveal");
+          phase.style.transitionDelay = `${0.14 + index * 0.1}s`;
         });
 
-        if (roadPath && typeof roadPath.getTotalLength === "function") {
-          const totalLength = roadPath.getTotalLength();
-          roadPath.style.strokeDasharray = `${totalLength}`;
-          roadPath.style.strokeDashoffset = `${totalLength}`;
+        const revealAll = document.querySelectorAll(".jy-reveal");
 
-          if (roadColumn && "IntersectionObserver" in window) {
-            const roadObserver = new IntersectionObserver(
-              (entries) => {
-                entries.forEach((entry) => {
-                  if (!entry.isIntersecting) {
-                    return;
-                  }
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+          revealAll.forEach(revealInstantly);
 
-                  const duration = 2800;
-                  const startTime = performance.now();
-
-                  const animateRoad = (now) => {
-                    const progress = Math.min((now - startTime) / duration, 1);
-                    const eased = 1 - Math.pow(1 - progress, 3);
-                    roadPath.style.strokeDashoffset = `${totalLength * (1 - eased)}`;
-
-                    if (progress < 1) {
-                      window.requestAnimationFrame(animateRoad);
-                    }
-                  };
-
-                  window.requestAnimationFrame(animateRoad);
-                  roadObserver.disconnect();
-                });
-              },
-              { threshold: 0.05 }
-            );
-
-            roadObserver.observe(roadColumn);
-          } else {
+          if (roadPath) {
+            roadPath.style.strokeDasharray = "none";
             roadPath.style.strokeDashoffset = "0";
           }
+
+          if (journalPage) {
+            journalPage.classList.add("is-road-ready");
+          }
+
+          return;
         }
 
-        const revealTargets = document.querySelectorAll(".jy-reveal");
+        if (roadPath && roadColumn && typeof roadPath.getTotalLength === "function") {
+          const roadLength = roadPath.getTotalLength();
+          roadPath.style.strokeDasharray = `${roadLength}`;
+          roadPath.style.strokeDashoffset = `${roadLength}`;
 
-        if ("IntersectionObserver" in window) {
-          const revealObserver = new IntersectionObserver(
-            (entries, observer) => {
-              entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                  return;
-                }
+          new IntersectionObserver((entries, observer) => {
+            if (!entries[0]?.isIntersecting) {
+              return;
+            }
 
-                const target = entry.target;
-                target.classList.add("is-visible");
+            const start = performance.now();
+            const duration = 2600;
 
-                if (target.classList.contains("jy-stop")) {
-                  const dot = target.querySelector(".jy-stop-dot");
-                  const stamp = target.querySelector(".jy-passport-stamp");
+            const tick = (now) => {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              roadPath.style.strokeDashoffset = `${roadLength * (1 - eased)}`;
 
-                  if (dot) {
-                    window.setTimeout(() => {
-                      dot.classList.add("dot-arrived");
-                    }, 200);
-                  }
+              if (progress < 1) {
+                requestAnimationFrame(tick);
+                return;
+              }
 
-                  if (stamp) {
-                    window.setTimeout(() => {
-                      stamp.classList.add("stamp-visible");
-                    }, 400);
-                  }
-                }
+              if (journalPage) {
+                journalPage.classList.add("is-road-ready");
+              }
+            };
 
-                observer.unobserve(target);
-              });
-            },
-            { threshold: 0.18 }
-          );
+            requestAnimationFrame(tick);
+            observer.disconnect();
+          }, { threshold: 0.12 }).observe(roadColumn);
+        } else if (roadPath) {
+          roadPath.style.strokeDasharray = "none";
+          roadPath.style.strokeDashoffset = "0";
+        }
 
-          revealTargets.forEach((target) => revealObserver.observe(target));
-        } else {
-          revealTargets.forEach((target) => {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(({ isIntersecting, target }) => {
+            if (!isIntersecting) {
+              return;
+            }
+
             target.classList.add("is-visible");
 
             if (target.classList.contains("jy-stop")) {
@@ -1542,21 +785,21 @@
               const stamp = target.querySelector(".jy-passport-stamp");
 
               if (dot) {
-                dot.classList.add("dot-arrived");
+                window.setTimeout(() => dot.classList.add("dot-arrived"), 180);
               }
 
               if (stamp) {
-                stamp.classList.add("stamp-visible");
+                window.setTimeout(() => stamp.classList.add("stamp-visible"), 360);
               }
             }
+
+            observer.unobserve(target);
           });
-        }
+        }, { threshold: 0.16, rootMargin: "0px 0px -36px 0px" });
+
+        revealAll.forEach((item) => revealObserver.observe(item));
       });
     </script>
   </body>
 </html>
-
-
-
-
 
