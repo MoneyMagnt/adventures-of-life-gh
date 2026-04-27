@@ -15,22 +15,75 @@ const normalizeText = (value) =>
     .trim()
     .replace(/\s+/g, " ");
 
-const buildPublicName = (value) => {
+const normalizeTripKey = (value) =>
+  normalizeText(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+const normalizeContactKey = (value) => {
+  const clean = normalizeText(value).toLowerCase();
+
+  if (!clean) {
+    return "";
+  }
+
+  if (clean.includes("@")) {
+    return clean.replace(/\s+/g, "");
+  }
+
+  const digits = clean.replace(/\D+/g, "");
+
+  if (digits.length >= 9) {
+    return digits.slice(-9);
+  }
+
+  return clean.replace(/[^a-z0-9]+/g, "");
+};
+
+const reviewLooksSpammy = (value) => {
   const clean = normalizeText(value);
 
   if (!clean) {
+    return false;
+  }
+
+  if (/(https?:\/\/|www\.)/i.test(clean)) {
+    return true;
+  }
+
+  if (/(.)\1{7,}/i.test(clean)) {
+    return true;
+  }
+
+  return false;
+};
+
+const buildNameParts = (value) =>
+  String(value || "")
+    .replace(/[^\p{L}\p{N}\s'-]+/gu, " ")
+    .trim()
+    .replace(/\s+/g, " ")
+    .split(" ")
+    .map(part => part.trim())
+    .filter(Boolean);
+
+const buildPublicName = (value) => {
+  const parts = buildNameParts(value);
+
+  if (!parts.length) {
     return "Traveller";
   }
 
-  const parts = clean.split(" ");
+  const first = parts[0].slice(0, 24);
+  const firstDisplay = first ? `${first.charAt(0).toUpperCase()}${first.slice(1)}` : "Traveller";
 
   if (parts.length === 1) {
-    return parts[0];
+    return firstDisplay;
   }
 
-  const first = parts[0];
   const last = parts[parts.length - 1];
-  return `${first} ${last.charAt(0).toUpperCase()}.`;
+  return `${firstDisplay} ${last.charAt(0).toUpperCase()}.`;
 };
 
 const parsePayload = async (request) => {
@@ -71,6 +124,14 @@ const validatePayload = (payload) => {
     return { error: "Please add a slightly longer review." };
   }
 
+  if (cleaned.review.length > 600) {
+    return { error: "Please keep your review a little shorter." };
+  }
+
+  if (reviewLooksSpammy(cleaned.review)) {
+    return { error: "Please remove links or spammy text from the review." };
+  }
+
   return { cleaned };
 };
 
@@ -82,6 +143,39 @@ const ensureDatabase = (env) => {
   return { db: env.DB };
 };
 
+const ensureReviewsSchema = async (db) => {
+  await db
+    .prepare(
+      `CREATE TABLE IF NOT EXISTS reviews (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        public_name TEXT NOT NULL,
+        contact TEXT NOT NULL,
+        trip TEXT NOT NULL,
+        trip_date TEXT NOT NULL,
+        rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
+        review TEXT NOT NULL,
+        approved INTEGER NOT NULL DEFAULT 1,
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+      )`
+    )
+    .run();
+
+  await db
+    .prepare(
+      `CREATE INDEX IF NOT EXISTS idx_reviews_approved_created_at
+       ON reviews (approved, created_at DESC, id DESC)`
+    )
+    .run();
+
+  await db
+    .prepare(
+      `CREATE INDEX IF NOT EXISTS idx_reviews_trip_contact
+       ON reviews (trip, contact)`
+    )
+    .run();
+};
+
 export async function onRequestGet(context) {
   const { db, error } = ensureDatabase(context.env);
 
@@ -90,6 +184,8 @@ export async function onRequestGet(context) {
   }
 
   try {
+    await ensureReviewsSchema(db);
+
     const { results } = await db
       .prepare(
         `SELECT
@@ -136,8 +232,70 @@ export async function onRequestPost(context) {
 
   const publicName = buildPublicName(cleaned.name);
   const createdAt = new Date().toISOString();
+  const tripKey = normalizeTripKey(cleaned.trip);
+  const contactKey = normalizeContactKey(cleaned.contact);
 
   try {
+    await ensureReviewsSchema(db);
+
+    const existingForTrip = await db
+      .prepare(
+        `SELECT id, contact
+         FROM reviews
+         WHERE lower(trim(trip)) = lower(trim(?))`
+      )
+      .bind(cleaned.trip)
+      .all();
+
+    const existingReview = (existingForTrip.results || []).find(
+      (row) => normalizeContactKey(row.contact) === contactKey && contactKey && tripKey
+    );
+
+    if (existingReview) {
+      await db
+        .prepare(
+          `UPDATE reviews
+           SET name = ?,
+               public_name = ?,
+               contact = ?,
+               trip = ?,
+               trip_date = ?,
+               rating = ?,
+               review = ?,
+               approved = 1,
+               created_at = ?
+           WHERE id = ?`
+        )
+        .bind(
+          cleaned.name,
+          publicName,
+          cleaned.contact,
+          cleaned.trip,
+          cleaned.tripDate,
+          cleaned.rating,
+          cleaned.review,
+          createdAt,
+          existingReview.id
+        )
+        .run();
+
+      return json(
+        {
+          action: "updated",
+          review: {
+            id: existingReview.id,
+            display_name: publicName,
+            trip: cleaned.trip,
+            trip_date: cleaned.tripDate,
+            rating: cleaned.rating,
+            review: cleaned.review,
+            created_at: createdAt,
+          },
+        },
+        { status: 200 }
+      );
+    }
+
     const result = await db
       .prepare(
         `INSERT INTO reviews (
@@ -166,6 +324,7 @@ export async function onRequestPost(context) {
 
     return json(
       {
+        action: "created",
         review: {
           id: result.meta?.last_row_id || createdAt,
           display_name: publicName,

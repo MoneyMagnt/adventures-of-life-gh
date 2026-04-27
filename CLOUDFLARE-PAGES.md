@@ -40,18 +40,21 @@ Keep individual files lean.
 Cloudflare Pages currently has a 25 MiB per-file limit for site assets.
 If large media becomes part of the stack later, move those files to Cloudflare R2 or Cloudflare Stream.
 
-## Reviews backend
-The community reviews form now expects a Cloudflare D1 binding named `DB`.
+## Reviews and inquiries backend
+The community reviews form and the homepage trip inquiry form now expect a Cloudflare D1 binding named `DB`.
 
 Setup:
 1. Create a D1 database for reviews.
-2. Run the schema in `reviews-d1-schema.sql`.
-3. Bind that database to the Pages project as `DB`.
-4. Deploy the `functions/api/reviews.js` Pages Function with the rest of the site.
+2. Bind that database to the Pages project as `DB`.
+3. Deploy the Pages Functions with the rest of the site.
+
+Notes:
+- `functions/api/reviews.js` and `functions/api/inquiries.js` will create their tables automatically if they do not exist yet.
+- `reviews-d1-schema.sql` contains the same review and inquiry schema if you want to inspect or initialize it manually.
 
 Without the `DB` binding:
 - the local preview can still show submitted reviews in browser storage
-- the live site will not be able to auto-publish shared reviews
+- the live site will not be able to store shared reviews or trip inquiries
 
 ## Files added for hosting
 - `_headers`: browser caching and security headers

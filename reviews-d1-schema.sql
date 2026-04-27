@@ -13,3 +13,20 @@ CREATE TABLE IF NOT EXISTS reviews (
 
 CREATE INDEX IF NOT EXISTS idx_reviews_approved_created_at
 ON reviews (approved, created_at DESC, id DESC);
+
+CREATE INDEX IF NOT EXISTS idx_reviews_trip_contact
+ON reviews (trip, contact);
+
+CREATE TABLE IF NOT EXISTS inquiries (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  trip TEXT NOT NULL,
+  message TEXT NOT NULL DEFAULT '',
+  status TEXT NOT NULL DEFAULT 'new',
+  source_path TEXT NOT NULL DEFAULT '',
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_inquiries_created_at
+ON inquiries (created_at DESC, id DESC);

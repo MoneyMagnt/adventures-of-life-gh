@@ -3,10 +3,17 @@ node_modules/
 .DS_Store
 Thumbs.db
 .preview*.log
+preview-server.err
+preview-server.log
 
 # Local tooling / temp
 .tools/
 pydeps/
+_tmp_contacts/
+_tmp_*
+adventurepics_exports/
+adventurepics_preview/
+wrangler-login.txt
 
 # Source photo drops (keep previews only)
 adventurepics/

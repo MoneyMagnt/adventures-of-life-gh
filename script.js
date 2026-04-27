@@ -6,8 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "Hello Adventures of Life, I want help planning a trip in Ghana or nearby West African countries.";
   const DESKTOP_MENU_BREAKPOINT = 1024;
   const STICKY_OFFSET = 96;
-  const FORM_ENDPOINT = "https://formspree.io/f/YOUR_ID";
+  const INQUIRIES_ENDPOINT = "/api/inquiries";
   const REVIEWS_ENDPOINT = "/api/reviews";
+  const LOCAL_INQUIRY_STORAGE_KEY = "aol-trip-inquiries-local";
   const LOCAL_REVIEW_STORAGE_KEY = "aol-community-reviews-local";
 
   const hoverQuery = window.matchMedia("(hover: hover)");
@@ -890,19 +891,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const setupMobileMenu = () => {
     const toggle = document.querySelector("[data-menu-toggle]");
     const panel = document.querySelector("[data-menu-panel]");
+    const header = toggle ? toggle.closest(".site-header") : null;
 
     if (!toggle || !panel) {
       return;
     }
 
-    const closeMenu = () => {
-      panel.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
+    const syncMenuState = (isOpen) => {
+      panel.classList.toggle("is-open", isOpen);
+      toggle.classList.toggle("is-open", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      panel.setAttribute("aria-hidden", String(!isOpen));
+      document.body.classList.toggle("nav-open", isOpen);
     };
 
-    toggle.addEventListener("click", () => {
-      const isOpen = panel.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
+    const closeMenu = () => {
+      syncMenuState(false);
+    };
+
+    const isMenuOpen = () => panel.classList.contains("is-open");
+
+    syncMenuState(false);
+
+    toggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      syncMenuState(!isMenuOpen());
     });
 
     panel.querySelectorAll("a").forEach((link) => {
@@ -913,8 +927,24 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    panel.addEventListener("click", (event) => {
+      if (event.target === panel) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!isMenuOpen() || window.innerWidth >= DESKTOP_MENU_BREAKPOINT) {
+        return;
+      }
+
+      if (header && !header.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
+      if (event.key === "Escape" && isMenuOpen()) {
         closeMenu();
       }
     });
@@ -1485,7 +1515,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const setupContactForm = () => {
     const form = document.getElementById("contact-form");
     const response = document.getElementById("form-response");
-    const usesPlaceholderEndpoint = !FORM_ENDPOINT || FORM_ENDPOINT.includes("YOUR_ID");
 
     if (!form || !response) {
       return;
@@ -1506,40 +1535,57 @@ document.addEventListener("DOMContentLoaded", () => {
       response.removeAttribute("style");
 
       try {
-        if (usesPlaceholderEndpoint) {
-          const payload = Object.fromEntries(new FormData(form));
-          const fallbackLink = buildWhatsAppLink(
-            buildInquiryMessage({
-              name: payload.name,
-              email: payload.email,
-              interest: payload.interest,
-              notes: payload.message,
-            })
-          );
+        const payload = Object.fromEntries(new FormData(form));
 
-          window.open(fallbackLink, "_blank", "noopener");
-          response.innerHTML = `WhatsApp opened with your trip details. <a href="${fallbackLink}" target="_blank" rel="noreferrer">Open it again</a>`;
-          response.style.color = "var(--canopy)";
-          return;
-        }
-
-        const res = await fetch(FORM_ENDPOINT, {
+        const res = await fetch(INQUIRIES_ENDPOINT, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+          body: JSON.stringify({
+            ...payload,
+            source_path: window.location.pathname || "/",
+          }),
         });
 
+        const data = await res.json().catch(() => ({}));
+
         if (!res.ok) {
-          throw new Error("Failed");
+          throw new Error(data.error || "Failed");
         }
 
-        response.textContent = "Sent. We will be in touch soon.";
+        response.textContent = "Inquiry sent. Zico will follow up soon.";
         response.style.color = "var(--canopy)";
         form.reset();
       } catch (error) {
+        if (isLocalPreview()) {
+          try {
+            const payload = Object.fromEntries(new FormData(form));
+            const raw = window.localStorage.getItem(LOCAL_INQUIRY_STORAGE_KEY);
+            const next = Array.isArray(JSON.parse(raw || "[]"))
+              ? JSON.parse(raw || "[]")
+              : [];
+            next.unshift({
+              ...payload,
+              source_path: window.location.pathname || "/",
+              created_at: new Date().toISOString(),
+            });
+            window.localStorage.setItem(
+              LOCAL_INQUIRY_STORAGE_KEY,
+              JSON.stringify(next.slice(0, 24))
+            );
+          } catch (storageError) {
+            // Ignore local preview persistence failures.
+          }
+
+          response.textContent =
+            "Saved in local preview. On the live site this goes straight into the trip inbox.";
+          response.style.color = "var(--canopy)";
+          form.reset();
+          return;
+        }
+
         const fallbackLink = buildWhatsAppLink(
           buildInquiryMessage({
             name: form.elements.name?.value,
@@ -1549,7 +1595,7 @@ document.addEventListener("DOMContentLoaded", () => {
           })
         );
 
-        response.innerHTML = `Something went wrong. <a href="${fallbackLink}" target="_blank" rel="noreferrer">Try WhatsApp</a>`;
+        response.innerHTML = `We couldn't save your inquiry right now. <a href="${fallbackLink}" target="_blank" rel="noreferrer">Send it on WhatsApp</a>`;
         response.style.color = "var(--clay)";
 
         if (typeof form.animate === "function") {
@@ -1581,24 +1627,28 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.hostname === "127.0.0.1";
 
   const buildReviewDisplayName = (value) => {
-    const clean = String(value || "")
+    const parts = String(value || "")
+      .replace(/[^\p{L}\p{N}\s'-]+/gu, " ")
       .trim()
-      .replace(/\s+/g, " ");
+      .replace(/\s+/g, " ")
+      .split(" ")
+      .map(part => part.trim())
+      .filter(Boolean);
 
-    if (!clean) {
+    if (!parts.length) {
       return "Traveller";
     }
 
-    const parts = clean.split(" ");
+    const first = parts[0].slice(0, 24);
+    const firstDisplay = first ? `${first.charAt(0).toUpperCase()}${first.slice(1)}` : "Traveller";
 
     if (parts.length === 1) {
-      return parts[0];
+      return firstDisplay;
     }
 
-    const first = parts[0];
     const last = parts[parts.length - 1];
     const lastInitial = last ? `${last.charAt(0).toUpperCase()}.` : "";
-    return `${first} ${lastInitial}`.trim();
+    return `${firstDisplay} ${lastInitial}`.trim();
   };
 
   const buildReviewInitials = (value) => {
@@ -1661,6 +1711,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const createReviewCard = (review) => {
     const card = document.createElement("article");
     card.className = "fg-review-card reveal is-visible";
+    card.dataset.reviewId = String(review.id);
 
     const head = document.createElement("div");
     head.className = "fg-review-head";
@@ -1759,7 +1810,10 @@ document.addEventListener("DOMContentLoaded", () => {
       throw new Error(data.error || "Failed to submit review");
     }
 
-    return normalizeReview(data.review || payload);
+    return {
+      action: data.action || "created",
+      review: normalizeReview(data.review || payload),
+    };
   };
 
   const setupCommunityReviews = () => {
@@ -1775,7 +1829,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const renderInitialReviews = async () => {
       try {
         const reviews = await fetchCommunityReviews();
-        renderCommunityReviews(feed, status, reviews, "No reviews yet. Be the first attendee to leave one.");
+        renderCommunityReviews(feed, status, reviews, "No reviews yet. Be the first traveller to leave one.");
       } catch (error) {
         if (isLocalPreview()) {
           const localReviews = loadLocalReviews();
@@ -1797,7 +1851,7 @@ document.addEventListener("DOMContentLoaded", () => {
             feed,
             status,
             [],
-            "Live reviews are not connected yet. The review database still needs to be turned on in production.",
+            "Reviews are temporarily unavailable right now.",
             true
           );
           return;
@@ -1807,7 +1861,7 @@ document.addEventListener("DOMContentLoaded", () => {
           feed,
           status,
           [],
-          "No reviews yet. Be the first attendee to leave one.",
+          "No reviews yet. Be the first traveller to leave one.",
           false
         );
       }
@@ -1831,11 +1885,24 @@ document.addEventListener("DOMContentLoaded", () => {
       button.textContent = "Posting...";
 
       try {
-        const review = await submitCommunityReview(payload);
-        feed.prepend(createReviewCard(review));
+        const result = await submitCommunityReview(payload);
+        const review = result.review;
+        const existingCard = Array.from(feed.children).find(
+          (card) => card.dataset && card.dataset.reviewId === String(review.id)
+        );
+
+        if (existingCard) {
+          existingCard.replaceWith(createReviewCard(review));
+        } else {
+          feed.prepend(createReviewCard(review));
+        }
+
         feed.hidden = false;
         status.hidden = true;
-        response.textContent = "Thanks. Your review is live.";
+        response.textContent =
+          result.action === "updated"
+            ? "Your review was updated and is live now."
+            : "Thanks. Your review is live now.";
         response.style.color = "var(--canopy)";
         form.reset();
       } catch (error) {
@@ -1850,7 +1917,7 @@ document.addEventListener("DOMContentLoaded", () => {
           feed.hidden = false;
           status.hidden = true;
           response.textContent =
-            "Saved in local preview. Once the live reviews database is connected, new reviews will publish here automatically.";
+            "Saved in local preview. On the live site new reviews publish here automatically.";
           response.style.color = "var(--canopy)";
           form.reset();
         } else {
@@ -1859,8 +1926,8 @@ document.addEventListener("DOMContentLoaded", () => {
             /reviews database is not configured yet/i.test(error.message);
 
           response.textContent = liveDbMissing
-            ? "Live reviews are not connected yet. The review database still needs to be turned on in production."
-            : "Could not post your review right now. Please try again shortly.";
+            ? "Reviews are temporarily unavailable right now."
+            : "Could not post your review right now. Please try again in a moment.";
           response.style.color = "var(--clay)";
         }
       } finally {
