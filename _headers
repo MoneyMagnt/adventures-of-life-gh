@@ -10,10 +10,19 @@
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
 
+/journeys
+  Cache-Control: public, max-age=0, must-revalidate
+
 /journeys.html
   Cache-Control: public, max-age=0, must-revalidate
 
+/community
+  Cache-Control: public, max-age=0, must-revalidate
+
 /community.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/about
   Cache-Control: public, max-age=0, must-revalidate
 
 /about.html
