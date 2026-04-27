@@ -892,18 +892,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.querySelector("[data-menu-toggle]");
     const panel = document.querySelector("[data-menu-panel]");
     const header = toggle ? toggle.closest(".site-header") : null;
+    const firstMenuLink = panel ? panel.querySelector(".site-nav a") : null;
 
     if (!toggle || !panel) {
       return;
     }
 
-    const syncMenuState = (isOpen) => {
+    const syncMenuState = (isOpen, shouldFocus = true) => {
       panel.classList.toggle("is-open", isOpen);
       toggle.classList.toggle("is-open", isOpen);
       toggle.setAttribute("aria-expanded", String(isOpen));
       toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
       panel.setAttribute("aria-hidden", String(!isOpen));
       document.body.classList.toggle("nav-open", isOpen);
+
+      if (!shouldFocus) {
+        return;
+      }
+
+      if (isOpen) {
+        window.requestAnimationFrame(() => {
+          if (firstMenuLink instanceof HTMLElement) {
+            firstMenuLink.focus({ preventScroll: true });
+          }
+        });
+      } else {
+        toggle.focus({ preventScroll: true });
+      }
     };
 
     const closeMenu = () => {
@@ -912,7 +927,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const isMenuOpen = () => panel.classList.contains("is-open");
 
-    syncMenuState(false);
+    syncMenuState(false, false);
 
     toggle.addEventListener("click", (event) => {
       event.preventDefault();
