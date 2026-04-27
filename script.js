@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Adakluto is a proper hiking day. You start easy, hit the steeper sections, reach the marker, take the group photo, and come down feeling like you earned it.",
       gallery: [
         {
-          src: "assets/trips/adakluto-beginning-preview.jpg",
+          src: "assets/trips/adakluto-beginning-2-preview.jpg?v=20260427-start1",
           alt: "Early trail start on the Hike Adakluto route.",
           kicker: "Trail start",
           title: "The day starts gently before the real climb kicks in.",
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
           position: "center 38%",
         },
         {
-          src: "assets/trips/adakluto-peak-preview.jpg",
+          src: "assets/trips/adakluto-peak-preview.jpg?v=20260427-peak1",
           alt: "Peak marker on Hike Adakluto.",
           kicker: "Peak marker",
           title: "At the top, everyone stops for the photo they worked for.",
