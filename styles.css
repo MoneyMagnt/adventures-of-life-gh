@@ -10799,6 +10799,71 @@ body.nav-open {
     height: 1.3rem;
   }
 
+  body[data-page="home"] .menu-toggle.is-open,
+  body[data-page="community"] .menu-toggle.is-open,
+  body[data-page="about"] .menu-toggle.is-open {
+    border-color: rgba(248, 250, 247, 0.28);
+    background: rgba(11, 34, 36, 0.9);
+    color: rgba(248, 250, 247, 0.96);
+  }
+
+  body[data-page="home"] .header-panel,
+  body[data-page="community"] .header-panel,
+  body[data-page="about"] .header-panel {
+    inset: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 6.5rem 1.5rem 2rem;
+    border: 0;
+    border-radius: 0;
+    background: rgba(11, 34, 36, 0.97);
+    box-shadow: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body[data-page="home"] .site-nav,
+  body[data-page="community"] .site-nav,
+  body[data-page="about"] .site-nav,
+  body[data-page="home"] .nav-actions,
+  body[data-page="community"] .nav-actions,
+  body[data-page="about"] .nav-actions {
+    width: min(100%, 18rem);
+    align-items: stretch;
+  }
+
+  body[data-page="home"] .site-nav a,
+  body[data-page="community"] .site-nav a,
+  body[data-page="about"] .site-nav a {
+    justify-content: center;
+    min-height: 3.35rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: 0;
+    font-size: clamp(1.35rem, 4vw, 1.8rem);
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: rgba(248, 250, 247, 0.94);
+  }
+
+  body[data-page="home"] .site-nav a:hover,
+  body[data-page="community"] .site-nav a:hover,
+  body[data-page="about"] .site-nav a:hover,
+  body[data-page="home"] .site-nav a:focus-visible,
+  body[data-page="community"] .site-nav a:focus-visible,
+  body[data-page="about"] .site-nav a:focus-visible,
+  body[data-page="home"] .site-nav a.is-active,
+  body[data-page="community"] .site-nav a.is-active,
+  body[data-page="about"] .site-nav a.is-active,
+  body[data-page="home"] .site-nav a[aria-current="page"],
+  body[data-page="community"] .site-nav a[aria-current="page"],
+  body[data-page="about"] .site-nav a[aria-current="page"] {
+    background: transparent;
+    color: #f0ad32;
+  }
+
   body[data-page="journeys"] .menu-toggle.is-open {
     border-color: rgba(44, 26, 14, 0.2);
     background: rgba(245, 237, 216, 0.94);
@@ -10806,10 +10871,35 @@ body.nav-open {
   }
 
   body[data-page="journeys"] .header-panel {
+    inset: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 6.5rem 1.5rem 2rem;
+    border: 0;
+    border-radius: 0;
     background: rgba(245, 237, 216, 0.985);
+    box-shadow: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body[data-page="journeys"] .site-nav,
+  body[data-page="journeys"] .nav-actions {
+    width: min(100%, 18rem);
+    align-items: stretch;
   }
 
   body[data-page="journeys"] .site-nav a {
+    justify-content: center;
+    min-height: 3.35rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: 0;
+    font-size: clamp(1.35rem, 4vw, 1.8rem);
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     color: var(--fg-ink);
   }
 
