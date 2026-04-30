@@ -892,7 +892,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.querySelector("[data-menu-toggle]");
     const panel = document.querySelector("[data-menu-panel]");
     const header = toggle ? toggle.closest(".site-header") : null;
-    const firstMenuLink = panel ? panel.querySelector(".site-nav a") : null;
+    const firstMenuLink = panel ? panel.querySelector(".site-menu-nav a") : null;
 
     if (!toggle || !panel) {
       return;
