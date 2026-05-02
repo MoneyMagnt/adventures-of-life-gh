@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const STICKY_OFFSET = 96;
   const INQUIRIES_ENDPOINT = "/api/inquiries";
   const REVIEWS_ENDPOINT = "/api/reviews";
+  const SITE_CONFIG_ENDPOINT = "/api/site-config";
+  const REVIEW_INVITE_ENDPOINT = "/api/review-invite";
   const LOCAL_INQUIRY_STORAGE_KEY = "aol-trip-inquiries-local";
   const LOCAL_REVIEW_STORAGE_KEY = "aol-community-reviews-local";
 
@@ -1527,6 +1529,195 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   };
+  const isLocalPreview = () =>
+    window.location.protocol === "file:" ||
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1";
+
+  let siteConfigPromise = null;
+  let turnstileScriptPromise = null;
+
+  const loadSiteConfig = async () => {
+    if (siteConfigPromise) {
+      return siteConfigPromise;
+    }
+
+    if (isLocalPreview()) {
+      siteConfigPromise = Promise.resolve({
+        turnstileSiteKey: "",
+        reviewInviteRequired: true,
+      });
+      return siteConfigPromise;
+    }
+
+    siteConfigPromise = fetch(SITE_CONFIG_ENDPOINT, {
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then(async (response) => {
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(data.error || "Could not load the site security config.");
+        }
+
+        return {
+          turnstileSiteKey: String(data.turnstileSiteKey || "").trim(),
+          reviewInviteRequired: data.reviewInviteRequired !== false,
+        };
+      })
+      .catch(() => ({
+        turnstileSiteKey: "",
+        reviewInviteRequired: true,
+      }));
+
+    return siteConfigPromise;
+  };
+
+  const loadTurnstileScript = async () => {
+    if (window.turnstile) {
+      return window.turnstile;
+    }
+
+    if (turnstileScriptPromise) {
+      return turnstileScriptPromise;
+    }
+
+    turnstileScriptPromise = new Promise((resolve, reject) => {
+      const existing = document.querySelector('script[data-turnstile-script="true"]');
+
+      if (existing) {
+        existing.addEventListener("load", () => resolve(window.turnstile), {
+          once: true,
+        });
+        existing.addEventListener("error", reject, { once: true });
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      script.async = true;
+      script.defer = true;
+      script.dataset.turnstileScript = "true";
+      script.addEventListener("load", () => resolve(window.turnstile), { once: true });
+      script.addEventListener("error", reject, { once: true });
+      document.head.appendChild(script);
+    });
+
+    return turnstileScriptPromise;
+  };
+
+  const mountTurnstileProtection = async ({
+    form,
+    response,
+    missingMessage,
+  }) => {
+    const container = form?.querySelector("[data-turnstile-container]");
+    const tokenField = form?.elements?.turnstile_token;
+
+    if (!form || !container || !tokenField) {
+      return {
+        enabled: false,
+        missing: false,
+        reset() {},
+      };
+    }
+
+    if (isLocalPreview()) {
+      container.hidden = true;
+      return {
+        enabled: false,
+        missing: false,
+        reset() {
+          tokenField.value = "";
+        },
+      };
+    }
+
+    const config = await loadSiteConfig();
+
+    if (!config.turnstileSiteKey) {
+      container.hidden = true;
+      return {
+        enabled: false,
+        missing: true,
+        reset() {
+          tokenField.value = "";
+        },
+      };
+    }
+
+    try {
+      const turnstile = await loadTurnstileScript();
+
+      if (!turnstile || typeof turnstile.render !== "function") {
+        throw new Error("Turnstile is unavailable.");
+      }
+
+      tokenField.value = "";
+      const widgetId = turnstile.render(container, {
+        sitekey: config.turnstileSiteKey,
+        theme: "auto",
+        callback: (token) => {
+          tokenField.value = token || "";
+        },
+        "expired-callback": () => {
+          tokenField.value = "";
+        },
+        "error-callback": () => {
+          tokenField.value = "";
+        },
+      });
+
+      return {
+        enabled: true,
+        missing: false,
+        reset() {
+          tokenField.value = "";
+          if (window.turnstile && typeof window.turnstile.reset === "function") {
+            window.turnstile.reset(widgetId);
+          }
+        },
+      };
+    } catch (error) {
+      if (response) {
+        response.textContent = missingMessage;
+        response.style.color = "var(--clay)";
+      }
+
+      container.hidden = true;
+      return {
+        enabled: false,
+        missing: true,
+        reset() {
+          tokenField.value = "";
+        },
+      };
+    }
+  };
+
+  const triggerFormShake = (form) => {
+    if (!form || typeof form.animate !== "function") {
+      return;
+    }
+
+    form.animate(
+      [
+        { transform: "translateX(0)" },
+        { transform: "translateX(-6px)" },
+        { transform: "translateX(6px)" },
+        { transform: "translateX(-4px)" },
+        { transform: "translateX(4px)" },
+        { transform: "translateX(0)" },
+      ],
+      {
+        duration: 360,
+        easing: "ease",
+      }
+    );
+  };
+
   const setupContactForm = () => {
     const form = document.getElementById("contact-form");
     const response = document.getElementById("form-response");
@@ -1534,6 +1725,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!form || !response) {
       return;
     }
+
+    const button = form.querySelector('button[type="submit"]');
+    let turnstileController = null;
+
+    const turnstileReady = mountTurnstileProtection({
+      form,
+      response,
+      missingMessage: "Trip form protection is not configured right now.",
+    }).then((controller) => {
+      turnstileController = controller;
+
+      if (controller.missing && button && !isLocalPreview()) {
+        button.disabled = true;
+      }
+
+      return controller;
+    });
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -1550,6 +1758,16 @@ document.addEventListener("DOMContentLoaded", () => {
       response.removeAttribute("style");
 
       try {
+        const controller = await turnstileReady;
+
+        if (
+          !isLocalPreview() &&
+          controller.enabled &&
+          !String(form.elements.turnstile_token?.value || "").trim()
+        ) {
+          throw new Error("Please confirm you are human and try again.");
+        }
+
         const payload = Object.fromEntries(new FormData(form));
 
         const res = await fetch(INQUIRIES_ENDPOINT, {
@@ -1573,6 +1791,7 @@ document.addEventListener("DOMContentLoaded", () => {
         response.textContent = "Inquiry sent. Zico will follow up soon.";
         response.style.color = "var(--canopy)";
         form.reset();
+        turnstileController?.reset();
       } catch (error) {
         if (isLocalPreview()) {
           try {
@@ -1610,36 +1829,21 @@ document.addEventListener("DOMContentLoaded", () => {
           })
         );
 
-        response.innerHTML = `We couldn't save your inquiry right now. <a href="${fallbackLink}" target="_blank" rel="noreferrer">Send it on WhatsApp</a>`;
-        response.style.color = "var(--clay)";
+        const friendlyError =
+          error instanceof Error && error.message
+            ? error.message
+            : "We couldn't save your inquiry right now.";
 
-        if (typeof form.animate === "function") {
-          form.animate(
-            [
-              { transform: "translateX(0)" },
-              { transform: "translateX(-6px)" },
-              { transform: "translateX(6px)" },
-              { transform: "translateX(-4px)" },
-              { transform: "translateX(4px)" },
-              { transform: "translateX(0)" },
-            ],
-            {
-              duration: 360,
-              easing: "ease",
-            }
-          );
-        }
+        response.innerHTML = `${friendlyError} <a href="${fallbackLink}" target="_blank" rel="noreferrer">Send it on WhatsApp</a>`;
+        response.style.color = "var(--clay)";
+        triggerFormShake(form);
+        turnstileController?.reset();
       } finally {
         btn.disabled = false;
         btn.textContent = "Send inquiry";
       }
     });
   };
-
-  const isLocalPreview = () =>
-    window.location.protocol === "file:" ||
-    window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1";
 
   const buildReviewDisplayName = (value) => {
     const parts = String(value || "")
@@ -1831,15 +2035,161 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   };
 
+  const fetchReviewInvite = async (token) => {
+    const url = new URL(REVIEW_INVITE_ENDPOINT, window.location.origin);
+    url.searchParams.set("token", token);
+
+    const res = await fetch(url, {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok) {
+      throw new Error(data.error || "Could not check your review link.");
+    }
+
+    return data.invite || null;
+  };
+
+  const setReadonlyFieldValue = (field, value, locked = true) => {
+    if (!field) {
+      return;
+    }
+
+    if (field instanceof HTMLSelectElement) {
+      const hasOption = Array.from(field.options).some(
+        (option) => option.value === value
+      );
+
+      if (!hasOption && value) {
+        const option = new Option(value, value, true, true);
+        field.add(option);
+      }
+
+      if (value) {
+        field.value = value;
+      }
+
+      field.disabled = locked;
+      return;
+    }
+
+    if (typeof value === "string") {
+      field.value = value;
+    }
+
+    field.readOnly = locked;
+    field.setAttribute("aria-readonly", String(locked));
+  };
+
+  const setReviewFormAvailability = (form, enabled) => {
+    form
+      .querySelectorAll('input:not([type="hidden"]):not([name="website"]), select, textarea')
+      .forEach((field) => {
+        if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+          field.readOnly = !enabled;
+        }
+
+        if (field instanceof HTMLSelectElement || field instanceof HTMLButtonElement) {
+          field.disabled = !enabled;
+        }
+      });
+
+    const button = form.querySelector('button[type="submit"]');
+    if (button) {
+      button.disabled = !enabled;
+    }
+  };
+
   const setupCommunityReviews = () => {
     const form = document.getElementById("review-form-submit");
     const response = document.getElementById("review-form-response");
     const feed = document.getElementById("reviews-feed");
     const status = document.getElementById("reviews-status");
+    const inviteStatus = document.getElementById("review-invite-status");
+    const inviteSummary = document.getElementById("review-invite-summary");
 
     if (!form || !response || !feed || !status) {
       return;
     }
+
+    let turnstileController = null;
+    const reviewToken = new URLSearchParams(window.location.search).get("review_token") || "";
+    const turnstileReady = mountTurnstileProtection({
+      form,
+      response,
+      missingMessage: "Review protection is not configured right now.",
+    }).then((controller) => {
+      turnstileController = controller;
+      return controller;
+    });
+
+    const primeReviewInvite = async () => {
+      if (isLocalPreview()) {
+        if (inviteStatus) {
+          inviteStatus.textContent =
+            "Local preview stays open for testing. Live reviews only publish from verified trip links.";
+        }
+        return;
+      }
+
+      setReviewFormAvailability(form, false);
+
+      if (!reviewToken) {
+        if (inviteStatus) {
+          inviteStatus.textContent =
+            "This review form only opens from a verified trip link. Ask Zico to resend yours on WhatsApp.";
+        }
+        return;
+      }
+
+      form.elements.review_token.value = reviewToken;
+
+      try {
+        const controller = await turnstileReady;
+        const invite = await fetchReviewInvite(reviewToken);
+
+        if (!invite) {
+          throw new Error("This review link is invalid or has expired.");
+        }
+
+        if (controller.missing) {
+          if (inviteStatus) {
+            inviteStatus.textContent = "Review protection is not configured right now.";
+          }
+          return;
+        }
+
+        if (inviteStatus) {
+          inviteStatus.textContent =
+            "Verified traveller link confirmed. Your trip details are locked in below.";
+        }
+
+        if (inviteSummary) {
+          inviteSummary.hidden = false;
+          inviteSummary.textContent = `${invite.trip} / ${invite.trip_date}`;
+        }
+
+        if (form.elements.name && !String(form.elements.name.value || "").trim()) {
+          form.elements.name.value = invite.name || "";
+        }
+
+        setReviewFormAvailability(form, true);
+        setReadonlyFieldValue(form.elements.contact, "Verified from your trip link", true);
+        setReadonlyFieldValue(form.elements.trip, invite.trip, true);
+        setReadonlyFieldValue(form.elements.trip_date, invite.trip_date, true);
+      } catch (error) {
+        if (inviteStatus) {
+          inviteStatus.textContent =
+            error instanceof Error && error.message
+              ? error.message
+              : "This review link is invalid or has expired.";
+        }
+      }
+    };
 
     const renderInitialReviews = async () => {
       try {
@@ -1883,6 +2233,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     renderInitialReviews();
+    primeReviewInvite();
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -1898,8 +2249,19 @@ document.addEventListener("DOMContentLoaded", () => {
       response.removeAttribute("style");
       button.disabled = true;
       button.textContent = "Posting...";
+      let lockAfterSubmit = false;
 
       try {
+        const controller = await turnstileReady;
+
+        if (
+          !isLocalPreview() &&
+          controller.enabled &&
+          !String(form.elements.turnstile_token?.value || "").trim()
+        ) {
+          throw new Error("Please confirm you are human and try again.");
+        }
+
         const result = await submitCommunityReview(payload);
         const review = result.review;
         const existingCard = Array.from(feed.children).find(
@@ -1914,12 +2276,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         feed.hidden = false;
         status.hidden = true;
-        response.textContent =
-          result.action === "updated"
-            ? "Your review was updated and is live now."
-            : "Thanks. Your review is live now.";
+        response.textContent = "Thanks. Your verified review is live now.";
         response.style.color = "var(--canopy)";
         form.reset();
+        if (form.elements.review_token) {
+          form.elements.review_token.value = reviewToken;
+        }
+        if (inviteStatus) {
+          inviteStatus.textContent =
+            "That review link has been used. Ask Zico if you need another one.";
+        }
+        setReviewFormAvailability(form, false);
+        if (inviteSummary) {
+          inviteSummary.hidden = true;
+        }
+        turnstileController?.reset();
+        lockAfterSubmit = true;
       } catch (error) {
         if (isLocalPreview()) {
           const review = normalizeReview({
@@ -1932,7 +2304,7 @@ document.addEventListener("DOMContentLoaded", () => {
           feed.hidden = false;
           status.hidden = true;
           response.textContent =
-            "Saved in local preview. On the live site new reviews publish here automatically.";
+            "Saved in local preview. On the live site verified trip links publish reviews here.";
           response.style.color = "var(--canopy)";
           form.reset();
         } else {
@@ -1942,11 +2314,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
           response.textContent = liveDbMissing
             ? "Reviews are temporarily unavailable right now."
-            : "Could not post your review right now. Please try again in a moment.";
+            : error instanceof Error && error.message
+              ? error.message
+              : "Could not post your review right now. Please try again in a moment.";
           response.style.color = "var(--clay)";
+          turnstileController?.reset();
         }
       } finally {
-        button.disabled = false;
+        button.disabled = lockAfterSubmit;
         button.textContent = "Post review";
       }
     });

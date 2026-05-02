@@ -1,3 +1,29 @@
+CREATE TABLE IF NOT EXISTS api_rate_limits (
+  route TEXT NOT NULL,
+  identifier TEXT NOT NULL,
+  window_start INTEGER NOT NULL,
+  count INTEGER NOT NULL DEFAULT 1,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (route, identifier, window_start)
+);
+
+CREATE TABLE IF NOT EXISTS review_invites (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  token_hash TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  contact TEXT NOT NULL,
+  trip TEXT NOT NULL,
+  trip_date TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'issued',
+  expires_at TEXT DEFAULT NULL,
+  used_at TEXT DEFAULT NULL,
+  review_id INTEGER DEFAULT NULL,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_review_invites_status_expiry
+ON review_invites (status, expires_at, id DESC);
+
 CREATE TABLE IF NOT EXISTS reviews (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,

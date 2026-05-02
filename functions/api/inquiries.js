@@ -1,5 +1,12 @@
 "use strict";
 
+import {
+  buildRateLimitHeaders,
+  enforceRateLimit,
+  getClientIp,
+  verifyTurnstileToken,
+} from "../_lib/security.js";
+
 const json = (data, init = {}) =>
   new Response(JSON.stringify(data), {
     status: init.status || 200,
@@ -54,6 +61,9 @@ const validatePayload = (payload) => {
     message: normalizeText(payload.message),
     website: normalizeText(payload.website),
     sourcePath: normalizeText(payload.sourcePath || payload.source_path || "/"),
+    turnstileToken: normalizeText(
+      payload.turnstile_token || payload.turnstileToken || payload["cf-turnstile-response"]
+    ),
   };
 
   if (cleaned.website) {
@@ -118,18 +128,63 @@ export async function onRequestPost(context) {
     return json({ error }, { status: 503 });
   }
 
+  const rateLimit = await enforceRateLimit(db, {
+    route: "inquiries:post",
+    identifier: getClientIp(context.request),
+    limit: 6,
+    windowSeconds: 60 * 10,
+  });
+
+  if (!rateLimit.allowed) {
+    return json(
+      { error: "Too many trip requests from this device. Please try again shortly." },
+      {
+        status: 429,
+        headers: buildRateLimitHeaders(rateLimit),
+      }
+    );
+  }
+
   let payload;
 
   try {
     payload = await parsePayload(context.request);
   } catch (parseError) {
-    return json({ error: "Invalid inquiry payload." }, { status: 400 });
+    return json(
+      { error: "Invalid inquiry payload." },
+      {
+        status: 400,
+        headers: buildRateLimitHeaders(rateLimit),
+      }
+    );
   }
 
   const { cleaned, error: validationError } = validatePayload(payload);
 
   if (validationError) {
-    return json({ error: validationError }, { status: 400 });
+    return json(
+      { error: validationError },
+      {
+        status: 400,
+        headers: buildRateLimitHeaders(rateLimit),
+      }
+    );
+  }
+
+  const turnstile = await verifyTurnstileToken({
+    request: context.request,
+    env: context.env,
+    token: cleaned.turnstileToken,
+  });
+
+  if (!turnstile.ok) {
+    return json(
+      { error: turnstile.error },
+      {
+        status: turnstile.status || 400,
+        headers: buildRateLimitHeaders(rateLimit),
+      }
+    );
   }
 
   try {
@@ -165,10 +220,19 @@ export async function onRequestPost(context) {
           created_at: createdAt,
         },
       },
-      { status: 201 }
+      {
+        status: 201,
+        headers: buildRateLimitHeaders(rateLimit),
+      }
     );
   } catch (dbError) {
-    return json({ error: "Could not save your inquiry right now." }, { status: 500 });
+    return json(
+      { error: "Could not save your inquiry right now." },
+      {
+        status: 500,
+        headers: buildRateLimitHeaders(rateLimit),
+      }
+    );
   }
 }
 

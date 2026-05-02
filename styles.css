@@ -10123,6 +10123,51 @@ body[data-page="about"] .reveal.is-visible {
   color: var(--fg-ink-mid);
 }
 
+.fg-review-invite-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--fg-amber-border);
+  background: var(--fg-amber-soft);
+  color: var(--fg-amber);
+  letter-spacing: 0.04em;
+}
+
+.fg-review-invite-summary[hidden] {
+  display: none;
+}
+
+.fg-turnstile {
+  min-height: 4.4rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.fg-turnstile[hidden] {
+  display: none;
+}
+
+.fg-form-shell label[data-review-locked-field]::after {
+  content: "Locked from your verified trip link";
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--fg-soft);
+}
+
+.fg-form-shell input[readonly],
+.fg-form-shell textarea[readonly],
+.fg-form-shell select:disabled {
+  background: var(--fg-bg-mid);
+  color: var(--fg-ink);
+  border-color: rgba(11, 34, 36, 0.18);
+  cursor: not-allowed;
+}
+
 .fg-fomo {
   position: relative;
   overflow: hidden;

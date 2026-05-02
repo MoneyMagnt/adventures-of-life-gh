@@ -1,5 +1,15 @@
 "use strict";
 
+import {
+  buildRateLimitHeaders,
+  enforceRateLimit,
+  ensureSecuritySchema,
+  getClientIp,
+  getReviewInviteByToken,
+  markReviewInviteUsed,
+  verifyTurnstileToken,
+} from "../_lib/security.js";
+
 const json = (data, init = {}) =>
   new Response(JSON.stringify(data), {
     status: init.status || 200,
@@ -14,32 +24,6 @@ const normalizeText = (value) =>
   String(value || "")
     .trim()
     .replace(/\s+/g, " ");
-
-const normalizeTripKey = (value) =>
-  normalizeText(value)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-
-const normalizeContactKey = (value) => {
-  const clean = normalizeText(value).toLowerCase();
-
-  if (!clean) {
-    return "";
-  }
-
-  if (clean.includes("@")) {
-    return clean.replace(/\s+/g, "");
-  }
-
-  const digits = clean.replace(/\D+/g, "");
-
-  if (digits.length >= 9) {
-    return digits.slice(-9);
-  }
-
-  return clean.replace(/[^a-z0-9]+/g, "");
-};
 
 const reviewLooksSpammy = (value) => {
   const clean = normalizeText(value);
@@ -100,24 +84,37 @@ const parsePayload = async (request) => {
 const validatePayload = (payload) => {
   const cleaned = {
     name: normalizeText(payload.name),
-    contact: normalizeText(payload.contact),
-    trip: normalizeText(payload.trip),
-    tripDate: normalizeText(payload.tripDate || payload.trip_date),
     review: normalizeText(payload.review),
     rating: Number.parseInt(payload.rating, 10),
     website: normalizeText(payload.website),
+    reviewToken: normalizeText(
+      payload.review_token || payload.reviewToken || payload.token
+    ),
+    turnstileToken: normalizeText(
+      payload.turnstile_token ||
+        payload.turnstileToken ||
+        payload["cf-turnstile-response"]
+    ),
   };
 
   if (cleaned.website) {
     return { error: "Spam check failed." };
   }
 
-  if (!cleaned.name || !cleaned.contact || !cleaned.trip || !cleaned.tripDate || !cleaned.review) {
-    return { error: "Please fill in every review field." };
+  if (!cleaned.name || !cleaned.review) {
+    return { error: "Please fill in your name and review." };
   }
 
   if (!Number.isFinite(cleaned.rating) || cleaned.rating < 1 || cleaned.rating > 5) {
     return { error: "Please choose a rating between 1 and 5." };
+  }
+
+  if (!cleaned.reviewToken) {
+    return {
+      error:
+        "This form only works from a verified trip review link. Ask Zico to resend yours.",
+      status: 403,
+    };
   }
 
   if (cleaned.review.length < 12) {
@@ -144,6 +141,8 @@ const ensureDatabase = (env) => {
 };
 
 const ensureReviewsSchema = async (db) => {
+  await ensureSecuritySchema(db);
+
   await db
     .prepare(
       `CREATE TABLE IF NOT EXISTS reviews (
@@ -183,6 +182,23 @@ export async function onRequestGet(context) {
     return json({ error }, { status: 503 });
   }
 
+  const rateLimit = await enforceRateLimit(db, {
+    route: "reviews:get",
+    identifier: getClientIp(context.request),
+    limit: 60,
+    windowSeconds: 60 * 5,
+  });
+
+  if (!rateLimit.allowed) {
+    return json(
+      { error: "Too many review requests. Please try again shortly." },
+      {
+        status: 429,
+        headers: buildRateLimitHeaders(rateLimit),
+      }
+    );
+  }
+
   try {
     await ensureReviewsSchema(db);
 
@@ -203,7 +219,10 @@ export async function onRequestGet(context) {
       )
       .all();
 
-    return json({ reviews: results || [] });
+    return json(
+      { reviews: results || [] },
+      { headers: buildRateLimitHeaders(rateLimit) }
+    );
   } catch (dbError) {
     return json({ error: "Could not load reviews right now." }, { status: 500 });
   }
@@ -216,85 +235,84 @@ export async function onRequestPost(context) {
     return json({ error }, { status: 503 });
   }
 
+  const rateLimit = await enforceRateLimit(db, {
+    route: "reviews:post",
+    identifier: getClientIp(context.request),
+    limit: 4,
+    windowSeconds: 60 * 15,
+  });
+
+  if (!rateLimit.allowed) {
+    return json(
+      { error: "Too many review attempts from this device. Please try again shortly." },
+      {
+        status: 429,
+        headers: buildRateLimitHeaders(rateLimit),
+      }
+    );
+  }
+
   let payload;
 
   try {
     payload = await parsePayload(context.request);
   } catch (parseError) {
-    return json({ error: "Invalid review payload." }, { status: 400 });
+    return json(
+      { error: "Invalid review payload." },
+      {
+        status: 400,
+        headers: buildRateLimitHeaders(rateLimit),
+      }
+    );
   }
 
-  const { cleaned, error: validationError } = validatePayload(payload);
+  const validation = validatePayload(payload);
 
-  if (validationError) {
-    return json({ error: validationError }, { status: 400 });
+  if (validation.error) {
+    return json(
+      { error: validation.error },
+      {
+        status: validation.status || 400,
+        headers: buildRateLimitHeaders(rateLimit),
+      }
+    );
   }
 
-  const publicName = buildPublicName(cleaned.name);
-  const createdAt = new Date().toISOString();
-  const tripKey = normalizeTripKey(cleaned.trip);
-  const contactKey = normalizeContactKey(cleaned.contact);
+  const { cleaned } = validation;
 
   try {
     await ensureReviewsSchema(db);
 
-    const existingForTrip = await db
-      .prepare(
-        `SELECT id, contact
-         FROM reviews
-         WHERE lower(trim(trip)) = lower(trim(?))`
-      )
-      .bind(cleaned.trip)
-      .all();
+    const invite = await getReviewInviteByToken(db, cleaned.reviewToken);
 
-    const existingReview = (existingForTrip.results || []).find(
-      (row) => normalizeContactKey(row.contact) === contactKey && contactKey && tripKey
-    );
-
-    if (existingReview) {
-      await db
-        .prepare(
-          `UPDATE reviews
-           SET name = ?,
-               public_name = ?,
-               contact = ?,
-               trip = ?,
-               trip_date = ?,
-               rating = ?,
-               review = ?,
-               approved = 1,
-               created_at = ?
-           WHERE id = ?`
-        )
-        .bind(
-          cleaned.name,
-          publicName,
-          cleaned.contact,
-          cleaned.trip,
-          cleaned.tripDate,
-          cleaned.rating,
-          cleaned.review,
-          createdAt,
-          existingReview.id
-        )
-        .run();
-
+    if (!invite) {
       return json(
+        { error: "This review link is invalid or has expired. Ask Zico to resend it." },
         {
-          action: "updated",
-          review: {
-            id: existingReview.id,
-            display_name: publicName,
-            trip: cleaned.trip,
-            trip_date: cleaned.tripDate,
-            rating: cleaned.rating,
-            review: cleaned.review,
-            created_at: createdAt,
-          },
-        },
-        { status: 200 }
+          status: 403,
+          headers: buildRateLimitHeaders(rateLimit),
+        }
       );
     }
+
+    const turnstile = await verifyTurnstileToken({
+      request: context.request,
+      env: context.env,
+      token: cleaned.turnstileToken,
+    });
+
+    if (!turnstile.ok) {
+      return json(
+        { error: turnstile.error },
+        {
+          status: turnstile.status || 400,
+          headers: buildRateLimitHeaders(rateLimit),
+        }
+      );
+    }
+
+    const publicName = buildPublicName(cleaned.name || invite.name);
+    const createdAt = new Date().toISOString();
 
     const result = await db
       .prepare(
@@ -311,34 +329,46 @@ export async function onRequestPost(context) {
         ) VALUES (?, ?, ?, ?, ?, ?, ?, 1, ?)`
       )
       .bind(
-        cleaned.name,
+        cleaned.name || invite.name,
         publicName,
-        cleaned.contact,
-        cleaned.trip,
-        cleaned.tripDate,
+        invite.contact,
+        invite.trip,
+        invite.trip_date,
         cleaned.rating,
         cleaned.review,
         createdAt
       )
       .run();
 
+    const reviewId = result.meta?.last_row_id || createdAt;
+    await markReviewInviteUsed(db, invite.id, reviewId);
+
     return json(
       {
         action: "created",
         review: {
-          id: result.meta?.last_row_id || createdAt,
+          id: reviewId,
           display_name: publicName,
-          trip: cleaned.trip,
-          trip_date: cleaned.tripDate,
+          trip: invite.trip,
+          trip_date: invite.trip_date,
           rating: cleaned.rating,
           review: cleaned.review,
           created_at: createdAt,
         },
       },
-      { status: 201 }
+      {
+        status: 201,
+        headers: buildRateLimitHeaders(rateLimit),
+      }
     );
   } catch (dbError) {
-    return json({ error: "Could not save your review right now." }, { status: 500 });
+    return json(
+      { error: "Could not save your review right now." },
+      {
+        status: 500,
+        headers: buildRateLimitHeaders(rateLimit),
+      }
+    );
   }
 }
 

@@ -41,20 +41,31 @@ Cloudflare Pages currently has a 25 MiB per-file limit for site assets.
 If large media becomes part of the stack later, move those files to Cloudflare R2 or Cloudflare Stream.
 
 ## Reviews and inquiries backend
-The community reviews form and the homepage trip inquiry form now expect a Cloudflare D1 binding named `DB`.
+The community reviews form and the homepage trip inquiry form now expect:
+- a Cloudflare D1 binding named `DB`
+- a Turnstile site key in `TURNSTILE_SITE_KEY`
+- a Turnstile secret key in `TURNSTILE_SECRET_KEY`
 
 Setup:
 1. Create a D1 database for reviews.
 2. Bind that database to the Pages project as `DB`.
-3. Deploy the Pages Functions with the rest of the site.
+3. Create a Turnstile widget for this site.
+4. Add `TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY` to the Pages project environment variables.
+5. Deploy the Pages Functions with the rest of the site.
 
 Notes:
-- `functions/api/reviews.js` and `functions/api/inquiries.js` will create their tables automatically if they do not exist yet.
-- `reviews-d1-schema.sql` contains the same review and inquiry schema if you want to inspect or initialize it manually.
+- `functions/api/reviews.js`, `functions/api/inquiries.js`, and the shared security helper will create their tables automatically if they do not exist yet.
+- `reviews-d1-schema.sql` contains the same review, inquiry, invite, and rate-limit schema if you want to inspect or initialize it manually.
+- Reviews are no longer open-post by default. Live review publishing now requires a verified review link with a one-time token.
+- The helper script `scripts/generate-review-invites.js` can generate invite SQL plus shareable review links after each trip.
 
 Without the `DB` binding:
 - the local preview can still show submitted reviews in browser storage
 - the live site will not be able to store shared reviews or trip inquiries
+
+Without the Turnstile keys:
+- the live forms will stay locked and show a protection/configuration error
+- the local preview will still work for testing
 
 ## Files added for hosting
 - `_headers`: browser caching and security headers
