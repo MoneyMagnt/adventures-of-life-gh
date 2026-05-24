@@ -1035,10 +1035,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    cta?.addEventListener("click", () => {
-      closePopup({ restoreFocus: false });
-    });
-
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && isOpen()) {
         closePopup();
