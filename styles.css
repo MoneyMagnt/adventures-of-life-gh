@@ -11477,3 +11477,164 @@ body[data-page="journeys"] .site-header {
     height: 1.15rem;
   }
 }
+
+body.next-trip-popup-open {
+  overflow: hidden;
+}
+
+.fg-next-trip-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 320;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.fg-next-trip-popup.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fg-next-trip-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(11, 34, 36, 0.2), rgba(11, 34, 36, 0.52)),
+    rgba(11, 34, 36, 0.34);
+  backdrop-filter: blur(6px);
+}
+
+.fg-next-trip-dialog {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0;
+  width: min(100%, 61rem);
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  border: 1px solid rgba(11, 34, 36, 0.12);
+  border-radius: 1.75rem;
+  background: linear-gradient(180deg, rgba(248, 250, 247, 0.99), rgba(239, 243, 236, 0.98));
+  box-shadow: 0 1.5rem 3.5rem rgba(11, 34, 36, 0.24);
+  transform: translateY(0.9rem) scale(0.985);
+  transition: transform 220ms ease;
+}
+
+.fg-next-trip-popup.is-open .fg-next-trip-dialog {
+  transform: none;
+}
+
+.fg-next-trip-close {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid rgba(11, 34, 36, 0.12);
+  border-radius: 999px;
+  background: rgba(248, 250, 247, 0.9);
+  color: #0b2224;
+  cursor: pointer;
+  box-shadow: 0 0.75rem 1.8rem rgba(11, 34, 36, 0.12);
+}
+
+.fg-next-trip-close:hover,
+.fg-next-trip-close:focus-visible {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(11, 34, 36, 0.2);
+}
+
+.fg-next-trip-close span {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.fg-next-trip-dialog-media {
+  background: linear-gradient(180deg, rgba(226, 234, 224, 0.92), rgba(239, 243, 236, 0.94));
+}
+
+.fg-next-trip-dialog-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fg-next-trip-dialog-copy {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.25rem 1.2rem 1.35rem;
+}
+
+.fg-next-trip-kicker,
+.fg-next-trip-title,
+.fg-next-trip-body {
+  margin: 0;
+}
+
+.fg-next-trip-kicker {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9a6c14;
+}
+
+.fg-next-trip-title {
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  color: #0b2224;
+}
+
+.fg-next-trip-body {
+  max-width: 32rem;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: rgba(11, 34, 36, 0.76);
+}
+
+.fg-next-trip-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding-top: 0.1rem;
+}
+
+.fg-next-trip-actions .button {
+  min-width: min(100%, 16rem);
+}
+
+@media (min-width: 48rem) {
+  .fg-next-trip-popup {
+    padding: 1.5rem;
+  }
+
+  .fg-next-trip-dialog {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .fg-next-trip-dialog-media {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .fg-next-trip-dialog-media img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fg-next-trip-dialog-copy {
+    align-content: center;
+    padding: 2.2rem 2.15rem 2rem;
+  }
+}

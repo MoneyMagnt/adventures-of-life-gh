@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const REVIEW_INVITE_ENDPOINT = "/api/review-invite";
   const LOCAL_INQUIRY_STORAGE_KEY = "aol-trip-inquiries-local";
   const LOCAL_REVIEW_STORAGE_KEY = "aol-community-reviews-local";
+  const NEXT_TRIP_POPUP_DELAY_MS = 1800;
 
   const hoverQuery = window.matchMedia("(hover: hover)");
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -397,7 +398,7 @@ document.addEventListener("DOMContentLoaded", () => {
       style: "summit",
     },
     waterfall: {
-      title: "Oboadaka Waterfall",
+      title: "Oboadaka Waterfall X Party in the Jungle",
       typeLabel: "27th June · Domestic trip",
       summary:
         "June becomes the live next step: a waterfall flyer on the wall, forest air ahead, and the first sign-up list after Shai.",
@@ -687,6 +688,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const yearTripOrder = Object.keys(yearTripSchedule);
+  const completedYearTripSlots = new Set(["january", "april", "may"]);
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const lerp = (start, end, factor) => start + (end - start) * factor;
@@ -965,6 +967,87 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.innerWidth >= DESKTOP_MENU_BREAKPOINT) {
         closeMenu();
       }
+    });
+  };
+
+  const setupHomeNextTripPopup = () => {
+    if (document.body.dataset.page !== "home") {
+      return;
+    }
+
+    const popup = document.querySelector("[data-next-trip-popup]");
+    const dialog = popup ? popup.querySelector(".fg-next-trip-dialog") : null;
+    const closeTargets = popup ? popup.querySelectorAll("[data-next-trip-close]") : [];
+    const cta = popup ? popup.querySelector("[data-next-trip-cta]") : null;
+    const closeButton =
+      popup && popup.querySelector(".fg-next-trip-close") instanceof HTMLElement
+        ? popup.querySelector(".fg-next-trip-close")
+        : null;
+
+    if (!(popup instanceof HTMLElement) || !(dialog instanceof HTMLElement)) {
+      return;
+    }
+
+    let lastFocused = null;
+    let openTimer = 0;
+    let retryTimer = 0;
+
+    const isOpen = () => popup.classList.contains("is-open");
+
+    const closePopup = ({ restoreFocus = true } = {}) => {
+      window.clearTimeout(retryTimer);
+      popup.hidden = true;
+      popup.classList.remove("is-open");
+      popup.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("next-trip-popup-open");
+
+      if (restoreFocus && lastFocused instanceof HTMLElement) {
+        lastFocused.focus({ preventScroll: true });
+      }
+    };
+
+    const openPopup = () => {
+      if (isOpen()) {
+        return;
+      }
+
+      if (document.body.classList.contains("nav-open")) {
+        retryTimer = window.setTimeout(openPopup, 400);
+        return;
+      }
+
+      lastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      popup.hidden = false;
+      popup.classList.add("is-open");
+      popup.setAttribute("aria-hidden", "false");
+      document.body.classList.add("next-trip-popup-open");
+
+      window.requestAnimationFrame(() => {
+        closeButton?.focus({ preventScroll: true });
+      });
+    };
+
+    openTimer = window.setTimeout(openPopup, NEXT_TRIP_POPUP_DELAY_MS);
+
+    closeTargets.forEach((target) => {
+      target.addEventListener("click", () => {
+        closePopup();
+      });
+    });
+
+    cta?.addEventListener("click", () => {
+      closePopup({ restoreFocus: false });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isOpen()) {
+        closePopup();
+      }
+    });
+
+    window.addEventListener("beforeunload", () => {
+      window.clearTimeout(openTimer);
+      window.clearTimeout(retryTimer);
     });
   };
 
@@ -1428,14 +1511,28 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (routeCta) {
-        routeCta.textContent = `Ask about ${route.title}`;
-        setWhatsAppHref(
-          routeCta,
-          buildInquiryMessage({
-            routeTitle: `${schedule.month} · ${route.title}`,
-            notes: `${schedule.label}. ${route.summary}`,
-          })
-        );
+        if (completedYearTripSlots.has(key)) {
+          routeCta.hidden = true;
+        } else {
+          routeCta.hidden = false;
+
+          if (key === "june") {
+            routeCta.textContent = "Secure your slot now";
+            setWhatsAppHref(
+              routeCta,
+              `Hello Adventures of Life, I want to secure my slot for ${route.title} on ${schedule.month}.`
+            );
+          } else {
+            routeCta.textContent = `Ask about ${route.title}`;
+            setWhatsAppHref(
+              routeCta,
+              buildInquiryMessage({
+                routeTitle: `${schedule.month} · ${route.title}`,
+                notes: `${schedule.label}. ${route.summary}`,
+              })
+            );
+          }
+        }
       }
 
       document.body.dataset.routeStyle = route.style;
@@ -2373,6 +2470,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const pageLoader = document.getElementById("page-loader");
   setupWhatsAppLinks();
   setupMobileMenu();
+  setupHomeNextTripPopup();
   setupJourneyAtlas();
   setupContactForm();
   setupCommunityReviews();

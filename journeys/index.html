@@ -200,11 +200,11 @@
           <div class="jy-page-intro-copy">
             <span class="fg-eyebrow">Journeys / 2026 route journal</span>
             <h1 class="fg-title">
-              See the whole year as one route.<br />
-              <em>Ada opened it. Togo stretched it. Oboadaka is next.</em>
+              Catch the next chapter before it turns into everybody else&rsquo;s recap.<br />
+              <em>Ada opened the year. Togo stretched the map. Oboadaka is the next one still waiting to be lived.</em>
             </h1>
             <div class="fg-actions fg-actions-spaced">
-              <a class="button button-primary" href="https://wa.me/233551472190?text=Hello%20Adventures%20of%20Life%2C%20I%20want%20to%20ask%20about%20Oboadaka%20Waterfall%20on%2027%20June." target="_blank" rel="noreferrer">Ask about Oboadaka</a>
+              <a class="button button-primary" href="https://wa.me/233551472190?text=Hello%20Adventures%20of%20Life%2C%20I%20want%20to%20secure%20my%20slot%20for%20Oboadaka%20Waterfall%20X%20Party%20in%20the%20Jungle%20on%2027%20June." target="_blank" rel="noreferrer">Secure your slot now</a>
             </div>
             <p class="jy-page-intro-proof">
               Need the traveller version first?
@@ -328,14 +328,14 @@
               </div>
             </article>
 
-            <article class="jy-stop jy-stop--r" data-stop="may">
+            <article class="jy-stop jy-stop--r is-past" data-stop="may">
               <div class="jy-stop-node" aria-hidden="true">
                 <span class="jy-stop-dot"></span>
               </div>
               <div class="jy-stop-content">
                 <div class="jy-stop-info">
                   <span class="jy-stop-date">23 May</span>
-                  <h2 class="jy-stop-name">Shai Reserve &amp; Kwaminga Park</h2>
+                  <h2 class="jy-stop-name">Shai Reserve &amp; Kwaminga Park <span class="jy-done-badge">Done</span></h2>
                   <p class="jy-stop-desc">
                     Shai gave the year its first real outdoor memory: reserve ground, cave air, tired legs, and the
                     moment the group stopped feeling new to each other.
@@ -364,7 +364,7 @@
                 <div class="jy-stop-info">
                   <span class="jy-next-ribbon">Next up</span>
                   <span class="jy-stop-date">27 June</span>
-                  <h2 class="jy-stop-name">Oboadaka Waterfall</h2>
+                  <h2 class="jy-stop-name">Oboadaka Waterfall X Party in the Jungle</h2>
                   <p class="jy-stop-desc">
                     A water reset after the early movement, giving the year one quiet breath before it stretches west
                     again.
@@ -680,12 +680,15 @@
 
           if (info && name && date && !stop.classList.contains("is-past") && !info.querySelector(".jy-stop-cta")) {
             const cleanName = (name.childNodes[0]?.textContent || name.textContent || "").trim();
+            const isJuneNext = stop.dataset.stop === "june";
             const cta = document.createElement("a");
             cta.className = "jy-stop-cta";
-            cta.href = waLink(`Hello Adventures of Life, I want to ask about ${cleanName} on ${date.textContent.trim()}.`);
+            cta.href = isJuneNext
+              ? waLink(`Hello Adventures of Life, I want to secure my slot for ${cleanName} on ${date.textContent.trim()}.`)
+              : waLink(`Hello Adventures of Life, I want to ask about ${cleanName} on ${date.textContent.trim()}.`);
             cta.target = "_blank";
             cta.rel = "noreferrer";
-            cta.textContent = `Ask about ${cleanName} ?`;
+            cta.textContent = isJuneNext ? "Secure your slot now" : `Ask about ${cleanName} ?`;
             info.appendChild(cta);
           }
 
