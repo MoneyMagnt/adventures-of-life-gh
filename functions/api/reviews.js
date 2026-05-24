@@ -311,7 +311,8 @@ export async function onRequestPost(context) {
       );
     }
 
-    const publicName = buildPublicName(cleaned.name || invite.name);
+    const verifiedName = invite.name;
+    const publicName = buildPublicName(verifiedName);
     const createdAt = new Date().toISOString();
 
     const result = await db
@@ -329,7 +330,7 @@ export async function onRequestPost(context) {
         ) VALUES (?, ?, ?, ?, ?, ?, ?, 1, ?)`
       )
       .bind(
-        cleaned.name || invite.name,
+        verifiedName,
         publicName,
         invite.contact,
         invite.trip,

@@ -26,6 +26,20 @@ const ensureDatabase = (env) => {
   return { db: env.DB };
 };
 
+const buildInviteNameHint = (value) => {
+  const cleaned = String(value || "")
+    .replace(/[^\p{L}\p{N}\s'-]+/gu, " ")
+    .trim()
+    .replace(/\s+/g, " ");
+
+  if (!cleaned) {
+    return "Traveller";
+  }
+
+  const first = cleaned.split(" ")[0] || "Traveller";
+  return first.slice(0, 24);
+};
+
 export async function onRequestGet(context) {
   const { db, error } = ensureDatabase(context.env);
 
@@ -70,7 +84,7 @@ export async function onRequestGet(context) {
     return json(
       {
         invite: {
-          name: invite.name,
+          name: buildInviteNameHint(invite.name),
           trip: invite.trip,
           trip_date: invite.trip_date,
         },
