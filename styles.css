@@ -11613,6 +11613,23 @@ body.next-trip-popup-open {
   min-width: min(100%, 16rem);
 }
 
+.fg-next-trip-media-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.fg-next-trip-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fg-next-trip-title-link:hover,
+.fg-next-trip-title-link:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+}
+
 @media (min-width: 48rem) {
   .fg-next-trip-popup {
     padding: 1.5rem;
@@ -11636,5 +11653,189 @@ body.next-trip-popup-open {
   .fg-next-trip-dialog-copy {
     align-content: center;
     padding: 2.2rem 2.15rem 2rem;
+  }
+}
+
+.ob-trip-hero-grid,
+.ob-trip-story-grid,
+.ob-trip-info-grid,
+.ob-trip-steps-grid,
+.ob-trip-faq-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.ob-trip-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+  color: rgba(11, 34, 36, 0.58);
+}
+
+.ob-trip-breadcrumb a {
+  text-decoration: none;
+}
+
+.ob-trip-breadcrumb a:hover,
+.ob-trip-breadcrumb a:focus-visible {
+  text-decoration: underline;
+}
+
+.ob-trip-lead,
+.ob-trip-copy,
+.ob-trip-note,
+.ob-trip-info-card p,
+.ob-trip-step p,
+.ob-trip-faq-item p {
+  margin: 0;
+  color: rgba(11, 34, 36, 0.76);
+  line-height: 1.72;
+}
+
+.ob-trip-hero {
+  padding-top: clamp(1rem, 2.8vw, 2rem);
+}
+
+.ob-trip-hero-grid {
+  align-items: start;
+}
+
+.ob-trip-hero-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.ob-trip-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.ob-trip-tags span {
+  border: 1px solid rgba(11, 34, 36, 0.1);
+  border-radius: 999px;
+  padding: 0.55rem 0.95rem;
+  background: rgba(255, 255, 255, 0.62);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(11, 34, 36, 0.74);
+}
+
+.ob-trip-hero-media {
+  overflow: hidden;
+  padding: 0.85rem;
+  border-radius: 1.6rem;
+}
+
+.ob-trip-hero-media img {
+  width: 100%;
+  height: auto;
+  border-radius: 1.1rem;
+}
+
+.ob-trip-hero-media figcaption,
+.ob-trip-story-photo figcaption {
+  padding-top: 0.8rem;
+  font-size: 0.84rem;
+  color: rgba(11, 34, 36, 0.55);
+}
+
+.ob-trip-info-card,
+.ob-trip-step,
+.ob-trip-faq-item,
+.ob-trip-cta {
+  border-radius: 1.5rem;
+  padding: 1.35rem;
+}
+
+.ob-trip-info-card h2,
+.ob-trip-steps-head h2,
+.ob-trip-faq-head h2,
+.ob-trip-cta h2 {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.35rem, 3vw, 2.1rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.ob-trip-story-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.ob-trip-story-photo img {
+  border-radius: 1.5rem;
+}
+
+.ob-trip-steps-head,
+.ob-trip-faq-head {
+  display: grid;
+  gap: 0.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.ob-trip-step {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.ob-trip-step-no {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9a6c14;
+}
+
+.ob-trip-step h3,
+.ob-trip-faq-item h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.ob-trip-faq-item {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.ob-trip-cta {
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.jy-stop-title-link,
+.jy-stop-photo-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.jy-stop-title-link:hover,
+.jy-stop-title-link:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+}
+
+@media (min-width: 48rem) {
+  .ob-trip-hero-grid,
+  .ob-trip-story-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.95fr);
+    gap: 2rem;
+  }
+
+  .ob-trip-info-grid,
+  .ob-trip-steps-grid,
+  .ob-trip-faq-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ob-trip-cta {
+    grid-template-columns: minmax(0, 1.2fr) auto;
   }
 }

@@ -2,11 +2,11 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
   <url>
     <loc>https://adventuresoflifegh.com/</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-05-25</lastmod>
   </url>
   <url>
     <loc>https://adventuresoflifegh.com/journeys</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-05-25</lastmod>
   </url>
   <url>
     <loc>https://adventuresoflifegh.com/community</loc>
@@ -15,5 +15,9 @@
   <url>
     <loc>https://adventuresoflifegh.com/about</loc>
     <lastmod>2026-04-27</lastmod>
+  </url>
+  <url>
+    <loc>https://adventuresoflifegh.com/trips/oboadaka-waterfall-27-june</loc>
+    <lastmod>2026-05-25</lastmod>
   </url>
 </urlset>
