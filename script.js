@@ -17,6 +17,174 @@ document.addEventListener("DOMContentLoaded", () => {
   const hoverQuery = window.matchMedia("(hover: hover)");
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+  const initHomeHeroCarousel = () => {
+    const carousel = document.querySelector("[data-home-hero-carousel]");
+    if (!carousel) return;
+
+    const viewport = carousel.querySelector(".fg-hero-carousel-viewport");
+    const track = carousel.querySelector("[data-home-hero-track]");
+    const slides = Array.from(carousel.querySelectorAll("[data-home-hero-slide]"));
+    const dots = Array.from(carousel.querySelectorAll("[data-home-hero-dot]"));
+    const previousButton = carousel.querySelector("[data-home-hero-prev]");
+    const nextButton = carousel.querySelector("[data-home-hero-next]");
+    const currentLabel = carousel.querySelector("[data-home-hero-current]");
+    const liveRegion = carousel.querySelector("[data-home-hero-live]");
+    if (!viewport || !track || slides.length === 0) return;
+
+    let currentIndex = 0;
+    let pointerId = null;
+    let startX = 0;
+    let startY = 0;
+    let dragX = 0;
+    let horizontalDrag = false;
+    let autoplayTimer = null;
+    let userPaused = reducedMotionQuery.matches;
+    let interactionPaused = false;
+    const autoplayDelay = 3800;
+
+    const wrapIndex = (index) => (index + slides.length) % slides.length;
+    const slideName = (slide) => slide.querySelector(".fg-hero-label")?.textContent?.trim() || "Trip photo";
+
+    const renderSlide = (nextIndex, announce = true) => {
+      currentIndex = wrapIndex(nextIndex);
+      track.classList.remove("is-dragging");
+      track.style.transform = `translate3d(-${currentIndex * 100}%, 0, 0)`;
+
+      slides.forEach((slide, index) => {
+        const isActive = index === currentIndex;
+        slide.classList.toggle("is-active", isActive);
+        slide.setAttribute("aria-hidden", String(!isActive));
+      });
+
+      dots.forEach((dot, index) => {
+        const isActive = index === currentIndex;
+        dot.classList.toggle("is-active", isActive);
+        if (isActive) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
+
+      if (currentLabel) currentLabel.textContent = String(currentIndex + 1).padStart(2, "0");
+      if (announce && liveRegion) {
+        liveRegion.textContent = `${slideName(slides[currentIndex])}. Slide ${currentIndex + 1} of ${slides.length}.`;
+      }
+    };
+
+    const stopAutoplay = () => {
+      if (!autoplayTimer) return;
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      if (userPaused || interactionPaused || document.hidden || slides.length < 2) return;
+      autoplayTimer = window.setInterval(() => renderSlide(currentIndex + 1, false), autoplayDelay);
+    };
+
+    const restartAutoplay = () => {
+      stopAutoplay();
+      startAutoplay();
+    };
+
+    const showManualSlide = (nextIndex) => {
+      renderSlide(nextIndex);
+      restartAutoplay();
+    };
+
+    previousButton?.addEventListener("click", () => showManualSlide(currentIndex - 1));
+    nextButton?.addEventListener("click", () => showManualSlide(currentIndex + 1));
+    dots.forEach((dot, index) => dot.addEventListener("click", () => showManualSlide(index)));
+
+    carousel.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showManualSlide(currentIndex - 1);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showManualSlide(currentIndex + 1);
+      }
+    });
+
+    carousel.addEventListener("mouseenter", () => {
+      interactionPaused = true;
+      stopAutoplay();
+    });
+    carousel.addEventListener("mouseleave", () => {
+      interactionPaused = false;
+      startAutoplay();
+    });
+    carousel.addEventListener("focusin", () => {
+      interactionPaused = true;
+      stopAutoplay();
+    });
+    carousel.addEventListener("focusout", (event) => {
+      if (carousel.contains(event.relatedTarget)) return;
+      interactionPaused = false;
+      startAutoplay();
+    });
+
+    viewport.addEventListener("dragstart", (event) => event.preventDefault());
+    viewport.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      pointerId = event.pointerId;
+      startX = event.clientX;
+      startY = event.clientY;
+      dragX = 0;
+      horizontalDrag = false;
+      interactionPaused = true;
+      stopAutoplay();
+      viewport.setPointerCapture?.(event.pointerId);
+      viewport.classList.add("is-dragging");
+      track.classList.add("is-dragging");
+    });
+
+    viewport.addEventListener("pointermove", (event) => {
+      if (event.pointerId !== pointerId) return;
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (!horizontalDrag && Math.abs(deltaY) > Math.abs(deltaX)) return;
+      horizontalDrag = Math.abs(deltaX) > 6;
+      if (!horizontalDrag) return;
+      event.preventDefault();
+      dragX = deltaX;
+      const dragPercent = (dragX / Math.max(viewport.clientWidth, 1)) * 100;
+      track.style.transform = `translate3d(${-(currentIndex * 100) + dragPercent}%, 0, 0)`;
+    });
+
+    const finishDrag = (event) => {
+      if (event.pointerId !== pointerId) return;
+      const threshold = Math.min(72, viewport.clientWidth * 0.16);
+      viewport.classList.remove("is-dragging");
+      if (horizontalDrag && Math.abs(dragX) >= threshold) {
+        renderSlide(currentIndex + (dragX < 0 ? 1 : -1));
+      } else {
+        renderSlide(currentIndex, false);
+      }
+      pointerId = null;
+      dragX = 0;
+      horizontalDrag = false;
+      interactionPaused = carousel.matches(":hover") || carousel.contains(document.activeElement);
+      startAutoplay();
+    };
+
+    viewport.addEventListener("pointerup", finishDrag);
+    viewport.addEventListener("pointercancel", finishDrag);
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stopAutoplay();
+      else startAutoplay();
+    });
+    reducedMotionQuery.addEventListener?.("change", ({ matches }) => {
+      if (!matches) return;
+      userPaused = true;
+      stopAutoplay();
+    });
+    renderSlide(0, false);
+    startAutoplay();
+  };
+
+  initHomeHeroCarousel();
+
   const travelStyleAccents = {
     summit: "accent-gold",
     coast: "accent-lagoon",
@@ -352,7 +520,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const roadmapPosterSrc = "assets/responsive/roadmap-poster-1440.webp";
   const shaiTripPhotoSrc = "assets/trips/shai-sayu-cave-group.jpg";
   const shaiTripPhotoSrcSecond = "assets/trips/shai-sayu-cave-group-2.jpg";
-  const oboadakaFlyerSrc = "assets/trips/oboadaka-waterfall-flyer.jpg";
+  const oboadakaGroupSrc = "assets/trips/oboadaka-group-1440.webp";
+  const coteIvoireFlyerSrc = "assets/trips/cote-divoire-flyer.jpg";
 
   const yearRoutes = {
     shai: {
@@ -401,30 +570,30 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Oboadaka Waterfall X Party in the Jungle",
       typeLabel: "27th June · Domestic trip",
       summary:
-        "June becomes the live next step: a waterfall flyer on the wall, forest air ahead, and the first sign-up list after Shai.",
+        "Oboadaka brought the crew into the waterfall, filled the rocks with noise, and gave June one of the year's biggest group days.",
       audience: "Nature lovers · easygoing groups · first timers",
-      includes: "Oboadaka Waterfall / forest route / next domestic run",
-      visual: "Next trip flyer",
-      imgSrc: oboadakaFlyerSrc,
-      imgAlt: "Oboadaka Waterfall flyer for the next Adventures of Life trip.",
-      highlights: ["27th June", "Oboadaka Waterfall", "Next flyer", "Domestic trip"],
-      storyTitle: "June is now the next move.",
+      includes: "Oboadaka Waterfall / forest route / completed group trip",
+      visual: "Trip memories",
+      imgSrc: oboadakaGroupSrc,
+      imgAlt: "Group photo from the Oboadaka Waterfall trip.",
+      highlights: ["27th June", "Oboadaka Waterfall", "Trip completed", "Domestic trip"],
+      storyTitle: "June went straight into the water.",
       storySummary:
-        "With Shai behind us, Oboadaka becomes the flyer that carries the next wave of attention and sign-ups.",
+        "The Oboadaka crew came for the waterfall and left with the kind of group memory that keeps showing up in the chat.",
       gallery: [
         {
-          src: oboadakaFlyerSrc,
-          alt: "Oboadaka Waterfall flyer for the next Adventures of Life trip.",
-          kicker: "Next flyer",
-          title: "This is the new public handoff after Shai: one flyer, one date, one next list to move on.",
+          src: oboadakaGroupSrc,
+          alt: "Group photo from the Oboadaka Waterfall trip.",
+          kicker: "Crew photo",
+          title: "The full Oboadaka crew together after a day built around cold water, music, and easy group energy.",
           accent: "accent-gold",
           position: "center top",
         },
         {
-          src: oboadakaFlyerSrc,
-          alt: "Oboadaka Waterfall flyer showing the next Adventures of Life chapter.",
-          kicker: "June locked",
-          title: "Oboadaka now holds the next visible slot on the wall, so it has to carry the momentum forward.",
+          src: oboadakaGroupSrc,
+          alt: "Group photo from the Oboadaka Waterfall trip.",
+          kicker: "27 June",
+          title: "Oboadaka is officially in the memories. Côte d'Ivoire now takes the next open date.",
           accent: "accent-lagoon",
           position: "center 22%",
         },
@@ -432,7 +601,7 @@ document.addEventListener("DOMContentLoaded", () => {
           src: "assets/atlas-poster.svg",
           alt: "Editorial route note graphic for the next domestic waterfall chapter.",
           kicker: "Route note",
-          title: "After a lived opener, the next chapter needs enough shape and clarity for people to commit quickly.",
+          title: "After a strong opener, the next outing needs enough shape and clarity for people to commit quickly.",
           accent: "accent-canopy",
           position: "center center",
         },
@@ -440,25 +609,25 @@ document.addEventListener("DOMContentLoaded", () => {
       style: "canopy",
     },
     coteIvoire: {
-      title: "4 Days in Côte d'Ivoire",
-      typeLabel: "27th August · International run",
+      title: "La Côte d'Ivoire Experience",
+      typeLabel: "28th August · 4-day international trip",
       summary:
-        "August is the first long border chapter on the poster: passports out, four days on the road, and the calendar suddenly feels bigger.",
-      audience: "Passport-ready travellers · cross-border crews · early list people",
-      includes: "Côte d'Ivoire / 4-day run / international chapter",
-      visual: "Border chapter",
-      imgSrc: roadmapPosterSrc,
-      imgAlt: "Official Adventures of Life 2026 roadmap poster featuring the Côte d'Ivoire chapter.",
-      highlights: ["27th August", "4 days", "Côte d'Ivoire", "Border run"],
-      storyTitle: "August is where the roadmap leaves Ghana.",
+        "Accra to Abidjan, three nights, four days, and four cities to explore. Secure your slot with GH₵500 and pay the balance in installments.",
+      audience: "Passport-ready travellers · culture lovers · cross-border crews",
+      includes: "Côte d'Ivoire / 3 nights / 4 days / four cities",
+      visual: "Flyer preview",
+      imgSrc: coteIvoireFlyerSrc,
+      imgAlt: "Côte d'Ivoire trip flyer for Adventures of Life GH.",
+      highlights: ["28th August", "3 nights", "4 days", "GH₵500 deposit"],
+      storyTitle: "Abidjan is the next move.",
       storySummary:
-        "The first border run is already printed on the official poster, which makes August the chapter that stretches the year west.",
+        "The next group leaves Accra on 28 August for four days of food, culture, city stops, and a border trip designed to feel easy from the first message.",
       gallery: [
         {
-          src: roadmapPosterSrc,
-          alt: "Official Adventures of Life 2026 roadmap poster featuring the Côte d'Ivoire chapter.",
-          kicker: "Poster proof",
-          title: "Côte d'Ivoire is already published as a four-day run on the 2026 roadmap.",
+          src: coteIvoireFlyerSrc,
+          alt: "Côte d'Ivoire trip flyer for Adventures of Life GH.",
+          kicker: "Trip flyer",
+          title: "Four days in Côte d'Ivoire, with transport, accommodation, feeding, and tourist-site fees included in the package.",
           accent: "accent-sand",
           position: "center 58%",
         },
@@ -471,10 +640,10 @@ document.addEventListener("DOMContentLoaded", () => {
           position: "center center",
         },
         {
-          src: roadmapPosterSrc,
-          alt: "Adventures of Life 2026 roadmap poster with the date list and contact band.",
-          kicker: "Locked date",
-          title: "Once the four-day August slot is printed, the smartest move is getting onto the early inquiry list.",
+          src: coteIvoireFlyerSrc,
+          alt: "Côte d'Ivoire flyer with the date list and contact band.",
+          kicker: "Secure a slot",
+          title: "Start with GH₵500, then choose the installment plan that works for you before departure.",
           accent: "accent-gold",
           position: "center 84%",
         },
@@ -631,22 +800,22 @@ document.addEventListener("DOMContentLoaded", () => {
       kind: "domestic",
       region: "Oboadaka Waterfall · Ghana",
       mapZone: "Waterfall line",
-      format: "Forest reset chapter",
-      status: "Next flyer is out now",
+      format: "Waterfall group day",
+      status: "Trip completed",
       note:
-        "Oboadaka is the next live date on the wall: waterfall air, forest shade, and the first post-Shai list now open to move on.",
+        "The Oboadaka crew made the most of the waterfall, the forest air, and a full day that moved easily from arrival to the final group photo.",
       route: yearRoutes.waterfall,
     },
     august: {
-      month: "27 August",
+      month: "28 August",
       label: "International run",
       kind: "international",
       region: "Côte d'Ivoire · West Africa",
       mapZone: "Côte d'Ivoire corridor",
-      format: "4-day border chapter",
-      status: "Printed on the 2026 poster",
+      format: "3 nights · 4 days",
+      status: "Next trip · slots open",
       note:
-        "August is not a rumor anymore. It is the first four-day international chapter already locked into the official release.",
+        "The next crew leaves Accra for Abidjan on 28 August. A GH₵500 deposit secures your slot, with the remaining balance payable in installments.",
       route: yearRoutes.coteIvoire,
     },
     october: {
@@ -688,7 +857,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const yearTripOrder = Object.keys(yearTripSchedule);
-  const completedYearTripSlots = new Set(["january", "april", "may"]);
+  const completedYearTripSlots = new Set(["january", "april", "may", "june"]);
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const lerp = (start, end, factor) => start + (end - start) * factor;
@@ -1684,7 +1853,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           routeCta.hidden = false;
 
-          if (key === "june") {
+          if (key === "august") {
             routeCta.textContent = "Secure your slot now";
             setWhatsAppHref(
               routeCta,
@@ -1756,7 +1925,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const params = new URLSearchParams(window.location.search);
     const requestedSlot = params.get("slot");
-    const initialKey = Object.prototype.hasOwnProperty.call(yearTripSchedule, requestedSlot) ? requestedSlot : "may";
+    const initialKey = Object.prototype.hasOwnProperty.call(yearTripSchedule, requestedSlot) ? requestedSlot : "august";
 
     renderSchedule(initialKey);
     setYearProgress();

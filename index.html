@@ -40,7 +40,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css?v=20260502-1" />
+    <link rel="stylesheet" href="/styles.css?v=20260703-3" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -127,18 +127,57 @@
     <main class="site-main fg-page">
       <section class="fg-hero">
         <div class="shell">
-          <div class="fg-hero-stage reveal">
-            <div class="fg-hero-media">
-              <img src="/assets/responsive/ada-nkyinkyim-cover-1440.webp" alt="Adventures of Life group at Ada and Nkyinkyim Museum in Ghana" width="1440" height="960" fetchpriority="high" decoding="async" />
+          <div class="fg-hero-stage reveal" data-home-hero-carousel role="region" aria-roledescription="carousel" aria-label="Completed Adventures of Life trips" tabindex="0">
+            <div class="fg-hero-media fg-hero-carousel-viewport">
+              <div class="fg-hero-carousel-track" data-home-hero-track>
+                <figure class="fg-hero-slide is-active" data-home-hero-slide aria-hidden="false">
+                  <img src="/assets/trips/oboadaka-waterfall-50-plus.webp" alt="More than 50 Adventures of Life travellers at Oboadaka Waterfall" width="1400" height="1050" fetchpriority="high" decoding="async" />
+                  <figcaption class="fg-hero-label">Oboadaka Waterfall / Ghana / 50+ people</figcaption>
+                </figure>
+                <figure class="fg-hero-slide" data-home-hero-slide aria-hidden="true">
+                  <img src="/assets/trips/shai-sayu-cave-group.jpg" alt="Adventures of Life group at Sayu Cave during the Shai Reserve trip" width="1440" height="1080" loading="lazy" decoding="async" />
+                  <figcaption class="fg-hero-label">Shai Reserve + Kwaminga Park / Ghana</figcaption>
+                </figure>
+                <figure class="fg-hero-slide" data-home-hero-slide aria-hidden="true">
+                  <img src="/assets/responsive/togo-cathedral-group-1080.webp" alt="Adventures of Life group outside the cathedral in Lome" width="1080" height="1440" loading="lazy" decoding="async" />
+                  <figcaption class="fg-hero-label">Togo Vibe Experience / Lome, Togo</figcaption>
+                </figure>
+                <figure class="fg-hero-slide" data-home-hero-slide aria-hidden="true">
+                  <img src="/assets/responsive/ada-nkyinkyim-cover-1440.webp" alt="Adventures of Life group at Nkyinkyim Museum" width="1440" height="960" loading="lazy" decoding="async" />
+                  <figcaption class="fg-hero-label">Nkyinkyim Museum + Ada / Ghana</figcaption>
+                </figure>
+                <figure class="fg-hero-slide" data-home-hero-slide aria-hidden="true">
+                  <img src="/assets/trips/asenema-group-home.jpg" alt="Adventures of Life group at Asenema Waterfall" width="600" height="400" loading="lazy" decoding="async" />
+                  <figcaption class="fg-hero-label">Asenema Waterfall / Eastern Region, Ghana</figcaption>
+                </figure>
+                <figure class="fg-hero-slide" data-home-hero-slide aria-hidden="true">
+                  <img src="/assets/trips/adakluto-group.webp" alt="Adventures of Life group after the Adakluto hike" width="800" height="600" loading="lazy" decoding="async" />
+                  <figcaption class="fg-hero-label">Hike Adakluto / Volta Region, Ghana</figcaption>
+                </figure>
+              </div>
             </div>
-            <span class="fg-hero-label">Ada / Nkyinkyim Museum / Ghana</span>
+            <div class="fg-hero-carousel-controls">
+              <button class="fg-hero-carousel-arrow" type="button" data-home-hero-prev aria-label="Show previous trip photo">&larr;</button>
+              <p class="fg-hero-carousel-count"><span data-home-hero-current>01</span><span aria-hidden="true"> / </span><span>06</span></p>
+              <button class="fg-hero-carousel-arrow" type="button" data-home-hero-next aria-label="Show next trip photo">&rarr;</button>
+            </div>
+            <div class="fg-hero-carousel-dots" role="group" aria-label="Choose a trip photo">
+              <button class="is-active" type="button" data-home-hero-dot="0" aria-label="Show Oboadaka Waterfall" aria-current="true"></button>
+              <button type="button" data-home-hero-dot="1" aria-label="Show Shai Reserve and Kwaminga Park"></button>
+              <button type="button" data-home-hero-dot="2" aria-label="Show the Togo Vibe Experience"></button>
+              <button type="button" data-home-hero-dot="3" aria-label="Show Nkyinkyim Museum and Ada"></button>
+              <button type="button" data-home-hero-dot="4" aria-label="Show Asenema Waterfall"></button>
+              <button type="button" data-home-hero-dot="5" aria-label="Show Hike Adakluto"></button>
+            </div>
+            <p class="fg-hero-carousel-hint">Swipe the photo to see every trip.</p>
+            <p class="fg-visually-hidden" data-home-hero-live aria-live="polite">Oboadaka Waterfall, Ghana. Slide 1 of 6.</p>
           </div>
           <div class="fg-hero-content">
             <div class="fg-hero-copy reveal">
               <h1 class="fg-hero-heading">You can already tell<br /><em>it was a good day.</em></h1>
               <div class="fg-hero-meta">
                 <div class="fg-hero-meta-item"><strong>Base</strong>Ghana / West Africa</div>
-                <div class="fg-hero-meta-item"><strong>Trips</strong>Ada / Adakluto / Akwamu / Asenema / Keta / Togo</div>
+                <div class="fg-hero-meta-item"><strong>Latest trip</strong>Oboadaka Waterfall / 50+ joined</div>
               </div>
               <div class="fg-actions">
                 <a class="button button-primary" href="/journeys">Explore routes</a>
@@ -146,12 +185,12 @@
               </div>
               <div class="fg-hero-stats" aria-label="Adventures of Life in numbers">
                 <div class="fg-hero-stat">
-                  <strong>60+</strong>
-                  <span>Travellers</span>
+                  <strong>50+</strong>
+                  <span>At Oboadaka</span>
                 </div>
                 <div class="fg-hero-stat">
-                  <strong>7+</strong>
-                  <span>Trips run</span>
+                  <strong>8</strong>
+                  <span>Trips done</span>
                 </div>
                 <div class="fg-hero-stat">
                   <strong>2</strong>
@@ -173,6 +212,18 @@
             <a class="fg-rule-link" href="/journeys">All routes</a>
           </div>
           <div class="fg-trip-grid">
+            <a class="fg-trip-card fg-trip-card--latest reveal" href="/journeys?slot=june#route-selector">
+              <div class="fg-trip-media">
+                <img src="/assets/trips/oboadaka-group-1440.webp" alt="More than 50 travellers together after the Oboadaka Waterfall trip" width="1440" height="1080" loading="lazy" />
+                <span class="fg-trip-chip">07</span>
+                <span class="fg-trip-kind">Waterfall + jungle day</span>
+              </div>
+              <div class="fg-trip-body">
+                <span class="fg-trip-tag">Latest trip · 50+ joined</span>
+                <p class="fg-trip-name">Oboadaka Waterfall</p>
+                <p class="fg-trip-desc">Our first 50+ turnout traded dry clothes for waterfall spray, crowded the black rocks, and left with a group photo that barely fit the frame.</p>
+              </div>
+            </a>
             <a class="fg-trip-card reveal" href="/journeys?style=summit#route-selector">
               <div class="fg-trip-media">
                 <img src="/assets/trips/adakluto-trail-preview.jpg" alt="Trail section on the Hike Adakluto trip" width="600" height="400" loading="lazy" />
@@ -235,7 +286,6 @@
                 <span class="fg-trip-kind">Reserve + cave day</span>
               </div>
               <div class="fg-trip-body">
-                <span class="fg-trip-tag">Just happened</span>
                 <p class="fg-trip-name">Shai Reserve &amp; Kwaminga Park</p>
                 <p class="fg-trip-desc">Reserve ground, cave air, and the outdoor day that tightened the group faster than anyone expected.</p>
               </div>
@@ -264,28 +314,28 @@
         <div class="shell">
           <div class="fg-block-header reveal">
             <div>
-              <p class="fg-eyebrow">How the trips work</p>
-              <h2 class="fg-title">The day is planned.<br /><em>It still feels natural.</em></h2>
+              <p class="fg-eyebrow">What the trip feels like</p>
+              <h2 class="fg-title">You join the group.<br /><em>The day still feels like yours.</em></h2>
             </div>
           </div>
           <div class="fg-process-grid">
             <article class="fg-process-card reveal">
               <div class="fg-process-index">01</div>
               <div class="fg-process-media"><img src="/assets/trips/small-crews-home.jpg" alt="Small crew stop on the Adakluto trip" width="1440" height="1080" loading="lazy" /></div>
-              <h3>Small crews</h3>
-              <p>Small enough for people to know each other by name. Big enough to feel like a proper group.</p>
+              <h3>Strangers only at pickup</h3>
+              <p>By the first stop, names stick. By the ride home, the group chat has its own jokes.</p>
             </article>
             <article class="fg-process-card reveal">
               <div class="fg-process-index">02</div>
               <div class="fg-process-media"><img src="/assets/responsive/ada-nkyinkyim-boat-ride-960.webp" alt="Boat crossing on the Ada trip" width="960" height="640" loading="lazy" /></div>
-              <h3>Local timing</h3>
-              <p>Stops move with the road, the weather, and the group. Nothing is fixed so tight it cannot breathe.</p>
+              <h3>The scenery does not sit still</h3>
+              <p>Road gives way to trail, trail to water, and the next stop changes the mood before the energy drops.</p>
             </article>
             <article class="fg-process-card reveal">
               <div class="fg-process-index">03</div>
-              <div class="fg-process-media"><img src="/assets/trips/asenama-waterfall-home.jpg" alt="Waterfall moment from the Asenema trip" width="600" height="400" loading="lazy" /></div>
-              <h3>Real trip photos</h3>
-              <p>Every image on this site came from an actual trip day. No stock library, no staged cast, no borrowed adventure.</p>
+              <div class="fg-process-media"><img src="/assets/trips/oboadaka-waterfall-portrait.webp" alt="Traveller taking a quiet moment in the water at Oboadaka Waterfall" width="1200" height="2596" loading="lazy" /></div>
+              <h3>Your own moment still fits</h3>
+              <p>Swim. Wander. Take the photo. Sit with the view. You move with the group without spending every minute in a crowd.</p>
             </article>
           </div>
         </div>
@@ -325,11 +375,11 @@
               </div>
             </article>
             <article class="fg-story-card reveal">
-              <div class="fg-pin fg-story-photo"><img src="/assets/trips/fort-pr-preview.jpg" alt="Fort stop on the Keta 3 Days route" width="400" height="300" loading="lazy" /></div>
+              <div class="fg-pin fg-story-photo"><img src="/assets/trips/oboadaka-end-of-day.webp" alt="Oboadaka travellers gathered beneath the waterfall" width="1600" height="900" loading="lazy" /></div>
               <div>
-                <span class="fg-story-kicker">End of day</span>
-                <h3>Not every good moment gets photographed.</h3>
-                <p>Some of them are better left in memory. The ones that end up in the group chat come after.</p>
+                <span class="fg-story-kicker">Inside Oboadaka</span>
+                <h3>Nobody stayed on the sidelines.</h3>
+                <p>Water in the air. Bare feet on black rock. Fifty-plus people making room for one another under the falls.</p>
               </div>
             </article>
           </div>
@@ -371,14 +421,19 @@
             <div>
               <p class="fg-eyebrow">On recent trips</p>
               <h2 class="fg-title">No stock. No setup.<br /><em>Just the days as they happened.</em></h2>
-              <p class="fg-copy">Climb stops, border miles, lagoon air, and beach nights.</p>
+              <p class="fg-copy">Waterfall spray, reserve paths, lagoon air, and beach nights.</p>
             </div>
           </div>
-          <div class="fg-proof-grid">
+          <div class="fg-proof-grid fg-proof-grid--home">
             <div class="fg-proof-frame reveal">
-              <img src="/assets/responsive/akwamu-climb-portrait-960.webp" alt="Climb portrait from the Akwamu Gorge route" width="600" height="800" loading="lazy" />
-              <span class="fg-proof-caption">On the climb</span>
-              <span class="fg-proof-sub">Whole crew</span>
+              <img src="/assets/trips/oboadaka-end-of-day.webp" alt="Oboadaka travellers gathered together beneath the waterfall" width="1600" height="900" loading="lazy" />
+              <span class="fg-proof-caption">Right under the falls</span>
+              <span class="fg-proof-sub">Oboadaka</span>
+            </div>
+            <div class="fg-proof-frame reveal">
+              <img src="/assets/trips/oboadaka-waterfall-action.webp" alt="The group enjoying the water at Oboadaka Waterfall" width="1200" height="900" loading="lazy" />
+              <span class="fg-proof-caption">Under the falls</span>
+              <span class="fg-proof-sub">Oboadaka crew</span>
             </div>
             <div class="fg-proof-frame reveal">
               <img src="/assets/trips/shai-sayu-cave-group-2.jpg" alt="Second group photo from the Shai Reserve and Kwaminga Park trip" width="1440" height="1080" loading="lazy" />
@@ -394,6 +449,11 @@
               <img src="/assets/trips/keta-tent-village-preview.jpg" alt="Tent village at the Keta 3 Days trip" width="600" height="800" loading="lazy" />
               <span class="fg-proof-caption">Camp night</span>
               <span class="fg-proof-sub">Beach stay</span>
+            </div>
+            <div class="fg-proof-frame reveal">
+              <img src="/assets/trips/oboadaka-waterfall-50-plus.webp" alt="More than 50 travellers gathered in front of Oboadaka Waterfall" width="1400" height="1050" loading="lazy" />
+              <span class="fg-proof-caption">50+ showed up</span>
+              <span class="fg-proof-sub">One waterfall day</span>
             </div>
           </div>
         </div>
@@ -445,30 +505,36 @@
         <button class="fg-next-trip-close" type="button" data-next-trip-close aria-label="Close next trip popup">
           <span aria-hidden="true">&times;</span>
         </button>
-        <a class="fg-next-trip-media-link" href="/trips/oboadaka-waterfall-27-june">
+        <a class="fg-next-trip-media-link" href="/journeys">
           <div class="fg-next-trip-dialog-media">
             <img
-              src="/assets/trips/oboadaka-waterfall-flyer.jpg"
-              alt="Oboadaka Waterfall flyer for the next Adventures of Life trip"
-              width="914"
-              height="1280"
+              src="/assets/trips/cote-divoire-flyer.jpg"
+              alt="Côte d'Ivoire flyer for the next Adventures of Life trip"
+              width="618"
+              height="1080"
               loading="eager"
               decoding="async" />
           </div>
         </a>
-        <div class="fg-next-trip-dialog-copy">
-          <p class="fg-next-trip-kicker">Next trip / 27 June</p>
-          <h2 class="fg-next-trip-title" id="next-trip-popup-title"><a class="fg-next-trip-title-link" href="/trips/oboadaka-waterfall-27-june">Oboadaka Waterfall is next.</a></h2>
+                <div class="fg-next-trip-dialog-copy">
+          <p class="fg-next-trip-kicker">Next trip / 28 August to 2 September</p>
+          <h2 class="fg-next-trip-title" id="next-trip-popup-title"><a class="fg-next-trip-title-link" href="/journeys">La Côte d’Ivoire Experience Briefing</a></h2>
+          <p class="fg-next-trip-body">So it's a four days trip where we depart from Accra on 28th August to Abidjan then return back to Accra on 2nd September. We leave Accra in the evening and get to Abidjan in the morning of the following making it a 10 to 12hrs journey of which we would be asleep most of the night so it wouldn't be stressful and by the time we would've wake up then we're already at the côte d'ivoire boarder going through customs and immigration to proceed into Abidjan.</p>
+          <p class="fg-next-trip-body">We're spending 3 nights and 4 days in Abidjan where we get to explore four cities and different tourists sites while enjoying the rich culture of côte d'ivoire.</p>
+          <p class="fg-next-trip-body">The total package of 3,300 Cedis includes the transportation, accommodations, feeding throughout the trip, tourist site fees and all other details listed on the flyer.</p>
+          <p class="fg-next-trip-body">About the payment, we have an installment payment plan where you pay 500 cedis to secure a slot for the côte d'ivoire trip and pay the rest in installments and ways that's suitable for you or after paying the 500 cedis to secure a slot, you can make all the full payment at once if you feel you can. Remember you choose which payment options you can.</p>
+          <p class="fg-next-trip-body">One thing you can be assured of on this côte d'ivoire trip is everyone on board is going to make you feel comfortable and get along well in a way you're going to feel like you've been one of us.</p>
+          <p class="fg-next-trip-body">If there's any other information you'd like to know, you can feel free to contact CEO(Zico)</p>
           <div class="fg-next-trip-actions">
             <a
               class="button button-primary"
               data-whatsapp-link
               data-next-trip-cta
-              data-message="Hello Adventures of Life, I want to book a slot for Oboadaka Waterfall on 27 June."
-              href="https://wa.me/233551472190?text=Hello%20Adventures%20of%20Life%2C%20I%20want%20to%20book%20a%20slot%20for%20Oboadaka%20Waterfall%20on%2027%20June."
+              data-message="Hello Adventures of Life, I want to secure a slot for the Côte d’Ivoire trip on 28 August."
+              href="https://wa.me/233551472190?text=Hello%20Adventures%20of%20Life%2C%20I%20want%20to%20secure%20a%20slot%20for%20the%20C%C3%B4te%20d%E2%80%99Ivoire%20trip%20on%2028%20August."
               target="_blank"
               rel="noreferrer">
-              Book a slot now
+              Secure your slot now
             </a>
           </div>
         </div>
@@ -506,6 +572,6 @@
     <a class="whatsapp-fab" data-whatsapp-link data-message="Hello Adventures of Life, I want to start planning a trip." href="#" aria-label="Chat on WhatsApp">
       <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
     </a>
-    <script src="/script.js?v=20260502-1" defer></script>
+    <script src="/script.js?v=20260703-3" defer></script>
   </body>
 </html>

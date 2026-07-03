@@ -9289,6 +9289,161 @@ body[data-page="about"] .reveal.is-visible {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(15, 35, 24, 0.18) 0%, rgba(15, 35, 24, 0.05) 22%, rgba(15, 35, 24, 0) 48%);
+  pointer-events: none;
+}
+
+.fg-hero-carousel-viewport {
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.fg-hero-carousel-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.fg-hero-carousel-track {
+  display: flex;
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.fg-hero-carousel-track.is-dragging {
+  transition: none;
+}
+
+.fg-hero-slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 0;
+  margin: 0;
+  user-select: none;
+}
+
+.fg-hero-carousel-viewport .fg-hero-slide img {
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  background: var(--fg-photo-backdrop, var(--fg-bg-mid));
+  pointer-events: none;
+}
+
+.fg-hero-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 0.9rem;
+}
+
+.fg-hero-carousel-arrow {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 1px solid var(--fg-border);
+  border-radius: 50%;
+  background: var(--fg-bg-raised);
+  box-shadow: 0 0.5rem 1.4rem rgba(15, 35, 24, 0.08);
+  color: var(--fg-ink);
+  font: inherit;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.fg-hero-carousel-arrow:hover,
+.fg-hero-carousel-arrow:focus-visible {
+  border-color: var(--fg-amber);
+  color: var(--fg-amber);
+  transform: translateY(-2px);
+}
+
+.fg-hero-carousel-count {
+  min-width: 4.5rem;
+  margin: 0;
+  font-family: "Caveat", cursive;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: center;
+  color: var(--fg-muted);
+}
+
+.fg-hero-carousel-dots {
+  display: none;
+}
+
+.fg-hero-carousel-hint {
+  margin: 0.45rem 0 0;
+  font-family: "Caveat", cursive;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--fg-muted);
+}
+
+.fg-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (min-width: 48rem) {
+  .fg-hero-carousel-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.12rem;
+    margin-top: 0.35rem;
+  }
+
+  .fg-hero-carousel-dots button {
+    position: relative;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .fg-hero-carousel-dots button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.25rem;
+    height: 2px;
+    background: var(--fg-border-strong);
+    transform: translate(-50%, -50%);
+    transition: width 180ms ease, background-color 180ms ease;
+  }
+
+  .fg-hero-carousel-dots button:hover::before,
+  .fg-hero-carousel-dots button:focus-visible::before,
+  .fg-hero-carousel-dots button.is-active::before {
+    width: 2rem;
+    background: var(--fg-amber);
+  }
+
+  .fg-hero-carousel-hint {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fg-hero-carousel-track,
+  .fg-hero-carousel-arrow {
+    transition: none;
+  }
 }
 
 .fg-hero-content {
@@ -10716,6 +10871,102 @@ body[data-page="home"] .fg-trip-card:hover .fg-trip-media img,
 body[data-page="community"] .fg-trip-card:hover .fg-trip-media img,
 body[data-page="about"] .fg-trip-card:hover .fg-trip-media img {
   transform: none;
+}
+
+/* Keep the newest trip visible without pushing an earlier memory out of the grid. */
+.fg-trip-card--latest {
+  border-color: var(--fg-amber-border);
+  box-shadow: 0 1rem 2.5rem rgba(15, 35, 24, 0.08);
+}
+
+.fg-archive-collage {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  width: 100%;
+  min-height: 24rem;
+  padding: 0.45rem;
+  background: var(--fg-bg-mid);
+  border: 1px solid var(--fg-border);
+  box-shadow: 0 1rem 2.6rem rgba(15, 35, 24, 0.09);
+}
+
+.fg-archive-collage::before {
+  content: "";
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  z-index: 3;
+  width: 3.4rem;
+  height: 1rem;
+  transform: translateX(-50%);
+  background: rgba(212, 130, 10, 0.48);
+}
+
+.fg-archive-collage figure {
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--fg-photo-backdrop);
+}
+
+.fg-archive-collage-main {
+  grid-row: 1 / -1;
+}
+
+.fg-archive-collage--four {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  min-height: 28rem;
+}
+
+.fg-archive-row--latest .fg-archive-count {
+  background: var(--fg-ink);
+  border-color: var(--fg-ink);
+  color: var(--fg-bg-raised);
+}
+
+.fg-archive-collage img,
+body[data-page="community"] .fg-archive-collage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 420ms ease, filter 420ms ease;
+}
+
+.fg-archive-collage:hover img {
+  filter: saturate(1.06);
+  transform: scale(1.015);
+}
+
+@media (min-width: 48rem) {
+  .fg-trip-card--latest {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(15rem, 0.65fr);
+    align-items: stretch;
+  }
+
+  .fg-trip-card--latest .fg-trip-media {
+    height: 100%;
+    min-height: 18rem;
+  }
+
+  .fg-trip-card--latest .fg-trip-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 64rem) {
+  .fg-proof-grid--home {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 body[data-page="journeys"] .journey-roadmap-poster img,
