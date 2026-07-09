@@ -1199,9 +1199,15 @@ document.addEventListener("DOMContentLoaded", () => {
     openTimer = window.setTimeout(openPopup, NEXT_TRIP_POPUP_DELAY_MS);
 
     closeTargets.forEach((target) => {
-      target.addEventListener("click", () => {
+      target.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
         closePopup();
       });
+    });
+
+    dialog.addEventListener("click", (event) => {
+      event.stopPropagation();
     });
 
     document.addEventListener("keydown", (event) => {
