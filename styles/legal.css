@@ -1,0 +1,64 @@
+/* Privacy and booking terms. */
+
+/* Privacy and booking terms */
+.legal-hero {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(212, 130, 10, 0.1), transparent 24rem),
+    linear-gradient(180deg, #f8faf7, #eff3ec);
+}
+
+.legal-shell {
+  width: min(100%, 52rem);
+}
+
+.legal-hero .fg-title {
+  max-width: 16ch;
+}
+
+.legal-updated {
+  margin: 1.25rem 0 0;
+  color: rgba(11, 34, 36, 0.58);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.legal-content {
+  display: grid;
+  gap: 0;
+}
+
+.legal-content article {
+  padding: clamp(1.5rem, 4vw, 2.4rem) 0;
+  border-bottom: 1px solid rgba(11, 34, 36, 0.1);
+}
+
+.legal-content article:first-child {
+  padding-top: 0;
+}
+
+.legal-content article:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.legal-content h2 {
+  margin: 0 0 0.75rem;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  color: #0b2224;
+}
+
+.legal-content p {
+  margin: 0;
+  color: rgba(11, 34, 36, 0.76);
+  line-height: 1.8;
+}
+
+.legal-content a {
+  color: #0b2224;
+  font-weight: 700;
+  text-decoration-color: rgba(212, 130, 10, 0.65);
+  text-underline-offset: 0.2em;
+}

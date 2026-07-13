@@ -24,6 +24,9 @@ CREATE TABLE IF NOT EXISTS review_invites (
 CREATE INDEX IF NOT EXISTS idx_review_invites_status_expiry
 ON review_invites (status, expires_at, id DESC);
 
+CREATE INDEX IF NOT EXISTS idx_review_invites_status_used
+ON review_invites (status, used_at, created_at);
+
 CREATE TABLE IF NOT EXISTS reviews (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
@@ -34,7 +37,8 @@ CREATE TABLE IF NOT EXISTS reviews (
   rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
   review TEXT NOT NULL,
   approved INTEGER NOT NULL DEFAULT 1,
-  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  invite_id INTEGER DEFAULT NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_reviews_approved_created_at
@@ -42,6 +46,10 @@ ON reviews (approved, created_at DESC, id DESC);
 
 CREATE INDEX IF NOT EXISTS idx_reviews_trip_contact
 ON reviews (trip, contact);
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_reviews_invite_id
+ON reviews (invite_id)
+WHERE invite_id IS NOT NULL;
 
 CREATE TABLE IF NOT EXISTS inquiries (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -51,8 +59,12 @@ CREATE TABLE IF NOT EXISTS inquiries (
   message TEXT NOT NULL DEFAULT '',
   status TEXT NOT NULL DEFAULT 'new',
   source_path TEXT NOT NULL DEFAULT '',
-  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX IF NOT EXISTS idx_inquiries_created_at
 ON inquiries (created_at DESC, id DESC);
+
+CREATE INDEX IF NOT EXISTS idx_inquiries_updated_at
+ON inquiries (updated_at DESC, id DESC);

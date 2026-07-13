@@ -1,0 +1,206 @@
+{
+  "oboadaka": {
+    "source": "assets/trips/oboadaka-waterfall-50-plus.webp",
+    "hash": "92a911ff00",
+    "formats": {
+      "avif": [
+        {
+          "width": 480,
+          "src": "/assets/optimized/home-hero-oboadaka.92a911ff00-480.avif"
+        },
+        {
+          "width": 768,
+          "src": "/assets/optimized/home-hero-oboadaka.92a911ff00-768.avif"
+        },
+        {
+          "width": 1400,
+          "src": "/assets/optimized/home-hero-oboadaka.92a911ff00-1400.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 480,
+          "src": "/assets/optimized/home-hero-oboadaka.92a911ff00-480.webp"
+        },
+        {
+          "width": 768,
+          "src": "/assets/optimized/home-hero-oboadaka.92a911ff00-768.webp"
+        },
+        {
+          "width": 1400,
+          "src": "/assets/optimized/home-hero-oboadaka.92a911ff00-1400.webp"
+        }
+      ]
+    }
+  },
+  "shai": {
+    "source": "assets/trips/shai-sayu-cave-group.jpg",
+    "hash": "be2b7d1d67",
+    "formats": {
+      "avif": [
+        {
+          "width": 480,
+          "src": "/assets/optimized/home-hero-shai.be2b7d1d67-480.avif"
+        },
+        {
+          "width": 768,
+          "src": "/assets/optimized/home-hero-shai.be2b7d1d67-768.avif"
+        },
+        {
+          "width": 1440,
+          "src": "/assets/optimized/home-hero-shai.be2b7d1d67-1440.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 480,
+          "src": "/assets/optimized/home-hero-shai.be2b7d1d67-480.webp"
+        },
+        {
+          "width": 768,
+          "src": "/assets/optimized/home-hero-shai.be2b7d1d67-768.webp"
+        },
+        {
+          "width": 1440,
+          "src": "/assets/optimized/home-hero-shai.be2b7d1d67-1440.webp"
+        }
+      ]
+    }
+  },
+  "togo": {
+    "source": "assets/responsive/togo-cathedral-group-1080.webp",
+    "hash": "83ac54e43a",
+    "formats": {
+      "avif": [
+        {
+          "width": 480,
+          "src": "/assets/optimized/home-hero-togo.83ac54e43a-480.avif"
+        },
+        {
+          "width": 768,
+          "src": "/assets/optimized/home-hero-togo.83ac54e43a-768.avif"
+        },
+        {
+          "width": 1080,
+          "src": "/assets/optimized/home-hero-togo.83ac54e43a-1080.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 480,
+          "src": "/assets/optimized/home-hero-togo.83ac54e43a-480.webp"
+        },
+        {
+          "width": 768,
+          "src": "/assets/optimized/home-hero-togo.83ac54e43a-768.webp"
+        },
+        {
+          "width": 1080,
+          "src": "/assets/optimized/home-hero-togo.83ac54e43a-1080.webp"
+        }
+      ]
+    }
+  },
+  "ada": {
+    "source": "assets/responsive/ada-nkyinkyim-cover-1440.webp",
+    "hash": "e8ff68b8b0",
+    "formats": {
+      "avif": [
+        {
+          "width": 480,
+          "src": "/assets/optimized/home-hero-ada.e8ff68b8b0-480.avif"
+        },
+        {
+          "width": 768,
+          "src": "/assets/optimized/home-hero-ada.e8ff68b8b0-768.avif"
+        },
+        {
+          "width": 1440,
+          "src": "/assets/optimized/home-hero-ada.e8ff68b8b0-1440.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 480,
+          "src": "/assets/optimized/home-hero-ada.e8ff68b8b0-480.webp"
+        },
+        {
+          "width": 768,
+          "src": "/assets/optimized/home-hero-ada.e8ff68b8b0-768.webp"
+        },
+        {
+          "width": 1440,
+          "src": "/assets/optimized/home-hero-ada.e8ff68b8b0-1440.webp"
+        }
+      ]
+    }
+  },
+  "asenema": {
+    "source": "assets/trips/asenema-group-home.jpg",
+    "hash": "b913854c89",
+    "formats": {
+      "avif": [
+        {
+          "width": 480,
+          "src": "/assets/optimized/home-hero-asenema.b913854c89-480.avif"
+        },
+        {
+          "width": 768,
+          "src": "/assets/optimized/home-hero-asenema.b913854c89-768.avif"
+        },
+        {
+          "width": 1440,
+          "src": "/assets/optimized/home-hero-asenema.b913854c89-1440.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 480,
+          "src": "/assets/optimized/home-hero-asenema.b913854c89-480.webp"
+        },
+        {
+          "width": 768,
+          "src": "/assets/optimized/home-hero-asenema.b913854c89-768.webp"
+        },
+        {
+          "width": 1440,
+          "src": "/assets/optimized/home-hero-asenema.b913854c89-1440.webp"
+        }
+      ]
+    }
+  },
+  "adakluto": {
+    "source": "assets/trips/adakluto-group.webp",
+    "hash": "774dc2527b",
+    "formats": {
+      "avif": [
+        {
+          "width": 480,
+          "src": "/assets/optimized/home-hero-adakluto.774dc2527b-480.avif"
+        },
+        {
+          "width": 768,
+          "src": "/assets/optimized/home-hero-adakluto.774dc2527b-768.avif"
+        },
+        {
+          "width": 1400,
+          "src": "/assets/optimized/home-hero-adakluto.774dc2527b-1400.avif"
+        }
+      ],
+      "webp": [
+        {
+          "width": 480,
+          "src": "/assets/optimized/home-hero-adakluto.774dc2527b-480.webp"
+        },
+        {
+          "width": 768,
+          "src": "/assets/optimized/home-hero-adakluto.774dc2527b-768.webp"
+        },
+        {
+          "width": 1400,
+          "src": "/assets/optimized/home-hero-adakluto.774dc2527b-1400.webp"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,47 @@
+name: Site checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Audit dependencies
+        run: npm audit --audit-level=moderate
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+      - name: Verify site
+        run: npm run test:all
+      - name: Deploy verified production build
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: npx wrangler pages deploy dist --project-name=adventures-of-life-gh --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - name: Verify production deployment
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            npm run test:live && exit 0
+            sleep 15
+          done
+          exit 1

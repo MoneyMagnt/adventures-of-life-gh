@@ -1,0 +1,5 @@
+Contact: https://wa.me/233551472190?text=Hello%20Zico%2C%20I%20need%20to%20report%20a%20website%20security%20issue.
+Expires: 2027-07-13T23:59:59Z
+Preferred-Languages: en, fr
+Canonical: https://adventuresoflifegh.com/.well-known/security.txt
+Policy: https://adventuresoflifegh.com/privacy

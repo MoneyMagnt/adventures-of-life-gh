@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-13",
+  "activeTripId": "cote-divoire-2026",
+  "trips": [
+    {
+      "id": "ada-nkyinkyim-2026",
+      "name": "Nkyinkyim Museum & Ada Island",
+      "dateLabel": "31 January 2026",
+      "startDate": "2026-01-31",
+      "endDate": "2026-01-31",
+      "status": "completed",
+      "kind": "domestic",
+      "country": "Ghana",
+      "image": "/assets/responsive/ada-nkyinkyim-walk-1440.webp",
+      "journeySlot": "january"
+    },
+    {
+      "id": "togo-vibe-2026",
+      "name": "The Togo Vibe Experience",
+      "dateLabel": "3-5 April 2026",
+      "startDate": "2026-04-03",
+      "endDate": "2026-04-05",
+      "status": "completed",
+      "kind": "international",
+      "country": "Togo",
+      "image": "/assets/responsive/togo-group-1440.webp",
+      "journeySlot": "april"
+    },
+    {
+      "id": "shai-kwaminga-2026",
+      "name": "Shai Reserve & Kwaminga Park",
+      "dateLabel": "23 May 2026",
+      "startDate": "2026-05-23",
+      "endDate": "2026-05-23",
+      "status": "completed",
+      "kind": "domestic",
+      "country": "Ghana",
+      "image": "/assets/trips/shai-sayu-cave-group.jpg",
+      "journeySlot": "may"
+    },
+    {
+      "id": "oboadaka-2026",
+      "name": "Oboadaka Waterfall X Party in the Jungle",
+      "shortName": "Oboadaka Waterfall",
+      "dateLabel": "27 June 2026",
+      "startDate": "2026-06-27",
+      "endDate": "2026-06-27",
+      "status": "completed",
+      "kind": "domestic",
+      "country": "Ghana",
+      "image": "/assets/trips/oboadaka-group-1440.webp",
+      "recapPath": "/community#oboadaka",
+      "journeySlot": "june"
+    },
+    {
+      "id": "pre-cote-house-party-2026",
+      "name": "Pre-C\u00f4te d'Ivoire House Party",
+      "shortName": "Pre-C\u00f4te d'Ivoire House Party",
+      "dateLabel": "31 July 2026",
+      "startDate": "2026-07-31",
+      "endDate": "2026-07-31",
+      "status": "planned",
+      "kind": "domestic",
+      "country": "Ghana",
+      "image": "/assets/trips/activities-2026-lineup.webp",
+      "journeySlot": "july"
+    },
+    {
+      "id": "cote-divoire-2026",
+      "name": "La C\u00f4te d\u2019Ivoire Experience",
+      "shortName": "C\u00f4te d\u2019Ivoire",
+      "dateLabel": "28 August to 2 September 2026",
+      "startDate": "2026-08-28",
+      "endDate": "2026-09-02",
+      "status": "booking",
+      "kind": "international",
+      "country": "C\u00f4te d'Ivoire",
+      "cities": ["Abidjan", "Grand-Bassam", "Assinie", "Yamoussoukro"],
+      "duration": "3 nights / 4 days",
+      "price": {
+        "amount": 3300,
+        "currency": "GHS",
+        "deposit": 500,
+        "installments": true
+      },
+      "image": "/assets/trips/cote-divoire-flyer.jpg",
+      "bookingPath": "/trips/cote-divoire-28-august",
+      "journeySlot": "august",
+      "whatsappMessage": "Hello Adventures of Life, I want to secure a slot for the C\u00f4te d\u2019Ivoire trip departing 28 August."
+    },
+    {
+      "id": "wli-camp-2026",
+      "name": "Wli Waterfalls Camping",
+      "dateLabel": "12 September 2026",
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "status": "planned",
+      "kind": "domestic",
+      "country": "Ghana",
+      "image": "/assets/trips/activities-2026-lineup.webp",
+      "journeySlot": "september"
+    },
+    {
+      "id": "amedzofe-2026",
+      "name": "Amedzofe Canopy Walkway",
+      "dateLabel": "17 October 2026",
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "status": "planned",
+      "kind": "domestic",
+      "country": "Ghana",
+      "image": "/assets/trips/activities-2026-lineup.webp",
+      "journeySlot": "october"
+    },
+    {
+      "id": "sports-food-festival-2026",
+      "name": "Sporting Activities & Food Festival",
+      "dateLabel": "14 November 2026",
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "status": "planned",
+      "kind": "domestic",
+      "country": "Ghana",
+      "image": "/assets/trips/activities-2026-lineup.webp",
+      "journeySlot": "november"
+    },
+    {
+      "id": "benin-finale-2026",
+      "name": "Benin / End of Year Celebration",
+      "dateLabel": "24 December 2026",
+      "startDate": "2026-12-24",
+      "endDate": "2026-12-24",
+      "status": "planned",
+      "kind": "international",
+      "country": "Benin",
+      "image": "/assets/trips/activities-2026-lineup.webp",
+      "journeySlot": "december"
+    }
+  ]
+}

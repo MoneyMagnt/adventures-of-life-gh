@@ -4,6 +4,7 @@ import {
   buildRateLimitHeaders,
   enforceRateLimit,
   ensureSecuritySchema,
+  getApiSecurityHeaders,
   getClientIp,
   getReviewInviteByToken,
 } from "../_lib/security.js";
@@ -13,7 +14,7 @@ const json = (data, init = {}) =>
     status: init.status || 200,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
-      "Cache-Control": "no-store",
+      ...getApiSecurityHeaders(),
       ...(init.headers || {}),
     },
   });

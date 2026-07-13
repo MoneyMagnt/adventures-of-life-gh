@@ -1,0 +1,26 @@
+{
+  "name": "adventures-of-life-gh",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static Adventures of Life GH website and Cloudflare Pages Functions.",
+  "scripts": {
+    "start": "node scripts/local-preview-server.js 3001",
+    "sync:trips": "node scripts/sync-trip-content.js",
+    "sync:fr": "node scripts/sync-french-pages.js",
+    "i18n:migrate": "node scripts/migrate-i18n-keys.js && node scripts/sync-french-pages.js",
+    "build": "node scripts/build-public.js",
+    "optimize:images": "node scripts/optimize-images.js",
+    "prune:css": "node scripts/prune-unused-css.js",
+    "test": "npm run test:static",
+    "test:static": "node scripts/sync-trip-content.js --check && node scripts/sync-french-pages.js --check && node scripts/optimize-images.js --check && node scripts/prune-unused-css.js --check && node scripts/verify-site.js && node --test security-tests/security.test.mjs",
+    "test:browser": "playwright test",
+    "test:all": "npm run test:static && npm run test:browser && npm run build",
+    "test:live": "node scripts/verify-live-site.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "postcss": "^8.5.16",
+    "postcss-selector-parser": "^7.1.4",
+    "wrangler": "^4.110.0"
+  }
+}

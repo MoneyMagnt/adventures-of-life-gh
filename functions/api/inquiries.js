@@ -3,16 +3,26 @@
 import {
   buildRateLimitHeaders,
   enforceRateLimit,
+  getApiSecurityHeaders,
   getClientIp,
+  hasSafeRequestOrigin,
+  isRequestBodyTooLargeError,
+  isRequestBodyTooLarge,
+  parseRequestPayload,
   verifyTurnstileToken,
 } from "../_lib/security.js";
+import { sendOperationalNotification } from "../_lib/notifications.js";
+import {
+  cleanupExpiredInquiryData,
+  ensureInquiryRetention,
+} from "../_lib/data-retention.js";
 
 const json = (data, init = {}) =>
   new Response(JSON.stringify(data), {
     status: init.status || 200,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
-      "Cache-Control": "no-store",
+      ...getApiSecurityHeaders(),
       ...(init.headers || {}),
     },
   });
@@ -21,17 +31,6 @@ const normalizeText = (value) =>
   String(value || "")
     .trim()
     .replace(/\s+/g, " ");
-
-const parsePayload = async (request) => {
-  const contentType = request.headers.get("content-type") || "";
-
-  if (contentType.includes("application/json")) {
-    return request.json();
-  }
-
-  const formData = await request.formData();
-  return Object.fromEntries(formData);
-};
 
 const looksSpammy = (value) => {
   const clean = normalizeText(value);
@@ -78,6 +77,14 @@ const validatePayload = (payload) => {
     return { error: "Please enter a valid email address." };
   }
 
+  if (cleaned.name.length > 80 || cleaned.email.length > 254) {
+    return { error: "Please shorten your name or email address." };
+  }
+
+  if (cleaned.trip.length > 120 || cleaned.sourcePath.length > 300) {
+    return { error: "The selected trip details are too long." };
+  }
+
   if (cleaned.message.length > 1200) {
     return { error: "Please keep the trip notes a little shorter." };
   }
@@ -108,7 +115,8 @@ const ensureInquiriesSchema = async (db) => {
         message TEXT NOT NULL DEFAULT '',
         status TEXT NOT NULL DEFAULT 'new',
         source_path TEXT NOT NULL DEFAULT '',
-        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
       )`
     )
     .run();
@@ -119,9 +127,20 @@ const ensureInquiriesSchema = async (db) => {
        ON inquiries (created_at DESC, id DESC)`
     )
     .run();
+
+  await ensureInquiryRetention(db);
+  await cleanupExpiredInquiryData(db);
 };
 
 export async function onRequestPost(context) {
+  if (!hasSafeRequestOrigin(context.request)) {
+    return json({ error: "Cross-site form submissions are not allowed." }, { status: 403 });
+  }
+
+  if (isRequestBodyTooLarge(context.request)) {
+    return json({ error: "This inquiry is too large to submit." }, { status: 413 });
+  }
+
   const { db, error } = ensureDatabase(context.env);
 
   if (error) {
@@ -148,12 +167,16 @@ export async function onRequestPost(context) {
   let payload;
 
   try {
-    payload = await parsePayload(context.request);
+    payload = await parseRequestPayload(context.request);
   } catch (parseError) {
     return json(
-      { error: "Invalid inquiry payload." },
       {
-        status: 400,
+        error: isRequestBodyTooLargeError(parseError)
+          ? "This inquiry is too large to submit."
+          : "Invalid inquiry payload.",
+      },
+      {
+        status: isRequestBodyTooLargeError(parseError) ? 413 : 400,
         headers: buildRateLimitHeaders(rateLimit),
       }
     );
@@ -199,8 +222,9 @@ export async function onRequestPost(context) {
           trip,
           message,
           source_path,
-          created_at
-        ) VALUES (?, ?, ?, ?, ?, ?)`
+          created_at,
+          updated_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?)`
       )
       .bind(
         cleaned.name,
@@ -208,14 +232,28 @@ export async function onRequestPost(context) {
         cleaned.trip,
         cleaned.message,
         cleaned.sourcePath || "/",
+        createdAt,
         createdAt
       )
       .run();
 
+    const inquiryId = result.meta?.last_row_id || createdAt;
+    context.waitUntil(
+      sendOperationalNotification(context.env, "inquiry.created", {
+        id: inquiryId,
+        name: cleaned.name,
+        email: cleaned.email,
+        trip: cleaned.trip,
+        message: cleaned.message,
+        source_path: cleaned.sourcePath || "/",
+        created_at: createdAt,
+      }).catch(() => undefined)
+    );
+
     return json(
       {
         inquiry: {
-          id: result.meta?.last_row_id || createdAt,
+          id: inquiryId,
           trip: cleaned.trip,
           created_at: createdAt,
         },

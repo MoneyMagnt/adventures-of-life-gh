@@ -1,8 +1,20 @@
 node_modules/
+dist/
+.npm-cache/
+playwright-report/
+test-results/
 .wrangler/
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+*.pem
+*.key
 .DS_Store
 Thumbs.db
 .preview*.log
+.audit-chrome-profile/
 preview-server.err
 preview-server.log
 

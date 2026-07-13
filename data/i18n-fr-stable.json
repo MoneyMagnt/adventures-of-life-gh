@@ -1,0 +1,2406 @@
+{
+  "version": 1,
+  "locale": "fr",
+  "messages": {
+    "home.text.001": {
+      "en": "Adventures",
+      "fr": "Aventures"
+    },
+    "home.text.002": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "home.text.003": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "home.text.004": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "home.text.005": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "home.text.006": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "home.text.007": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "home.text.008": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "home.text.009": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "home.text.010": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "home.text.011": {
+      "en": "Routes",
+      "fr": "Parcours"
+    },
+    "home.text.012": {
+      "en": "Start planning",
+      "fr": "Commencer à planifier"
+    },
+    "home.text.013": {
+      "en": "Oboadaka Waterfall / Ghana / 50+ people",
+      "fr": "Cascade d'Oboadaka / Ghana / 50+ personnes"
+    },
+    "home.text.014": {
+      "en": "Shai Reserve + Kwaminga Park / Ghana",
+      "fr": "Réserve de Shai + Kwaminga Park / Ghana"
+    },
+    "home.text.015": {
+      "en": "Togo Vibe Experience / Lome, Togo",
+      "fr": "Togo Vibe Experience / Lomé, Togo"
+    },
+    "home.text.016": {
+      "en": "Nkyinkyim Museum + Ada / Ghana",
+      "fr": "Musée Nkyinkyim + Ada / Ghana"
+    },
+    "home.text.017": {
+      "en": "Asenema Waterfall / Eastern Region, Ghana",
+      "fr": "Cascade d'Asenema / Région de l'Est, Ghana"
+    },
+    "home.text.018": {
+      "en": "Hike Adakluto / Volta Region, Ghana",
+      "fr": "Randonnée Adakluto / Région de la Volta, Ghana"
+    },
+    "home.text.019": {
+      "en": "Swipe the photo to see every trip.",
+      "fr": "Fais glisser la photo pour voir chaque voyage."
+    },
+    "home.text.020": {
+      "en": "Oboadaka Waterfall, Ghana. Slide 1 of 6.",
+      "fr": "Cascade d'Oboadaka, Ghana. Diapositive 1 sur 6."
+    },
+    "home.text.021": {
+      "en": "You can already tell",
+      "fr": "On le voit déjà"
+    },
+    "home.text.022": {
+      "en": "it was a good day.",
+      "fr": "c'était une belle journée."
+    },
+    "home.text.023": {
+      "en": "Base",
+      "fr": "Base"
+    },
+    "home.text.024": {
+      "en": "Ghana / West Africa",
+      "fr": "Ghana / Afrique de l'Ouest"
+    },
+    "home.text.025": {
+      "en": "Latest trip",
+      "fr": "Dernier voyage"
+    },
+    "home.text.026": {
+      "en": "Oboadaka Waterfall / 50+ joined",
+      "fr": "Cascade d'Oboadaka / 50+ participants"
+    },
+    "home.text.027": {
+      "en": "Explore routes",
+      "fr": "Explorer les parcours"
+    },
+    "home.text.028": {
+      "en": "Start planning",
+      "fr": "Commencer à planifier"
+    },
+    "home.text.029": {
+      "en": "At Oboadaka",
+      "fr": "À Oboadaka"
+    },
+    "home.text.030": {
+      "en": "Trips done",
+      "fr": "Voyages réalisés"
+    },
+    "home.text.031": {
+      "en": "Countries reached",
+      "fr": "Pays visités"
+    },
+    "home.text.032": {
+      "en": "The trips",
+      "fr": "Les voyages"
+    },
+    "home.text.033": {
+      "en": "These are the days people keep asking about.",
+      "fr": "Voici les journées dont tout le monde continue de parler."
+    },
+    "home.text.034": {
+      "en": "Pick the one that feels like you.",
+      "fr": "Choisis celle qui te ressemble."
+    },
+    "home.text.035": {
+      "en": "All routes",
+      "fr": "Tous les parcours"
+    },
+    "home.text.036": {
+      "en": "Waterfall + jungle day",
+      "fr": "Cascade + journée jungle"
+    },
+    "home.text.037": {
+      "en": "Latest trip · 50+ joined",
+      "fr": "Dernier voyage · 50+ participants"
+    },
+    "home.text.038": {
+      "en": "Oboadaka Waterfall",
+      "fr": "Cascade d'Oboadaka"
+    },
+    "home.text.039": {
+      "en": "Our first 50+ turnout traded dry clothes for waterfall spray, crowded the black rocks, and left with a group photo that barely fit the frame.",
+      "fr": "Notre première sortie à plus de 50 personnes a échangé les vêtements secs contre la brume de la cascade, rempli les rochers noirs et laissé une photo de groupe qui tenait à peine dans le cadre."
+    },
+    "home.text.040": {
+      "en": "Trail climb day",
+      "fr": "Journée de montée"
+    },
+    "home.text.041": {
+      "en": "Hike Adakluto",
+      "fr": "Randonnée Adakluto"
+    },
+    "home.text.042": {
+      "en": "You meet at the bottom, do the climb together, and earn the summit photo at the top.",
+      "fr": "On se retrouve en bas, on grimpe ensemble, puis on mérite la photo du sommet."
+    },
+    "home.text.043": {
+      "en": "Gorge climb day",
+      "fr": "Journée gorge"
+    },
+    "home.text.044": {
+      "en": "Akwamu Gorge",
+      "fr": "Gorge d'Akwamu"
+    },
+    "home.text.045": {
+      "en": "Harder on the legs, bigger at the top, and worth every complaint on the way up.",
+      "fr": "Plus dur pour les jambes, plus grandiose au sommet, et ça vaut chaque plainte pendant la montée."
+    },
+    "home.text.046": {
+      "en": "Forest waterfall day",
+      "fr": "Journée cascade en forêt"
+    },
+    "home.text.047": {
+      "en": "Asenema Waterfalls",
+      "fr": "Cascades d'Asenema"
+    },
+    "home.text.048": {
+      "en": "Forest walk, cold water at the end, and a ride home full of people asking when it runs again.",
+      "fr": "Marche en forêt, eau froide à l'arrivée, et un retour où tout le monde demande déjà la prochaine date."
+    },
+    "home.text.049": {
+      "en": "Weekend",
+      "fr": "Week-end"
+    },
+    "home.text.050": {
+      "en": "Keta 3 Days",
+      "fr": "Keta 3 jours"
+    },
+    "home.text.051": {
+      "en": "Tents, fort stop, sea air, and the weekend people still bring up months later.",
+      "fr": "Tentes, arrêt au fort, air marin, et un week-end que les gens mentionnent encore des mois après."
+    },
+    "home.text.052": {
+      "en": "Museum / lagoon day",
+      "fr": "Musée / journée lagune"
+    },
+    "home.text.053": {
+      "en": "Ada / Nkyinkyim Museum",
+      "fr": "Ada / Musée Nkyinkyim"
+    },
+    "home.text.054": {
+      "en": "Museum grounds, water, portraits, and a slower day that still gives you a lot to remember.",
+      "fr": "Musée, eau, portraits, et une journée plus douce qui laisse quand même beaucoup de souvenirs."
+    },
+    "home.text.055": {
+      "en": "Reserve + cave day",
+      "fr": "Réserve + journée grotte"
+    },
+    "home.text.056": {
+      "en": "Shai Reserve & Kwaminga Park",
+      "fr": "Réserve de Shai & Kwaminga Park"
+    },
+    "home.text.057": {
+      "en": "Reserve ground, cave air, and the outdoor day that tightened the group faster than anyone expected.",
+      "fr": "Sol de réserve, air de grotte, et une journée dehors qui a rapproché le groupe plus vite que prévu."
+    },
+    "home.text.058": {
+      "en": "Since 2023",
+      "fr": "Depuis 2023"
+    },
+    "home.text.059": {
+      "en": "Three friends. One trip.",
+      "fr": "Trois amis. Un voyage."
+    },
+    "home.text.060": {
+      "en": "Now 60+ travellers.",
+      "fr": "Aujourd'hui 60+ voyageurs."
+    },
+    "home.text.061": {
+      "en": "It started with one trip and a group chat. No agency, no itinerary software, just people moving because somebody finally picked a date and said let's go.",
+      "fr": "Tout a commencé avec un voyage et un groupe WhatsApp. Pas d'agence, pas de logiciel d'itinéraire, juste des gens qui bougent parce que quelqu'un a enfin choisi une date et dit: on y va."
+    },
+    "home.text.062": {
+      "en": "Read the story",
+      "fr": "Lire l'histoire"
+    },
+    "home.text.063": {
+      "en": "What the trip feels like",
+      "fr": "Ce que le voyage fait ressentir"
+    },
+    "home.text.064": {
+      "en": "You join the group.",
+      "fr": "Tu rejoins le groupe."
+    },
+    "home.text.065": {
+      "en": "The day still feels like yours.",
+      "fr": "La journée reste à toi."
+    },
+    "home.text.066": {
+      "en": "Strangers only at pickup",
+      "fr": "Inconnus seulement au départ"
+    },
+    "home.text.067": {
+      "en": "By the first stop, names stick. By the ride home, the group chat has its own jokes.",
+      "fr": "Au premier arrêt, les prénoms restent. Au retour, le groupe a déjà ses propres blagues."
+    },
+    "home.text.068": {
+      "en": "The scenery does not sit still",
+      "fr": "Le décor ne reste jamais immobile"
+    },
+    "home.text.069": {
+      "en": "Road gives way to trail, trail to water, and the next stop changes the mood before the energy drops.",
+      "fr": "La route devient sentier, le sentier devient eau, et l'arrêt suivant change l'ambiance avant que l'énergie ne retombe."
+    },
+    "home.text.070": {
+      "en": "Your own moment still fits",
+      "fr": "Ton moment à toi a aussi sa place"
+    },
+    "home.text.071": {
+      "en": "Swim. Wander. Take the photo. Sit with the view. You move with the group without spending every minute in a crowd.",
+      "fr": "Nage. Marche. Prends la photo. Assieds-toi devant la vue. Tu avances avec le groupe sans passer chaque minute dans la foule."
+    },
+    "home.text.072": {
+      "en": "A day on the route",
+      "fr": "Une journée sur la route"
+    },
+    "home.text.073": {
+      "en": "How the day unfolds",
+      "fr": "Comment la journée se déroule"
+    },
+    "home.text.074": {
+      "en": "between meet-up and ride home.",
+      "fr": "entre le rendez-vous et le retour."
+    },
+    "home.text.075": {
+      "en": "Start of the climb",
+      "fr": "Début de la montée"
+    },
+    "home.text.076": {
+      "en": "At the start, everybody is still introducing themselves.",
+      "fr": "Au début, tout le monde se présente encore."
+    },
+    "home.text.077": {
+      "en": "The climb has not humbled anyone yet. That part comes later.",
+      "fr": "La montée n'a encore calmé personne. Ça vient après."
+    },
+    "home.text.078": {
+      "en": "Top of Adakluto",
+      "fr": "Sommet d'Adakluto"
+    },
+    "home.text.079": {
+      "en": "This is why you kept climbing.",
+      "fr": "Voilà pourquoi tu as continué à grimper."
+    },
+    "home.text.080": {
+      "en": "The view earns itself. Nobody needs to be told to stop and look.",
+      "fr": "La vue se mérite. Personne n'a besoin qu'on lui dise de s'arrêter et regarder."
+    },
+    "home.text.081": {
+      "en": "Somewhere in the middle",
+      "fr": "Quelque part au milieu"
+    },
+    "home.text.082": {
+      "en": "The group clicks. That part always happens faster than people expect.",
+      "fr": "Le groupe se connecte. Ça arrive toujours plus vite qu'on ne pense."
+    },
+    "home.text.083": {
+      "en": "You came as strangers. By afternoon, that is already not quite true.",
+      "fr": "Vous êtes arrivés inconnus. L'après-midi, ce n'est déjà plus vraiment vrai."
+    },
+    "home.text.084": {
+      "en": "Inside Oboadaka",
+      "fr": "À Oboadaka"
+    },
+    "home.text.085": {
+      "en": "Nobody stayed on the sidelines.",
+      "fr": "Personne n'est resté de côté."
+    },
+    "home.text.086": {
+      "en": "Water in the air. Bare feet on black rock. Fifty-plus people making room for one another under the falls.",
+      "fr": "De l'eau dans l'air. Pieds nus sur la roche noire. Plus de cinquante personnes qui se font de la place sous la cascade."
+    },
+    "home.text.087": {
+      "en": "Why people come back",
+      "fr": "Pourquoi les gens reviennent"
+    },
+    "home.text.088": {
+      "en": "It feels personal",
+      "fr": "Ça paraît personnel"
+    },
+    "home.text.089": {
+      "en": "because it is.",
+      "fr": "parce que ça l'est."
+    },
+    "home.text.090": {
+      "en": "Scouted before we invite anyone",
+      "fr": "Repéré avant d'inviter qui que ce soit"
+    },
+    "home.text.091": {
+      "en": "Every trip is checked on the ground first, so people are not walking into guesswork. If the road is bad, we know before you do.",
+      "fr": "Chaque sortie est vérifiée sur place d'abord, pour que personne n'arrive dans l'inconnu. Si la route est difficile, on le sait avant toi."
+    },
+    "home.text.092": {
+      "en": "Hosted with local instinct",
+      "fr": "Guidé avec l'instinct du terrain"
+    },
+    "home.text.093": {
+      "en": "You are with someone who knows the stops, the timing, and when the group should move or stay a little longer. Not a guide reading from a script.",
+      "fr": "Tu es avec quelqu'un qui connaît les arrêts, le timing, et le moment où le groupe doit bouger ou rester un peu plus longtemps. Pas un guide qui lit un script."
+    },
+    "home.text.094": {
+      "en": "Planned enough to feel easy",
+      "fr": "Assez organisé pour être simple"
+    },
+    "home.text.095": {
+      "en": "There is a clear day ahead of you, but it never feels stiff or over-managed. The loose parts are where the good things happen.",
+      "fr": "La journée est claire, mais jamais rigide ni trop contrôlée. Les meilleurs moments arrivent souvent dans les espaces libres."
+    },
+    "home.text.096": {
+      "en": "You go home with something to show",
+      "fr": "Tu rentres avec quelque chose à montrer"
+    },
+    "home.text.097": {
+      "en": "Photos, voice notes, inside jokes, and a group chat that usually stays alive well past the trip. That part is not planned. It just happens.",
+      "fr": "Photos, notes vocales, blagues internes, et un groupe WhatsApp qui reste souvent actif bien après le voyage. Cette partie n'est pas planifiée. Elle arrive toute seule."
+    },
+    "home.text.098": {
+      "en": "On recent trips",
+      "fr": "Sur les voyages récents"
+    },
+    "home.text.099": {
+      "en": "No stock. No setup.",
+      "fr": "Pas de stock. Pas de mise en scène."
+    },
+    "home.text.100": {
+      "en": "Just the days as they happened.",
+      "fr": "Juste les journées comme elles se sont passées."
+    },
+    "home.text.101": {
+      "en": "Waterfall spray, reserve paths, lagoon air, and beach nights.",
+      "fr": "Brume de cascade, chemins de réserve, air de lagune et nuits à la plage."
+    },
+    "home.text.102": {
+      "en": "Right under the falls",
+      "fr": "Juste sous la cascade"
+    },
+    "home.text.103": {
+      "en": "Under the falls",
+      "fr": "Sous la cascade"
+    },
+    "home.text.104": {
+      "en": "Oboadaka crew",
+      "fr": "La team Oboadaka"
+    },
+    "home.text.105": {
+      "en": "Fresh off Shai",
+      "fr": "Tout juste de Shai"
+    },
+    "home.text.106": {
+      "en": "Reserve + cave day",
+      "fr": "Réserve + journée grotte"
+    },
+    "home.text.107": {
+      "en": "Lagoon edge",
+      "fr": "Au bord de la lagune"
+    },
+    "home.text.108": {
+      "en": "Ada day",
+      "fr": "Journée Ada"
+    },
+    "home.text.109": {
+      "en": "Camp night",
+      "fr": "Nuit de camp"
+    },
+    "home.text.110": {
+      "en": "Beach stay",
+      "fr": "Séjour à la plage"
+    },
+    "home.text.111": {
+      "en": "50+ showed up",
+      "fr": "50+ étaient là"
+    },
+    "home.text.112": {
+      "en": "One waterfall day",
+      "fr": "Une journée cascade"
+    },
+    "home.text.113": {
+      "en": "Start with the trip",
+      "fr": "Commence par le voyage"
+    },
+    "home.text.114": {
+      "en": "Tell Zico the trip you have in mind.",
+      "fr": "Dis à Zico le voyage que tu as en tête."
+    },
+    "home.text.115": {
+      "en": "He will point you to the right one.",
+      "fr": "Il t'orientera vers le bon."
+    },
+    "home.text.116": {
+      "en": "Send your dates, group size, or the mood you want, and Zico will tell you which route fits best.",
+      "fr": "Envoie tes dates, la taille du groupe ou l'ambiance que tu veux, et Zico te dira quel parcours convient le mieux."
+    },
+    "home.text.117": {
+      "en": "Trip request",
+      "fr": "Demande de voyage"
+    },
+    "home.text.118": {
+      "en": "Do not fill this out:",
+      "fr": "Ne remplis pas ceci :"
+    },
+    "home.text.119": {
+      "en": "Name",
+      "fr": "Nom"
+    },
+    "home.text.120": {
+      "en": "Email",
+      "fr": "Email"
+    },
+    "home.text.121": {
+      "en": "Trip",
+      "fr": "Voyage"
+    },
+    "home.text.122": {
+      "en": "Hike Adakluto",
+      "fr": "Randonnée Adakluto"
+    },
+    "home.text.123": {
+      "en": "Keta 3 Days",
+      "fr": "Keta 3 jours"
+    },
+    "home.text.124": {
+      "en": "Asenema Waterfalls",
+      "fr": "Cascades d'Asenema"
+    },
+    "home.text.125": {
+      "en": "Akwamu Gorge",
+      "fr": "Gorge d'Akwamu"
+    },
+    "home.text.126": {
+      "en": "Ada / Nkyinkyim Museum",
+      "fr": "Ada / Musée Nkyinkyim"
+    },
+    "home.text.127": {
+      "en": "Shai Reserve & Kwaminga Park",
+      "fr": "Réserve de Shai & Kwaminga Park"
+    },
+    "home.text.128": {
+      "en": "Oboadaka Waterfall",
+      "fr": "Cascade d'Oboadaka"
+    },
+    "home.text.129": {
+      "en": "La Côte d’Ivoire Experience",
+      "fr": "L'expérience Côte d'Ivoire"
+    },
+    "home.text.130": {
+      "en": "Private group",
+      "fr": "Groupe privé"
+    },
+    "home.text.131": {
+      "en": "Custom",
+      "fr": "Sur mesure"
+    },
+    "home.text.132": {
+      "en": "Send inquiry",
+      "fr": "Envoyer la demande"
+    },
+    "home.text.133": {
+      "en": "Or message Zico directly on",
+      "fr": "Ou écris directement à Zico sur"
+    },
+    "home.text.134": {
+      "en": "WhatsApp",
+      "fr": "WhatsApp"
+    },
+    "home.text.135": {
+      "en": "Next trip / 28 August to 2 September",
+      "fr": "Prochain voyage / 28 août au 2 septembre"
+    },
+    "home.text.136": {
+      "en": "La Côte d’Ivoire Experience",
+      "fr": "L'expérience Côte d'Ivoire"
+    },
+    "home.text.137": {
+      "en": "Three nights, four days and four cities, with transport, accommodation, meals and attraction fees included.",
+      "fr": "Trois nuits, quatre jours et quatre villes, avec transport, hébergement, repas et frais de visite inclus."
+    },
+    "home.text.138": {
+      "en": "GHS 3,300 total",
+      "fr": "3 300 GHS au total"
+    },
+    "home.text.139": {
+      "en": "GHS 500 deposit",
+      "fr": "Acompte de 500 GHS"
+    },
+    "home.text.140": {
+      "en": "Installments accepted",
+      "fr": "Paiement échelonné accepté"
+    },
+    "home.text.141": {
+      "en": "See trip details & secure your slot",
+      "fr": "Voir les détails et réserver ta place"
+    },
+    "home.text.142": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "home.text.143": {
+      "en": "Trips around Ghana that feel like someone local invited you along.",
+      "fr": "Des voyages au Ghana qui donnent l'impression qu'un local t'a invité."
+    },
+    "home.text.144": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "home.text.145": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "home.text.146": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "home.text.147": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "home.text.148": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "home.text.149": {
+      "en": "Privacy",
+      "fr": "Confidentialité"
+    },
+    "home.text.150": {
+      "en": "Booking terms",
+      "fr": "Conditions de réservation"
+    },
+    "home.text.151": {
+      "en": "Copyright",
+      "fr": "Copyright"
+    },
+    "home.text.152": {
+      "en": "Adventures of Life.",
+      "fr": "Adventures of Life."
+    },
+    "journeys.text.001": {
+      "en": "Adventures",
+      "fr": "Aventures"
+    },
+    "journeys.text.002": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "journeys.text.003": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "journeys.text.004": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "journeys.text.005": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "journeys.text.006": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "journeys.text.007": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "journeys.text.008": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "journeys.text.009": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "journeys.text.010": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "journeys.text.011": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "journeys.text.012": {
+      "en": "Pick a route",
+      "fr": "Choisir un parcours"
+    },
+    "journeys.text.013": {
+      "en": "Journeys / Upcoming trips",
+      "fr": "Voyages / Prochains départs"
+    },
+    "journeys.text.014": {
+      "en": "See what already happened, then pick the next one with your name on it.",
+      "fr": "Regarde ce qui s'est déjà passé, puis choisis le prochain voyage qui porte ton nom."
+    },
+    "journeys.text.015": {
+      "en": "Four dates are down. The house party lands 31 July. Côte d’Ivoire follows 28 August.",
+      "fr": "Quatre dates sont passées. La House Party arrive le 31 juillet. La Côte d'Ivoire suit le 28 août."
+    },
+    "journeys.text.016": {
+      "en": "See Côte d’Ivoire trip details",
+      "fr": "Voir les détails du voyage en Côte d'Ivoire"
+    },
+    "journeys.text.017": {
+      "en": "Need the traveller version first?",
+      "fr": "Tu veux d'abord l'avis des voyageurs ?"
+    },
+    "journeys.text.018": {
+      "en": "Read the reviews",
+      "fr": "Lire les avis"
+    },
+    "journeys.text.019": {
+      "en": "Trips already done",
+      "fr": "Voyages déjà faits"
+    },
+    "journeys.text.020": {
+      "en": "Next activity marked",
+      "fr": "Prochaine activité marquée"
+    },
+    "journeys.text.021": {
+      "en": "Dates confirmed",
+      "fr": "Dates confirmées"
+    },
+    "journeys.text.022": {
+      "en": "Border runs",
+      "fr": "Voyages frontaliers"
+    },
+    "journeys.text.023": {
+      "en": "Adventures of Life GH - 2026 trips",
+      "fr": "Adventures of Life GH - voyages 2026"
+    },
+    "journeys.text.024": {
+      "en": "This year's trips, all in one place.",
+      "fr": "Les voyages de l'année, au même endroit."
+    },
+    "journeys.text.025": {
+      "en": "See what's done. See what's next.",
+      "fr": "Vois ce qui est fait. Vois ce qui arrive."
+    },
+    "journeys.text.026": {
+      "en": "Ada, Togo, Shai, and Oboadaka are already behind us. The 31 July house party comes next, followed by Côte d’Ivoire and five more confirmed dates through Christmas Eve.",
+      "fr": "Ada, le Togo, Shai et Oboadaka sont déjà derrière nous. La House Party du 31 juillet arrive ensuite, suivie de la Côte d'Ivoire et de cinq autres dates confirmées jusqu'au réveillon de Noël."
+    },
+    "journeys.text.027": {
+      "en": "Nkyinkyim Museum & Ada Island",
+      "fr": "Musée Nkyinkyim & île d'Ada"
+    },
+    "journeys.text.028": {
+      "en": "Done",
+      "fr": "Terminé"
+    },
+    "journeys.text.029": {
+      "en": "The year opened with shoreline, sculpture, and the kind of easy first day that made people want the next date fast.",
+      "fr": "L'année a commencé avec la plage, la sculpture, et ce genre de première journée qui donne vite envie de la prochaine date."
+    },
+    "journeys.text.030": {
+      "en": "Museum + island day",
+      "fr": "Musée + journée île"
+    },
+    "journeys.text.031": {
+      "en": "The Togo Vibe Experience",
+      "fr": "The Togo Vibe Experience"
+    },
+    "journeys.text.032": {
+      "en": "Done",
+      "fr": "Terminé"
+    },
+    "journeys.text.033": {
+      "en": "The first passport stamp came early. Three days over the line, a different rhythm, and a bigger sense of where the year could go.",
+      "fr": "Le premier tampon de passeport est arrivé tôt. Trois jours de l'autre côté, un autre rythme, et une vision plus large de l'année."
+    },
+    "journeys.text.034": {
+      "en": "3-day border run",
+      "fr": "Voyage frontalier de 3 jours"
+    },
+    "journeys.text.035": {
+      "en": "Togo Republic",
+      "fr": "République du Togo"
+    },
+    "journeys.text.036": {
+      "en": "BORDER RUN",
+      "fr": "PASSAGE DE FRONTIÈRE"
+    },
+    "journeys.text.037": {
+      "en": "Shai Reserve & Kwaminga Park",
+      "fr": "Réserve de Shai & Kwaminga Park"
+    },
+    "journeys.text.038": {
+      "en": "Done",
+      "fr": "Terminé"
+    },
+    "journeys.text.039": {
+      "en": "Shai gave the year its first real outdoor memory: reserve ground, cave air, tired legs, and the moment the group stopped feeling new to each other.",
+      "fr": "Shai a donné à l'année son premier vrai souvenir en plein air : sol de réserve, air de grotte, jambes fatiguées, et ce moment où le groupe ne paraît plus nouveau."
+    },
+    "journeys.text.040": {
+      "en": "Reserve + cave day",
+      "fr": "Réserve + journée grotte"
+    },
+    "journeys.text.041": {
+      "en": "Oboadaka Waterfall X Party in the Jungle",
+      "fr": "Cascade d'Oboadaka X Party in the Jungle"
+    },
+    "journeys.text.042": {
+      "en": "Done",
+      "fr": "Terminé"
+    },
+    "journeys.text.043": {
+      "en": "A water reset after the early movement, and the crew photo now sits with the first half of the year as one of the days people still bring up.",
+      "fr": "Un reset dans l'eau après les premiers voyages, et la photo de groupe fait déjà partie des journées dont les gens reparlent."
+    },
+    "journeys.text.044": {
+      "en": "Waterfall day",
+      "fr": "Journée cascade"
+    },
+    "journeys.text.045": {
+      "en": "Next up",
+      "fr": "Prochain départ"
+    },
+    "journeys.text.046": {
+      "en": "La Côte d’Ivoire Experience",
+      "fr": "L'expérience Côte d'Ivoire"
+    },
+    "journeys.text.047": {
+      "en": "An overnight ride into Abidjan, then four days across four cities, with three nights to see Côte d’Ivoire beyond a quick border stop.",
+      "fr": "Un trajet de nuit vers Abidjan, puis quatre jours dans quatre villes, avec trois nuits pour découvrir la Côte d'Ivoire au-delà d'un simple passage de frontière."
+    },
+    "journeys.text.048": {
+      "en": "4-day experience",
+      "fr": "Expérience de 4 jours"
+    },
+    "journeys.text.049": {
+      "en": "Côte d’Ivoire",
+      "fr": "Côte d'Ivoire"
+    },
+    "journeys.text.050": {
+      "en": "BORDER RUN",
+      "fr": "PASSAGE DE FRONTIÈRE"
+    },
+    "journeys.text.051": {
+      "en": "Wli Waterfalls Camping",
+      "fr": "Camping aux cascades de Wli"
+    },
+    "journeys.text.052": {
+      "en": "Tents near the falls, a Volta night outdoors, and a morning shaped by the sound of Wli.",
+      "fr": "Des tentes près des cascades, une nuit en plein air dans la Volta et un matin rythmé par le son de Wli."
+    },
+    "journeys.text.053": {
+      "en": "Waterfall camping",
+      "fr": "Camping aux cascades"
+    },
+    "journeys.text.054": {
+      "en": "Amedzofe Canopy Walkway",
+      "fr": "Passerelle de canopée d'Amedzofe"
+    },
+    "journeys.text.055": {
+      "en": "A highland day above the trees, with the canopy walkway turning the Volta stop into a view worth slowing down for.",
+      "fr": "Une journée dans les hauteurs au-dessus des arbres, où la passerelle de canopée transforme l'étape dans la Volta en une vue qui mérite qu'on ralentisse."
+    },
+    "journeys.text.056": {
+      "en": "Canopy + highlands",
+      "fr": "Canopée + hauteurs"
+    },
+    "journeys.text.057": {
+      "en": "Benin / End of Year Celebration",
+      "fr": "Bénin / célébration de fin d'année"
+    },
+    "journeys.text.058": {
+      "en": "Christmas Eve carries the final border run into Benin, with the year ending on a celebration instead of a quiet sign-off.",
+      "fr": "Le réveillon de Noël porte le dernier passage de frontière vers le Bénin, et l'année se termine par une célébration plutôt que par une fin discrète."
+    },
+    "journeys.text.059": {
+      "en": "Christmas border trip",
+      "fr": "Voyage de Noël au-delà de la frontière"
+    },
+    "journeys.text.060": {
+      "en": "BENIN REPUBLIC",
+      "fr": "RÉPUBLIQUE DU BÉNIN"
+    },
+    "journeys.text.061": {
+      "en": "BORDER RUN",
+      "fr": "PASSAGE DE FRONTIÈRE"
+    },
+    "journeys.text.062": {
+      "en": "\"We wanted every part of the year to feel different: museums, borders, reserves, waterfalls, a house party, camping, food, and one final Christmas trip.\"",
+      "fr": "\"Nous voulions que chaque partie de l'année ait une ambiance différente : musées, frontières, réserves, cascades, House Party, camping, cuisine et un dernier voyage à Noël.\""
+    },
+    "journeys.text.063": {
+      "en": "— Zico · Founder",
+      "fr": "— Zico · Fondateur"
+    },
+    "journeys.text.064": {
+      "en": "January to April",
+      "fr": "Janvier à avril"
+    },
+    "journeys.text.065": {
+      "en": "Set the tone early.",
+      "fr": "Donner le ton tôt."
+    },
+    "journeys.text.066": {
+      "en": "Ada opened with shoreline and story. Togo put the first passport stamp on the year before it had time to settle.",
+      "fr": "Ada a commencé avec le rivage et l'histoire. Le Togo a posé le premier tampon de passeport avant que l'année ne s'installe."
+    },
+    "journeys.text.067": {
+      "en": "May to August",
+      "fr": "Mai à août"
+    },
+    "journeys.text.068": {
+      "en": "Move outdoors, meet up, then head west.",
+      "fr": "Sortir, se retrouver, puis partir vers l'ouest."
+    },
+    "journeys.text.069": {
+      "en": "Shai and Oboadaka filled the outdoor dates. The 31 July house party brings the next crowd together before Côte d’Ivoire.",
+      "fr": "Shai et Oboadaka ont rempli les dates en plein air. La House Party du 31 juillet réunit le prochain groupe avant la Côte d'Ivoire."
+    },
+    "journeys.text.070": {
+      "en": "September to December",
+      "fr": "Septembre à décembre"
+    },
+    "journeys.text.071": {
+      "en": "Camp, climb, play, then cross once more.",
+      "fr": "Camper, grimper, jouer, puis traverser encore une fois."
+    },
+    "journeys.text.072": {
+      "en": "Wli brings the tents, Amedzofe brings the canopy, November brings games and food, and Benin closes the year on Christmas Eve.",
+      "fr": "Wli apporte les tentes, Amedzofe la canopée, novembre les jeux et la cuisine, puis le Bénin clôt l'année au réveillon de Noël."
+    },
+    "journeys.text.073": {
+      "en": "Ready to get on the right list?",
+      "fr": "Prêt à entrer sur la bonne liste ?"
+    },
+    "journeys.text.074": {
+      "en": "Pick the month.",
+      "fr": "Choisis le mois."
+    },
+    "journeys.text.075": {
+      "en": "Send the message.",
+      "fr": "Envoie le message."
+    },
+    "journeys.text.076": {
+      "en": "If one month already has your attention, send the message now. Zico will tell you what still has room and which list is tightening first.",
+      "fr": "Si un mois attire déjà ton attention, envoie le message maintenant. Zico te dira où il reste de la place et quelle liste se remplit le plus vite."
+    },
+    "journeys.text.077": {
+      "en": "Send Zico a message",
+      "fr": "Envoyer un message à Zico"
+    },
+    "journeys.text.078": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "journeys.text.079": {
+      "en": "Choose the month that feels right. Zico will handle the next step with you.",
+      "fr": "Choisis le mois qui te parle. Zico fera la suite avec toi."
+    },
+    "journeys.text.080": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "journeys.text.081": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "journeys.text.082": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "journeys.text.083": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "journeys.text.084": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "journeys.text.085": {
+      "en": "Privacy",
+      "fr": "Confidentialité"
+    },
+    "journeys.text.086": {
+      "en": "Booking terms",
+      "fr": "Conditions de réservation"
+    },
+    "journeys.text.087": {
+      "en": "Copyright",
+      "fr": "Copyright"
+    },
+    "journeys.text.088": {
+      "en": "Adventures of Life.",
+      "fr": "Adventures of Life."
+    },
+    "journeys.text.089": {
+      "en": "Pre-Côte d’Ivoire House Party",
+      "fr": "House Party pré-Côte d'Ivoire"
+    },
+    "journeys.text.090": {
+      "en": "A social night before the border run, made for music, introductions, and meeting some of the people heading west in August.",
+      "fr": "Une soirée avant le passage de frontière, pensée pour la musique, les présentations et la rencontre avec une partie du groupe qui partira vers l'ouest en août."
+    },
+    "journeys.text.091": {
+      "en": "House party",
+      "fr": "House Party"
+    },
+    "journeys.text.092": {
+      "en": "31 Jul · Pre-trip social",
+      "fr": "31 juil. · Rencontre avant le voyage"
+    },
+    "journeys.text.093": {
+      "en": "Sporting Activities & Food Festival",
+      "fr": "Activités sportives & festival culinaire"
+    },
+    "journeys.text.094": {
+      "en": "A full community day for games, shared plates, and the friendly competition that keeps the field loud.",
+      "fr": "Une journée communautaire entre jeux, plats partagés et compétition amicale qui garde le terrain animé."
+    },
+    "journeys.text.095": {
+      "en": "Games + food festival",
+      "fr": "Jeux + festival culinaire"
+    },
+    "journeys.text.096": {
+      "en": "14 Nov · Games + food",
+      "fr": "14 nov. · Jeux + cuisine"
+    },
+    "journeys.text.097": {
+      "en": "12 Sep · Wli, Volta Region",
+      "fr": "12 sept. · Wli, région de la Volta"
+    },
+    "journeys.text.098": {
+      "en": "17 Oct · Amedzofe highlands",
+      "fr": "17 oct. · Hauts plateaux d'Amedzofe"
+    },
+    "journeys.text.099": {
+      "en": "24 Dec · Benin",
+      "fr": "24 déc. · Bénin"
+    },
+    "journeys.text.100": {
+      "en": "See trip details and secure your slot",
+      "fr": "Voir les détails et réserver ta place"
+    },
+    "journeys.text.101": {
+      "en": "Ask about Wli camping",
+      "fr": "Demander le camping à Wli"
+    },
+    "journeys.text.102": {
+      "en": "Ask about Amedzofe",
+      "fr": "Demander Amedzofe"
+    },
+    "journeys.text.103": {
+      "en": "Ask about the festival",
+      "fr": "Demander le festival"
+    },
+    "journeys.text.104": {
+      "en": "Ask about 31 July",
+      "fr": "Demander le 31 juillet"
+    },
+    "journeys.text.105": {
+      "en": "Ask about Benin",
+      "fr": "Demander le Bénin"
+    },
+    "journeys.text.106": {
+      "en": "10 Dates confirmed",
+      "fr": "10 dates confirmées"
+    },
+    "journeys.text.107": {
+      "en": "07 Ghana activities",
+      "fr": "07 activités au Ghana"
+    },
+    "journeys.text.108": {
+      "en": "03 Border runs",
+      "fr": "03 voyages transfrontaliers"
+    },
+    "community.text.001": {
+      "en": "Adventures",
+      "fr": "Aventures"
+    },
+    "community.text.002": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "community.text.003": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "community.text.004": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "community.text.005": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "community.text.006": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "community.text.007": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "community.text.008": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "community.text.009": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "community.text.010": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "community.text.011": {
+      "en": "Routes",
+      "fr": "Parcours"
+    },
+    "community.text.012": {
+      "en": "Ask about the next trip",
+      "fr": "Demander le prochain voyage"
+    },
+    "community.text.013": {
+      "en": "Latest community day",
+      "fr": "Dernière journée communauté"
+    },
+    "community.text.014": {
+      "en": "More than 50 people came for the waterfall.",
+      "fr": "Plus de 50 personnes sont venues pour la cascade."
+    },
+    "community.text.015": {
+      "en": "Oboadaka felt like the whole community arrived at once.",
+      "fr": "Oboadaka donnait l'impression que toute la communauté était arrivée d'un coup."
+    },
+    "community.text.016": {
+      "en": "Joined at Oboadaka",
+      "fr": "Participants à Oboadaka"
+    },
+    "community.text.017": {
+      "en": "Trips done",
+      "fr": "Voyages réalisés"
+    },
+    "community.text.018": {
+      "en": "Strangers left by day three",
+      "fr": "Inconnus restés au troisième jour"
+    },
+    "community.text.019": {
+      "en": "The trips so far",
+      "fr": "Les voyages jusqu'ici"
+    },
+    "community.text.020": {
+      "en": "Every one of these happened.",
+      "fr": "Chacun d'eux a vraiment eu lieu."
+    },
+    "community.text.021": {
+      "en": "You should have been there.",
+      "fr": "Tu aurais dû être là."
+    },
+    "community.text.022": {
+      "en": "Oboadaka Waterfall 2026",
+      "fr": "Cascade d'Oboadaka 2026"
+    },
+    "community.text.023": {
+      "en": "50+ people",
+      "fr": "50+ personnes"
+    },
+    "community.text.024": {
+      "en": "More than 50 people showed up for the waterfall.",
+      "fr": "Plus de 50 personnes sont venues pour la cascade."
+    },
+    "community.text.025": {
+      "en": "The headcount passed 50 before departure. At Oboadaka, the crowd split between the water, the rocks, and the camera, then came back together for a group picture that barely fit the frame.",
+      "fr": "Le nombre a dépassé 50 avant le départ. À Oboadaka, le groupe s'est réparti entre l'eau, les rochers et les caméras, puis s'est retrouvé pour une photo de groupe qui tenait à peine dans le cadre."
+    },
+    "community.text.026": {
+      "en": "Oboadaka became the first Adventures of Life trip to cross 50 travellers.",
+      "fr": "Oboadaka est devenu le premier voyage Adventures of Life à dépasser 50 voyageurs."
+    },
+    "community.text.027": {
+      "en": "Hike Adakluto 2025",
+      "fr": "Randonnée Adakluto 2025"
+    },
+    "community.text.028": {
+      "en": "16 people",
+      "fr": "16 personnes"
+    },
+    "community.text.029": {
+      "en": "The first climb everyone remembered.",
+      "fr": "La première montée dont tout le monde se souvient."
+    },
+    "community.text.030": {
+      "en": "Early call time. Long ride. Most people had barely met. Halfway up the hill the jokes started, and by the time they came down nobody felt like a stranger anymore.",
+      "fr": "Départ tôt. Long trajet. La plupart se connaissaient à peine. À mi-chemin, les blagues ont commencé, et à la descente plus personne ne se sentait inconnu."
+    },
+    "community.text.031": {
+      "en": "That climb turned a bus full of strangers into a real group.",
+      "fr": "Cette montée a transformé un bus d'inconnus en vrai groupe."
+    },
+    "community.text.032": {
+      "en": "Asenema Waterfalls 2025",
+      "fr": "Cascades d'Asenema 2025"
+    },
+    "community.text.033": {
+      "en": "14 people",
+      "fr": "14 personnes"
+    },
+    "community.text.034": {
+      "en": "The one with no flyer.",
+      "fr": "Celui sans flyer."
+    },
+    "community.text.035": {
+      "en": "No flyer. No Instagram post. Zico just texted his people. The spots filled quickly, and it became obvious that the crowd was already there, ready to show up.",
+      "fr": "Pas de flyer. Pas de post Instagram. Zico a juste écrit à ses gens. Les places sont parties vite, et c'est devenu évident que le public était déjà là, prêt à venir."
+    },
+    "community.text.036": {
+      "en": "By then, the crowd was already there. It only needed a date.",
+      "fr": "À ce moment-là, le public était déjà là. Il ne lui manquait qu'une date."
+    },
+    "community.text.037": {
+      "en": "Ada / Nkyinkyim Museum",
+      "fr": "Ada / Musée Nkyinkyim"
+    },
+    "community.text.038": {
+      "en": "The day that moved at a gentler pace.",
+      "fr": "La journée qui avançait plus doucement."
+    },
+    "community.text.039": {
+      "en": "Ada slowed the pace without lowering the energy. Museum grounds first, then water, then portraits, then the conversations that only happen when nobody is checking the time.",
+      "fr": "Ada a ralenti le rythme sans baisser l'énergie. D'abord le musée, puis l'eau, les portraits, et ces conversations qui arrivent quand personne ne regarde l'heure."
+    },
+    "community.text.040": {
+      "en": "A reminder that the quieter days can stay with people just as hard.",
+      "fr": "Un rappel que les journées plus calmes peuvent marquer tout autant."
+    },
+    "community.text.041": {
+      "en": "Akwamu Gorge 2025",
+      "fr": "Gorge d'Akwamu 2025"
+    },
+    "community.text.042": {
+      "en": "20 people",
+      "fr": "20 personnes"
+    },
+    "community.text.043": {
+      "en": "The hike nobody expected.",
+      "fr": "La randonnée que personne n'avait prévue."
+    },
+    "community.text.044": {
+      "en": "The gorge hike was hard and everybody said so. They still kept climbing, got the view at the top, and came home with the pictures that made everyone else ask what they missed.",
+      "fr": "La randonnée dans la gorge était dure, et tout le monde l'a dit. Ils ont quand même continué, ont eu la vue au sommet, et sont rentrés avec les photos qui ont fait demander aux autres ce qu'ils avaient raté."
+    },
+    "community.text.045": {
+      "en": "After Akwamu, a lot more people started paying attention.",
+      "fr": "Après Akwamu, beaucoup plus de gens ont commencé à regarder."
+    },
+    "community.text.046": {
+      "en": "Keta 3-Day Trip / December 2025",
+      "fr": "Voyage Keta 3 jours / décembre 2025"
+    },
+    "community.text.047": {
+      "en": "33 people",
+      "fr": "33 personnes"
+    },
+    "community.text.048": {
+      "en": "The biggest one.",
+      "fr": "Le plus grand."
+    },
+    "community.text.049": {
+      "en": "Christmas season. Keta. Beach camp, fort stop, house-party energy, and 33 people who started as strangers and left with something much closer than that.",
+      "fr": "Période de Noël. Keta. Camp à la plage, arrêt au fort, ambiance house party, et 33 personnes qui ont commencé inconnues et sont reparties bien plus proches."
+    },
+    "community.text.050": {
+      "en": "Fastest sell-out. Biggest energy. Still one of the loudest stories in the community.",
+      "fr": "Vente la plus rapide. Plus grande énergie. Encore l'une des histoires les plus fortes de la communauté."
+    },
+    "community.text.051": {
+      "en": "Togo 2026",
+      "fr": "Togo 2026"
+    },
+    "community.text.052": {
+      "en": "First border trip",
+      "fr": "Premier voyage frontalier"
+    },
+    "community.text.053": {
+      "en": "The first border run came back with its own energy.",
+      "fr": "Le premier passage de frontière est revenu avec sa propre énergie."
+    },
+    "community.text.054": {
+      "en": "Three days over the line and the energy shifted immediately. Lome gave the trip its own pace: landmark stops, portraits, road moments, and the feeling that the community had properly stretched beyond Ghana.",
+      "fr": "Trois jours de l'autre côté et l'énergie a changé tout de suite. Lomé a donné son propre rythme au voyage : monuments, portraits, moments de route, et la sensation que la communauté s'étendait vraiment au-delà du Ghana."
+    },
+    "community.text.055": {
+      "en": "That trip proved the group could cross the line and still feel like itself.",
+      "fr": "Ce voyage a prouvé que le groupe pouvait traverser la frontière tout en restant lui-même."
+    },
+    "community.text.056": {
+      "en": "Trip reviews",
+      "fr": "Avis des voyageurs"
+    },
+    "community.text.057": {
+      "en": "What travellers shared.",
+      "fr": "Ce que les voyageurs ont partagé."
+    },
+    "community.text.058": {
+      "en": "Leave a review",
+      "fr": "Laisser un avis"
+    },
+    "community.text.059": {
+      "en": "Loading reviews...",
+      "fr": "Chargement des avis..."
+    },
+    "community.text.060": {
+      "en": "Send your review",
+      "fr": "Envoyer ton avis"
+    },
+    "community.text.061": {
+      "en": "Say how your trip went.",
+      "fr": "Raconte comment ton voyage s'est passé."
+    },
+    "community.text.062": {
+      "en": "Verified review links are sent after each trip. If yours is missing, ask Zico to resend it on WhatsApp.",
+      "fr": "Les liens d'avis vérifiés sont envoyés après chaque voyage. Si le tien manque, demande à Zico de le renvoyer sur WhatsApp."
+    },
+    "community.text.063": {
+      "en": "Do not fill this out:",
+      "fr": "Ne remplis pas ceci :"
+    },
+    "community.text.064": {
+      "en": "Your name",
+      "fr": "Ton nom"
+    },
+    "community.text.065": {
+      "en": "WhatsApp or email",
+      "fr": "WhatsApp ou email"
+    },
+    "community.text.066": {
+      "en": "Trip joined",
+      "fr": "Voyage rejoint"
+    },
+    "community.text.067": {
+      "en": "Select the trip",
+      "fr": "Choisir le voyage"
+    },
+    "community.text.068": {
+      "en": "Nkyinkyim Museum and Ada Island",
+      "fr": "Musée Nkyinkyim et île d'Ada"
+    },
+    "community.text.069": {
+      "en": "Shai Reserve and Kwaminga Park",
+      "fr": "Réserve de Shai et Kwaminga Park"
+    },
+    "community.text.070": {
+      "en": "Hike Adakluto",
+      "fr": "Randonnée Adakluto"
+    },
+    "community.text.071": {
+      "en": "Akwamu Gorge",
+      "fr": "Gorge d'Akwamu"
+    },
+    "community.text.072": {
+      "en": "Asenema Waterfalls",
+      "fr": "Cascades d'Asenema"
+    },
+    "community.text.073": {
+      "en": "Other Adventures of Life trip",
+      "fr": "Autre voyage Adventures of Life"
+    },
+    "community.text.074": {
+      "en": "When did you go?",
+      "fr": "Quand es-tu parti ?"
+    },
+    "community.text.075": {
+      "en": "Rating",
+      "fr": "Note"
+    },
+    "community.text.076": {
+      "en": "Select a rating",
+      "fr": "Choisir une note"
+    },
+    "community.text.077": {
+      "en": "5 - Excellent",
+      "fr": "5 - Excellent"
+    },
+    "community.text.078": {
+      "en": "4 - Strong",
+      "fr": "4 - Très bon"
+    },
+    "community.text.079": {
+      "en": "3 - Good",
+      "fr": "3 - Bien"
+    },
+    "community.text.080": {
+      "en": "2 - Fair",
+      "fr": "2 - Moyen"
+    },
+    "community.text.081": {
+      "en": "1 - Needs work",
+      "fr": "1 - À améliorer"
+    },
+    "community.text.082": {
+      "en": "Post review",
+      "fr": "Publier l'avis"
+    },
+    "community.text.083": {
+      "en": "Prefer voice note or chat?",
+      "fr": "Tu préfères une note vocale ou un message ?"
+    },
+    "community.text.084": {
+      "en": "Send it on WhatsApp",
+      "fr": "Envoie-le sur WhatsApp"
+    },
+    "community.text.085": {
+      "en": "Fresh off Oboadaka",
+      "fr": "Tout juste d'Oboadaka"
+    },
+    "community.text.086": {
+      "en": "50+ showed up.",
+      "fr": "50+ étaient là."
+    },
+    "community.text.087": {
+      "en": "Abidjan is next.",
+      "fr": "Abidjan est le prochain départ."
+    },
+    "community.text.088": {
+      "en": "More than 50 people joined us at Oboadaka Waterfall. Now the next group leaves Accra for Côte d’Ivoire on 28 August. Secure your place with GHS 500, then spread the rest across the installment plan that suits you.",
+      "fr": "Plus de 50 personnes nous ont rejoints à la cascade d'Oboadaka. Maintenant, le prochain groupe quitte Accra pour la Côte d'Ivoire le 28 août. Réserve ta place avec 500 GHS, puis règle le reste avec le plan d'acompte qui te convient."
+    },
+    "community.text.089": {
+      "en": "See Côte d’Ivoire trip details",
+      "fr": "Voir les détails du voyage en Côte d'Ivoire"
+    },
+    "community.text.090": {
+      "en": "See the routes",
+      "fr": "Voir les parcours"
+    },
+    "community.text.091": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "community.text.092": {
+      "en": "Most people come once and start waiting for the next date.",
+      "fr": "La plupart viennent une fois et commencent à attendre la prochaine date."
+    },
+    "community.text.093": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "community.text.094": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "community.text.095": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "community.text.096": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "community.text.097": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "community.text.098": {
+      "en": "Privacy",
+      "fr": "Confidentialité"
+    },
+    "community.text.099": {
+      "en": "Booking terms",
+      "fr": "Conditions de réservation"
+    },
+    "community.text.100": {
+      "en": "Copyright",
+      "fr": "Copyright"
+    },
+    "community.text.101": {
+      "en": "Adventures of Life.",
+      "fr": "Adventures of Life."
+    },
+    "about.text.001": {
+      "en": "Adventures",
+      "fr": "Aventures"
+    },
+    "about.text.002": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "about.text.003": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "about.text.004": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "about.text.005": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "about.text.006": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "about.text.007": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "about.text.008": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "about.text.009": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "about.text.010": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "about.text.011": {
+      "en": "Routes",
+      "fr": "Parcours"
+    },
+    "about.text.012": {
+      "en": "Start planning",
+      "fr": "Commencer à planifier"
+    },
+    "about.text.013": {
+      "en": "Chapter four",
+      "fr": "Quatrième étape"
+    },
+    "about.text.014": {
+      "en": "\"Whatever trip we embark on,",
+      "fr": "\"Quel que soit le voyage que nous faisons,"
+    },
+    "about.text.015": {
+      "en": "they are all adventures surrounding our lives.\"",
+      "fr": "ce sont tous des aventures autour de nos vies.\""
+    },
+    "about.text.016": {
+      "en": "Zico / Founder",
+      "fr": "Zico / Fondateur"
+    },
+    "about.text.017": {
+      "en": "Since 2023",
+      "fr": "Depuis 2023"
+    },
+    "about.text.018": {
+      "en": "The origin",
+      "fr": "L'origine"
+    },
+    "about.text.019": {
+      "en": "He did not start a company.",
+      "fr": "Il n'a pas lancé une entreprise."
+    },
+    "about.text.020": {
+      "en": "He started taking people",
+      "fr": "Il a commencé à emmener des gens"
+    },
+    "about.text.021": {
+      "en": "to the Ghana he knew.",
+      "fr": "dans le Ghana qu'il connaissait."
+    },
+    "about.text.022": {
+      "en": "Adventures of Life did not come out of a pitch deck. It came from Zico taking people to places he already loved, then doing it again when they came back asking for another date.",
+      "fr": "Adventures of Life n'est pas né d'une présentation business. C'est né de Zico qui emmenait des gens dans des endroits qu'il aimait déjà, puis qui recommençait quand ils revenaient demander une autre date."
+    },
+    "about.text.023": {
+      "en": "Plan a trip with Zico",
+      "fr": "Planifier avec Zico"
+    },
+    "about.text.024": {
+      "en": "How it happened",
+      "fr": "Comment c'est arrivé"
+    },
+    "about.text.025": {
+      "en": "From three people",
+      "fr": "De trois personnes"
+    },
+    "about.text.026": {
+      "en": "to 60+, honestly.",
+      "fr": "à plus de 60, simplement."
+    },
+    "about.text.027": {
+      "en": "One trip. Three people. No plan.",
+      "fr": "Un voyage. Trois personnes. Pas de plan."
+    },
+    "about.text.028": {
+      "en": "Zico, his close friend, and Shoddy B took one trip the whole year. No brand, no flyer, no strategy. Just a shared belief that Ghana had more to offer than most people were seeing.",
+      "fr": "Zico, son ami proche et Shoddy B ont fait un seul voyage cette année-là. Pas de marque, pas de flyer, pas de stratégie. Juste la conviction commune que le Ghana avait plus à offrir que ce que beaucoup voyaient."
+    },
+    "about.text.029": {
+      "en": "16 strangers. One minibus. Easter weekend.",
+      "fr": "16 inconnus. Un minibus. Week-end de Pâques."
+    },
+    "about.text.030": {
+      "en": "The first proper group trip. Beach, tents, music, and a minibus full of people who barely knew each other turning familiar by day three.",
+      "fr": "Le premier vrai voyage de groupe. Plage, tentes, musique, et un minibus plein de gens qui se connaissaient à peine et qui sont devenus familiers au troisième jour."
+    },
+    "about.text.031": {
+      "en": "A waterfall. A thought. A text message.",
+      "fr": "Une cascade. Une idée. Un message."
+    },
+    "about.text.032": {
+      "en": "Asenema filled from a simple text. Akwamu Gorge proved the tougher routes could work. Keta brought the biggest crowd yet and made the community visible to more people.",
+      "fr": "Asenema s'est rempli avec un simple message. La gorge d'Akwamu a prouvé que les parcours plus durs pouvaient marcher. Keta a amené la plus grande foule jusque-là et rendu la communauté visible à plus de monde."
+    },
+    "about.text.033": {
+      "en": "Togo took the group across the border.",
+      "fr": "Le Togo a emmené le groupe de l'autre côté de la frontière."
+    },
+    "about.text.034": {
+      "en": "The January island day widened the circle. Togo added the first passport stamp. What began with Ghana weekends now has real cross-border pull.",
+      "fr": "La journée insulaire de janvier a élargi le cercle. Le Togo a ajouté le premier tampon de passeport. Ce qui a commencé avec des week-ends au Ghana attire maintenant au-delà des frontières."
+    },
+    "about.text.035": {
+      "en": "Why the name",
+      "fr": "Pourquoi ce nom"
+    },
+    "about.text.036": {
+      "en": "He did not want \"Travel with Zico.\"",
+      "fr": "Il ne voulait pas de \"Travel with Zico\"."
+    },
+    "about.text.037": {
+      "en": "He wanted something bigger.",
+      "fr": "Il voulait quelque chose de plus grand."
+    },
+    "about.text.038": {
+      "en": "Adventures of Life works because it still sounds like what the trips are. They are adventures. They are part of people's actual lives. The name keeps meaning the same thing every time somebody says it.",
+      "fr": "Adventures of Life fonctionne parce que le nom ressemble encore à ce que sont les voyages. Ce sont des aventures. Elles font partie de la vraie vie des gens. Le nom garde le même sens chaque fois que quelqu'un le dit."
+    },
+    "about.text.039": {
+      "en": "The standard",
+      "fr": "Le standard"
+    },
+    "about.text.040": {
+      "en": "Three things Zico",
+      "fr": "Trois choses que Zico"
+    },
+    "about.text.041": {
+      "en": "does not compromise on.",
+      "fr": "ne négocie pas."
+    },
+    "about.text.042": {
+      "en": "The route has to earn its place.",
+      "fr": "Le parcours doit mériter sa place."
+    },
+    "about.text.043": {
+      "en": "Every destination is personally visited first. If the terrain does not deliver, it never becomes a published trip.",
+      "fr": "Chaque destination est visitée personnellement d'abord. Si le terrain ne tient pas ses promesses, il ne devient jamais un voyage publié."
+    },
+    "about.text.044": {
+      "en": "He knows your name before you arrive.",
+      "fr": "Il connaît ton nom avant ton arrivée."
+    },
+    "about.text.045": {
+      "en": "Small groups mean real hosting, not crowd management. People feel that difference almost immediately.",
+      "fr": "Les petits groupes permettent un vrai accueil, pas une gestion de foule. Les gens sentent la différence presque tout de suite."
+    },
+    "about.text.046": {
+      "en": "You leave with something to keep.",
+      "fr": "Tu repars avec quelque chose à garder."
+    },
+    "about.text.047": {
+      "en": "Photos, shared moments, and the record of the day are treated like part of the trip, not something tacked on later.",
+      "fr": "Les photos, les moments partagés et la mémoire de la journée font partie du voyage, pas un ajout après coup."
+    },
+    "about.text.048": {
+      "en": "Behind the trips",
+      "fr": "Derrière les voyages"
+    },
+    "about.text.049": {
+      "en": "One lead.",
+      "fr": "Un responsable."
+    },
+    "about.text.050": {
+      "en": "Zero shortcuts.",
+      "fr": "Zéro raccourci."
+    },
+    "about.text.051": {
+      "en": "Founder",
+      "fr": "Fondateur"
+    },
+    "about.text.052": {
+      "en": "Zico",
+      "fr": "Zico"
+    },
+    "about.text.053": {
+      "en": "Still scouts the routes, sets the timing, hosts the trips, and replies to the first message himself.",
+      "fr": "Il repère toujours les parcours, fixe le timing, accueille les voyageurs et répond lui-même au premier message."
+    },
+    "about.text.054": {
+      "en": "Route check",
+      "fr": "Vérification du parcours"
+    },
+    "about.text.055": {
+      "en": "Every route is walked first",
+      "fr": "Chaque parcours est d'abord testé à pied"
+    },
+    "about.text.056": {
+      "en": "Climbs, waterfall paths, border stops, and timing are checked before the group arrives, so the day feels smooth when it is time to move.",
+      "fr": "Montées, chemins de cascade, arrêts frontaliers et timing sont vérifiés avant l'arrivée du groupe, pour que la journée soit fluide au moment de bouger."
+    },
+    "about.text.057": {
+      "en": "2026 and beyond",
+      "fr": "2026 et au-delà"
+    },
+    "about.text.058": {
+      "en": "Three friends became 60+.",
+      "fr": "Trois amis sont devenus plus de 60."
+    },
+    "about.text.059": {
+      "en": "Where do you want to join in?",
+      "fr": "Où veux-tu rejoindre ?"
+    },
+    "about.text.060": {
+      "en": "Togo took the trips beyond Ghana. More West African routes are on the way, and Zico still reads the messages himself.",
+      "fr": "Le Togo a emmené les voyages au-delà du Ghana. D'autres routes ouest-africaines arrivent, et Zico lit toujours lui-même les messages."
+    },
+    "about.text.061": {
+      "en": "Send Zico a message",
+      "fr": "Envoyer un message à Zico"
+    },
+    "about.text.062": {
+      "en": "Meet the community",
+      "fr": "Découvrir la communauté"
+    },
+    "about.text.063": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "about.text.064": {
+      "en": "Built by someone who hosts the trip, not just sells it.",
+      "fr": "Construit par quelqu'un qui accueille le voyage, pas seulement qui le vend."
+    },
+    "about.text.065": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "about.text.066": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "about.text.067": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "about.text.068": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "about.text.069": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "about.text.070": {
+      "en": "Privacy",
+      "fr": "Confidentialité"
+    },
+    "about.text.071": {
+      "en": "Booking terms",
+      "fr": "Conditions de réservation"
+    },
+    "about.text.072": {
+      "en": "Copyright",
+      "fr": "Copyright"
+    },
+    "about.text.073": {
+      "en": "Adventures of Life.",
+      "fr": "Adventures of Life."
+    },
+    "privacy.text.001": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "privacy.text.002": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "privacy.text.003": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "privacy.text.004": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "privacy.text.005": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "privacy.text.006": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "privacy.text.007": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "privacy.text.008": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "privacy.text.009": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "privacy.text.010": {
+      "en": "Booking terms",
+      "fr": "Conditions de réservation"
+    },
+    "privacy.text.011": {
+      "en": "Next trip",
+      "fr": "Prochain voyage"
+    },
+    "privacy.text.012": {
+      "en": "Privacy / Plain language",
+      "fr": "Confidentialité / En langage clair"
+    },
+    "privacy.text.013": {
+      "en": "Your information should help us host you.",
+      "fr": "Tes informations doivent nous aider à bien t'accueillir."
+    },
+    "privacy.text.014": {
+      "en": "It should not travel further than it needs to.",
+      "fr": "Elles ne doivent pas aller plus loin que nécessaire."
+    },
+    "privacy.text.015": {
+      "en": "Effective 10 July 2026",
+      "fr": "En vigueur le 10 juillet 2026"
+    },
+    "privacy.text.016": {
+      "en": "What we collect",
+      "fr": "Ce que nous collectons"
+    },
+    "privacy.text.017": {
+      "en": "When you ask about a trip, we collect your name, email address, chosen trip, message, and the page where you submitted the form. When a verified attendee posts a review, we store the attendee name and contact supplied for verification, the trip, rating, review text, and submission date. Public reviews show a shortened name, not the attendee contact.",
+      "fr": "Lorsque tu demandes des informations sur un voyage, nous collectons ton nom, ton adresse e-mail, le voyage choisi, ton message et la page depuis laquelle tu as envoyé le formulaire. Lorsqu'un participant vérifié publie un avis, nous conservons son nom et son contact de vérification, le voyage, la note, le texte de l'avis et la date d'envoi. Les avis publics affichent un nom abrégé, jamais le contact du participant."
+    },
+    "privacy.text.018": {
+      "en": "Security information",
+      "fr": "Informations de sécurité"
+    },
+    "privacy.text.019": {
+      "en": "We process an IP address for short-term rate limiting and use Cloudflare Turnstile to distinguish real submissions from automated abuse. Cloudflare may process technical request information under its own privacy terms. We do not use this security information to build advertising profiles.",
+      "fr": "Nous traitons une adresse IP pour limiter temporairement les abus et utilisons Cloudflare Turnstile afin de distinguer les vrais envois des attaques automatisées. Cloudflare peut traiter des informations techniques selon ses propres conditions de confidentialité. Nous n'utilisons pas ces données de sécurité pour créer des profils publicitaires."
+    },
+    "privacy.text.020": {
+      "en": "How we use the information",
+      "fr": "Comment nous utilisons les informations"
+    },
+    "privacy.text.021": {
+      "en": "We use inquiry details to answer questions, arrange bookings, share trip instructions, and follow up about the trip requested. We use verified reviews to show genuine attendee feedback. We use operational records to prevent fraud, investigate abuse, and keep the service working.",
+      "fr": "Nous utilisons les demandes pour répondre aux questions, organiser les réservations, transmettre les consignes et assurer le suivi du voyage demandé. Les avis vérifiés servent à présenter de vrais retours de participants. Les données opérationnelles servent à prévenir la fraude, enquêter sur les abus et maintenir le service."
+    },
+    "privacy.text.022": {
+      "en": "Who receives it",
+      "fr": "Qui reçoit ces informations"
+    },
+    "privacy.text.023": {
+      "en": "Information is stored in Cloudflare D1 and processed through Cloudflare Pages and Turnstile. If operational notifications are enabled, a signed copy may be sent to an automation endpoint controlled by Adventures of Life GH. We do not sell personal information. We disclose it only when required by law or necessary to deliver a requested trip.",
+      "fr": "Les informations sont stockées dans Cloudflare D1 et traitées via Cloudflare Pages et Turnstile. Si les notifications opérationnelles sont activées, une copie signée peut être envoyée vers un service d'automatisation contrôlé par Adventures of Life GH. Nous ne vendons aucune information personnelle. Nous ne la communiquons que si la loi l'exige ou si cela est nécessaire pour fournir le voyage demandé."
+    },
+    "privacy.text.024": {
+      "en": "How long we keep it",
+      "fr": "Durée de conservation"
+    },
+    "privacy.text.025": {
+      "en": "Trip inquiries are automatically deleted 24 months after the most recent inbox update. Expired review links and their attendee contact details are removed after a 30-day operational grace period; used or revoked links are removed after 24 months. Rate-limit records are deleted after approximately 48 hours. Published reviews remain visible until the attendee asks for removal or the review is withdrawn for safety, accuracy, or policy reasons.",
+      "fr": "Les demandes de voyage sont automatiquement supprimées 24 mois après la dernière mise à jour dans la boîte de réception. Les liens d'avis expirés et les coordonnées des participants associées sont supprimés après un délai opérationnel de 30 jours ; les liens utilisés ou révoqués sont supprimés après 24 mois. Les données de limitation sont supprimées après environ 48 heures. Les avis publiés restent visibles jusqu'à ce que le participant demande leur suppression ou qu'ils soient retirés pour des raisons de sécurité, d'exactitude ou de politique."
+    },
+    "privacy.text.026": {
+      "en": "Your choices",
+      "fr": "Tes choix"
+    },
+    "privacy.text.027": {
+      "en": "You may ask to see, correct, or delete the personal information Adventures of Life GH holds about you. You may also ask for a public review to be removed. Some booking or transaction records may need to be retained where the law or an unresolved dispute requires it.",
+      "fr": "Tu peux demander à consulter, corriger ou supprimer les informations personnelles qu'Adventures of Life GH détient à ton sujet. Tu peux aussi demander le retrait d'un avis public. Certains documents de réservation ou de transaction peuvent devoir être conservés lorsque la loi ou un litige non résolu l'exige."
+    },
+    "privacy.text.028": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "privacy.text.029": {
+      "en": "Send a privacy request to Zico on",
+      "fr": "Envoie ta demande de confidentialité à Zico sur"
+    },
+    "privacy.text.030": {
+      "en": "WhatsApp at 055 147 2190",
+      "fr": "WhatsApp au 055 147 2190"
+    },
+    "privacy.text.031": {
+      "en": ". We may ask for enough information to confirm the request belongs to you before changing or deleting a record.",
+      "fr": ". Nous pouvons demander suffisamment d'informations pour confirmer que la demande vient bien de toi avant de modifier ou supprimer un dossier."
+    },
+    "privacy.text.032": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "privacy.text.033": {
+      "en": "Trips around Ghana and West Africa that feel like someone local invited you along.",
+      "fr": "Des voyages au Ghana et en Afrique de l'Ouest qui donnent l'impression qu'un local t'a invité."
+    },
+    "privacy.text.034": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "privacy.text.035": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "privacy.text.036": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "privacy.text.037": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "privacy.text.038": {
+      "en": "Privacy",
+      "fr": "Confidentialité"
+    },
+    "privacy.text.039": {
+      "en": "Booking terms",
+      "fr": "Conditions de réservation"
+    },
+    "privacy.text.040": {
+      "en": "Copyright",
+      "fr": "Copyright"
+    },
+    "privacy.text.041": {
+      "en": "Adventures of Life.",
+      "fr": "Adventures of Life."
+    },
+    "booking.text.001": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "booking.text.002": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "booking.text.003": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "booking.text.004": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "booking.text.005": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "booking.text.006": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "booking.text.007": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "booking.text.008": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "booking.text.009": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "booking.text.010": {
+      "en": "Privacy",
+      "fr": "Confidentialité"
+    },
+    "booking.text.011": {
+      "en": "Next trip",
+      "fr": "Prochain voyage"
+    },
+    "booking.text.012": {
+      "en": "Booking terms / Before you pay",
+      "fr": "Conditions de réservation / Avant de payer"
+    },
+    "booking.text.013": {
+      "en": "Clear expectations before the road.",
+      "fr": "Des règles claires avant le départ."
+    },
+    "booking.text.014": {
+      "en": "No surprise policy after payment.",
+      "fr": "Aucune surprise après le paiement."
+    },
+    "booking.text.015": {
+      "en": "Effective 10 July 2026",
+      "fr": "En vigueur le 10 juillet 2026"
+    },
+    "booking.text.016": {
+      "en": "When a slot is secured",
+      "fr": "Quand une place est réservée"
+    },
+    "booking.text.017": {
+      "en": "A message or inquiry does not reserve a place. A slot is secured only after Adventures of Life GH confirms availability, gives you the trip-specific payment and cancellation terms in writing, and confirms receipt of the required deposit or payment.",
+      "fr": "Un message ou une demande ne réserve pas une place. La place est confirmée uniquement après qu'Adventures of Life GH a validé la disponibilité, communiqué par écrit les conditions de paiement et d'annulation propres au voyage, puis confirmé la réception de l'acompte ou du paiement demandé."
+    },
+    "booking.text.018": {
+      "en": "Prices and installment plans",
+      "fr": "Prix et paiements échelonnés"
+    },
+    "booking.text.019": {
+      "en": "The price, deposit, payment dates, and included items shown on the current trip page or sent directly by Zico apply to that trip. Where installments are offered, the traveller chooses an available payment schedule and remains responsible for completing it by the agreed deadline.",
+      "fr": "Le prix, l'acompte, les dates de paiement et les prestations indiqués sur la page du voyage ou envoyés directement par Zico s'appliquent à ce voyage. Lorsqu'un paiement échelonné est proposé, le voyageur choisit un calendrier disponible et doit le terminer avant l'échéance convenue."
+    },
+    "booking.text.020": {
+      "en": "Traveller cancellation",
+      "fr": "Annulation par le voyageur"
+    },
+    "booking.text.021": {
+      "en": "Tell Zico as early as possible if you cannot travel. Before accepting payment, Adventures of Life GH will state whether the deposit is refundable and identify any supplier costs that may become non-refundable. Any refund after a traveller cancellation is based on those written trip-specific terms and the money that can actually be recovered from transport, accommodation, attraction, and other suppliers.",
+      "fr": "Préviens Zico le plus tôt possible si tu ne peux plus voyager. Avant d'accepter le paiement, Adventures of Life GH précisera si l'acompte est remboursable et quels frais de prestataires peuvent devenir non remboursables. Tout remboursement après une annulation du voyageur dépend des conditions écrites du voyage et des sommes réellement récupérables auprès des transporteurs, hébergements, sites et autres prestataires."
+    },
+    "booking.text.022": {
+      "en": "If Adventures of Life GH cancels",
+      "fr": "Si Adventures of Life GH annule"
+    },
+    "booking.text.023": {
+      "en": "If Adventures of Life GH cancels a trip and does not provide an alternative accepted by the traveller, amounts paid for services that will not be delivered will be returned. A traveller will be told promptly about the cancellation and the expected refund route. Costs booked independently by a traveller are not covered unless Adventures of Life GH agreed to them in writing.",
+      "fr": "Si Adventures of Life GH annule un voyage sans proposer d'alternative acceptée par le voyageur, les montants payés pour les services non fournis seront remboursés. Le voyageur sera informé rapidement de l'annulation et du mode de remboursement prévu. Les dépenses réservées indépendamment ne sont pas couvertes, sauf accord écrit d'Adventures of Life GH."
+    },
+    "booking.text.024": {
+      "en": "Changes caused by weather, borders, or safety",
+      "fr": "Changements liés à la météo, aux frontières ou à la sécurité"
+    },
+    "booking.text.025": {
+      "en": "Road conditions, weather, opening hours, border controls, and safety concerns can require a stop, time, accommodation, or route to change. A reasonable replacement may be used where necessary. A major change will be explained as soon as practical, together with any choice or refund required by the trip-specific terms.",
+      "fr": "L'état des routes, la météo, les horaires, les contrôles frontaliers ou la sécurité peuvent imposer un changement d'étape, d'heure, d'hébergement ou d'itinéraire. Une solution de remplacement raisonnable peut être utilisée si nécessaire. Tout changement important sera expliqué dès que possible, avec les choix ou remboursements prévus par les conditions du voyage."
+    },
+    "booking.text.026": {
+      "en": "Documents and border travel",
+      "fr": "Documents et voyages transfrontaliers"
+    },
+    "booking.text.027": {
+      "en": "For international trips, each traveller is responsible for carrying the passport, identification, vaccination evidence, visa, and other documents required for their circumstances. Ask before paying if you are unsure. Adventures of Life GH can share general guidance but cannot guarantee entry by immigration authorities.",
+      "fr": "Pour les voyages internationaux, chaque voyageur doit disposer du passeport, de la pièce d'identité, des preuves de vaccination, du visa et des autres documents exigés selon sa situation. Demande avant de payer si tu as un doute. Adventures of Life GH peut donner des indications générales mais ne peut pas garantir l'admission par les services d'immigration."
+    },
+    "booking.text.028": {
+      "en": "Safety and conduct",
+      "fr": "Sécurité et comportement"
+    },
+    "booking.text.029": {
+      "en": "Travellers must follow reasonable safety instructions, respect other attendees and local communities, and disclose any condition that could materially affect safe participation. Serious harassment, violence, illegal activity, or conduct that puts the group at risk may result in removal without reimbursement of costs already used.",
+      "fr": "Les voyageurs doivent suivre les consignes de sécurité raisonnables, respecter les autres participants et les communautés locales, et signaler toute condition pouvant affecter leur participation en sécurité. Le harcèlement grave, la violence, une activité illégale ou un comportement mettant le groupe en danger peuvent entraîner une exclusion sans remboursement des frais déjà engagés."
+    },
+    "booking.text.030": {
+      "en": "Photos and privacy",
+      "fr": "Photos et confidentialité"
+    },
+    "booking.text.031": {
+      "en": "Trip photos may be used to document the community and promote future trips. Tell Zico before or during the trip if you do not want a close-up image of you published. Personal information is handled under the",
+      "fr": "Les photos du voyage peuvent servir à documenter la communauté et promouvoir de futurs voyages. Préviens Zico avant ou pendant le voyage si tu ne veux pas qu'un portrait rapproché soit publié. Les informations personnelles sont traitées selon l'"
+    },
+    "booking.text.032": {
+      "en": "privacy and data-retention notice",
+      "fr": "avis de confidentialité et de conservation des données"
+    },
+    "booking.text.033": {
+      "en": "Questions or a refund request",
+      "fr": "Questions ou demande de remboursement"
+    },
+    "booking.text.034": {
+      "en": "Keep your payment confirmation and the written terms sent for your trip. Contact Zico on",
+      "fr": "Conserve ta confirmation de paiement et les conditions écrites de ton voyage. Contacte Zico sur"
+    },
+    "booking.text.035": {
+      "en": "WhatsApp at 055 147 2190",
+      "fr": "WhatsApp au 055 147 2190"
+    },
+    "booking.text.036": {
+      "en": "with the traveller name, trip, payment date, and the issue to be reviewed.",
+      "fr": "avec le nom du voyageur, le voyage, la date de paiement et le problème à examiner."
+    },
+    "booking.text.037": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "booking.text.038": {
+      "en": "Trips around Ghana and West Africa that feel like someone local invited you along.",
+      "fr": "Des voyages au Ghana et en Afrique de l'Ouest qui donnent l'impression qu'un local t'a invité."
+    },
+    "booking.text.039": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "booking.text.040": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "booking.text.041": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "booking.text.042": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "booking.text.043": {
+      "en": "Privacy",
+      "fr": "Confidentialité"
+    },
+    "booking.text.044": {
+      "en": "Booking terms",
+      "fr": "Conditions de réservation"
+    },
+    "booking.text.045": {
+      "en": "Copyright",
+      "fr": "Copyright"
+    },
+    "booking.text.046": {
+      "en": "Adventures of Life.",
+      "fr": "Adventures of Life."
+    },
+    "cote.text.001": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "cote.text.002": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "cote.text.003": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "cote.text.004": {
+      "en": "Menu",
+      "fr": "Menu"
+    },
+    "cote.text.005": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "cote.text.006": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "cote.text.007": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "cote.text.008": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "cote.text.009": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "cote.text.010": {
+      "en": "See all journeys",
+      "fr": "Voir tous les voyages"
+    },
+    "cote.text.011": {
+      "en": "Trip details",
+      "fr": "Détails du voyage"
+    },
+    "cote.text.012": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "cote.text.013": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "cote.text.014": {
+      "en": "Next trip / 28 August to 2 September 2026",
+      "fr": "Prochain voyage / 28 août au 2 septembre 2026"
+    },
+    "cote.text.015": {
+      "en": "La Côte d’Ivoire Experience",
+      "fr": "L'expérience Côte d'Ivoire"
+    },
+    "cote.text.016": {
+      "en": "Leave Accra in the evening, wake up near the border, and spend three nights discovering four cities with a group that makes the road feel shorter.",
+      "fr": "Quitte Accra le soir, réveille-toi près de la frontière et passe trois nuits à découvrir quatre villes avec un groupe qui rend la route plus courte."
+    },
+    "cote.text.017": {
+      "en": "3 nights / 4 days",
+      "fr": "3 nuits / 4 jours"
+    },
+    "cote.text.018": {
+      "en": "Four cities",
+      "fr": "Quatre villes"
+    },
+    "cote.text.019": {
+      "en": "GHS 3,300",
+      "fr": "3 300 GHS"
+    },
+    "cote.text.020": {
+      "en": "GHS 500 deposit",
+      "fr": "Acompte de 500 GHS"
+    },
+    "cote.text.021": {
+      "en": "Secure your slot",
+      "fr": "Réserver ta place"
+    },
+    "cote.text.022": {
+      "en": "See the full lineup",
+      "fr": "Voir tout le programme"
+    },
+    "cote.text.023": {
+      "en": "Installment payments are available after the GHS 500 deposit.",
+      "fr": "Le paiement échelonné est disponible après l'acompte de 500 GHS."
+    },
+    "cote.text.024": {
+      "en": "Official trip flyer / Adventures of Life GH",
+      "fr": "Flyer officiel du voyage / Adventures of Life GH"
+    },
+    "cote.text.025": {
+      "en": "The trip at a glance",
+      "fr": "Le voyage en un coup d'œil"
+    },
+    "cote.text.026": {
+      "en": "Four days across Côte d’Ivoire.",
+      "fr": "Quatre jours à travers la Côte d'Ivoire."
+    },
+    "cote.text.027": {
+      "en": "One overnight road from Accra.",
+      "fr": "Une route de nuit depuis Accra."
+    },
+    "cote.text.028": {
+      "en": "Travel dates",
+      "fr": "Dates du voyage"
+    },
+    "cote.text.029": {
+      "en": "28 Aug - 2 Sep",
+      "fr": "28 août - 2 septembre"
+    },
+    "cote.text.030": {
+      "en": "Depart Accra on the evening of 28 August and arrive back in Accra on 2 September.",
+      "fr": "Départ d'Accra le soir du 28 août et retour à Accra le 2 septembre."
+    },
+    "cote.text.031": {
+      "en": "Stay",
+      "fr": "Séjour"
+    },
+    "cote.text.032": {
+      "en": "3 nights / 4 days",
+      "fr": "3 nuits / 4 jours"
+    },
+    "cote.text.033": {
+      "en": "The overnight drive gets the group into Abidjan in the morning, ready for four days in Côte d’Ivoire.",
+      "fr": "Le trajet de nuit amène le groupe à Abidjan le matin, prêt pour quatre jours en Côte d'Ivoire."
+    },
+    "cote.text.034": {
+      "en": "Payment",
+      "fr": "Paiement"
+    },
+    "cote.text.035": {
+      "en": "GHS 500 holds your slot",
+      "fr": "500 GHS réservent ta place"
+    },
+    "cote.text.036": {
+      "en": "Pay the remaining balance in installments that work for you, or complete the full payment at once.",
+      "fr": "Règle le solde en plusieurs versements adaptés à ton budget, ou paie la totalité en une fois."
+    },
+    "cote.text.037": {
+      "en": "Abidjan and beyond",
+      "fr": "Abidjan et au-delà"
+    },
+    "cote.text.038": {
+      "en": "City mornings, coastlines and culture.",
+      "fr": "Matins en ville, littoral et culture."
+    },
+    "cote.text.039": {
+      "en": "Four places, one crew.",
+      "fr": "Quatre lieux, un seul groupe."
+    },
+    "cote.text.040": {
+      "en": "Abidjan is the base, with time planned across Grand-Bassam, Assinie and Yamoussoukro. Expect a mix of city energy, historic stops, coastal views and the everyday culture that makes crossing the border worth it.",
+      "fr": "Abidjan sert de base, avec des étapes prévues à Grand-Bassam, Assinie et Yamoussoukro. Attends-toi à un mélange d'énergie urbaine, de lieux historiques, de vues côtières et de culture ivoirienne au quotidien."
+    },
+    "cote.text.041": {
+      "en": "The journey begins overnight, so most of the long drive passes while the group sleeps. By morning, the border formalities are the last step before the experience properly begins.",
+      "fr": "Le voyage commence de nuit, donc la majeure partie de la route se fait pendant que le groupe dort. Au matin, les formalités à la frontière sont la dernière étape avant le vrai début de l'expérience."
+    },
+    "cote.text.042": {
+      "en": "Included in GHS 3,300",
+      "fr": "Inclus dans les 3 300 GHS"
+    },
+    "cote.text.043": {
+      "en": "The essentials are already covered.",
+      "fr": "L'essentiel est déjà compris."
+    },
+    "cote.text.044": {
+      "en": "You can focus on the experience.",
+      "fr": "Tu peux profiter pleinement de l'expérience."
+    },
+    "cote.text.045": {
+      "en": "Transport",
+      "fr": "Transport"
+    },
+    "cote.text.046": {
+      "en": "Return group transport between Accra and Côte d’Ivoire, plus the movement planned for the trip.",
+      "fr": "Transport aller-retour en groupe entre Accra et la Côte d'Ivoire, ainsi que les déplacements prévus pendant le voyage."
+    },
+    "cote.text.047": {
+      "en": "Accommodation and meals",
+      "fr": "Hébergement et repas"
+    },
+    "cote.text.048": {
+      "en": "Three nights of accommodation and feeding throughout the four-day experience.",
+      "fr": "Trois nuits d'hébergement et les repas pendant les quatre jours."
+    },
+    "cote.text.049": {
+      "en": "Tourist-site access",
+      "fr": "Accès aux sites touristiques"
+    },
+    "cote.text.050": {
+      "en": "Entry fees, tourist-site charges and the trip details listed on the official flyer.",
+      "fr": "Frais d'entrée, accès aux sites touristiques et prestations indiquées sur le flyer officiel."
+    },
+    "cote.text.051": {
+      "en": "Before you book",
+      "fr": "Avant de réserver"
+    },
+    "cote.text.052": {
+      "en": "The questions people ask first.",
+      "fr": "Les premières questions que les voyageurs posent."
+    },
+    "cote.text.053": {
+      "en": "When do we leave and return?",
+      "fr": "Quand partons-nous et quand revenons-nous ?"
+    },
+    "cote.text.054": {
+      "en": "The group leaves Accra on the evening of",
+      "fr": "Le groupe quitte Accra le soir du"
+    },
+    "cote.text.055": {
+      "en": "and returns to Accra on",
+      "fr": "et revient à Accra le"
+    },
+    "cote.text.056": {
+      "en": "How much do I need to secure a slot?",
+      "fr": "Combien faut-il pour réserver une place ?"
+    },
+    "cote.text.057": {
+      "en": "GHS 500 deposit",
+      "fr": "Acompte de 500 GHS"
+    },
+    "cote.text.058": {
+      "en": "secures your slot. The remaining balance can be paid in installments or in full.",
+      "fr": "réservent ta place. Le solde peut être payé en plusieurs fois ou en totalité."
+    },
+    "cote.text.059": {
+      "en": "Who can I contact for more information?",
+      "fr": "Qui contacter pour plus d'informations ?"
+    },
+    "cote.text.060": {
+      "en": "Use the WhatsApp booking button below to speak directly with Zico about your slot and payment plan.",
+      "fr": "Utilise le bouton WhatsApp ci-dessous pour parler directement à Zico de ta place et de ton plan de paiement."
+    },
+    "cote.text.061": {
+      "en": "Secure your place",
+      "fr": "Réserve ta place"
+    },
+    "cote.text.062": {
+      "en": "Start with GHS 500.",
+      "fr": "Commence avec 500 GHS."
+    },
+    "cote.text.063": {
+      "en": "Choose how you pay the rest.",
+      "fr": "Choisis comment régler le reste."
+    },
+    "cote.text.064": {
+      "en": "Message Zico with your name and say you want a slot for the Côte d’Ivoire trip departing 28 August.",
+      "fr": "Écris à Zico avec ton nom et précise que tu veux une place pour le voyage en Côte d'Ivoire du 28 août."
+    },
+    "cote.text.065": {
+      "en": "Secure your slot on WhatsApp",
+      "fr": "Réserver ta place sur WhatsApp"
+    },
+    "cote.text.066": {
+      "en": "Back to journeys",
+      "fr": "Retour aux voyages"
+    },
+    "cote.text.067": {
+      "en": "Adventures of Life",
+      "fr": "Adventures of Life"
+    },
+    "cote.text.068": {
+      "en": "Trips around Ghana and West Africa that feel like someone local invited you along.",
+      "fr": "Des voyages au Ghana et en Afrique de l'Ouest qui donnent l'impression qu'un local t'a invité."
+    },
+    "cote.text.069": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "cote.text.070": {
+      "en": "Journeys",
+      "fr": "Voyages"
+    },
+    "cote.text.071": {
+      "en": "Community",
+      "fr": "Communauté"
+    },
+    "cote.text.072": {
+      "en": "About",
+      "fr": "À propos"
+    },
+    "cote.text.073": {
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "cote.text.074": {
+      "en": "Privacy",
+      "fr": "Confidentialité"
+    },
+    "cote.text.075": {
+      "en": "Booking terms",
+      "fr": "Conditions de réservation"
+    },
+    "cote.text.076": {
+      "en": "Copyright",
+      "fr": "Copyright"
+    },
+    "cote.text.077": {
+      "en": "Adventures of Life.",
+      "fr": "Adventures of Life."
+    },
+    "home.text.153": {
+      "en": "Notes",
+      "fr": "Notes"
+    },
+    "community.text.102": {
+      "en": "Your review",
+      "fr": "Ton avis"
+    }
+  }
+}

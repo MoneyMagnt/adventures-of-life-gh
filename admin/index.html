@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trip Operations | Adventures of Life GH</title>
+    <meta name="description" content="Private Adventures of Life GH trip operations dashboard." />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="theme-color" content="#F8FAF7" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css?v=20260711-2" />
+    <link rel="stylesheet" href="/styles/admin.css?v=20260711-2" />
+  </head>
+  <body data-page="admin">
+    <header class="admin-header">
+      <div class="shell admin-header-inner">
+        <a class="brand" href="/" aria-label="Adventures of Life home">
+          <span class="brand-logo-shell"><img class="brand-logo" src="/adventuresoflifelogo.jpg" alt="Adventures of Life logo" width="1131" height="1156" /></span>
+          <span class="brand-copy"><strong>Adventures of Life</strong></span>
+        </a>
+        <span class="admin-private-label">Private operations</span>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <section class="shell admin-intro">
+        <p class="fg-eyebrow">Trip operations</p>
+        <h1 class="fg-title">One place for inquiries,<br /><em>reviews and attendee links.</em></h1>
+        <p class="admin-lead">This page is protected by your Cloudflare environment password. Nothing here is indexed or available through the public navigation.</p>
+        <div class="admin-toolbar">
+          <button class="button button-primary" type="button" data-admin-refresh>Refresh inbox</button>
+          <p class="admin-status" data-admin-status role="status" aria-live="polite">Loading current records...</p>
+        </div>
+      </section>
+
+      <section class="shell admin-section" aria-labelledby="admin-inquiries-title">
+        <div class="admin-section-head">
+          <div><p class="fg-eyebrow">Trip inbox</p><h2 id="admin-inquiries-title">New inquiries</h2></div>
+          <span class="admin-count" data-inquiry-count>0</span>
+        </div>
+        <div class="admin-card-list" data-admin-inquiries></div>
+      </section>
+
+      <section class="shell admin-section" aria-labelledby="admin-reviews-title">
+        <div class="admin-section-head">
+          <div><p class="fg-eyebrow">Community wall</p><h2 id="admin-reviews-title">Published reviews</h2></div>
+          <span class="admin-count" data-review-count>0</span>
+        </div>
+        <div class="admin-card-list" data-admin-reviews></div>
+      </section>
+
+      <section class="shell admin-section" aria-labelledby="admin-invites-title">
+        <div class="admin-section-head">
+          <div><p class="fg-eyebrow">After each trip</p><h2 id="admin-invites-title">Create verified review links</h2></div>
+          <span class="admin-count" data-invite-count>0</span>
+        </div>
+        <form class="admin-invite-form glass-panel" data-admin-invite-form>
+          <label>Trip name<input name="trip" value="Oboadaka Waterfall" maxlength="120" required /></label>
+          <label>Trip date<input name="trip_date" placeholder="27 June 2026" maxlength="40" required /></label>
+          <label>Link expires after<select name="expires_in_days"><option value="14">14 days</option><option value="30" selected>30 days</option><option value="60">60 days</option></select></label>
+          <label class="admin-form-wide">Attendees, one per line<textarea name="attendees" rows="8" placeholder="Ama Mensah, ama@example.com&#10;Kojo Asare, 0550000000" required></textarea><small>Use: name, email or phone number. Up to 100 people at once.</small></label>
+          <button class="button button-primary" type="submit">Generate secure links</button>
+        </form>
+        <div class="admin-generated" data-admin-generated hidden>
+          <div class="admin-generated-head"><h3>Links created</h3><button class="button button-secondary" type="button" data-copy-invites>Copy all</button></div>
+          <textarea rows="10" readonly data-generated-links></textarea>
+        </div>
+        <div class="admin-card-list admin-invite-history" data-admin-invites></div>
+      </section>
+    </main>
+
+    <script src="/admin.js?v=20260711-2" defer></script>
+  </body>
+</html>

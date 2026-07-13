@@ -4,18 +4,25 @@ import {
   buildRateLimitHeaders,
   enforceRateLimit,
   ensureSecuritySchema,
+  getApiSecurityHeaders,
   getClientIp,
   getReviewInviteByToken,
-  markReviewInviteUsed,
+  hasSafeRequestOrigin,
+  isRequestBodyTooLargeError,
+  isRequestBodyTooLarge,
+  parseRequestPayload,
   verifyTurnstileToken,
 } from "../_lib/security.js";
+import { sendOperationalNotification } from "../_lib/notifications.js";
+
+let reviewsSchemaPromise = null;
 
 const json = (data, init = {}) =>
   new Response(JSON.stringify(data), {
     status: init.status || 200,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
-      "Cache-Control": "no-store",
+      ...getApiSecurityHeaders(),
       ...(init.headers || {}),
     },
   });
@@ -33,6 +40,10 @@ const reviewLooksSpammy = (value) => {
   }
 
   if (/(https?:\/\/|www\.)/i.test(clean)) {
+    return true;
+  }
+
+  if (/[^\s@]+@[^\s@]+\.[^\s@]+/.test(clean) || /(?:\+?\d[\s().-]*){8,}/.test(clean)) {
     return true;
   }
 
@@ -70,17 +81,6 @@ const buildPublicName = (value) => {
   return `${firstDisplay} ${last.charAt(0).toUpperCase()}.`;
 };
 
-const parsePayload = async (request) => {
-  const contentType = request.headers.get("content-type") || "";
-
-  if (contentType.includes("application/json")) {
-    return request.json();
-  }
-
-  const formData = await request.formData();
-  return Object.fromEntries(formData);
-};
-
 const validatePayload = (payload) => {
   const cleaned = {
     name: normalizeText(payload.name),
@@ -105,6 +105,10 @@ const validatePayload = (payload) => {
     return { error: "Please fill in your name and review." };
   }
 
+  if (cleaned.name.length > 80 || cleaned.reviewToken.length > 256) {
+    return { error: "The review name or invite link is invalid." };
+  }
+
   if (!Number.isFinite(cleaned.rating) || cleaned.rating < 1 || cleaned.rating > 5) {
     return { error: "Please choose a rating between 1 and 5." };
   }
@@ -126,7 +130,7 @@ const validatePayload = (payload) => {
   }
 
   if (reviewLooksSpammy(cleaned.review)) {
-    return { error: "Please remove links or spammy text from the review." };
+    return { error: "Please remove links, contact details, or spammy text from the review." };
   }
 
   return { cleaned };
@@ -140,39 +144,68 @@ const ensureDatabase = (env) => {
   return { db: env.DB };
 };
 
-const ensureReviewsSchema = async (db) => {
-  await ensureSecuritySchema(db);
+const ensureReviewsSchema = (db) => {
+  if (!reviewsSchemaPromise) {
+    reviewsSchemaPromise = (async () => {
+      await ensureSecuritySchema(db);
 
-  await db
-    .prepare(
-      `CREATE TABLE IF NOT EXISTS reviews (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        public_name TEXT NOT NULL,
-        contact TEXT NOT NULL,
-        trip TEXT NOT NULL,
-        trip_date TEXT NOT NULL,
-        rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
-        review TEXT NOT NULL,
-        approved INTEGER NOT NULL DEFAULT 1,
-        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
-      )`
-    )
-    .run();
+      await db
+        .prepare(
+          `CREATE TABLE IF NOT EXISTS reviews (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            public_name TEXT NOT NULL,
+            contact TEXT NOT NULL,
+            trip TEXT NOT NULL,
+            trip_date TEXT NOT NULL,
+            rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
+            review TEXT NOT NULL,
+            approved INTEGER NOT NULL DEFAULT 1,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            invite_id INTEGER DEFAULT NULL
+          )`
+        )
+        .run();
 
-  await db
-    .prepare(
-      `CREATE INDEX IF NOT EXISTS idx_reviews_approved_created_at
-       ON reviews (approved, created_at DESC, id DESC)`
-    )
-    .run();
+      const columns = await db.prepare("PRAGMA table_info(reviews)").all();
+      const hasInviteId = (columns.results || []).some(
+        (column) => column.name === "invite_id"
+      );
 
-  await db
-    .prepare(
-      `CREATE INDEX IF NOT EXISTS idx_reviews_trip_contact
-       ON reviews (trip, contact)`
-    )
-    .run();
+      if (!hasInviteId) {
+        await db
+          .prepare("ALTER TABLE reviews ADD COLUMN invite_id INTEGER DEFAULT NULL")
+          .run();
+      }
+
+      await db
+        .prepare(
+          `CREATE INDEX IF NOT EXISTS idx_reviews_approved_created_at
+           ON reviews (approved, created_at DESC, id DESC)`
+        )
+        .run();
+
+      await db
+        .prepare(
+          `CREATE INDEX IF NOT EXISTS idx_reviews_trip_contact
+           ON reviews (trip, contact)`
+        )
+        .run();
+
+      await db
+        .prepare(
+          `CREATE UNIQUE INDEX IF NOT EXISTS idx_reviews_invite_id
+           ON reviews (invite_id)
+           WHERE invite_id IS NOT NULL`
+        )
+        .run();
+    })().catch((error) => {
+      reviewsSchemaPromise = null;
+      throw error;
+    });
+  }
+
+  return reviewsSchemaPromise;
 };
 
 export async function onRequestGet(context) {
@@ -229,6 +262,14 @@ export async function onRequestGet(context) {
 }
 
 export async function onRequestPost(context) {
+  if (!hasSafeRequestOrigin(context.request)) {
+    return json({ error: "Cross-site review submissions are not allowed." }, { status: 403 });
+  }
+
+  if (isRequestBodyTooLarge(context.request)) {
+    return json({ error: "This review is too large to submit." }, { status: 413 });
+  }
+
   const { db, error } = ensureDatabase(context.env);
 
   if (error) {
@@ -255,12 +296,16 @@ export async function onRequestPost(context) {
   let payload;
 
   try {
-    payload = await parsePayload(context.request);
+    payload = await parseRequestPayload(context.request);
   } catch (parseError) {
     return json(
-      { error: "Invalid review payload." },
       {
-        status: 400,
+        error: isRequestBodyTooLargeError(parseError)
+          ? "This review is too large to submit."
+          : "Invalid review payload.",
+      },
+      {
+        status: isRequestBodyTooLargeError(parseError) ? 413 : 400,
         headers: buildRateLimitHeaders(rateLimit),
       }
     );
@@ -315,34 +360,76 @@ export async function onRequestPost(context) {
     const publicName = buildPublicName(verifiedName);
     const createdAt = new Date().toISOString();
 
-    const result = await db
-      .prepare(
-        `INSERT INTO reviews (
-          name,
-          public_name,
-          contact,
-          trip,
-          trip_date,
-          rating,
-          review,
-          approved,
-          created_at
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, 1, ?)`
-      )
-      .bind(
-        verifiedName,
-        publicName,
-        invite.contact,
-        invite.trip,
-        invite.trip_date,
-        cleaned.rating,
-        cleaned.review,
-        createdAt
-      )
-      .run();
+    const [insertResult] = await db.batch([
+      db
+        .prepare(
+          `INSERT INTO reviews (
+            name,
+            public_name,
+            contact,
+            trip,
+            trip_date,
+            rating,
+            review,
+            approved,
+            created_at,
+            invite_id
+          )
+          SELECT ?, ?, ?, ?, ?, ?, ?, 1, ?, id
+          FROM review_invites
+          WHERE id = ?
+            AND status = 'issued'
+            AND used_at IS NULL
+            AND (expires_at IS NULL OR datetime(expires_at) > datetime(?))`
+        )
+        .bind(
+          verifiedName,
+          publicName,
+          invite.contact,
+          invite.trip,
+          invite.trip_date,
+          cleaned.rating,
+          cleaned.review,
+          createdAt,
+          invite.id,
+          createdAt
+        ),
+      db
+        .prepare(
+          `UPDATE review_invites
+           SET status = 'used',
+               used_at = ?,
+               review_id = (SELECT id FROM reviews WHERE invite_id = ?)
+           WHERE id = ?
+             AND status = 'issued'
+             AND used_at IS NULL
+             AND EXISTS (SELECT 1 FROM reviews WHERE invite_id = ?)`
+        )
+        .bind(createdAt, invite.id, invite.id, invite.id),
+    ]);
 
-    const reviewId = result.meta?.last_row_id || createdAt;
-    await markReviewInviteUsed(db, invite.id, reviewId);
+    if (Number(insertResult.meta?.changes || 0) !== 1) {
+      return json(
+        { error: "This review link has already been used or has expired." },
+        {
+          status: 403,
+          headers: buildRateLimitHeaders(rateLimit),
+        }
+      );
+    }
+
+    const reviewId = insertResult.meta?.last_row_id || createdAt;
+    context.waitUntil(
+      sendOperationalNotification(context.env, "review.published", {
+        id: reviewId,
+        display_name: publicName,
+        trip: invite.trip,
+        trip_date: invite.trip_date,
+        rating: cleaned.rating,
+        review: cleaned.review,
+        created_at: createdAt,
+      }).catch(() => undefined)
+    );
 
     return json(
       {

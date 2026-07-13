@@ -1,0 +1,290 @@
+/* Protected review and inquiry operations. */
+
+/* Private trip operations */
+.admin-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid rgba(11, 34, 36, 0.1);
+  background: rgba(248, 250, 247, 0.94);
+  backdrop-filter: blur(14px);
+}
+
+.admin-header-inner,
+.admin-toolbar,
+.admin-section-head,
+.admin-record-head,
+.admin-record-actions,
+.admin-generated-head {
+  display: flex;
+  align-items: center;
+}
+
+.admin-header-inner {
+  min-height: 5.25rem;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-private-label,
+.admin-count,
+.admin-badge {
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-private-label {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(11, 34, 36, 0.12);
+  color: rgba(11, 34, 36, 0.68);
+}
+
+.admin-main {
+  min-height: 100vh;
+  padding: clamp(3rem, 7vw, 6rem) 0;
+  background: radial-gradient(circle at 85% 5%, rgba(212, 130, 10, 0.08), transparent 24rem), linear-gradient(180deg, #f8faf7, #eff3ec);
+}
+
+.admin-intro {
+  padding-bottom: clamp(2.5rem, 6vw, 5rem);
+}
+
+.admin-intro .fg-title {
+  max-width: 14ch;
+}
+
+.admin-lead {
+  max-width: 44rem;
+  margin: 1.25rem 0 0;
+  color: rgba(11, 34, 36, 0.72);
+  line-height: 1.75;
+}
+
+.admin-toolbar {
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.admin-status {
+  margin: 0;
+  color: rgba(11, 34, 36, 0.62);
+  font-size: 0.88rem;
+}
+
+.admin-status.is-error {
+  color: #a42b2b;
+  font-weight: 700;
+}
+
+.admin-section {
+  padding-block: clamp(2.25rem, 5vw, 4rem);
+  border-top: 1px solid rgba(11, 34, 36, 0.1);
+}
+
+.admin-section-head {
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-section-head h2,
+.admin-generated h3 {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  color: #0b2224;
+}
+
+.admin-section-head h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.admin-count {
+  min-width: 2.5rem;
+  padding: 0.65rem;
+  background: #0b2224;
+  color: #fff;
+  text-align: center;
+}
+
+.admin-card-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-record {
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid rgba(11, 34, 36, 0.1);
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.admin-record-head {
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-record h3,
+.admin-record p {
+  margin: 0;
+}
+
+.admin-record h3 {
+  font-family: "Fraunces", serif;
+  font-size: 1.2rem;
+}
+
+.admin-record-meta,
+.admin-record-trip {
+  color: rgba(11, 34, 36, 0.6);
+  font-size: 0.8rem;
+}
+
+.admin-record-meta {
+  margin-top: 0.25rem !important;
+}
+
+.admin-record-trip {
+  margin-top: 1rem !important;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.admin-record-body {
+  margin-top: 0.75rem !important;
+  color: rgba(11, 34, 36, 0.8);
+  line-height: 1.65;
+}
+
+.admin-badge {
+  flex: 0 0 auto;
+  padding: 0.4rem 0.6rem;
+  background: rgba(11, 34, 36, 0.08);
+  color: rgba(11, 34, 36, 0.72);
+}
+
+.admin-badge--new,
+.admin-badge--issued,
+.admin-badge--published {
+  background: rgba(26, 122, 60, 0.1);
+  color: #176334;
+}
+
+.admin-badge--closed,
+.admin-badge--revoked,
+.admin-badge--hidden {
+  background: rgba(164, 43, 43, 0.1);
+  color: #8f2929;
+}
+
+.admin-record-actions {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.admin-action {
+  min-height: 2.75rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid rgba(11, 34, 36, 0.15);
+  border-radius: 0.65rem;
+  background: transparent;
+  color: #0b2224;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.admin-action:hover,
+.admin-action:focus-visible {
+  border-color: #0b2224;
+  background: rgba(11, 34, 36, 0.05);
+}
+
+.admin-invite-form {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1rem, 4vw, 2rem);
+}
+
+.admin-invite-form label {
+  display: grid;
+  gap: 0.45rem;
+  color: rgba(11, 34, 36, 0.72);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.admin-invite-form input,
+.admin-invite-form select,
+.admin-invite-form textarea,
+.admin-generated textarea {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.8rem;
+  border: 1px solid rgba(11, 34, 36, 0.14);
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0b2224;
+  font: 500 0.92rem/1.5 "Plus Jakarta Sans", sans-serif;
+  text-transform: none;
+}
+
+.admin-invite-form small {
+  color: rgba(11, 34, 36, 0.52);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.admin-invite-history,
+.admin-generated {
+  margin-top: 1.5rem;
+}
+
+.admin-generated {
+  padding: 1rem;
+  border: 1px solid rgba(26, 122, 60, 0.22);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.admin-generated-head {
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-empty {
+  margin: 0;
+  padding: 1.5rem;
+  border: 1px dashed rgba(11, 34, 36, 0.18);
+  color: rgba(11, 34, 36, 0.6);
+  text-align: center;
+}
+
+@media (min-width: 48rem) {
+  .admin-card-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-invite-form {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .admin-form-wide,
+  .admin-invite-form .button {
+    grid-column: 1 / -1;
+  }
+
+  .admin-invite-form .button {
+    justify-self: start;
+  }
+}

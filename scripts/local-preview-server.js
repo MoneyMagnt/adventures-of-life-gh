@@ -4,11 +4,44 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
-const host = "0.0.0.0";
+const host = "127.0.0.1";
 const port = Number(process.argv[2] || 3001);
-const rootDir = process.cwd();
+const rootDir = path.resolve(process.cwd());
+const allowedDirectories = new Set([
+  "admin",
+  "assets",
+  "fr",
+  "styles",
+  "trips",
+]);
+const allowedCleanRoutes = new Set([
+  "about",
+  "booking-terms",
+  "community",
+  "journeys",
+  "privacy",
+]);
+const allowedRootFiles = new Set([
+  "404.html",
+  "about.html",
+  "admin.js",
+  "adventuresoflifelogo.jpg",
+  "booking-terms.html",
+  "community.html",
+  "favicon.ico",
+  "i18n.js",
+  "index.html",
+  "journeys.html",
+  "privacy.html",
+  "robots.txt",
+  "script.js",
+  "sitemap.xml",
+  "styles.css",
+  "trip-data.js",
+]);
 
 const mimeTypes = {
+  ".avif": "image/avif",
   ".css": "text/css; charset=utf-8",
   ".gif": "image/gif",
   ".html": "text/html; charset=utf-8",
@@ -21,18 +54,63 @@ const mimeTypes = {
   ".svg": "image/svg+xml",
   ".txt": "text/plain; charset=utf-8",
   ".webp": "image/webp",
+  ".woff2": "font/woff2",
   ".xml": "application/xml; charset=utf-8",
 };
 
 const sendResponse = (response, statusCode, body, headers = {}) => {
-  response.writeHead(statusCode, headers);
+  response.writeHead(statusCode, {
+    "Cache-Control": "no-store",
+    "X-Content-Type-Options": "nosniff",
+    ...headers,
+  });
   response.end(body);
 };
 
 const resolveFilePath = (requestUrl) => {
-  const requestPath = decodeURIComponent(new URL(requestUrl, `http://${host}:${port}`).pathname);
-  const normalizedPath = path.normalize(requestPath).replace(/^(\.\.[/\\])+/, "");
-  let filePath = path.join(rootDir, normalizedPath);
+  let requestPath;
+
+  try {
+    requestPath = decodeURIComponent(new URL(requestUrl, `http://${host}:${port}`).pathname);
+  } catch {
+    return null;
+  }
+
+  const pathSegments = requestPath
+    .split("/")
+    .filter(Boolean)
+    .map((segment) => segment.toLowerCase());
+  const isSecurityContact = requestPath.toLowerCase() === "/.well-known/security.txt";
+
+  if (!isSecurityContact && pathSegments.some((segment) => segment.startsWith("."))) {
+    return null;
+  }
+
+  const isRootRequest = pathSegments.length === 0;
+  const isAllowedRootFile =
+    pathSegments.length === 1 && allowedRootFiles.has(pathSegments[0]);
+  const isAllowedCleanRoute =
+    pathSegments.length === 1 && allowedCleanRoutes.has(pathSegments[0]);
+  const isAllowedDirectory =
+    pathSegments.length >= 1 && allowedDirectories.has(pathSegments[0]);
+
+  if (
+    !isRootRequest &&
+    !isSecurityContact &&
+    !isAllowedRootFile &&
+    !isAllowedCleanRoute &&
+    !isAllowedDirectory
+  ) {
+    return null;
+  }
+
+  const normalizedPath = path.normalize(requestPath);
+  let filePath = path.resolve(rootDir, `.${normalizedPath}`);
+  const relativePath = path.relative(rootDir, filePath);
+
+  if (relativePath.startsWith("..") || path.isAbsolute(relativePath)) {
+    return null;
+  }
 
   if (normalizedPath === path.sep || normalizedPath === "/") {
     filePath = path.join(rootDir, "index.html");
@@ -51,9 +129,17 @@ const resolveFilePath = (requestUrl) => {
 };
 
 const server = http.createServer((request, response) => {
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    sendResponse(response, 405, "Method not allowed", {
+      Allow: "GET, HEAD",
+      "Content-Type": "text/plain; charset=utf-8",
+    });
+    return;
+  }
+
   const filePath = resolveFilePath(request.url);
 
-  if (!filePath.startsWith(rootDir)) {
+  if (!filePath) {
     sendResponse(response, 403, "Forbidden", { "Content-Type": "text/plain; charset=utf-8" });
     return;
   }
@@ -83,7 +169,9 @@ const server = http.createServer((request, response) => {
         return;
       }
 
-      sendResponse(response, 200, file, { "Content-Type": contentType });
+      sendResponse(response, 200, request.method === "HEAD" ? null : file, {
+        "Content-Type": contentType,
+      });
     });
   });
 });
