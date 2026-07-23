@@ -3,7 +3,7 @@
 // Generated from data/trips.json by scripts/sync-trip-content.js.
 window.AOL_TRIP_DATA = {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-13",
+  "updatedAt": "2026-07-23",
   "activeTripId": "cote-divoire-2026",
   "activeTrip": {
     "id": "cote-divoire-2026",
@@ -29,7 +29,7 @@ window.AOL_TRIP_DATA = {
       "installments": true
     },
     "image": "/assets/trips/cote-divoire-flyer.jpg",
-    "bookingPath": "/trips/cote-divoire-28-august",
+    "bookingPath": "/trips/cote-divoire-28-august/",
     "journeySlot": "august",
     "whatsappMessage": "Hello Adventures of Life, I want to secure a slot for the Côte d’Ivoire trip departing 28 August."
   },
@@ -102,7 +102,7 @@ window.AOL_TRIP_DATA = {
       "status": "booking",
       "kind": "international",
       "country": "Côte d'Ivoire",
-      "bookingPath": "/trips/cote-divoire-28-august",
+      "bookingPath": "/trips/cote-divoire-28-august/",
       "recapPath": null,
       "journeySlot": "august"
     },

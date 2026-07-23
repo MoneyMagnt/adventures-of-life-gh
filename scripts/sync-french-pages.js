@@ -17,7 +17,7 @@ const pages = [
   { source: "about.html", route: "/about" },
   { source: "privacy.html", route: "/privacy" },
   { source: "booking-terms.html", route: "/booking-terms" },
-  { source: "trips/cote-divoire-28-august/index.html", route: "/trips/cote-divoire-28-august" },
+  { source: "trips/cote-divoire-28-august/index.html", route: "/trips/cote-divoire-28-august/" },
 ];
 
 const sandbox = {
@@ -65,6 +65,7 @@ const escapeAttribute = (value) =>
 const normalize = (value) => decodeEntities(String(value)).replace(/\s+/g, " ").trim();
 
 const frenchRoute = (route) => (route === "/" ? "/fr/" : `/fr${route}`);
+const normalizeRoutePath = (route) => (route === "/" ? "/" : route.replace(/\/+$/, ""));
 
 const rewriteUrl = (value) => {
   let url;
@@ -84,7 +85,7 @@ const rewriteUrl = (value) => {
 
   const routes = pages.map((page) => page.route).sort((left, right) => right.length - left.length);
   const matched = routes.find((route) =>
-    route === "/" ? url.pathname === "/" : url.pathname === route || url.pathname === `${route}/`
+    normalizeRoutePath(url.pathname) === normalizeRoutePath(route)
   );
   if (!matched) return value;
 
@@ -92,12 +93,13 @@ const rewriteUrl = (value) => {
   return absolute ? url.toString() : `${url.pathname}${url.search}${url.hash}`;
 };
 
-const translateJson = (value) => {
-  if (Array.isArray(value)) return value.map(translateJson);
+const translateJson = (value, propertyName = "") => {
+  if (Array.isArray(value)) return value.map((nested) => translateJson(nested, propertyName));
   if (value && typeof value === "object") {
-    return Object.fromEntries(Object.entries(value).map(([key, nested]) => [key, translateJson(nested)]));
+    return Object.fromEntries(Object.entries(value).map(([key, nested]) => [key, translateJson(nested, key)]));
   }
   if (typeof value !== "string") return value;
+  if (propertyName === "inLanguage" && value === "en") return "fr";
   if (value.startsWith(origin) || value.startsWith("/")) return rewriteUrl(value);
   const key = normalize(value);
   return translations[key] || metaTranslations[key] || value;

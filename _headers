@@ -65,7 +65,7 @@
 /admin.js
   Cache-Control: no-store
 
-/trips/cote-divoire-28-august
+/trips/cote-divoire-28-august/
   Cache-Control: public, max-age=0, must-revalidate
 
 /sitemap.xml

@@ -503,6 +503,34 @@
 
   const pageMetaTranslations = {
     fr: {
+      "Group Trips in Ghana & West Africa | Adventures of Life GH": "Voyages de groupe au Ghana | Adventures of Life GH",
+      "Join hosted group trips from Accra across Ghana and West Africa, including waterfall days, hikes, beach weekends, museum visits and cross-border experiences.": "Rejoins des voyages de groupe au départ d'Accra, au Ghana et en Afrique de l'Ouest : cascades, randonnées, plages, musées et expériences transfrontalières.",
+      "Hosted group trips from Accra across Ghana and West Africa.": "Voyages de groupe accompagnés au départ d'Accra, au Ghana et en Afrique de l'Ouest.",
+      "Group trips in Ghana and West Africa.": "Voyages de groupe au Ghana et en Afrique de l'Ouest.",
+      "2026 Group Trips from Accra | Ghana & West Africa": "Voyages 2026 depuis Accra | Ghana & Afrique de l'Ouest",
+      "Explore the confirmed 2026 group trip lineup from Accra, including Côte d’Ivoire, Wli Waterfalls, Amedzofe, Benin and completed Adventures of Life GH trips.": "Découvre le programme confirmé des voyages de groupe 2026 au départ d'Accra : Côte d'Ivoire, cascades de Wli, Amedzofe, Bénin et voyages déjà réalisés.",
+      "2026 Group Trips from Accra": "Voyages de groupe 2026 au départ d'Accra",
+      "The confirmed Adventures of Life GH 2026 group trip lineup across Ghana and West Africa.": "Le programme confirmé 2026 des voyages de groupe Adventures of Life GH au Ghana et en Afrique de l'Ouest.",
+      "2026 Group Trips": "Voyages de groupe 2026",
+      "Ghana Group Trip Photos & Reviews | Adventures of Life GH": "Photos & avis de voyages au Ghana | Adventures of Life GH",
+      "See real Ghana group trip photos, verified traveller reviews and the 50+ person Oboadaka Waterfall recap from Adventures of Life GH.": "Découvre de vraies photos de voyages de groupe au Ghana, des avis vérifiés et le retour en images d'Oboadaka avec plus de 50 participants.",
+      "Ghana Group Trip Photos and Reviews": "Photos et avis de voyages de groupe au Ghana",
+      "Real trip photos and verified traveller reviews from Adventures of Life GH.": "Vraies photos de voyage et avis vérifiés des voyageurs Adventures of Life GH.",
+      "About Adventures of Life GH | Group Trips from Accra": "Adventures of Life GH | Voyages de groupe depuis Accra",
+      "Meet Zico, founder and trip host at Adventures of Life GH, and learn how the community grew from one group trip into routes across Ghana and West Africa.": "Rencontre Zico, fondateur et hôte des voyages Adventures of Life GH, et découvre comment la communauté s'est développée au Ghana et en Afrique de l'Ouest.",
+      "About Adventures of Life GH": "À propos d'Adventures of Life GH",
+      "The story of Adventures of Life GH and its founder and trip host, Zico.": "L'histoire d'Adventures of Life GH et de son fondateur et hôte de voyage, Zico.",
+      "Founder and trip host": "Fondateur et hôte de voyage",
+      "Côte d’Ivoire Group Trip from Accra | 28 Aug 2026": "Voyage en Côte d'Ivoire depuis Accra | 28 août 2026",
+      "Book a four-day Côte d’Ivoire group trip from Accra, departing 28 August 2026. GHS 3,300 total, with a GHS 500 deposit, transport, stays and meals included.": "Réserve un voyage de groupe de quatre jours en Côte d'Ivoire au départ d'Accra le 28 août 2026 : 3 300 GHS, acompte de 500 GHS, transport, hébergement et repas inclus.",
+      "Four cities, three nights and four days in Côte d’Ivoire. Depart Accra on 28 August with a GHS 500 deposit to secure your slot.": "Quatre villes, trois nuits et quatre jours en Côte d'Ivoire. Départ d'Accra le 28 août avec un acompte de 500 GHS pour réserver ta place.",
+      "Côte d’Ivoire Group Trip from Accra": "Voyage de groupe en Côte d'Ivoire depuis Accra",
+      "A four-day Côte d’Ivoire group trip from Accra departing 28 August 2026.": "Un voyage de groupe de quatre jours en Côte d'Ivoire au départ d'Accra le 28 août 2026.",
+      "A four-day group trip from Accra to Côte d’Ivoire from 28 August to 2 September 2026, including transport, accommodation, meals and attraction fees.": "Un voyage de groupe de quatre jours d'Accra en Côte d'Ivoire, du 28 août au 2 septembre 2026, avec transport, hébergement, repas et entrées touristiques inclus.",
+      "Group travel": "Voyage de groupe",
+      "Cultural tourism": "Tourisme culturel",
+      "La Côte d’Ivoire Experience package": "Forfait La Côte d'Ivoire Experience",
+      "GHS 3,300 total with a GHS 500 deposit and installment payments available.": "3 300 GHS au total avec un acompte de 500 GHS et paiement échelonné disponible.",
       "Adventures of Life GH | Trips Across Ghana": "Adventures of Life GH | Voyages au Ghana",
       "Adventures of Life GH | Trips in Ghana and West Africa": "Adventures of Life GH | Voyages au Ghana et en Afrique de l'Ouest",
       "Group trips across Ghana with hikes, waterfalls, beach weekends, museum days, and routes people keep talking about after the ride home.": "Voyages de groupe au Ghana avec randonnées, cascades, week-ends plage, musées et parcours dont les gens parlent encore après le retour.",
@@ -674,6 +702,13 @@
       button.classList.toggle("is-active", isActive);
       button.setAttribute("aria-pressed", String(isActive));
     });
+
+    document.querySelectorAll("[data-language-switcher]").forEach((switcher) => {
+      switcher.setAttribute(
+        "aria-label",
+        currentLanguage === "fr" ? "Choisir la langue" : "Choose language"
+      );
+    });
   };
 
   const applyLanguage = (language) => {
@@ -691,51 +726,74 @@
     isApplyingLanguage = false;
   };
 
-  const buildSwitcher = () => {
-    if (document.querySelector("[data-language-switcher]")) return;
-    const actions = document.querySelector(".site-menu-actions");
-    const target = actions || document.querySelector(".header-inner");
-    if (!target) return;
+  const navigateToLanguage = (language) => {
+    const alternate = document.querySelector(`link[rel="alternate"][hreflang="${language}"]`);
+    if (!alternate?.href || new URL(alternate.href).pathname === window.location.pathname) {
+      applyLanguage(language);
+      return;
+    }
 
+    saveLanguage(language);
+    const alternateUrl = new URL(alternate.href);
+    alternateUrl.search = window.location.search;
+    alternateUrl.hash = window.location.hash;
+    window.location.assign(
+      `${window.location.origin}${alternateUrl.pathname}${alternateUrl.search}${alternateUrl.hash}`
+    );
+  };
+
+  const createLanguageSwitcher = (variant) => {
     const switcher = document.createElement("div");
-    switcher.className = "language-switcher";
-    switcher.setAttribute("data-language-switcher", "");
-    switcher.setAttribute("aria-label", "Language");
+    switcher.className = `language-switcher language-switcher--${variant}`;
+    switcher.setAttribute("data-language-switcher", variant);
+    switcher.setAttribute("role", "group");
+    switcher.setAttribute("aria-label", "Choose language");
 
     const label = document.createElement("span");
     label.className = "language-switcher-label";
     label.textContent = "Language";
 
-    const buildLanguageButton = (language, text, isActive) => {
+    const buildLanguageButton = (language, text, accessibleLabel, isActive) => {
       const button = document.createElement("button");
       button.className = "language-switcher-button";
       button.type = "button";
       button.dataset.langOption = language;
       button.setAttribute("aria-pressed", String(isActive));
+      button.setAttribute("aria-label", accessibleLabel);
+      button.setAttribute("title", accessibleLabel);
+      button.setAttribute("lang", language);
       button.textContent = text;
       return button;
     };
 
     switcher.append(
       label,
-      buildLanguageButton("en", "EN", true),
-      buildLanguageButton("fr", "FR", false)
+      buildLanguageButton("en", "EN", "View site in English", true),
+      buildLanguageButton("fr", "FR", "Voir le site en français", false)
     );
 
-    target.appendChild(switcher);
     switcher.addEventListener("click", (event) => {
       const button = event.target.closest("[data-lang-option]");
       if (!button) return;
-      const language = button.dataset.langOption;
-      const alternate = document.querySelector(`link[rel="alternate"][hreflang="${language}"]`);
-      if (alternate?.href && new URL(alternate.href).pathname !== window.location.pathname) {
-        saveLanguage(language);
-        const alternateUrl = new URL(alternate.href);
-        window.location.assign(`${window.location.origin}${alternateUrl.pathname}${alternateUrl.search}${alternateUrl.hash}`);
-        return;
-      }
-      applyLanguage(language);
+      navigateToLanguage(button.dataset.langOption);
     });
+
+    return switcher;
+  };
+
+  const buildSwitcher = () => {
+    const header = document.querySelector(".header-inner");
+    const toggle = header?.querySelector("[data-menu-toggle]");
+    const panel = header?.querySelector("[data-menu-panel]");
+    const actions = document.querySelector(".site-menu-actions");
+
+    if (header && !header.querySelector('[data-language-switcher="header"]')) {
+      header.insertBefore(createLanguageSwitcher("header"), toggle || panel || null);
+    }
+
+    if (actions && !actions.querySelector('[data-language-switcher="menu"]')) {
+      actions.appendChild(createLanguageSwitcher("menu"));
+    }
   };
 
   const observeNewContent = () => {
@@ -772,6 +830,8 @@
       );
       if (alternate?.href) {
         const alternateUrl = new URL(alternate.href);
+        alternateUrl.search = window.location.search;
+        alternateUrl.hash = window.location.hash;
         window.location.replace(
           `${window.location.origin}${alternateUrl.pathname}${alternateUrl.search}${alternateUrl.hash}`
         );

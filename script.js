@@ -186,19 +186,36 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const isMobileMenu = () => window.innerWidth < DESKTOP_MENU_BREAKPOINT;
+
+    const menuToggleLabel = (isOpen) => {
+      const isFrench = document.documentElement.lang === "fr";
+      if (isFrench) {
+        return isOpen ? "Fermer le menu" : "Ouvrir le menu";
+      }
+      return isOpen ? "Close menu" : "Open menu";
+    };
+
+    const getFocusableElements = () =>
+      Array.from(
+        header?.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])') || []
+      ).filter((element) => !element.closest("[inert]") && element.getClientRects().length > 0);
+
     const syncMenuState = (isOpen, shouldFocus = true) => {
-      panel.classList.toggle("is-open", isOpen);
-      toggle.classList.toggle("is-open", isOpen);
-      toggle.setAttribute("aria-expanded", String(isOpen));
-      toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-      panel.setAttribute("aria-hidden", String(!isOpen));
-      document.body.classList.toggle("nav-open", isOpen);
+      const nextOpen = isMobileMenu() && isOpen;
+      panel.classList.toggle("is-open", nextOpen);
+      toggle.classList.toggle("is-open", nextOpen);
+      toggle.setAttribute("aria-expanded", String(nextOpen));
+      toggle.setAttribute("aria-label", menuToggleLabel(nextOpen));
+      panel.setAttribute("aria-hidden", String(isMobileMenu() && !nextOpen));
+      panel.inert = isMobileMenu() && !nextOpen;
+      document.body.classList.toggle("nav-open", nextOpen);
 
       if (!shouldFocus) {
         return;
       }
 
-      if (isOpen) {
+      if (nextOpen) {
         window.requestAnimationFrame(() => {
           if (firstMenuLink instanceof HTMLElement) {
             firstMenuLink.focus({ preventScroll: true });
@@ -249,13 +266,37 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && isMenuOpen()) {
         closeMenu();
+        return;
+      }
+
+      if (event.key !== "Tab" || !isMenuOpen() || !isMobileMenu()) {
+        return;
+      }
+
+      const focusableElements = getFocusableElements();
+      const firstFocusable = focusableElements[0];
+      const lastFocusable = focusableElements[focusableElements.length - 1];
+
+      if (!firstFocusable || !lastFocusable) {
+        return;
+      }
+
+      if (event.shiftKey && document.activeElement === firstFocusable) {
+        event.preventDefault();
+        lastFocusable.focus();
+      } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+        event.preventDefault();
+        firstFocusable.focus();
       }
     });
 
     window.addEventListener("resize", () => {
       if (window.innerWidth >= DESKTOP_MENU_BREAKPOINT) {
         closeMenu();
+        return;
       }
+
+      syncMenuState(isMenuOpen(), false);
     });
   };
 

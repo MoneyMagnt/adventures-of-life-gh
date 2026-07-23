@@ -25,6 +25,9 @@ test("homepage stays inside every target viewport and the menu remains usable", 
 
   if ((page.viewportSize()?.width || 0) < 1024) {
     await page.evaluate(() => window.scrollTo(0, Math.min(1200, document.body.scrollHeight / 2)));
+    await expect(page.locator('[data-language-switcher="header"]')).toBeVisible();
+    await expect(page.locator('[data-language-switcher="header"] [data-lang-option]')).toHaveCount(2);
+    await expect(page.locator('[data-language-switcher="menu"]')).toBeHidden();
     const toggle = page.locator("[data-menu-toggle]");
     await expect(toggle).toBeVisible();
     await toggle.click();
@@ -42,7 +45,8 @@ test("homepage stays inside every target viewport and the menu remains usable", 
     await expect(page.locator("[data-menu-toggle]")).toBeHidden();
     await expect(page.locator('.site-menu-nav a[href="/journeys"]')).toBeVisible();
     await expect(page.locator('.site-menu-actions a[href="/#contact"]')).toBeVisible();
-    await expect(page.locator("[data-language-switcher]")).toBeVisible();
+    await expect(page.locator('[data-language-switcher="header"]')).toBeHidden();
+    await expect(page.locator('[data-language-switcher="menu"]')).toBeVisible();
     await expect(page.locator(".site-menu-social .social-link")).toHaveCount(4);
   }
 });
@@ -83,7 +87,7 @@ test("mobile menu remains available while scrolling across primary pages", async
 test("current trip and clean public routes render", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop-1024", "Run the route sweep once.");
   await dismissPopupBeforeLoad(page);
-  const routes = ["/", "/journeys", "/community", "/about", "/privacy", "/booking-terms", "/trips/cote-divoire-28-august", "/fr/", "/fr/journeys", "/fr/community", "/fr/about", "/fr/privacy", "/fr/booking-terms", "/fr/trips/cote-divoire-28-august"];
+  const routes = ["/", "/journeys", "/community", "/about", "/privacy", "/booking-terms", "/trips/cote-divoire-28-august/", "/fr/", "/fr/journeys", "/fr/community", "/fr/about", "/fr/privacy", "/fr/booking-terms", "/fr/trips/cote-divoire-28-august/"];
 
   for (const route of routes) {
     const response = await page.goto(route, { waitUntil: "domcontentloaded" });
@@ -99,20 +103,42 @@ test("language switch moves between crawlable English and French routes", async 
   await page.goto("/", { waitUntil: "domcontentloaded" });
   await Promise.all([
     page.waitForURL(/\/fr\/$/, { waitUntil: "domcontentloaded" }),
-    page.locator('[data-lang-option="fr"]').click(),
+    page.locator('[data-language-switcher="menu"] [data-lang-option="fr"]').click(),
   ]);
   await expect(page.locator("html")).toHaveAttribute("lang", "fr");
   await expect(page.locator("h1")).toContainText("On le voit déjà");
   await Promise.all([
     page.waitForURL(/\/$/, { waitUntil: "domcontentloaded" }),
-    page.locator('[data-lang-option="en"]').click(),
+    page.locator('[data-language-switcher="menu"] [data-lang-option="en"]').click(),
   ]);
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
 
   await page.evaluate(() => window.localStorage.setItem("aol-language", "fr"));
-  await page.goto("/journeys", { waitUntil: "domcontentloaded" });
-  await page.waitForURL(/\/fr\/journeys\/?$/, { waitUntil: "domcontentloaded" });
+  await Promise.all([
+    page.waitForURL(/\/fr\/journeys\/?$/, { waitUntil: "domcontentloaded" }),
+    page.evaluate(() => window.location.assign("/journeys")),
+  ]);
   await expect(page.locator("html")).toHaveAttribute("lang", "fr");
+});
+
+test("mobile language switch stays visible and preserves the current route", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "phone-375x812", "Run the mobile locale check once.");
+  test.setTimeout(60000);
+  await page.goto("/journeys", { waitUntil: "domcontentloaded" });
+
+  const headerSwitcher = page.locator('[data-language-switcher="header"]');
+  await expect(headerSwitcher).toBeVisible();
+  await expect(page.locator("[data-menu-toggle]")).toHaveAttribute("aria-expanded", "false");
+
+  await Promise.all([
+    page.waitForURL(/\/fr\/journeys\/?$/, { waitUntil: "domcontentloaded" }),
+    headerSwitcher.locator('[data-lang-option="fr"]').click(),
+  ]);
+
+  await expect(page.locator("html")).toHaveAttribute("lang", "fr");
+  await expect(
+    page.locator('[data-language-switcher="header"] [data-lang-option="fr"]')
+  ).toHaveAttribute("aria-pressed", "true");
 });
 
 test("form controllers load only on pages that use them", async ({ page }, testInfo) => {

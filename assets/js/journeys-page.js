@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         cta.className = "jy-stop-cta";
         if (isCurrentNext) {
-          cta.href = ACTIVE_TRIP?.bookingPath || "/trips/cote-divoire-28-august";
+          cta.href = ACTIVE_TRIP?.bookingPath || "/trips/cote-divoire-28-august/";
           cta.textContent = "See trip details and secure your slot";
         } else {
           const message = `Hello Adventures of Life, I want to ask about ${cleanName} on ${date.textContent.trim()}.`;

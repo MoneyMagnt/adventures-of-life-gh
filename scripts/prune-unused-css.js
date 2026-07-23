@@ -26,6 +26,7 @@ const excludedDirectories = new Set([
   "functions",
   "node_modules",
   "playwright-report",
+  "pydeps",
   "scripts",
   "test-results",
   "tests",
@@ -35,6 +36,10 @@ const excludedFiles = new Set([
   "playwright.config.js",
   "www-live.html",
   "www-script.js",
+]);
+const runtimeClasses = new Set([
+  "language-switcher--header",
+  "language-switcher--menu",
 ]);
 
 const collectPublicSourceFiles = (directory, files = []) => {
@@ -91,7 +96,10 @@ for (const relativePath of cssFiles) {
 
     if (
       classNames.length > 0 &&
-      classNames.every((className) => !publicCorpus.includes(className))
+      classNames.every(
+        (className) =>
+          !publicCorpus.includes(className) && !runtimeClasses.has(className)
+      )
     ) {
       if (verbose) console.log(`[remove] ${relativePath}: ${rule.selector}`);
       rule.remove();

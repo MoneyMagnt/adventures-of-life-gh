@@ -83,7 +83,7 @@ const run = async () => {
     await verifyCanonicalRedirect(origin);
   }
 
-  const currentTrip = await request(`${APEX_ORIGIN}/trips/cote-divoire-28-august`);
+  const currentTrip = await request(`${APEX_ORIGIN}/trips/cote-divoire-28-august/`);
   expectStatus(currentTrip, 200, "Current Côte d'Ivoire trip page");
 
   const expiredTrip = await request(

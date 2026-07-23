@@ -31,6 +31,23 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Verify site
         run: npm run test:all
+      - name: Verify production deployment secrets
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          missing=0
+          if [[ -z "$CLOUDFLARE_API_TOKEN" ]]; then
+            echo "::error title=Missing Cloudflare API token::Add CLOUDFLARE_API_TOKEN in GitHub Settings > Secrets and variables > Actions."
+            missing=1
+          fi
+          if [[ -z "$CLOUDFLARE_ACCOUNT_ID" ]]; then
+            echo "::error title=Missing Cloudflare account ID::Add CLOUDFLARE_ACCOUNT_ID in GitHub Settings > Secrets and variables > Actions."
+            missing=1
+          fi
+          exit "$missing"
       - name: Deploy verified production build
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: npx wrangler pages deploy dist --project-name=adventures-of-life-gh --branch=main
