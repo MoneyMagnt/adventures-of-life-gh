@@ -20,6 +20,10 @@ The Pages Functions remain in the root `functions/` directory. Run Wrangler from
 7. The workflow runs `npm ci`, the dependency audit, all tests, and `npm run build`, then runs `wrangler pages deploy dist --project-name=adventures-of-life-gh --branch=main`.
 8. Never deploy the repository root as the static output directory. Only `dist/` is public.
 
+If either deployment secret is missing, the workflow still reports the verified
+site checks accurately and skips only the Cloudflare deployment with a warning.
+Adding both secrets automatically enables deployment on the next push.
+
 ## Domain setup for adventuresoflifegh.com
 1. Add `adventuresoflifegh.com` as a custom domain in the Pages project.
 2. Add `www.adventuresoflifegh.com` as a second custom domain.
